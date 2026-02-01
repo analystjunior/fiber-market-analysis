@@ -45,6 +45,8 @@
             for (const [key, value] of Object.entries(attrs)) {
                 if (key === 'className') {
                     el.className = value;
+                } else if (key === 'style') {
+                    el.style.cssText = value;
                 } else if (key.startsWith('data-')) {
                     el.setAttribute(key, value);
                 } else if (key.startsWith('aria-')) {
