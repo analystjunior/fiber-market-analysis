@@ -1,0 +1,4160 @@
+{
+  "36001": {
+    "geoid": "36001",
+    "name": "Albany",
+    "is_nyc_borough": false,
+    "total_bsls": 100086,
+    "fiber_served": 54534,
+    "fiber_unserved": 45552,
+    "fiber_penetration": 0.545,
+    "operators": [
+      {
+        "name": "Verizon",
+        "passings": 49931,
+        "served": 49918
+      },
+      {
+        "name": "Spectrum",
+        "passings": 1847,
+        "served": 1847
+      },
+      {
+        "name": "State Telephone Company Inc",
+        "passings": 1752,
+        "served": 1752
+      },
+      {
+        "name": "Mid-Hudson Cablevision",
+        "passings": 825,
+        "served": 825
+      },
+      {
+        "name": "MIDTEL",
+        "passings": 541,
+        "served": 541
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 304,
+        "served": 187
+      },
+      {
+        "name": "Mid-Hudson Data Corp",
+        "passings": 150,
+        "served": 150
+      },
+      {
+        "name": "Catskill Mountain Cablevision",
+        "passings": 35,
+        "served": 35
+      },
+      {
+        "name": "MTC Cable",
+        "passings": 25,
+        "served": 25
+      },
+      {
+        "name": "Massivemesh Networks",
+        "passings": 21,
+        "served": 21
+      }
+    ],
+    "population_2023": 315374,
+    "population_2018": 307426,
+    "pop_growth_pct": 2.59,
+    "housing_units": 146959,
+    "housing_growth_pct": 4.35,
+    "land_area_sqmi": 522.9,
+    "pop_density": 603.1,
+    "housing_density": 281.1,
+    "median_hhi": 83149,
+    "median_rent": 1252,
+    "median_home_value": 277400,
+    "owner_occupied_pct": 56.7,
+    "wfh_pct": 13.6,
+    "mobility_pct": 1.34,
+    "demo_score": 0.31,
+    "opportunity_score": 0.446,
+    "attractiveness_index": 0.365,
+    "segment": "Most Attractive"
+  },
+  "36003": {
+    "geoid": "36003",
+    "name": "Allegany",
+    "is_nyc_borough": false,
+    "total_bsls": 23695,
+    "fiber_served": 15383,
+    "fiber_unserved": 8312,
+    "fiber_penetration": 0.649,
+    "operators": [
+      {
+        "name": "Armstrong Telecommunications Inc",
+        "passings": 14405,
+        "served": 14405
+      },
+      {
+        "name": "Armstrong Telephone Company",
+        "passings": 447,
+        "served": 447
+      },
+      {
+        "name": "Spectrum",
+        "passings": 395,
+        "served": 395
+      },
+      {
+        "name": "Empire Long Distance Corporation",
+        "passings": 297,
+        "served": 297
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 15,
+        "served": 12
+      }
+    ],
+    "population_2023": 47027,
+    "population_2018": 47025,
+    "pop_growth_pct": 0.0,
+    "housing_units": 23538,
+    "housing_growth_pct": -10.5,
+    "land_area_sqmi": 1029.5,
+    "pop_density": 45.7,
+    "housing_density": 22.9,
+    "median_hhi": 61233,
+    "median_rent": 754,
+    "median_home_value": 97900,
+    "owner_occupied_pct": 80.3,
+    "wfh_pct": 7.6,
+    "mobility_pct": 2.24,
+    "demo_score": 0.183,
+    "opportunity_score": 0.223,
+    "attractiveness_index": 0.199,
+    "segment": "Least Attractive"
+  },
+  "36005": {
+    "geoid": "36005",
+    "name": "Bronx",
+    "is_nyc_borough": true,
+    "total_bsls": 85584,
+    "fiber_served": 85584,
+    "fiber_unserved": 0,
+    "fiber_penetration": 1.0,
+    "operators": [
+      {
+        "name": "Lightpath",
+        "passings": 85584,
+        "served": 85584
+      },
+      {
+        "name": "Optimum",
+        "passings": 76542,
+        "served": 76542
+      },
+      {
+        "name": "Verizon",
+        "passings": 71711,
+        "served": 71711
+      },
+      {
+        "name": "Pilot Fiber",
+        "passings": 38640,
+        "served": 38640
+      },
+      {
+        "name": "Stealth Communications",
+        "passings": 2304,
+        "served": 2304
+      },
+      {
+        "name": "Astound Broadband",
+        "passings": 212,
+        "served": 212
+      },
+      {
+        "name": "Spectrum",
+        "passings": 20,
+        "served": 20
+      },
+      {
+        "name": "Xfinity",
+        "passings": 4,
+        "served": 4
+      },
+      {
+        "name": "Allied Telecom Group LLC",
+        "passings": 1,
+        "served": 1
+      },
+      {
+        "name": "Fusion",
+        "passings": 1,
+        "served": 1
+      }
+    ],
+    "population_2023": 1419250,
+    "population_2018": 1437872,
+    "pop_growth_pct": -1.3,
+    "housing_units": 553231,
+    "housing_growth_pct": 5.02,
+    "land_area_sqmi": 42.2,
+    "pop_density": 33650.6,
+    "housing_density": 13117.2,
+    "median_hhi": 49036,
+    "median_rent": 1436,
+    "median_home_value": 517000,
+    "owner_occupied_pct": 20.3,
+    "wfh_pct": 7.9,
+    "mobility_pct": 0.63,
+    "demo_score": 0.213,
+    "opportunity_score": 0.0,
+    "attractiveness_index": 0.128,
+    "segment": "Least Attractive"
+  },
+  "36007": {
+    "geoid": "36007",
+    "name": "Broome",
+    "is_nyc_borough": false,
+    "total_bsls": 71577,
+    "fiber_served": 39218,
+    "fiber_unserved": 32359,
+    "fiber_penetration": 0.548,
+    "operators": [
+      {
+        "name": "Greenlight Networks",
+        "passings": 28344,
+        "served": 28344
+      },
+      {
+        "name": "Empire Long Distance Corporation",
+        "passings": 13295,
+        "served": 13295
+      },
+      {
+        "name": "TDS Telecom",
+        "passings": 5363,
+        "served": 5363
+      },
+      {
+        "name": "Frontier",
+        "passings": 1082,
+        "served": 1082
+      },
+      {
+        "name": "Spectrum",
+        "passings": 868,
+        "served": 868
+      },
+      {
+        "name": "Point Broadband Fiber Holding LLC",
+        "passings": 494,
+        "served": 494
+      },
+      {
+        "name": "Adams CATV Inc",
+        "passings": 400,
+        "served": 400
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 76,
+        "served": 58
+      },
+      {
+        "name": "Delhi Telephone Company",
+        "passings": 66,
+        "served": 66
+      }
+    ],
+    "population_2023": 197738,
+    "population_2018": 194402,
+    "pop_growth_pct": 1.72,
+    "housing_units": 92889,
+    "housing_growth_pct": 2.27,
+    "land_area_sqmi": 705.7,
+    "pop_density": 280.2,
+    "housing_density": 131.6,
+    "median_hhi": 61059,
+    "median_rent": 914,
+    "median_home_value": 145100,
+    "owner_occupied_pct": 64.6,
+    "wfh_pct": 8.2,
+    "mobility_pct": 1.76,
+    "demo_score": 0.189,
+    "opportunity_score": 0.385,
+    "attractiveness_index": 0.267,
+    "segment": "Neutral"
+  },
+  "36009": {
+    "geoid": "36009",
+    "name": "Cattaraugus",
+    "is_nyc_borough": false,
+    "total_bsls": 37990,
+    "fiber_served": 17807,
+    "fiber_unserved": 20183,
+    "fiber_penetration": 0.469,
+    "operators": [
+      {
+        "name": "Armstrong Telecommunications Inc",
+        "passings": 16761,
+        "served": 16761
+      },
+      {
+        "name": "Spectrum",
+        "passings": 1011,
+        "served": 1011
+      },
+      {
+        "name": "Windstream New York, Inc.",
+        "passings": 939,
+        "served": 939
+      },
+      {
+        "name": "Frontier",
+        "passings": 91,
+        "served": 91
+      },
+      {
+        "name": "DFT Local Service Corporation",
+        "passings": 88,
+        "served": 88
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 19,
+        "served": 13
+      },
+      {
+        "name": "Breezeline",
+        "passings": 1,
+        "served": 1
+      }
+    ],
+    "population_2023": 76479,
+    "population_2018": 77686,
+    "pop_growth_pct": -1.55,
+    "housing_units": 40279,
+    "housing_growth_pct": -2.99,
+    "land_area_sqmi": 1308.2,
+    "pop_density": 58.5,
+    "housing_density": 30.8,
+    "median_hhi": 58248,
+    "median_rent": 759,
+    "median_home_value": 109400,
+    "owner_occupied_pct": 74.6,
+    "wfh_pct": 7.6,
+    "mobility_pct": 1.05,
+    "demo_score": 0.164,
+    "opportunity_score": 0.371,
+    "attractiveness_index": 0.247,
+    "segment": "Least Attractive"
+  },
+  "36011": {
+    "geoid": "36011",
+    "name": "Cayuga",
+    "is_nyc_borough": false,
+    "total_bsls": 32952,
+    "fiber_served": 20227,
+    "fiber_unserved": 12725,
+    "fiber_penetration": 0.614,
+    "operators": [
+      {
+        "name": "Verizon",
+        "passings": 15614,
+        "served": 15614
+      },
+      {
+        "name": "Spectrum",
+        "passings": 3419,
+        "served": 3419
+      },
+      {
+        "name": "TDS Telecom",
+        "passings": 1242,
+        "served": 1242
+      },
+      {
+        "name": "Frontier",
+        "passings": 507,
+        "served": 507
+      },
+      {
+        "name": "Zito Media",
+        "passings": 464,
+        "served": 464
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 44,
+        "served": 29
+      },
+      {
+        "name": "Point Broadband Fiber Holding LLC",
+        "passings": 19,
+        "served": 19
+      }
+    ],
+    "population_2023": 75464,
+    "population_2018": 77868,
+    "pop_growth_pct": -3.09,
+    "housing_units": 36768,
+    "housing_growth_pct": -0.48,
+    "land_area_sqmi": 691.6,
+    "pop_density": 109.1,
+    "housing_density": 53.2,
+    "median_hhi": 66583,
+    "median_rent": 895,
+    "median_home_value": 164200,
+    "owner_occupied_pct": 71.9,
+    "wfh_pct": 6.6,
+    "mobility_pct": 0.97,
+    "demo_score": 0.172,
+    "opportunity_score": 0.261,
+    "attractiveness_index": 0.208,
+    "segment": "Least Attractive"
+  },
+  "36013": {
+    "geoid": "36013",
+    "name": "Chautauqua",
+    "is_nyc_borough": false,
+    "total_bsls": 61652,
+    "fiber_served": 33863,
+    "fiber_unserved": 27789,
+    "fiber_penetration": 0.549,
+    "operators": [
+      {
+        "name": "Windstream New York, Inc.",
+        "passings": 23898,
+        "served": 23898
+      },
+      {
+        "name": "DFT Communication",
+        "passings": 3099,
+        "served": 3099
+      },
+      {
+        "name": "Fidium Fiber",
+        "passings": 2785,
+        "served": 2785
+      },
+      {
+        "name": "Spectrum",
+        "passings": 2704,
+        "served": 2704
+      },
+      {
+        "name": "DFT Local Service Corporation",
+        "passings": 2030,
+        "served": 2030
+      },
+      {
+        "name": "DFT Communication",
+        "passings": 640,
+        "served": 640
+      },
+      {
+        "name": "Armstrong Telecommunications Inc",
+        "passings": 115,
+        "served": 115
+      },
+      {
+        "name": "ArmstrongUtilitiesInc",
+        "passings": 19,
+        "served": 19
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 13,
+        "served": 11
+      },
+      {
+        "name": "Xfinity",
+        "passings": 1,
+        "served": 0
+      }
+    ],
+    "population_2023": 126329,
+    "population_2018": 129656,
+    "pop_growth_pct": -2.57,
+    "housing_units": 66328,
+    "housing_growth_pct": -1.76,
+    "land_area_sqmi": 1060.4,
+    "pop_density": 119.1,
+    "housing_density": 62.5,
+    "median_hhi": 56507,
+    "median_rent": 797,
+    "median_home_value": 119300,
+    "owner_occupied_pct": 69.1,
+    "wfh_pct": 7.0,
+    "mobility_pct": 2.0,
+    "demo_score": 0.143,
+    "opportunity_score": 0.364,
+    "attractiveness_index": 0.231,
+    "segment": "Least Attractive"
+  },
+  "36015": {
+    "geoid": "36015",
+    "name": "Chemung",
+    "is_nyc_borough": false,
+    "total_bsls": 33905,
+    "fiber_served": 23605,
+    "fiber_unserved": 10300,
+    "fiber_penetration": 0.696,
+    "operators": [
+      {
+        "name": "Empire Long Distance Corporation",
+        "passings": 21482,
+        "served": 21482
+      },
+      {
+        "name": "Spectrum",
+        "passings": 1245,
+        "served": 1245
+      },
+      {
+        "name": "Haefele Connect",
+        "passings": 1027,
+        "served": 1027
+      },
+      {
+        "name": "Empire Telephone Corp.",
+        "passings": 133,
+        "served": 133
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 44,
+        "served": 25
+      },
+      {
+        "name": "Point Broadband Fiber Holding LLC",
+        "passings": 2,
+        "served": 2
+      },
+      {
+        "name": "NetFortris",
+        "passings": 1,
+        "served": 0
+      }
+    ],
+    "population_2023": 82805,
+    "population_2018": 85740,
+    "pop_growth_pct": -3.42,
+    "housing_units": 39143,
+    "housing_growth_pct": 0.89,
+    "land_area_sqmi": 407.3,
+    "pop_density": 203.3,
+    "housing_density": 96.1,
+    "median_hhi": 63469,
+    "median_rent": 1020,
+    "median_home_value": 132100,
+    "owner_occupied_pct": 69.8,
+    "wfh_pct": 7.1,
+    "mobility_pct": 1.21,
+    "demo_score": 0.175,
+    "opportunity_score": 0.207,
+    "attractiveness_index": 0.188,
+    "segment": "Least Attractive"
+  },
+  "36017": {
+    "geoid": "36017",
+    "name": "Chenango",
+    "is_nyc_borough": false,
+    "total_bsls": 23296,
+    "fiber_served": 4670,
+    "fiber_unserved": 18626,
+    "fiber_penetration": 0.2,
+    "operators": [
+      {
+        "name": "Frontier",
+        "passings": 1630,
+        "served": 1630
+      },
+      {
+        "name": "Point Broadband Fiber Holding LLC",
+        "passings": 1490,
+        "served": 1490
+      },
+      {
+        "name": "Spectrum",
+        "passings": 973,
+        "served": 973
+      },
+      {
+        "name": "TDS Telecom",
+        "passings": 508,
+        "served": 508
+      },
+      {
+        "name": "Delhi Telephone Company",
+        "passings": 145,
+        "served": 145
+      },
+      {
+        "name": "OEConnect",
+        "passings": 48,
+        "served": 48
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 25,
+        "served": 15
+      }
+    ],
+    "population_2023": 46685,
+    "population_2018": 48348,
+    "pop_growth_pct": -3.44,
+    "housing_units": 24460,
+    "housing_growth_pct": -3.88,
+    "land_area_sqmi": 893.4,
+    "pop_density": 52.3,
+    "housing_density": 27.4,
+    "median_hhi": 62093,
+    "median_rent": 819,
+    "median_home_value": 128100,
+    "owner_occupied_pct": 76.3,
+    "wfh_pct": 8.4,
+    "mobility_pct": 0.68,
+    "demo_score": 0.185,
+    "opportunity_score": 0.506,
+    "attractiveness_index": 0.314,
+    "segment": "Most Attractive"
+  },
+  "36019": {
+    "geoid": "36019",
+    "name": "Clinton",
+    "is_nyc_borough": false,
+    "total_bsls": 32152,
+    "fiber_served": 23809,
+    "fiber_unserved": 8343,
+    "fiber_penetration": 0.741,
+    "operators": [
+      {
+        "name": "Verizon",
+        "passings": 12937,
+        "served": 12937
+      },
+      {
+        "name": "SLICFiber",
+        "passings": 2927,
+        "served": 2927
+      },
+      {
+        "name": "Chazy Westport Communications",
+        "passings": 2538,
+        "served": 2538
+      },
+      {
+        "name": "Spectrum",
+        "passings": 2531,
+        "served": 2531
+      },
+      {
+        "name": "Westelcom Networks, Inc",
+        "passings": 2331,
+        "served": 2331
+      },
+      {
+        "name": "Champlain Technology Group",
+        "passings": 2214,
+        "served": 2214
+      },
+      {
+        "name": "Frontier",
+        "passings": 787,
+        "served": 787
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 176,
+        "served": 73
+      }
+    ],
+    "population_2023": 78961,
+    "population_2018": 80794,
+    "pop_growth_pct": -2.27,
+    "housing_units": 37461,
+    "housing_growth_pct": 2.75,
+    "land_area_sqmi": 1037.8,
+    "pop_density": 76.1,
+    "housing_density": 36.1,
+    "median_hhi": 69208,
+    "median_rent": 956,
+    "median_home_value": 175100,
+    "owner_occupied_pct": 68.9,
+    "wfh_pct": 7.2,
+    "mobility_pct": 1.81,
+    "demo_score": 0.217,
+    "opportunity_score": 0.174,
+    "attractiveness_index": 0.2,
+    "segment": "Least Attractive"
+  },
+  "36021": {
+    "geoid": "36021",
+    "name": "Columbia",
+    "is_nyc_borough": false,
+    "total_bsls": 30726,
+    "fiber_served": 20593,
+    "fiber_unserved": 10133,
+    "fiber_penetration": 0.67,
+    "operators": [
+      {
+        "name": "Mid-Hudson Cablevision",
+        "passings": 8257,
+        "served": 8257
+      },
+      {
+        "name": "Fidium Fiber",
+        "passings": 7811,
+        "served": 7811
+      },
+      {
+        "name": "GTel",
+        "passings": 2686,
+        "served": 2686
+      },
+      {
+        "name": "GTel",
+        "passings": 2376,
+        "served": 2376
+      },
+      {
+        "name": "Archtop Fiber",
+        "passings": 2104,
+        "served": 2104
+      },
+      {
+        "name": "Frontier",
+        "passings": 418,
+        "served": 418
+      },
+      {
+        "name": "Spectrum",
+        "passings": 330,
+        "served": 330
+      },
+      {
+        "name": "Mid-Hudson Data Corp",
+        "passings": 136,
+        "served": 136
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 9,
+        "served": 6
+      },
+      {
+        "name": "Whip City Fiber",
+        "passings": 1,
+        "served": 1
+      }
+    ],
+    "population_2023": 61245,
+    "population_2018": 60919,
+    "pop_growth_pct": 0.54,
+    "housing_units": 33331,
+    "housing_growth_pct": -0.16,
+    "land_area_sqmi": 634.7,
+    "pop_density": 96.5,
+    "housing_density": 52.5,
+    "median_hhi": 83619,
+    "median_rent": 1199,
+    "median_home_value": 309800,
+    "owner_occupied_pct": 75.4,
+    "wfh_pct": 15.7,
+    "mobility_pct": 1.24,
+    "demo_score": 0.312,
+    "opportunity_score": 0.22,
+    "attractiveness_index": 0.275,
+    "segment": "Neutral"
+  },
+  "36023": {
+    "geoid": "36023",
+    "name": "Cortland",
+    "is_nyc_borough": false,
+    "total_bsls": 17761,
+    "fiber_served": 10833,
+    "fiber_unserved": 6928,
+    "fiber_penetration": 0.61,
+    "operators": [
+      {
+        "name": "Point Broadband Fiber Holding LLC",
+        "passings": 5178,
+        "served": 5178
+      },
+      {
+        "name": "Empire Long Distance Corporation",
+        "passings": 3890,
+        "served": 3890
+      },
+      {
+        "name": "Verizon",
+        "passings": 2319,
+        "served": 2319
+      },
+      {
+        "name": "Frontier",
+        "passings": 439,
+        "served": 439
+      },
+      {
+        "name": "Haefele Connect",
+        "passings": 382,
+        "served": 382
+      },
+      {
+        "name": "Spectrum",
+        "passings": 282,
+        "served": 282
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 18,
+        "served": 9
+      }
+    ],
+    "population_2023": 46401,
+    "population_2018": 48123,
+    "pop_growth_pct": -3.58,
+    "housing_units": 20842,
+    "housing_growth_pct": 0.37,
+    "land_area_sqmi": 498.8,
+    "pop_density": 93.0,
+    "housing_density": 41.8,
+    "median_hhi": 67527,
+    "median_rent": 911,
+    "median_home_value": 158100,
+    "owner_occupied_pct": 66.4,
+    "wfh_pct": 7.1,
+    "mobility_pct": 1.2,
+    "demo_score": 0.17,
+    "opportunity_score": 0.237,
+    "attractiveness_index": 0.197,
+    "segment": "Least Attractive"
+  },
+  "36025": {
+    "geoid": "36025",
+    "name": "Delaware",
+    "is_nyc_borough": false,
+    "total_bsls": 28938,
+    "fiber_served": 19837,
+    "fiber_unserved": 9101,
+    "fiber_penetration": 0.686,
+    "operators": [
+      {
+        "name": "Delhi Telephone Company",
+        "passings": 8588,
+        "served": 8588
+      },
+      {
+        "name": "MTC Cable",
+        "passings": 3458,
+        "served": 3458
+      },
+      {
+        "name": "Delhi Telephone Company",
+        "passings": 3447,
+        "served": 3447
+      },
+      {
+        "name": "Margaretville Telephone Co",
+        "passings": 1576,
+        "served": 1576
+      },
+      {
+        "name": "The Hancock Telephone Co",
+        "passings": 1474,
+        "served": 1474
+      },
+      {
+        "name": "Frontier",
+        "passings": 1409,
+        "served": 1409
+      },
+      {
+        "name": "TDS Telecom",
+        "passings": 962,
+        "served": 962
+      },
+      {
+        "name": "Spectrum",
+        "passings": 537,
+        "served": 537
+      },
+      {
+        "name": "Archtop Fiber",
+        "passings": 78,
+        "served": 78
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 23,
+        "served": 12
+      }
+    ],
+    "population_2023": 44551,
+    "population_2018": 45502,
+    "pop_growth_pct": -2.09,
+    "housing_units": 30038,
+    "housing_growth_pct": -4.84,
+    "land_area_sqmi": 1442.6,
+    "pop_density": 30.9,
+    "housing_density": 20.8,
+    "median_hhi": 60226,
+    "median_rent": 848,
+    "median_home_value": 176200,
+    "owner_occupied_pct": 76.7,
+    "wfh_pct": 11.4,
+    "mobility_pct": 1.46,
+    "demo_score": 0.214,
+    "opportunity_score": 0.207,
+    "attractiveness_index": 0.211,
+    "segment": "Least Attractive"
+  },
+  "36027": {
+    "geoid": "36027",
+    "name": "Dutchess",
+    "is_nyc_borough": false,
+    "total_bsls": 95228,
+    "fiber_served": 67255,
+    "fiber_unserved": 27973,
+    "fiber_penetration": 0.706,
+    "operators": [
+      {
+        "name": "Lightpath",
+        "passings": 56388,
+        "served": 56388
+      },
+      {
+        "name": "Verizon",
+        "passings": 39833,
+        "served": 39832
+      },
+      {
+        "name": "Optimum",
+        "passings": 11135,
+        "served": 11135
+      },
+      {
+        "name": "Archtop Fiber",
+        "passings": 1811,
+        "served": 1811
+      },
+      {
+        "name": "Frontier",
+        "passings": 1297,
+        "served": 1297
+      },
+      {
+        "name": "Fidium Fiber",
+        "passings": 363,
+        "served": 363
+      },
+      {
+        "name": "Spectrum",
+        "passings": 330,
+        "served": 330
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 28,
+        "served": 21
+      },
+      {
+        "name": "Xfinity",
+        "passings": 9,
+        "served": 6
+      },
+      {
+        "name": "QCSTelecom Inc",
+        "passings": 4,
+        "served": 4
+      }
+    ],
+    "population_2023": 297144,
+    "population_2018": 293894,
+    "pop_growth_pct": 1.11,
+    "housing_units": 122636,
+    "housing_growth_pct": 1.8,
+    "land_area_sqmi": 795.6,
+    "pop_density": 373.5,
+    "housing_density": 154.1,
+    "median_hhi": 97273,
+    "median_rent": 1522,
+    "median_home_value": 368100,
+    "owner_occupied_pct": 68.8,
+    "wfh_pct": 13.9,
+    "mobility_pct": 1.93,
+    "demo_score": 0.342,
+    "opportunity_score": 0.282,
+    "attractiveness_index": 0.318,
+    "segment": "Most Attractive"
+  },
+  "36029": {
+    "geoid": "36029",
+    "name": "Erie",
+    "is_nyc_borough": false,
+    "total_bsls": 326635,
+    "fiber_served": 216263,
+    "fiber_unserved": 110372,
+    "fiber_penetration": 0.662,
+    "operators": [
+      {
+        "name": "Verizon",
+        "passings": 157423,
+        "served": 157423
+      },
+      {
+        "name": "Greenlight Networks",
+        "passings": 28978,
+        "served": 28978
+      },
+      {
+        "name": "GoNetspeed",
+        "passings": 24265,
+        "served": 24265
+      },
+      {
+        "name": "FastBridge Fiber",
+        "passings": 7889,
+        "served": 7889
+      },
+      {
+        "name": "Spectrum",
+        "passings": 5039,
+        "served": 5039
+      },
+      {
+        "name": "Xfinity",
+        "passings": 649,
+        "served": 8
+      },
+      {
+        "name": "DFT Local Service Corporation",
+        "passings": 509,
+        "served": 509
+      },
+      {
+        "name": "Armstrong Telecommunications Inc",
+        "passings": 450,
+        "served": 450
+      },
+      {
+        "name": "Empire Long Distance Corporation",
+        "passings": 147,
+        "served": 147
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 103,
+        "served": 99
+      }
+    ],
+    "population_2023": 950044,
+    "population_2018": 919866,
+    "pop_growth_pct": 3.28,
+    "housing_units": 439987,
+    "housing_growth_pct": 3.01,
+    "land_area_sqmi": 1042.8,
+    "pop_density": 911.1,
+    "housing_density": 421.9,
+    "median_hhi": 71175,
+    "median_rent": 1037,
+    "median_home_value": 217400,
+    "owner_occupied_pct": 65.5,
+    "wfh_pct": 11.4,
+    "mobility_pct": 1.0,
+    "demo_score": 0.261,
+    "opportunity_score": 0.678,
+    "attractiveness_index": 0.428,
+    "segment": "Most Attractive"
+  },
+  "36031": {
+    "geoid": "36031",
+    "name": "Essex",
+    "is_nyc_borough": false,
+    "total_bsls": 23463,
+    "fiber_served": 11232,
+    "fiber_unserved": 12231,
+    "fiber_penetration": 0.479,
+    "operators": [
+      {
+        "name": "SLICFiber",
+        "passings": 4291,
+        "served": 4291
+      },
+      {
+        "name": "Frontier",
+        "passings": 2989,
+        "served": 2989
+      },
+      {
+        "name": "Bridge Point Communication",
+        "passings": 1172,
+        "served": 1172
+      },
+      {
+        "name": "Chazy Westport Communications",
+        "passings": 1072,
+        "served": 1072
+      },
+      {
+        "name": "Crown Point Telephone Corporation",
+        "passings": 1066,
+        "served": 1066
+      },
+      {
+        "name": "Keene Valley Video",
+        "passings": 1002,
+        "served": 1002
+      },
+      {
+        "name": "Spectrum",
+        "passings": 526,
+        "served": 526
+      },
+      {
+        "name": "Westelcom Networks, Inc",
+        "passings": 331,
+        "served": 331
+      },
+      {
+        "name": "Adirondack Broadband",
+        "passings": 21,
+        "served": 21
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 19,
+        "served": 14
+      }
+    ],
+    "population_2023": 37077,
+    "population_2018": 37751,
+    "pop_growth_pct": -1.79,
+    "housing_units": 25318,
+    "housing_growth_pct": -3.3,
+    "land_area_sqmi": 1794.1,
+    "pop_density": 20.7,
+    "housing_density": 14.1,
+    "median_hhi": 70215,
+    "median_rent": 890,
+    "median_home_value": 200000,
+    "owner_occupied_pct": 78.1,
+    "wfh_pct": 11.0,
+    "mobility_pct": 1.8,
+    "demo_score": 0.237,
+    "opportunity_score": 0.33,
+    "attractiveness_index": 0.274,
+    "segment": "Neutral"
+  },
+  "36033": {
+    "geoid": "36033",
+    "name": "Franklin",
+    "is_nyc_borough": false,
+    "total_bsls": 23772,
+    "fiber_served": 8375,
+    "fiber_unserved": 15397,
+    "fiber_penetration": 0.352,
+    "operators": [
+      {
+        "name": "SLICFiber",
+        "passings": 6459,
+        "served": 6459
+      },
+      {
+        "name": "Mohawk Networks LLC",
+        "passings": 655,
+        "served": 655
+      },
+      {
+        "name": "Westelcom Networks, Inc",
+        "passings": 595,
+        "served": 595
+      },
+      {
+        "name": "Adirondack Broadband",
+        "passings": 484,
+        "served": 484
+      },
+      {
+        "name": "Spectrum",
+        "passings": 437,
+        "served": 437
+      },
+      {
+        "name": "Frontier",
+        "passings": 7,
+        "served": 7
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 3,
+        "served": 3
+      }
+    ],
+    "population_2023": 47066,
+    "population_2018": 50692,
+    "pop_growth_pct": -7.15,
+    "housing_units": 25442,
+    "housing_growth_pct": -0.81,
+    "land_area_sqmi": 1629.3,
+    "pop_density": 28.9,
+    "housing_density": 15.6,
+    "median_hhi": 63747,
+    "median_rent": 819,
+    "median_home_value": 128600,
+    "owner_occupied_pct": 71.2,
+    "wfh_pct": 6.4,
+    "mobility_pct": 0.9,
+    "demo_score": 0.159,
+    "opportunity_score": 0.411,
+    "attractiveness_index": 0.26,
+    "segment": "Neutral"
+  },
+  "36035": {
+    "geoid": "36035",
+    "name": "Fulton",
+    "is_nyc_borough": false,
+    "total_bsls": 25515,
+    "fiber_served": 11417,
+    "fiber_unserved": 14098,
+    "fiber_penetration": 0.447,
+    "operators": [
+      {
+        "name": "Frontier",
+        "passings": 10605,
+        "served": 10605
+      },
+      {
+        "name": "Spectrum",
+        "passings": 747,
+        "served": 747
+      },
+      {
+        "name": "Verizon",
+        "passings": 439,
+        "served": 439
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 35,
+        "served": 17
+      }
+    ],
+    "population_2023": 52787,
+    "population_2018": 53743,
+    "pop_growth_pct": -1.78,
+    "housing_units": 28169,
+    "housing_growth_pct": -3.04,
+    "land_area_sqmi": 495.5,
+    "pop_density": 106.5,
+    "housing_density": 56.9,
+    "median_hhi": 62615,
+    "median_rent": 883,
+    "median_home_value": 156100,
+    "owner_occupied_pct": 69.2,
+    "wfh_pct": 6.4,
+    "mobility_pct": 0.66,
+    "demo_score": 0.155,
+    "opportunity_score": 0.355,
+    "attractiveness_index": 0.235,
+    "segment": "Least Attractive"
+  },
+  "36037": {
+    "geoid": "36037",
+    "name": "Genesee",
+    "is_nyc_borough": false,
+    "total_bsls": 23192,
+    "fiber_served": 9552,
+    "fiber_unserved": 13640,
+    "fiber_penetration": 0.412,
+    "operators": [
+      {
+        "name": "Empire Long Distance Corporation",
+        "passings": 6286,
+        "served": 6286
+      },
+      {
+        "name": "Spectrum",
+        "passings": 2125,
+        "served": 2125
+      },
+      {
+        "name": "Empire Telephone Corp.",
+        "passings": 1374,
+        "served": 1374
+      },
+      {
+        "name": "Frontier",
+        "passings": 205,
+        "served": 205
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 20,
+        "served": 18
+      },
+      {
+        "name": "TDS Telecom",
+        "passings": 1,
+        "served": 1
+      }
+    ],
+    "population_2023": 57943,
+    "population_2018": 58112,
+    "pop_growth_pct": -0.29,
+    "housing_units": 26090,
+    "housing_growth_pct": 1.32,
+    "land_area_sqmi": 493.0,
+    "pop_density": 117.5,
+    "housing_density": 52.9,
+    "median_hhi": 72055,
+    "median_rent": 909,
+    "median_home_value": 157800,
+    "owner_occupied_pct": 74.2,
+    "wfh_pct": 6.2,
+    "mobility_pct": 1.36,
+    "demo_score": 0.204,
+    "opportunity_score": 0.372,
+    "attractiveness_index": 0.271,
+    "segment": "Neutral"
+  },
+  "36039": {
+    "geoid": "36039",
+    "name": "Greene",
+    "is_nyc_borough": false,
+    "total_bsls": 26737,
+    "fiber_served": 16649,
+    "fiber_unserved": 10088,
+    "fiber_penetration": 0.623,
+    "operators": [
+      {
+        "name": "Mid-Hudson Cablevision",
+        "passings": 8084,
+        "served": 8084
+      },
+      {
+        "name": "State Telephone Company Inc",
+        "passings": 4654,
+        "served": 4654
+      },
+      {
+        "name": "Catskill Mountain Cablevision",
+        "passings": 3268,
+        "served": 3268
+      },
+      {
+        "name": "MTC Cable",
+        "passings": 1515,
+        "served": 1515
+      },
+      {
+        "name": "Mid-Hudson Data Corp",
+        "passings": 1001,
+        "served": 1001
+      },
+      {
+        "name": "Archtop Fiber",
+        "passings": 321,
+        "served": 321
+      },
+      {
+        "name": "Spectrum",
+        "passings": 52,
+        "served": 52
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 15,
+        "served": 11
+      },
+      {
+        "name": "Frontier",
+        "passings": 3,
+        "served": 3
+      }
+    ],
+    "population_2023": 47554,
+    "population_2018": 47617,
+    "pop_growth_pct": -0.13,
+    "housing_units": 29037,
+    "housing_growth_pct": -2.17,
+    "land_area_sqmi": 647.2,
+    "pop_density": 73.5,
+    "housing_density": 44.9,
+    "median_hhi": 74011,
+    "median_rent": 993,
+    "median_home_value": 248300,
+    "owner_occupied_pct": 77.6,
+    "wfh_pct": 11.5,
+    "mobility_pct": 0.81,
+    "demo_score": 0.253,
+    "opportunity_score": 0.244,
+    "attractiveness_index": 0.25,
+    "segment": "Neutral"
+  },
+  "36041": {
+    "geoid": "36041",
+    "name": "Hamilton",
+    "is_nyc_borough": false,
+    "total_bsls": 7606,
+    "fiber_served": 5034,
+    "fiber_unserved": 2572,
+    "fiber_penetration": 0.662,
+    "operators": [
+      {
+        "name": "Frontier",
+        "passings": 3485,
+        "served": 3485
+      },
+      {
+        "name": "Hamilton County Cable",
+        "passings": 1309,
+        "served": 1309
+      },
+      {
+        "name": "SLICFiber",
+        "passings": 776,
+        "served": 776
+      },
+      {
+        "name": "Newport Telephone Co - NTCNet",
+        "passings": 231,
+        "served": 231
+      },
+      {
+        "name": "Spectrum",
+        "passings": 187,
+        "served": 187
+      },
+      {
+        "name": "Adirondack Broadband",
+        "passings": 139,
+        "served": 139
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 3,
+        "served": 3
+      }
+    ],
+    "population_2023": 5102,
+    "population_2018": 4575,
+    "pop_growth_pct": 11.52,
+    "housing_units": 7893,
+    "housing_growth_pct": -11.45,
+    "land_area_sqmi": 1717.4,
+    "pop_density": 3.0,
+    "housing_density": 4.6,
+    "median_hhi": 68950,
+    "median_rent": 860,
+    "median_home_value": 242000,
+    "owner_occupied_pct": 82.5,
+    "wfh_pct": 13.7,
+    "mobility_pct": 3.93,
+    "demo_score": 0.273,
+    "opportunity_score": 0.19,
+    "attractiveness_index": 0.24,
+    "segment": "Least Attractive"
+  },
+  "36043": {
+    "geoid": "36043",
+    "name": "Herkimer",
+    "is_nyc_borough": false,
+    "total_bsls": 30357,
+    "fiber_served": 8579,
+    "fiber_unserved": 21778,
+    "fiber_penetration": 0.283,
+    "operators": [
+      {
+        "name": "Newport Telephone Co - NTCNet",
+        "passings": 3267,
+        "served": 3267
+      },
+      {
+        "name": "Spectrum",
+        "passings": 2194,
+        "served": 2194
+      },
+      {
+        "name": "Verizon",
+        "passings": 1564,
+        "served": 1564
+      },
+      {
+        "name": "Northland Networks",
+        "passings": 642,
+        "served": 642
+      },
+      {
+        "name": "Windstream New York, Inc.",
+        "passings": 576,
+        "served": 576
+      },
+      {
+        "name": "Frontier",
+        "passings": 393,
+        "served": 393
+      },
+      {
+        "name": "OEConnect",
+        "passings": 263,
+        "served": 263
+      },
+      {
+        "name": "GoNetspeed",
+        "passings": 187,
+        "served": 187
+      },
+      {
+        "name": "Adirondack Broadband",
+        "passings": 126,
+        "served": 126
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 7,
+        "served": 7
+      }
+    ],
+    "population_2023": 59932,
+    "population_2018": 62505,
+    "pop_growth_pct": -4.12,
+    "housing_units": 32449,
+    "housing_growth_pct": -3.92,
+    "land_area_sqmi": 1410.6,
+    "pop_density": 42.5,
+    "housing_density": 23.0,
+    "median_hhi": 68858,
+    "median_rent": 811,
+    "median_home_value": 135000,
+    "owner_occupied_pct": 75.9,
+    "wfh_pct": 8.8,
+    "mobility_pct": 1.36,
+    "demo_score": 0.203,
+    "opportunity_score": 0.477,
+    "attractiveness_index": 0.312,
+    "segment": "Neutral"
+  },
+  "36045": {
+    "geoid": "36045",
+    "name": "Jefferson",
+    "is_nyc_borough": false,
+    "total_bsls": 48931,
+    "fiber_served": 9765,
+    "fiber_unserved": 39166,
+    "fiber_penetration": 0.2,
+    "operators": [
+      {
+        "name": "Verizon",
+        "passings": 3084,
+        "served": 3084
+      },
+      {
+        "name": "Westelcom Networks, Inc",
+        "passings": 2869,
+        "served": 2869
+      },
+      {
+        "name": "Castle Cable TV",
+        "passings": 2713,
+        "served": 2710
+      },
+      {
+        "name": "TDS Telecom",
+        "passings": 965,
+        "served": 965
+      },
+      {
+        "name": "Spectrum",
+        "passings": 457,
+        "served": 457
+      },
+      {
+        "name": "Citizens Telephone Company of Hammond, NY",
+        "passings": 76,
+        "served": 76
+      },
+      {
+        "name": "Frontier",
+        "passings": 62,
+        "served": 62
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 9,
+        "served": 9
+      },
+      {
+        "name": "Xfinity",
+        "passings": 2,
+        "served": 0
+      }
+    ],
+    "population_2023": 116130,
+    "population_2018": 114448,
+    "pop_growth_pct": 1.47,
+    "housing_units": 61721,
+    "housing_growth_pct": 3.21,
+    "land_area_sqmi": 1267.9,
+    "pop_density": 91.6,
+    "housing_density": 48.7,
+    "median_hhi": 64978,
+    "median_rent": 1214,
+    "median_home_value": 181000,
+    "owner_occupied_pct": 54.1,
+    "wfh_pct": 7.4,
+    "mobility_pct": 6.09,
+    "demo_score": 0.182,
+    "opportunity_score": 0.599,
+    "attractiveness_index": 0.349,
+    "segment": "Most Attractive"
+  },
+  "36047": {
+    "geoid": "36047",
+    "name": "Kings",
+    "is_nyc_borough": true,
+    "total_bsls": 267115,
+    "fiber_served": 267075,
+    "fiber_unserved": 40,
+    "fiber_penetration": 1.0,
+    "operators": [
+      {
+        "name": "Lightpath",
+        "passings": 266941,
+        "served": 266941
+      },
+      {
+        "name": "Verizon",
+        "passings": 214195,
+        "served": 214184
+      },
+      {
+        "name": "Optimum",
+        "passings": 157111,
+        "served": 157111
+      },
+      {
+        "name": "Spectrum",
+        "passings": 2851,
+        "served": 2851
+      },
+      {
+        "name": "Optical Communications Group Inc",
+        "passings": 1096,
+        "served": 1096
+      },
+      {
+        "name": "Stealth Communications",
+        "passings": 698,
+        "served": 698
+      },
+      {
+        "name": "Astound Broadband",
+        "passings": 174,
+        "served": 174
+      },
+      {
+        "name": "Rozint LLC",
+        "passings": 17,
+        "served": 17
+      },
+      {
+        "name": "ZAYO GROUP LLC",
+        "passings": 15,
+        "served": 5
+      },
+      {
+        "name": "Xfinity",
+        "passings": 5,
+        "served": 4
+      }
+    ],
+    "population_2023": 2646306,
+    "population_2018": 2600747,
+    "pop_growth_pct": 1.75,
+    "housing_units": 1090187,
+    "housing_growth_pct": 5.26,
+    "land_area_sqmi": 69.4,
+    "pop_density": 38144.1,
+    "housing_density": 15714.1,
+    "median_hhi": 78548,
+    "median_rent": 1784,
+    "median_home_value": 889700,
+    "owner_occupied_pct": 29.7,
+    "wfh_pct": 17.0,
+    "mobility_pct": 1.44,
+    "demo_score": 0.435,
+    "opportunity_score": 0.0,
+    "attractiveness_index": 0.261,
+    "segment": "Neutral"
+  },
+  "36049": {
+    "geoid": "36049",
+    "name": "Lewis",
+    "is_nyc_borough": false,
+    "total_bsls": 15031,
+    "fiber_served": 5272,
+    "fiber_unserved": 9759,
+    "fiber_penetration": 0.351,
+    "operators": [
+      {
+        "name": "Spectrum",
+        "passings": 3400,
+        "served": 3400
+      },
+      {
+        "name": "Frontier",
+        "passings": 2031,
+        "served": 2031
+      },
+      {
+        "name": "Verizon",
+        "passings": 223,
+        "served": 223
+      }
+    ],
+    "population_2023": 26618,
+    "population_2018": 26719,
+    "pop_growth_pct": -0.38,
+    "housing_units": 15572,
+    "housing_growth_pct": -0.21,
+    "land_area_sqmi": 1276.3,
+    "pop_density": 20.9,
+    "housing_density": 12.2,
+    "median_hhi": 68329,
+    "median_rent": 821,
+    "median_home_value": 158000,
+    "owner_occupied_pct": 80.4,
+    "wfh_pct": 7.6,
+    "mobility_pct": 0.78,
+    "demo_score": 0.204,
+    "opportunity_score": 0.386,
+    "attractiveness_index": 0.277,
+    "segment": "Neutral"
+  },
+  "36051": {
+    "geoid": "36051",
+    "name": "Livingston",
+    "is_nyc_borough": false,
+    "total_bsls": 25239,
+    "fiber_served": 13770,
+    "fiber_unserved": 11469,
+    "fiber_penetration": 0.546,
+    "operators": [
+      {
+        "name": "Frontier",
+        "passings": 10166,
+        "served": 10166
+      },
+      {
+        "name": "Empire Long Distance Corporation",
+        "passings": 4989,
+        "served": 4989
+      },
+      {
+        "name": "Armstrong Telecommunications Inc",
+        "passings": 1520,
+        "served": 1520
+      },
+      {
+        "name": "Spectrum",
+        "passings": 1245,
+        "served": 1245
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 15,
+        "served": 7
+      }
+    ],
+    "population_2023": 61588,
+    "population_2018": 63907,
+    "pop_growth_pct": -3.63,
+    "housing_units": 27198,
+    "housing_growth_pct": -0.94,
+    "land_area_sqmi": 631.7,
+    "pop_density": 97.5,
+    "housing_density": 43.1,
+    "median_hhi": 72464,
+    "median_rent": 912,
+    "median_home_value": 169600,
+    "owner_occupied_pct": 77.1,
+    "wfh_pct": 7.4,
+    "mobility_pct": 1.14,
+    "demo_score": 0.204,
+    "opportunity_score": 0.291,
+    "attractiveness_index": 0.239,
+    "segment": "Least Attractive"
+  },
+  "36053": {
+    "geoid": "36053",
+    "name": "Madison",
+    "is_nyc_borough": false,
+    "total_bsls": 29121,
+    "fiber_served": 8859,
+    "fiber_unserved": 20262,
+    "fiber_penetration": 0.304,
+    "operators": [
+      {
+        "name": "Spectrum",
+        "passings": 4345,
+        "served": 4345
+      },
+      {
+        "name": "Windstream New York, Inc.",
+        "passings": 1761,
+        "served": 1761
+      },
+      {
+        "name": "Verizon",
+        "passings": 1579,
+        "served": 1579
+      },
+      {
+        "name": "Northland Networks",
+        "passings": 738,
+        "served": 738
+      },
+      {
+        "name": "Frontier",
+        "passings": 486,
+        "served": 486
+      },
+      {
+        "name": "OEConnect",
+        "passings": 242,
+        "served": 242
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 14,
+        "served": 10
+      },
+      {
+        "name": "Point Broadband Fiber Holding LLC",
+        "passings": 5,
+        "served": 5
+      }
+    ],
+    "population_2023": 67572,
+    "population_2018": 71359,
+    "pop_growth_pct": -5.31,
+    "housing_units": 30676,
+    "housing_growth_pct": -4.76,
+    "land_area_sqmi": 654.9,
+    "pop_density": 103.2,
+    "housing_density": 46.8,
+    "median_hhi": 73141,
+    "median_rent": 891,
+    "median_home_value": 176800,
+    "owner_occupied_pct": 78.4,
+    "wfh_pct": 9.7,
+    "mobility_pct": 2.31,
+    "demo_score": 0.23,
+    "opportunity_score": 0.459,
+    "attractiveness_index": 0.322,
+    "segment": "Most Attractive"
+  },
+  "36055": {
+    "geoid": "36055",
+    "name": "Monroe",
+    "is_nyc_borough": false,
+    "total_bsls": 248277,
+    "fiber_served": 171799,
+    "fiber_unserved": 76478,
+    "fiber_penetration": 0.692,
+    "operators": [
+      {
+        "name": "Greenlight Networks",
+        "passings": 135808,
+        "served": 135808
+      },
+      {
+        "name": "Frontier",
+        "passings": 98239,
+        "served": 98239
+      },
+      {
+        "name": "Spectrum",
+        "passings": 3333,
+        "served": 3333
+      },
+      {
+        "name": "Empire Long Distance Corporation",
+        "passings": 1495,
+        "served": 1495
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 202,
+        "served": 177
+      },
+      {
+        "name": "Xfinity",
+        "passings": 7,
+        "served": 6
+      },
+      {
+        "name": "FastBridge Fiber",
+        "passings": 2,
+        "served": 2
+      },
+      {
+        "name": "Fusion",
+        "passings": 1,
+        "served": 1
+      }
+    ],
+    "population_2023": 754068,
+    "population_2018": 744248,
+    "pop_growth_pct": 1.32,
+    "housing_units": 337688,
+    "housing_growth_pct": 3.29,
+    "land_area_sqmi": 656.9,
+    "pop_density": 1147.8,
+    "housing_density": 514.0,
+    "median_hhi": 74409,
+    "median_rent": 1126,
+    "median_home_value": 197100,
+    "owner_occupied_pct": 63.5,
+    "wfh_pct": 13.7,
+    "mobility_pct": 2.14,
+    "demo_score": 0.286,
+    "opportunity_score": 0.509,
+    "attractiveness_index": 0.375,
+    "segment": "Most Attractive"
+  },
+  "36057": {
+    "geoid": "36057",
+    "name": "Montgomery",
+    "is_nyc_borough": false,
+    "total_bsls": 19520,
+    "fiber_served": 5287,
+    "fiber_unserved": 14233,
+    "fiber_penetration": 0.271,
+    "operators": [
+      {
+        "name": "Frontier",
+        "passings": 3426,
+        "served": 3426
+      },
+      {
+        "name": "Spectrum",
+        "passings": 1346,
+        "served": 1346
+      },
+      {
+        "name": "Verizon",
+        "passings": 319,
+        "served": 319
+      },
+      {
+        "name": "Pattersonville Telephone Company",
+        "passings": 271,
+        "served": 271
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 20,
+        "served": 8
+      }
+    ],
+    "population_2023": 49461,
+    "population_2018": 49426,
+    "pop_growth_pct": 0.07,
+    "housing_units": 22944,
+    "housing_growth_pct": -2.34,
+    "land_area_sqmi": 403.1,
+    "pop_density": 122.7,
+    "housing_density": 56.9,
+    "median_hhi": 62923,
+    "median_rent": 921,
+    "median_home_value": 141600,
+    "owner_occupied_pct": 69.3,
+    "wfh_pct": 7.9,
+    "mobility_pct": 1.04,
+    "demo_score": 0.167,
+    "opportunity_score": 0.449,
+    "attractiveness_index": 0.28,
+    "segment": "Neutral"
+  },
+  "36059": {
+    "geoid": "36059",
+    "name": "Nassau",
+    "is_nyc_borough": false,
+    "total_bsls": 386369,
+    "fiber_served": 386336,
+    "fiber_unserved": 33,
+    "fiber_penetration": 1.0,
+    "operators": [
+      {
+        "name": "Lightpath",
+        "passings": 385678,
+        "served": 385678
+      },
+      {
+        "name": "Verizon",
+        "passings": 378103,
+        "served": 378073
+      },
+      {
+        "name": "Optimum",
+        "passings": 365613,
+        "served": 365613
+      },
+      {
+        "name": "Optical Communications Group Inc",
+        "passings": 462,
+        "served": 462
+      },
+      {
+        "name": "Frontier",
+        "passings": 24,
+        "served": 24
+      },
+      {
+        "name": "Spectrum",
+        "passings": 20,
+        "served": 20
+      },
+      {
+        "name": "ZAYO GROUP LLC",
+        "passings": 16,
+        "served": 4
+      },
+      {
+        "name": "Xfinity",
+        "passings": 2,
+        "served": 1
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 2,
+        "served": 0
+      },
+      {
+        "name": "Astound Broadband",
+        "passings": 1,
+        "served": 1
+      }
+    ],
+    "population_2023": 1388138,
+    "population_2018": 1356564,
+    "pop_growth_pct": 2.33,
+    "housing_units": 477860,
+    "housing_growth_pct": 1.28,
+    "land_area_sqmi": 284.5,
+    "pop_density": 4878.5,
+    "housing_density": 1679.4,
+    "median_hhi": 143408,
+    "median_rent": 2195,
+    "median_home_value": 658700,
+    "owner_occupied_pct": 81.9,
+    "wfh_pct": 13.8,
+    "mobility_pct": 0.55,
+    "demo_score": 0.5,
+    "opportunity_score": 0.0,
+    "attractiveness_index": 0.3,
+    "segment": "Neutral"
+  },
+  "36061": {
+    "geoid": "36061",
+    "name": "New York",
+    "is_nyc_borough": true,
+    "total_bsls": 37504,
+    "fiber_served": 37477,
+    "fiber_unserved": 27,
+    "fiber_penetration": 0.999,
+    "operators": [
+      {
+        "name": "Lightpath",
+        "passings": 37477,
+        "served": 37477
+      },
+      {
+        "name": "Pilot Fiber",
+        "passings": 37343,
+        "served": 37343
+      },
+      {
+        "name": "Stealth Communications",
+        "passings": 36469,
+        "served": 36469
+      },
+      {
+        "name": "Verizon",
+        "passings": 11857,
+        "served": 11829
+      },
+      {
+        "name": "Spectrum",
+        "passings": 5133,
+        "served": 5133
+      },
+      {
+        "name": "Astound Broadband",
+        "passings": 903,
+        "served": 903
+      },
+      {
+        "name": "Optical Communications Group Inc",
+        "passings": 550,
+        "served": 550
+      },
+      {
+        "name": "ZAYO GROUP LLC",
+        "passings": 168,
+        "served": 163
+      },
+      {
+        "name": "Cogent Communication",
+        "passings": 152,
+        "served": 152
+      },
+      {
+        "name": "Fusion",
+        "passings": 12,
+        "served": 12
+      }
+    ],
+    "population_2023": 1627788,
+    "population_2018": 1632480,
+    "pop_growth_pct": -0.29,
+    "housing_units": 918806,
+    "housing_growth_pct": 5.1,
+    "land_area_sqmi": 22.7,
+    "pop_density": 71841.7,
+    "housing_density": 40551.1,
+    "median_hhi": 104553,
+    "median_rent": 2132,
+    "median_home_value": 1108900,
+    "owner_occupied_pct": 24.7,
+    "wfh_pct": 23.0,
+    "mobility_pct": 4.19,
+    "demo_score": 0.704,
+    "opportunity_score": 0.001,
+    "attractiveness_index": 0.423,
+    "segment": "Most Attractive"
+  },
+  "36063": {
+    "geoid": "36063",
+    "name": "Niagara",
+    "is_nyc_borough": false,
+    "total_bsls": 83995,
+    "fiber_served": 26897,
+    "fiber_unserved": 57098,
+    "fiber_penetration": 0.32,
+    "operators": [
+      {
+        "name": "Greenlight Networks",
+        "passings": 14828,
+        "served": 14828
+      },
+      {
+        "name": "GoNetspeed",
+        "passings": 7285,
+        "served": 7285
+      },
+      {
+        "name": "Spectrum",
+        "passings": 2848,
+        "served": 2848
+      },
+      {
+        "name": "Verizon",
+        "passings": 2045,
+        "served": 2045
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 25,
+        "served": 25
+      }
+    ],
+    "population_2023": 211341,
+    "population_2018": 211704,
+    "pop_growth_pct": -0.17,
+    "housing_units": 100335,
+    "housing_growth_pct": 0.03,
+    "land_area_sqmi": 522.3,
+    "pop_density": 404.6,
+    "housing_density": 192.1,
+    "median_hhi": 67809,
+    "median_rent": 870,
+    "median_home_value": 177400,
+    "owner_occupied_pct": 70.9,
+    "wfh_pct": 9.2,
+    "mobility_pct": 0.8,
+    "demo_score": 0.197,
+    "opportunity_score": 0.617,
+    "attractiveness_index": 0.365,
+    "segment": "Most Attractive"
+  },
+  "36065": {
+    "geoid": "36065",
+    "name": "Oneida",
+    "is_nyc_borough": false,
+    "total_bsls": 87154,
+    "fiber_served": 22456,
+    "fiber_unserved": 64698,
+    "fiber_penetration": 0.258,
+    "operators": [
+      {
+        "name": "GoNetspeed",
+        "passings": 8360,
+        "served": 8360
+      },
+      {
+        "name": "Oneida County Rural Telephone Co.",
+        "passings": 3577,
+        "served": 3577
+      },
+      {
+        "name": "Northland Networks",
+        "passings": 3222,
+        "served": 3222
+      },
+      {
+        "name": "Spectrum",
+        "passings": 3005,
+        "served": 3005
+      },
+      {
+        "name": "Verizon",
+        "passings": 2410,
+        "served": 2410
+      },
+      {
+        "name": "SLICFiber",
+        "passings": 1166,
+        "served": 1166
+      },
+      {
+        "name": "Frontier",
+        "passings": 1081,
+        "served": 1081
+      },
+      {
+        "name": "Adirondack Broadband",
+        "passings": 641,
+        "served": 641
+      },
+      {
+        "name": "Windstream New York, Inc.",
+        "passings": 245,
+        "served": 245
+      },
+      {
+        "name": "Newport Telephone Co - NTCNet",
+        "passings": 120,
+        "served": 120
+      }
+    ],
+    "population_2023": 229645,
+    "population_2018": 230782,
+    "pop_growth_pct": -0.49,
+    "housing_units": 105285,
+    "housing_growth_pct": 0.17,
+    "land_area_sqmi": 1212.4,
+    "pop_density": 189.4,
+    "housing_density": 86.8,
+    "median_hhi": 68819,
+    "median_rent": 917,
+    "median_home_value": 171100,
+    "owner_occupied_pct": 67.8,
+    "wfh_pct": 10.1,
+    "mobility_pct": 1.04,
+    "demo_score": 0.201,
+    "opportunity_score": 0.684,
+    "attractiveness_index": 0.394,
+    "segment": "Most Attractive"
+  },
+  "36067": {
+    "geoid": "36067",
+    "name": "Onondaga",
+    "is_nyc_borough": false,
+    "total_bsls": 160846,
+    "fiber_served": 123039,
+    "fiber_unserved": 37807,
+    "fiber_penetration": 0.765,
+    "operators": [
+      {
+        "name": "Verizon",
+        "passings": 114720,
+        "served": 114713
+      },
+      {
+        "name": "Windstream New York, Inc.",
+        "passings": 5732,
+        "served": 5732
+      },
+      {
+        "name": "Northland Networks",
+        "passings": 3437,
+        "served": 3437
+      },
+      {
+        "name": "Spectrum",
+        "passings": 1970,
+        "served": 1970
+      },
+      {
+        "name": "Point Broadband Fiber Holding LLC",
+        "passings": 977,
+        "served": 977
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 46,
+        "served": 32
+      },
+      {
+        "name": "Xfinity",
+        "passings": 3,
+        "served": 2
+      },
+      {
+        "name": "Cogent Communication",
+        "passings": 1,
+        "served": 1
+      },
+      {
+        "name": "Windstream Communications, LLC.",
+        "passings": 1,
+        "served": 1
+      }
+    ],
+    "population_2023": 471611,
+    "population_2018": 464242,
+    "pop_growth_pct": 1.59,
+    "housing_units": 211683,
+    "housing_growth_pct": 1.98,
+    "land_area_sqmi": 778.4,
+    "pop_density": 605.9,
+    "housing_density": 271.9,
+    "median_hhi": 74740,
+    "median_rent": 1067,
+    "median_home_value": 185300,
+    "owner_occupied_pct": 65.7,
+    "wfh_pct": 11.4,
+    "mobility_pct": 2.58,
+    "demo_score": 0.25,
+    "opportunity_score": 0.295,
+    "attractiveness_index": 0.268,
+    "segment": "Neutral"
+  },
+  "36069": {
+    "geoid": "36069",
+    "name": "Ontario",
+    "is_nyc_borough": false,
+    "total_bsls": 45005,
+    "fiber_served": 25408,
+    "fiber_unserved": 19597,
+    "fiber_penetration": 0.565,
+    "operators": [
+      {
+        "name": "Empire Long Distance Corporation",
+        "passings": 11463,
+        "served": 11463
+      },
+      {
+        "name": "GoNetspeed",
+        "passings": 9483,
+        "served": 9483
+      },
+      {
+        "name": "Frontier",
+        "passings": 8383,
+        "served": 8383
+      },
+      {
+        "name": "GoNetspeed",
+        "passings": 3004,
+        "served": 3004
+      },
+      {
+        "name": "Spectrum",
+        "passings": 2931,
+        "served": 2931
+      },
+      {
+        "name": "Windstream New York, Inc.",
+        "passings": 1939,
+        "served": 1939
+      },
+      {
+        "name": "Greenlight Networks",
+        "passings": 586,
+        "served": 586
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 103,
+        "served": 65
+      }
+    ],
+    "population_2023": 112405,
+    "population_2018": 109472,
+    "pop_growth_pct": 2.68,
+    "housing_units": 53001,
+    "housing_growth_pct": 5.14,
+    "land_area_sqmi": 644.1,
+    "pop_density": 174.5,
+    "housing_density": 82.3,
+    "median_hhi": 79814,
+    "median_rent": 1126,
+    "median_home_value": 202900,
+    "owner_occupied_pct": 72.8,
+    "wfh_pct": 11.5,
+    "mobility_pct": 2.1,
+    "demo_score": 0.326,
+    "opportunity_score": 0.318,
+    "attractiveness_index": 0.323,
+    "segment": "Most Attractive"
+  },
+  "36071": {
+    "geoid": "36071",
+    "name": "Orange",
+    "is_nyc_borough": false,
+    "total_bsls": 113128,
+    "fiber_served": 75839,
+    "fiber_unserved": 37289,
+    "fiber_penetration": 0.67,
+    "operators": [
+      {
+        "name": "Lightpath",
+        "passings": 42773,
+        "served": 42773
+      },
+      {
+        "name": "Verizon",
+        "passings": 23252,
+        "served": 23252
+      },
+      {
+        "name": "Frontier",
+        "passings": 22265,
+        "served": 22265
+      },
+      {
+        "name": "Optimum",
+        "passings": 16223,
+        "served": 16223
+      },
+      {
+        "name": "Alteva Of Warwick, LLC",
+        "passings": 10252,
+        "served": 10252
+      },
+      {
+        "name": "Greenlight Networks",
+        "passings": 9215,
+        "served": 9215
+      },
+      {
+        "name": "Spectrum",
+        "passings": 923,
+        "served": 923
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 42,
+        "served": 37
+      },
+      {
+        "name": "Xfinity",
+        "passings": 20,
+        "served": 19
+      },
+      {
+        "name": "QCSTelecom Inc",
+        "passings": 12,
+        "served": 12
+      }
+    ],
+    "population_2023": 403840,
+    "population_2018": 378227,
+    "pop_growth_pct": 6.77,
+    "housing_units": 148460,
+    "housing_growth_pct": 4.28,
+    "land_area_sqmi": 812.1,
+    "pop_density": 497.3,
+    "housing_density": 182.8,
+    "median_hhi": 96497,
+    "median_rent": 1602,
+    "median_home_value": 361100,
+    "owner_occupied_pct": 68.4,
+    "wfh_pct": 11.5,
+    "mobility_pct": 1.43,
+    "demo_score": 0.355,
+    "opportunity_score": 0.343,
+    "attractiveness_index": 0.35,
+    "segment": "Most Attractive"
+  },
+  "36073": {
+    "geoid": "36073",
+    "name": "Orleans",
+    "is_nyc_borough": false,
+    "total_bsls": 17283,
+    "fiber_served": 898,
+    "fiber_unserved": 16385,
+    "fiber_penetration": 0.052,
+    "operators": [
+      {
+        "name": "Spectrum",
+        "passings": 898,
+        "served": 898
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 2,
+        "served": 1
+      }
+    ],
+    "population_2023": 39686,
+    "population_2018": 41175,
+    "pop_growth_pct": -3.62,
+    "housing_units": 18275,
+    "housing_growth_pct": -1.59,
+    "land_area_sqmi": 391.3,
+    "pop_density": 101.4,
+    "housing_density": 46.7,
+    "median_hhi": 63838,
+    "median_rent": 877,
+    "median_home_value": 126200,
+    "owner_occupied_pct": 77.4,
+    "wfh_pct": 10.7,
+    "mobility_pct": 0.62,
+    "demo_score": 0.212,
+    "opportunity_score": 0.574,
+    "attractiveness_index": 0.357,
+    "segment": "Most Attractive"
+  },
+  "36075": {
+    "geoid": "36075",
+    "name": "Oswego",
+    "is_nyc_borough": false,
+    "total_bsls": 50563,
+    "fiber_served": 12870,
+    "fiber_unserved": 37693,
+    "fiber_penetration": 0.255,
+    "operators": [
+      {
+        "name": "Windstream New York, Inc.",
+        "passings": 11401,
+        "served": 11401
+      },
+      {
+        "name": "Verizon",
+        "passings": 550,
+        "served": 550
+      },
+      {
+        "name": "Spectrum",
+        "passings": 549,
+        "served": 549
+      },
+      {
+        "name": "Frontier",
+        "passings": 485,
+        "served": 485
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 13,
+        "served": 11
+      },
+      {
+        "name": "Xfinity",
+        "passings": 1,
+        "served": 1
+      }
+    ],
+    "population_2023": 117945,
+    "population_2018": 119104,
+    "pop_growth_pct": -0.97,
+    "housing_units": 54697,
+    "housing_growth_pct": 0.53,
+    "land_area_sqmi": 951.6,
+    "pop_density": 123.9,
+    "housing_density": 57.5,
+    "median_hhi": 68461,
+    "median_rent": 943,
+    "median_home_value": 139600,
+    "owner_occupied_pct": 73.9,
+    "wfh_pct": 7.8,
+    "mobility_pct": 0.93,
+    "demo_score": 0.196,
+    "opportunity_score": 0.564,
+    "attractiveness_index": 0.343,
+    "segment": "Most Attractive"
+  },
+  "36077": {
+    "geoid": "36077",
+    "name": "Otsego",
+    "is_nyc_borough": false,
+    "total_bsls": 28976,
+    "fiber_served": 9213,
+    "fiber_unserved": 19763,
+    "fiber_penetration": 0.318,
+    "operators": [
+      {
+        "name": "OEConnect",
+        "passings": 6488,
+        "served": 6488
+      },
+      {
+        "name": "Spectrum",
+        "passings": 1855,
+        "served": 1855
+      },
+      {
+        "name": "Frontier",
+        "passings": 549,
+        "served": 549
+      },
+      {
+        "name": "Delhi Telephone Company",
+        "passings": 453,
+        "served": 453
+      },
+      {
+        "name": "Verizon",
+        "passings": 129,
+        "served": 129
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 16,
+        "served": 13
+      },
+      {
+        "name": "MIDTEL",
+        "passings": 4,
+        "served": 4
+      },
+      {
+        "name": "Windstream New York, Inc.",
+        "passings": 1,
+        "served": 1
+      }
+    ],
+    "population_2023": 59738,
+    "population_2018": 60244,
+    "pop_growth_pct": -0.84,
+    "housing_units": 30011,
+    "housing_growth_pct": -3.88,
+    "land_area_sqmi": 1001.7,
+    "pop_density": 59.6,
+    "housing_density": 30.0,
+    "median_hhi": 67086,
+    "median_rent": 942,
+    "median_home_value": 175900,
+    "owner_occupied_pct": 74.3,
+    "wfh_pct": 9.5,
+    "mobility_pct": 1.37,
+    "demo_score": 0.205,
+    "opportunity_score": 0.449,
+    "attractiveness_index": 0.303,
+    "segment": "Neutral"
+  },
+  "36079": {
+    "geoid": "36079",
+    "name": "Putnam",
+    "is_nyc_borough": false,
+    "total_bsls": 33053,
+    "fiber_served": 28978,
+    "fiber_unserved": 4075,
+    "fiber_penetration": 0.877,
+    "operators": [
+      {
+        "name": "Verizon",
+        "passings": 24507,
+        "served": 24507
+      },
+      {
+        "name": "Lightpath",
+        "passings": 8455,
+        "served": 8455
+      },
+      {
+        "name": "Optimum",
+        "passings": 4246,
+        "served": 4246
+      },
+      {
+        "name": "Xfinity",
+        "passings": 25,
+        "served": 12
+      },
+      {
+        "name": "QCSTelecom Inc",
+        "passings": 5,
+        "served": 5
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 4,
+        "served": 4
+      }
+    ],
+    "population_2023": 97988,
+    "population_2018": 99070,
+    "pop_growth_pct": -1.09,
+    "housing_units": 38369,
+    "housing_growth_pct": -0.61,
+    "land_area_sqmi": 230.3,
+    "pop_density": 425.6,
+    "housing_density": 166.6,
+    "median_hhi": 127405,
+    "median_rent": 1824,
+    "median_home_value": 448000,
+    "owner_occupied_pct": 83.0,
+    "wfh_pct": 13.7,
+    "mobility_pct": 1.31,
+    "demo_score": 0.419,
+    "opportunity_score": 0.083,
+    "attractiveness_index": 0.285,
+    "segment": "Neutral"
+  },
+  "36081": {
+    "geoid": "36081",
+    "name": "Queens",
+    "is_nyc_borough": true,
+    "total_bsls": 309822,
+    "fiber_served": 308644,
+    "fiber_unserved": 1178,
+    "fiber_penetration": 0.996,
+    "operators": [
+      {
+        "name": "Lightpath",
+        "passings": 291561,
+        "served": 291561
+      },
+      {
+        "name": "Verizon",
+        "passings": 285478,
+        "served": 285474
+      },
+      {
+        "name": "Spectrum",
+        "passings": 4080,
+        "served": 4080
+      },
+      {
+        "name": "Optimum",
+        "passings": 640,
+        "served": 640
+      },
+      {
+        "name": "Astound Broadband",
+        "passings": 348,
+        "served": 348
+      },
+      {
+        "name": "Optical Communications Group Inc",
+        "passings": 117,
+        "served": 117
+      },
+      {
+        "name": "ZAYO GROUP LLC",
+        "passings": 8,
+        "served": 4
+      },
+      {
+        "name": "Fusion",
+        "passings": 4,
+        "served": 4
+      },
+      {
+        "name": "NetFortris",
+        "passings": 2,
+        "served": 2
+      },
+      {
+        "name": "Xfinity",
+        "passings": 2,
+        "served": 2
+      }
+    ],
+    "population_2023": 2330124,
+    "population_2018": 2298513,
+    "pop_growth_pct": 1.38,
+    "housing_units": 903598,
+    "housing_growth_pct": 5.6,
+    "land_area_sqmi": 108.7,
+    "pop_density": 21431.5,
+    "housing_density": 8310.9,
+    "median_hhi": 84961,
+    "median_rent": 1915,
+    "median_home_value": 699200,
+    "owner_occupied_pct": 44.9,
+    "wfh_pct": 11.3,
+    "mobility_pct": 0.68,
+    "demo_score": 0.375,
+    "opportunity_score": 0.007,
+    "attractiveness_index": 0.228,
+    "segment": "Least Attractive"
+  },
+  "36083": {
+    "geoid": "36083",
+    "name": "Rensselaer",
+    "is_nyc_borough": false,
+    "total_bsls": 55222,
+    "fiber_served": 4795,
+    "fiber_unserved": 50427,
+    "fiber_penetration": 0.087,
+    "operators": [
+      {
+        "name": "Fidium Fiber",
+        "passings": 2705,
+        "served": 2705
+      },
+      {
+        "name": "Verizon",
+        "passings": 1370,
+        "served": 1370
+      },
+      {
+        "name": "Spectrum",
+        "passings": 676,
+        "served": 676
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 61,
+        "served": 42
+      },
+      {
+        "name": "Massivemesh Networks",
+        "passings": 13,
+        "served": 13
+      },
+      {
+        "name": "SLICFiber",
+        "passings": 10,
+        "served": 10
+      }
+    ],
+    "population_2023": 160341,
+    "population_2018": 159431,
+    "pop_growth_pct": 0.57,
+    "housing_units": 74388,
+    "housing_growth_pct": 2.11,
+    "land_area_sqmi": 652.5,
+    "pop_density": 245.7,
+    "housing_density": 114.0,
+    "median_hhi": 86663,
+    "median_rent": 1182,
+    "median_home_value": 244300,
+    "owner_occupied_pct": 64.1,
+    "wfh_pct": 12.5,
+    "mobility_pct": 2.24,
+    "demo_score": 0.288,
+    "opportunity_score": 0.71,
+    "attractiveness_index": 0.457,
+    "segment": "Most Attractive"
+  },
+  "36085": {
+    "geoid": "36085",
+    "name": "Richmond",
+    "is_nyc_borough": true,
+    "total_bsls": 116740,
+    "fiber_served": 112799,
+    "fiber_unserved": 3941,
+    "fiber_penetration": 0.966,
+    "operators": [
+      {
+        "name": "Verizon",
+        "passings": 112080,
+        "served": 112070
+      },
+      {
+        "name": "Lightpath",
+        "passings": 7684,
+        "served": 7684
+      },
+      {
+        "name": "Spectrum",
+        "passings": 742,
+        "served": 742
+      },
+      {
+        "name": "Optical Communications Group Inc",
+        "passings": 370,
+        "served": 370
+      },
+      {
+        "name": "Xfinity",
+        "passings": 2,
+        "served": 0
+      },
+      {
+        "name": "Cogent Communication",
+        "passings": 1,
+        "served": 1
+      },
+      {
+        "name": "Telefonica",
+        "passings": 1,
+        "served": 0
+      }
+    ],
+    "population_2023": 492734,
+    "population_2018": 474101,
+    "pop_growth_pct": 3.93,
+    "housing_units": 184074,
+    "housing_growth_pct": 2.34,
+    "land_area_sqmi": 57.5,
+    "pop_density": 8565.9,
+    "housing_density": 3200.0,
+    "median_hhi": 98290,
+    "median_rent": 1689,
+    "median_home_value": 658500,
+    "owner_occupied_pct": 67.9,
+    "wfh_pct": 9.5,
+    "mobility_pct": 0.47,
+    "demo_score": 0.358,
+    "opportunity_score": 0.036,
+    "attractiveness_index": 0.229,
+    "segment": "Least Attractive"
+  },
+  "36087": {
+    "geoid": "36087",
+    "name": "Rockland",
+    "is_nyc_borough": false,
+    "total_bsls": 74597,
+    "fiber_served": 74535,
+    "fiber_unserved": 62,
+    "fiber_penetration": 0.999,
+    "operators": [
+      {
+        "name": "Lightpath",
+        "passings": 73833,
+        "served": 73833
+      },
+      {
+        "name": "Verizon",
+        "passings": 70239,
+        "served": 70069
+      },
+      {
+        "name": "Optimum",
+        "passings": 59406,
+        "served": 59406
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 10,
+        "served": 10
+      },
+      {
+        "name": "ZAYO GROUP LLC",
+        "passings": 5,
+        "served": 3
+      },
+      {
+        "name": "QCSTelecom Inc",
+        "passings": 2,
+        "served": 2
+      },
+      {
+        "name": "Xfinity",
+        "passings": 2,
+        "served": 2
+      },
+      {
+        "name": "Cogent Communication",
+        "passings": 1,
+        "served": 1
+      },
+      {
+        "name": "NetFortris",
+        "passings": 1,
+        "served": 0
+      }
+    ],
+    "population_2023": 338936,
+    "population_2018": 323686,
+    "pop_growth_pct": 4.71,
+    "housing_units": 108576,
+    "housing_growth_pct": 2.52,
+    "land_area_sqmi": 173.7,
+    "pop_density": 1951.4,
+    "housing_density": 625.1,
+    "median_hhi": 110631,
+    "median_rent": 1826,
+    "median_home_value": 564200,
+    "owner_occupied_pct": 68.3,
+    "wfh_pct": 12.8,
+    "mobility_pct": 0.84,
+    "demo_score": 0.392,
+    "opportunity_score": 0.001,
+    "attractiveness_index": 0.236,
+    "segment": "Least Attractive"
+  },
+  "36089": {
+    "geoid": "36089",
+    "name": "St. Lawrence",
+    "is_nyc_borough": false,
+    "total_bsls": 48408,
+    "fiber_served": 29006,
+    "fiber_unserved": 19402,
+    "fiber_penetration": 0.599,
+    "operators": [
+      {
+        "name": "SLICFiber",
+        "passings": 19136,
+        "served": 19136
+      },
+      {
+        "name": "Verizon",
+        "passings": 2712,
+        "served": 2712
+      },
+      {
+        "name": "Nicholville Telephone Company",
+        "passings": 2368,
+        "served": 2368
+      },
+      {
+        "name": "Citizens Telephone Company of Hammond, NY",
+        "passings": 2238,
+        "served": 2232
+      },
+      {
+        "name": "TDS Telecom",
+        "passings": 2138,
+        "served": 2138
+      },
+      {
+        "name": "Spectrum",
+        "passings": 438,
+        "served": 438
+      },
+      {
+        "name": "Castle Cable TV",
+        "passings": 252,
+        "served": 252
+      },
+      {
+        "name": "Adirondack Broadband",
+        "passings": 197,
+        "served": 197
+      },
+      {
+        "name": "Frontier",
+        "passings": 27,
+        "served": 27
+      },
+      {
+        "name": "Mohawk Networks LLC",
+        "passings": 26,
+        "served": 26
+      }
+    ],
+    "population_2023": 107796,
+    "population_2018": 109558,
+    "pop_growth_pct": -1.61,
+    "housing_units": 51884,
+    "housing_growth_pct": -2.29,
+    "land_area_sqmi": 2679.5,
+    "pop_density": 40.2,
+    "housing_density": 19.4,
+    "median_hhi": 61900,
+    "median_rent": 799,
+    "median_home_value": 119800,
+    "owner_occupied_pct": 71.5,
+    "wfh_pct": 7.1,
+    "mobility_pct": 0.99,
+    "demo_score": 0.161,
+    "opportunity_score": 0.299,
+    "attractiveness_index": 0.216,
+    "segment": "Least Attractive"
+  },
+  "36091": {
+    "geoid": "36091",
+    "name": "Saratoga",
+    "is_nyc_borough": false,
+    "total_bsls": 89907,
+    "fiber_served": 20776,
+    "fiber_unserved": 69131,
+    "fiber_penetration": 0.231,
+    "operators": [
+      {
+        "name": "Verizon",
+        "passings": 7578,
+        "served": 7578
+      },
+      {
+        "name": "Greenlight Networks",
+        "passings": 5705,
+        "served": 5705
+      },
+      {
+        "name": "SLICFiber",
+        "passings": 5173,
+        "served": 5173
+      },
+      {
+        "name": "Spectrum",
+        "passings": 1641,
+        "served": 1641
+      },
+      {
+        "name": "Frontier",
+        "passings": 1274,
+        "served": 1274
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 148,
+        "served": 99
+      },
+      {
+        "name": "ZAYO GROUP LLC",
+        "passings": 1,
+        "served": 1
+      }
+    ],
+    "population_2023": 237075,
+    "population_2018": 227377,
+    "pop_growth_pct": 4.27,
+    "housing_units": 111127,
+    "housing_growth_pct": 5.94,
+    "land_area_sqmi": 810.0,
+    "pop_density": 292.7,
+    "housing_density": 137.2,
+    "median_hhi": 99653,
+    "median_rent": 1347,
+    "median_home_value": 324800,
+    "owner_occupied_pct": 72.2,
+    "wfh_pct": 15.7,
+    "mobility_pct": 1.71,
+    "demo_score": 0.429,
+    "opportunity_score": 0.719,
+    "attractiveness_index": 0.545,
+    "segment": "Most Attractive"
+  },
+  "36093": {
+    "geoid": "36093",
+    "name": "Schenectady",
+    "is_nyc_borough": false,
+    "total_bsls": 52891,
+    "fiber_served": 38154,
+    "fiber_unserved": 14737,
+    "fiber_penetration": 0.721,
+    "operators": [
+      {
+        "name": "Verizon",
+        "passings": 35379,
+        "served": 35375
+      },
+      {
+        "name": "Greenlight Networks",
+        "passings": 7252,
+        "served": 7252
+      },
+      {
+        "name": "Spectrum",
+        "passings": 750,
+        "served": 750
+      },
+      {
+        "name": "Pattersonville Telephone Company",
+        "passings": 289,
+        "served": 289
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 57,
+        "served": 38
+      },
+      {
+        "name": "Massivemesh Networks",
+        "passings": 8,
+        "served": 8
+      }
+    ],
+    "population_2023": 159603,
+    "population_2018": 154883,
+    "pop_growth_pct": 3.05,
+    "housing_units": 71051,
+    "housing_growth_pct": 2.52,
+    "land_area_sqmi": 204.7,
+    "pop_density": 779.8,
+    "housing_density": 347.2,
+    "median_hhi": 76989,
+    "median_rent": 1159,
+    "median_home_value": 223100,
+    "owner_occupied_pct": 63.8,
+    "wfh_pct": 12.3,
+    "mobility_pct": 1.43,
+    "demo_score": 0.27,
+    "opportunity_score": 0.214,
+    "attractiveness_index": 0.248,
+    "segment": "Neutral"
+  },
+  "36095": {
+    "geoid": "36095",
+    "name": "Schoharie",
+    "is_nyc_borough": false,
+    "total_bsls": 16112,
+    "fiber_served": 9680,
+    "fiber_unserved": 6432,
+    "fiber_penetration": 0.601,
+    "operators": [
+      {
+        "name": "MIDTEL",
+        "passings": 6550,
+        "served": 6550
+      },
+      {
+        "name": "MTC Cable",
+        "passings": 1928,
+        "served": 1928
+      },
+      {
+        "name": "Spectrum",
+        "passings": 1428,
+        "served": 1428
+      },
+      {
+        "name": "Verizon",
+        "passings": 534,
+        "served": 534
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 7,
+        "served": 4
+      }
+    ],
+    "population_2023": 29979,
+    "population_2018": 31364,
+    "pop_growth_pct": -4.42,
+    "housing_units": 16544,
+    "housing_growth_pct": -5.5,
+    "land_area_sqmi": 621.8,
+    "pop_density": 48.2,
+    "housing_density": 26.6,
+    "median_hhi": 71188,
+    "median_rent": 916,
+    "median_home_value": 182000,
+    "owner_occupied_pct": 77.7,
+    "wfh_pct": 10.4,
+    "mobility_pct": 1.06,
+    "demo_score": 0.231,
+    "opportunity_score": 0.239,
+    "attractiveness_index": 0.234,
+    "segment": "Least Attractive"
+  },
+  "36097": {
+    "geoid": "36097",
+    "name": "Schuyler",
+    "is_nyc_borough": false,
+    "total_bsls": 9908,
+    "fiber_served": 6607,
+    "fiber_unserved": 3301,
+    "fiber_penetration": 0.667,
+    "operators": [
+      {
+        "name": "Empire Long Distance Corporation",
+        "passings": 3713,
+        "served": 3713
+      },
+      {
+        "name": "Empire Telephone Corp.",
+        "passings": 1905,
+        "served": 1905
+      },
+      {
+        "name": "Haefele Connect",
+        "passings": 1582,
+        "served": 1582
+      },
+      {
+        "name": "GoNetspeed",
+        "passings": 831,
+        "served": 831
+      },
+      {
+        "name": "Spectrum",
+        "passings": 470,
+        "served": 470
+      },
+      {
+        "name": "Frontier",
+        "passings": 146,
+        "served": 146
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 7,
+        "served": 6
+      }
+    ],
+    "population_2023": 17749,
+    "population_2018": 17992,
+    "pop_growth_pct": -1.35,
+    "housing_units": 9691,
+    "housing_growth_pct": -0.46,
+    "land_area_sqmi": 328.3,
+    "pop_density": 54.1,
+    "housing_density": 29.5,
+    "median_hhi": 65625,
+    "median_rent": 858,
+    "median_home_value": 163300,
+    "owner_occupied_pct": 78.1,
+    "wfh_pct": 7.5,
+    "mobility_pct": 1.09,
+    "demo_score": 0.192,
+    "opportunity_score": 0.19,
+    "attractiveness_index": 0.192,
+    "segment": "Least Attractive"
+  },
+  "36099": {
+    "geoid": "36099",
+    "name": "Seneca",
+    "is_nyc_borough": false,
+    "total_bsls": 14994,
+    "fiber_served": 10123,
+    "fiber_unserved": 4871,
+    "fiber_penetration": 0.675,
+    "operators": [
+      {
+        "name": "GoNetspeed",
+        "passings": 4676,
+        "served": 4676
+      },
+      {
+        "name": "GoNetspeed",
+        "passings": 3544,
+        "served": 3544
+      },
+      {
+        "name": "Spectrum",
+        "passings": 2415,
+        "served": 2415
+      },
+      {
+        "name": "Empire Telephone Corp.",
+        "passings": 875,
+        "served": 875
+      },
+      {
+        "name": "Empire Long Distance Corporation",
+        "passings": 77,
+        "served": 77
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 28,
+        "served": 14
+      },
+      {
+        "name": "TDS Telecom",
+        "passings": 26,
+        "served": 26
+      }
+    ],
+    "population_2023": 33125,
+    "population_2018": 34612,
+    "pop_growth_pct": -4.3,
+    "housing_units": 16148,
+    "housing_growth_pct": -1.15,
+    "land_area_sqmi": 323.7,
+    "pop_density": 102.3,
+    "housing_density": 49.9,
+    "median_hhi": 66007,
+    "median_rent": 925,
+    "median_home_value": 142700,
+    "owner_occupied_pct": 72.0,
+    "wfh_pct": 7.9,
+    "mobility_pct": 1.09,
+    "demo_score": 0.18,
+    "opportunity_score": 0.193,
+    "attractiveness_index": 0.186,
+    "segment": "Least Attractive"
+  },
+  "36101": {
+    "geoid": "36101",
+    "name": "Steuben",
+    "is_nyc_borough": false,
+    "total_bsls": 44640,
+    "fiber_served": 27942,
+    "fiber_unserved": 16698,
+    "fiber_penetration": 0.626,
+    "operators": [
+      {
+        "name": "Empire Long Distance Corporation",
+        "passings": 15972,
+        "served": 15972
+      },
+      {
+        "name": "Armstrong Telecommunications Inc",
+        "passings": 3857,
+        "served": 3857
+      },
+      {
+        "name": "Armstrong Telephone Company",
+        "passings": 3331,
+        "served": 3331
+      },
+      {
+        "name": "Empire Telephone Corp.",
+        "passings": 2780,
+        "served": 2780
+      },
+      {
+        "name": "Spectrum",
+        "passings": 2375,
+        "served": 2375
+      },
+      {
+        "name": "Haefele Connect",
+        "passings": 308,
+        "served": 308
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 29,
+        "served": 23
+      },
+      {
+        "name": "Frontier",
+        "passings": 19,
+        "served": 19
+      }
+    ],
+    "population_2023": 93034,
+    "population_2018": 96927,
+    "pop_growth_pct": -4.02,
+    "housing_units": 47565,
+    "housing_growth_pct": -3.84,
+    "land_area_sqmi": 1390.5,
+    "pop_density": 66.9,
+    "housing_density": 34.2,
+    "median_hhi": 64740,
+    "median_rent": 878,
+    "median_home_value": 128600,
+    "owner_occupied_pct": 73.5,
+    "wfh_pct": 7.9,
+    "mobility_pct": 1.55,
+    "demo_score": 0.18,
+    "opportunity_score": 0.273,
+    "attractiveness_index": 0.217,
+    "segment": "Least Attractive"
+  },
+  "36103": {
+    "geoid": "36103",
+    "name": "Suffolk",
+    "is_nyc_borough": false,
+    "total_bsls": 491863,
+    "fiber_served": 488973,
+    "fiber_unserved": 2890,
+    "fiber_penetration": 0.994,
+    "operators": [
+      {
+        "name": "Lightpath",
+        "passings": 475786,
+        "served": 475786
+      },
+      {
+        "name": "Optimum",
+        "passings": 407555,
+        "served": 407555
+      },
+      {
+        "name": "Verizon",
+        "passings": 294518,
+        "served": 294513
+      },
+      {
+        "name": "Fishers Island Telephone Corp",
+        "passings": 296,
+        "served": 296
+      },
+      {
+        "name": "Optical Communications Group Inc",
+        "passings": 231,
+        "served": 231
+      },
+      {
+        "name": "Frontier",
+        "passings": 24,
+        "served": 24
+      },
+      {
+        "name": "ZAYO GROUP LLC",
+        "passings": 15,
+        "served": 0
+      },
+      {
+        "name": "Xfinity",
+        "passings": 3,
+        "served": 2
+      },
+      {
+        "name": "Astound Broadband",
+        "passings": 2,
+        "served": 2
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 2,
+        "served": 2
+      }
+    ],
+    "population_2023": 1525680,
+    "population_2018": 1487901,
+    "pop_growth_pct": 2.54,
+    "housing_units": 579790,
+    "housing_growth_pct": 0.8,
+    "land_area_sqmi": 910.9,
+    "pop_density": 1674.9,
+    "housing_density": 636.5,
+    "median_hhi": 128329,
+    "median_rent": 2190,
+    "median_home_value": 539500,
+    "owner_occupied_pct": 81.9,
+    "wfh_pct": 10.7,
+    "mobility_pct": 0.73,
+    "demo_score": 0.415,
+    "opportunity_score": 0.016,
+    "attractiveness_index": 0.256,
+    "segment": "Neutral"
+  },
+  "36105": {
+    "geoid": "36105",
+    "name": "Sullivan",
+    "is_nyc_borough": false,
+    "total_bsls": 47663,
+    "fiber_served": 3077,
+    "fiber_unserved": 44586,
+    "fiber_penetration": 0.065,
+    "operators": [
+      {
+        "name": "Frontier",
+        "passings": 2370,
+        "served": 2370
+      },
+      {
+        "name": "Spectrum",
+        "passings": 658,
+        "served": 658
+      },
+      {
+        "name": "MTC Cable",
+        "passings": 57,
+        "served": 57
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 14,
+        "served": 10
+      }
+    ],
+    "population_2023": 79147,
+    "population_2018": 75211,
+    "pop_growth_pct": 5.23,
+    "housing_units": 49667,
+    "housing_growth_pct": -1.57,
+    "land_area_sqmi": 968.1,
+    "pop_density": 81.8,
+    "housing_density": 51.3,
+    "median_hhi": 69826,
+    "median_rent": 999,
+    "median_home_value": 234800,
+    "owner_occupied_pct": 69.3,
+    "wfh_pct": 11.8,
+    "mobility_pct": 0.79,
+    "demo_score": 0.226,
+    "opportunity_score": 0.695,
+    "attractiveness_index": 0.413,
+    "segment": "Most Attractive"
+  },
+  "36107": {
+    "geoid": "36107",
+    "name": "Tioga",
+    "is_nyc_borough": false,
+    "total_bsls": 21270,
+    "fiber_served": 10241,
+    "fiber_unserved": 11029,
+    "fiber_penetration": 0.481,
+    "operators": [
+      {
+        "name": "Haefele Connect",
+        "passings": 4696,
+        "served": 4696
+      },
+      {
+        "name": "Empire Long Distance Corporation",
+        "passings": 3398,
+        "served": 3398
+      },
+      {
+        "name": "Greenlight Networks",
+        "passings": 1443,
+        "served": 1443
+      },
+      {
+        "name": "Fiberspark Inc",
+        "passings": 960,
+        "served": 960
+      },
+      {
+        "name": "Spectrum",
+        "passings": 259,
+        "served": 259
+      },
+      {
+        "name": "Frontier",
+        "passings": 135,
+        "served": 135
+      },
+      {
+        "name": "Point Broadband Fiber Holding LLC",
+        "passings": 93,
+        "served": 93
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 16,
+        "served": 11
+      }
+    ],
+    "population_2023": 48106,
+    "population_2018": 49045,
+    "pop_growth_pct": -1.91,
+    "housing_units": 21966,
+    "housing_growth_pct": -2.31,
+    "land_area_sqmi": 518.8,
+    "pop_density": 92.7,
+    "housing_density": 42.3,
+    "median_hhi": 71791,
+    "median_rent": 914,
+    "median_home_value": 153200,
+    "owner_occupied_pct": 78.2,
+    "wfh_pct": 9.1,
+    "mobility_pct": 1.82,
+    "demo_score": 0.219,
+    "opportunity_score": 0.324,
+    "attractiveness_index": 0.261,
+    "segment": "Neutral"
+  },
+  "36109": {
+    "geoid": "36109",
+    "name": "Tompkins",
+    "is_nyc_borough": false,
+    "total_bsls": 30952,
+    "fiber_served": 11128,
+    "fiber_unserved": 19824,
+    "fiber_penetration": 0.36,
+    "operators": [
+      {
+        "name": "Point Broadband Fiber Holding LLC",
+        "passings": 2672,
+        "served": 2672
+      },
+      {
+        "name": "GoNetspeed",
+        "passings": 1854,
+        "served": 1854
+      },
+      {
+        "name": "Dryden Fiber",
+        "passings": 1786,
+        "served": 1786
+      },
+      {
+        "name": "Haefele Connect",
+        "passings": 1736,
+        "served": 1736
+      },
+      {
+        "name": "Verizon",
+        "passings": 1659,
+        "served": 1659
+      },
+      {
+        "name": "Empire Long Distance Corporation",
+        "passings": 1470,
+        "served": 1470
+      },
+      {
+        "name": "Fiberspark Inc",
+        "passings": 1217,
+        "served": 1217
+      },
+      {
+        "name": "Spectrum",
+        "passings": 910,
+        "served": 910
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 121,
+        "served": 66
+      },
+      {
+        "name": "Empire Telephone Corp.",
+        "passings": 28,
+        "served": 28
+      }
+    ],
+    "population_2023": 102879,
+    "population_2018": 102962,
+    "pop_growth_pct": -0.08,
+    "housing_units": 47362,
+    "housing_growth_pct": 10.02,
+    "land_area_sqmi": 474.6,
+    "pop_density": 216.7,
+    "housing_density": 99.8,
+    "median_hhi": 73012,
+    "median_rent": 1374,
+    "median_home_value": 271500,
+    "owner_occupied_pct": 53.8,
+    "wfh_pct": 19.0,
+    "mobility_pct": 9.39,
+    "demo_score": 0.413,
+    "opportunity_score": 0.427,
+    "attractiveness_index": 0.419,
+    "segment": "Most Attractive"
+  },
+  "36111": {
+    "geoid": "36111",
+    "name": "Ulster",
+    "is_nyc_borough": false,
+    "total_bsls": 73517,
+    "fiber_served": 18563,
+    "fiber_unserved": 54954,
+    "fiber_penetration": 0.252,
+    "operators": [
+      {
+        "name": "Archtop Fiber",
+        "passings": 12658,
+        "served": 12658
+      },
+      {
+        "name": "Planet Networks",
+        "passings": 6748,
+        "served": 6748
+      },
+      {
+        "name": "Verizon",
+        "passings": 949,
+        "served": 949
+      },
+      {
+        "name": "MTC Cable",
+        "passings": 879,
+        "served": 879
+      },
+      {
+        "name": "Spectrum",
+        "passings": 751,
+        "served": 751
+      },
+      {
+        "name": "Margaretville Telephone Co",
+        "passings": 207,
+        "served": 207
+      },
+      {
+        "name": "Optimum",
+        "passings": 36,
+        "served": 36
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 26,
+        "served": 24
+      },
+      {
+        "name": "Mid-Hudson Cablevision",
+        "passings": 23,
+        "served": 23
+      },
+      {
+        "name": "Frontier",
+        "passings": 14,
+        "served": 14
+      }
+    ],
+    "population_2023": 182109,
+    "population_2018": 179303,
+    "pop_growth_pct": 1.56,
+    "housing_units": 86178,
+    "housing_growth_pct": 1.54,
+    "land_area_sqmi": 1124.2,
+    "pop_density": 162.0,
+    "housing_density": 76.7,
+    "median_hhi": 81804,
+    "median_rent": 1335,
+    "median_home_value": 315100,
+    "owner_occupied_pct": 70.0,
+    "wfh_pct": 15.4,
+    "mobility_pct": 1.46,
+    "demo_score": 0.315,
+    "opportunity_score": 0.643,
+    "attractiveness_index": 0.447,
+    "segment": "Most Attractive"
+  },
+  "36113": {
+    "geoid": "36113",
+    "name": "Warren",
+    "is_nyc_borough": false,
+    "total_bsls": 34235,
+    "fiber_served": 6275,
+    "fiber_unserved": 27960,
+    "fiber_penetration": 0.183,
+    "operators": [
+      {
+        "name": "SLICFiber",
+        "passings": 4761,
+        "served": 4761
+      },
+      {
+        "name": "Frontier",
+        "passings": 1616,
+        "served": 1616
+      },
+      {
+        "name": "Spectrum",
+        "passings": 929,
+        "served": 929
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 98,
+        "served": 47
+      },
+      {
+        "name": "Xfinity",
+        "passings": 2,
+        "served": 2
+      }
+    ],
+    "population_2023": 65560,
+    "population_2018": 64480,
+    "pop_growth_pct": 1.67,
+    "housing_units": 40177,
+    "housing_growth_pct": 1.05,
+    "land_area_sqmi": 867.2,
+    "pop_density": 75.6,
+    "housing_density": 46.3,
+    "median_hhi": 78239,
+    "median_rent": 1089,
+    "median_home_value": 247600,
+    "owner_occupied_pct": 71.5,
+    "wfh_pct": 8.5,
+    "mobility_pct": 1.08,
+    "demo_score": 0.236,
+    "opportunity_score": 0.557,
+    "attractiveness_index": 0.365,
+    "segment": "Most Attractive"
+  },
+  "36115": {
+    "geoid": "36115",
+    "name": "Washington",
+    "is_nyc_borough": false,
+    "total_bsls": 27400,
+    "fiber_served": 8301,
+    "fiber_unserved": 19099,
+    "fiber_penetration": 0.303,
+    "operators": [
+      {
+        "name": "SLICFiber",
+        "passings": 5461,
+        "served": 5461
+      },
+      {
+        "name": "Spectrum",
+        "passings": 1797,
+        "served": 1797
+      },
+      {
+        "name": "Verizon",
+        "passings": 1509,
+        "served": 1509
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 58,
+        "served": 15
+      },
+      {
+        "name": "TDS Telecom",
+        "passings": 5,
+        "served": 5
+      }
+    ],
+    "population_2023": 60883,
+    "population_2018": 61828,
+    "pop_growth_pct": -1.53,
+    "housing_units": 29111,
+    "housing_growth_pct": -1.19,
+    "land_area_sqmi": 831.2,
+    "pop_density": 73.2,
+    "housing_density": 35.0,
+    "median_hhi": 72342,
+    "median_rent": 1000,
+    "median_home_value": 185000,
+    "owner_occupied_pct": 76.6,
+    "wfh_pct": 8.0,
+    "mobility_pct": 0.52,
+    "demo_score": 0.21,
+    "opportunity_score": 0.454,
+    "attractiveness_index": 0.307,
+    "segment": "Neutral"
+  },
+  "36117": {
+    "geoid": "36117",
+    "name": "Wayne",
+    "is_nyc_borough": false,
+    "total_bsls": 39053,
+    "fiber_served": 9535,
+    "fiber_unserved": 29518,
+    "fiber_penetration": 0.244,
+    "operators": [
+      {
+        "name": "GoNetspeed",
+        "passings": 4981,
+        "served": 4981
+      },
+      {
+        "name": "Spectrum",
+        "passings": 4304,
+        "served": 4304
+      },
+      {
+        "name": "Empire Long Distance Corporation",
+        "passings": 427,
+        "served": 427
+      },
+      {
+        "name": "TDS Telecom",
+        "passings": 212,
+        "served": 212
+      },
+      {
+        "name": "Frontier",
+        "passings": 106,
+        "served": 106
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 44,
+        "served": 31
+      },
+      {
+        "name": "GoNetspeed",
+        "passings": 1,
+        "served": 1
+      }
+    ],
+    "population_2023": 91128,
+    "population_2018": 90856,
+    "pop_growth_pct": 0.3,
+    "housing_units": 42375,
+    "housing_growth_pct": 1.77,
+    "land_area_sqmi": 603.8,
+    "pop_density": 150.9,
+    "housing_density": 70.2,
+    "median_hhi": 73914,
+    "median_rent": 929,
+    "median_home_value": 163400,
+    "owner_occupied_pct": 79.9,
+    "wfh_pct": 8.8,
+    "mobility_pct": 0.57,
+    "demo_score": 0.252,
+    "opportunity_score": 0.532,
+    "attractiveness_index": 0.364,
+    "segment": "Most Attractive"
+  },
+  "36119": {
+    "geoid": "36119",
+    "name": "Westchester",
+    "is_nyc_borough": false,
+    "total_bsls": 206946,
+    "fiber_served": 206305,
+    "fiber_unserved": 641,
+    "fiber_penetration": 0.997,
+    "operators": [
+      {
+        "name": "Lightpath",
+        "passings": 205429,
+        "served": 205429
+      },
+      {
+        "name": "Verizon",
+        "passings": 180706,
+        "served": 180676
+      },
+      {
+        "name": "Optimum",
+        "passings": 146680,
+        "served": 146680
+      },
+      {
+        "name": "Spectrum",
+        "passings": 96,
+        "served": 96
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 37,
+        "served": 29
+      },
+      {
+        "name": "ZAYO GROUP LLC",
+        "passings": 17,
+        "served": 11
+      },
+      {
+        "name": "Cogent Communication",
+        "passings": 11,
+        "served": 11
+      },
+      {
+        "name": "Frontier",
+        "passings": 3,
+        "served": 3
+      },
+      {
+        "name": "Fusion",
+        "passings": 2,
+        "served": 2
+      }
+    ],
+    "population_2023": 996888,
+    "population_2018": 968815,
+    "pop_growth_pct": 2.9,
+    "housing_units": 391861,
+    "housing_growth_pct": 4.79,
+    "land_area_sqmi": 430.8,
+    "pop_density": 2313.9,
+    "housing_density": 909.6,
+    "median_hhi": 118411,
+    "median_rent": 1876,
+    "median_home_value": 638400,
+    "owner_occupied_pct": 62.2,
+    "wfh_pct": 17.3,
+    "mobility_pct": 1.21,
+    "demo_score": 0.477,
+    "opportunity_score": 0.004,
+    "attractiveness_index": 0.288,
+    "segment": "Neutral"
+  },
+  "36121": {
+    "geoid": "36121",
+    "name": "Wyoming",
+    "is_nyc_borough": false,
+    "total_bsls": 18086,
+    "fiber_served": 6477,
+    "fiber_unserved": 11609,
+    "fiber_penetration": 0.358,
+    "operators": [
+      {
+        "name": "Empire Long Distance Corporation",
+        "passings": 3106,
+        "served": 3106
+      },
+      {
+        "name": "Spectrum",
+        "passings": 2608,
+        "served": 2608
+      },
+      {
+        "name": "Armstrong Telecommunications Inc",
+        "passings": 741,
+        "served": 741
+      },
+      {
+        "name": "Frontier",
+        "passings": 322,
+        "served": 322
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 5,
+        "served": 2
+      }
+    ],
+    "population_2023": 39980,
+    "population_2018": 40565,
+    "pop_growth_pct": -1.44,
+    "housing_units": 18204,
+    "housing_growth_pct": 0.26,
+    "land_area_sqmi": 592.7,
+    "pop_density": 67.5,
+    "housing_density": 30.7,
+    "median_hhi": 68913,
+    "median_rent": 782,
+    "median_home_value": 154700,
+    "owner_occupied_pct": 77.0,
+    "wfh_pct": 6.1,
+    "mobility_pct": 0.57,
+    "demo_score": 0.187,
+    "opportunity_score": 0.391,
+    "attractiveness_index": 0.269,
+    "segment": "Neutral"
+  },
+  "36123": {
+    "geoid": "36123",
+    "name": "Yates",
+    "is_nyc_borough": false,
+    "total_bsls": 13041,
+    "fiber_served": 6340,
+    "fiber_unserved": 6701,
+    "fiber_penetration": 0.486,
+    "operators": [
+      {
+        "name": "Empire Long Distance Corporation",
+        "passings": 2867,
+        "served": 2867
+      },
+      {
+        "name": "Spectrum",
+        "passings": 2832,
+        "served": 2832
+      },
+      {
+        "name": "Frontier",
+        "passings": 610,
+        "served": 610
+      },
+      {
+        "name": "Empire Telephone Corp.",
+        "passings": 267,
+        "served": 267
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 1,
+        "served": 0
+      }
+    ],
+    "population_2023": 24637,
+    "population_2018": 25009,
+    "pop_growth_pct": -1.49,
+    "housing_units": 13143,
+    "housing_growth_pct": -4.73,
+    "land_area_sqmi": 338.1,
+    "pop_density": 72.9,
+    "housing_density": 38.9,
+    "median_hhi": 67521,
+    "median_rent": 802,
+    "median_home_value": 178000,
+    "owner_occupied_pct": 77.2,
+    "wfh_pct": 13.5,
+    "mobility_pct": 0.35,
+    "demo_score": 0.249,
+    "opportunity_score": 0.301,
+    "attractiveness_index": 0.27,
+    "segment": "Neutral"
+  }
+}

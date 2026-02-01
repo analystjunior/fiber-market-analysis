@@ -1,0 +1,627 @@
+{
+  "AL": {
+    "state": "Alabama",
+    "totalHousingUnits": 2265000,
+    "totalFiberPassings": 1150000,
+    "fiberPenetration": 50.8,
+    "operators": [
+      {"name": "AT&T", "passings": 650000},
+      {"name": "Brightspeed", "passings": 180000},
+      {"name": "C Spire", "passings": 120000},
+      {"name": "WOW!", "passings": 95000},
+      {"name": "Other", "passings": 105000}
+    ]
+  },
+  "AK": {
+    "state": "Alaska",
+    "totalHousingUnits": 315000,
+    "totalFiberPassings": 95000,
+    "fiberPenetration": 30.2,
+    "operators": [
+      {"name": "GCI", "passings": 65000},
+      {"name": "ACS", "passings": 20000},
+      {"name": "Other", "passings": 10000}
+    ]
+  },
+  "AZ": {
+    "state": "Arizona",
+    "totalHousingUnits": 3150000,
+    "totalFiberPassings": 2050000,
+    "fiberPenetration": 65.1,
+    "operators": [
+      {"name": "Cox", "passings": 850000},
+      {"name": "CenturyLink/Lumen", "passings": 420000},
+      {"name": "Frontier", "passings": 380000},
+      {"name": "Ziply Fiber", "passings": 200000},
+      {"name": "Other", "passings": 200000}
+    ]
+  },
+  "AR": {
+    "state": "Arkansas",
+    "totalHousingUnits": 1380000,
+    "totalFiberPassings": 580000,
+    "fiberPenetration": 42.0,
+    "operators": [
+      {"name": "AT&T", "passings": 280000},
+      {"name": "Windstream", "passings": 150000},
+      {"name": "Ritter Communications", "passings": 85000},
+      {"name": "Other", "passings": 65000}
+    ]
+  },
+  "CA": {
+    "state": "California",
+    "totalHousingUnits": 14500000,
+    "totalFiberPassings": 8700000,
+    "fiberPenetration": 60.0,
+    "operators": [
+      {"name": "AT&T", "passings": 4200000},
+      {"name": "Frontier", "passings": 1800000},
+      {"name": "Sonic", "passings": 650000},
+      {"name": "Google Fiber", "passings": 450000},
+      {"name": "Consolidated Comm.", "passings": 380000},
+      {"name": "Other", "passings": 1220000}
+    ]
+  },
+  "CO": {
+    "state": "Colorado",
+    "totalHousingUnits": 2500000,
+    "totalFiberPassings": 1625000,
+    "fiberPenetration": 65.0,
+    "operators": [
+      {"name": "CenturyLink/Lumen", "passings": 650000},
+      {"name": "Ting Fiber", "passings": 180000},
+      {"name": "Comcast", "passings": 350000},
+      {"name": "Xtream (Mediacom)", "passings": 145000},
+      {"name": "Other", "passings": 300000}
+    ]
+  },
+  "CT": {
+    "state": "Connecticut",
+    "totalHousingUnits": 1520000,
+    "totalFiberPassings": 1050000,
+    "fiberPenetration": 69.1,
+    "operators": [
+      {"name": "Frontier", "passings": 580000},
+      {"name": "Optimum/Altice", "passings": 320000},
+      {"name": "GoNetspeed", "passings": 95000},
+      {"name": "Other", "passings": 55000}
+    ]
+  },
+  "DE": {
+    "state": "Delaware",
+    "totalHousingUnits": 450000,
+    "totalFiberPassings": 290000,
+    "fiberPenetration": 64.4,
+    "operators": [
+      {"name": "Verizon Fios", "passings": 195000},
+      {"name": "Comcast", "passings": 65000},
+      {"name": "Other", "passings": 30000}
+    ]
+  },
+  "FL": {
+    "state": "Florida",
+    "totalHousingUnits": 10200000,
+    "totalFiberPassings": 7140000,
+    "fiberPenetration": 70.0,
+    "operators": [
+      {"name": "AT&T", "passings": 3200000},
+      {"name": "Frontier", "passings": 1800000},
+      {"name": "CenturyLink/Lumen", "passings": 850000},
+      {"name": "Breezeline", "passings": 420000},
+      {"name": "Hotwire", "passings": 380000},
+      {"name": "Other", "passings": 490000}
+    ]
+  },
+  "GA": {
+    "state": "Georgia",
+    "totalHousingUnits": 4500000,
+    "totalFiberPassings": 2700000,
+    "fiberPenetration": 60.0,
+    "operators": [
+      {"name": "AT&T", "passings": 1650000},
+      {"name": "Google Fiber", "passings": 420000},
+      {"name": "Windstream", "passings": 280000},
+      {"name": "EMC", "passings": 180000},
+      {"name": "Other", "passings": 170000}
+    ]
+  },
+  "HI": {
+    "state": "Hawaii",
+    "totalHousingUnits": 540000,
+    "totalFiberPassings": 320000,
+    "fiberPenetration": 59.3,
+    "operators": [
+      {"name": "Hawaiian Telcom", "passings": 245000},
+      {"name": "Spectrum", "passings": 55000},
+      {"name": "Other", "passings": 20000}
+    ]
+  },
+  "ID": {
+    "state": "Idaho",
+    "totalHousingUnits": 780000,
+    "totalFiberPassings": 390000,
+    "fiberPenetration": 50.0,
+    "operators": [
+      {"name": "CenturyLink/Lumen", "passings": 165000},
+      {"name": "Sparklight", "passings": 95000},
+      {"name": "Ziply Fiber", "passings": 75000},
+      {"name": "Other", "passings": 55000}
+    ]
+  },
+  "IL": {
+    "state": "Illinois",
+    "totalHousingUnits": 5400000,
+    "totalFiberPassings": 3240000,
+    "fiberPenetration": 60.0,
+    "operators": [
+      {"name": "AT&T", "passings": 1850000},
+      {"name": "Frontier", "passings": 520000},
+      {"name": "Comcast", "passings": 480000},
+      {"name": "Consolidated Comm.", "passings": 220000},
+      {"name": "Other", "passings": 170000}
+    ]
+  },
+  "IN": {
+    "state": "Indiana",
+    "totalHousingUnits": 2900000,
+    "totalFiberPassings": 1595000,
+    "fiberPenetration": 55.0,
+    "operators": [
+      {"name": "AT&T", "passings": 820000},
+      {"name": "Frontier", "passings": 380000},
+      {"name": "Metronet", "passings": 195000},
+      {"name": "Brightspeed", "passings": 120000},
+      {"name": "Other", "passings": 80000}
+    ]
+  },
+  "IA": {
+    "state": "Iowa",
+    "totalHousingUnits": 1400000,
+    "totalFiberPassings": 770000,
+    "fiberPenetration": 55.0,
+    "operators": [
+      {"name": "CenturyLink/Lumen", "passings": 320000},
+      {"name": "Mediacom", "passings": 185000},
+      {"name": "Windstream", "passings": 145000},
+      {"name": "Other", "passings": 120000}
+    ]
+  },
+  "KS": {
+    "state": "Kansas",
+    "totalHousingUnits": 1280000,
+    "totalFiberPassings": 768000,
+    "fiberPenetration": 60.0,
+    "operators": [
+      {"name": "AT&T", "passings": 320000},
+      {"name": "Google Fiber", "passings": 185000},
+      {"name": "Cox", "passings": 145000},
+      {"name": "Other", "passings": 118000}
+    ]
+  },
+  "KY": {
+    "state": "Kentucky",
+    "totalHousingUnits": 2000000,
+    "totalFiberPassings": 1000000,
+    "fiberPenetration": 50.0,
+    "operators": [
+      {"name": "AT&T", "passings": 480000},
+      {"name": "Windstream", "passings": 220000},
+      {"name": "Spectrum", "passings": 165000},
+      {"name": "Other", "passings": 135000}
+    ]
+  },
+  "LA": {
+    "state": "Louisiana",
+    "totalHousingUnits": 2050000,
+    "totalFiberPassings": 1230000,
+    "fiberPenetration": 60.0,
+    "operators": [
+      {"name": "AT&T", "passings": 680000},
+      {"name": "LUS Fiber", "passings": 95000},
+      {"name": "Cox", "passings": 245000},
+      {"name": "Eatel", "passings": 85000},
+      {"name": "Other", "passings": 125000}
+    ]
+  },
+  "ME": {
+    "state": "Maine",
+    "totalHousingUnits": 740000,
+    "totalFiberPassings": 340000,
+    "fiberPenetration": 45.9,
+    "operators": [
+      {"name": "Consolidated Comm.", "passings": 185000},
+      {"name": "Spectrum", "passings": 95000},
+      {"name": "GWI", "passings": 35000},
+      {"name": "Other", "passings": 25000}
+    ]
+  },
+  "MD": {
+    "state": "Maryland",
+    "totalHousingUnits": 2500000,
+    "totalFiberPassings": 1825000,
+    "fiberPenetration": 73.0,
+    "operators": [
+      {"name": "Verizon Fios", "passings": 1350000},
+      {"name": "Comcast", "passings": 285000},
+      {"name": "Breezeline", "passings": 120000},
+      {"name": "Other", "passings": 70000}
+    ]
+  },
+  "MA": {
+    "state": "Massachusetts",
+    "totalHousingUnits": 2950000,
+    "totalFiberPassings": 2065000,
+    "fiberPenetration": 70.0,
+    "operators": [
+      {"name": "Verizon Fios", "passings": 1420000},
+      {"name": "Comcast", "passings": 380000},
+      {"name": "Consolidated Comm.", "passings": 165000},
+      {"name": "Other", "passings": 100000}
+    ]
+  },
+  "MI": {
+    "state": "Michigan",
+    "totalHousingUnits": 4650000,
+    "totalFiberPassings": 2325000,
+    "fiberPenetration": 50.0,
+    "operators": [
+      {"name": "AT&T", "passings": 1150000},
+      {"name": "Frontier", "passings": 520000},
+      {"name": "Comcast", "passings": 385000},
+      {"name": "WOW!", "passings": 170000},
+      {"name": "Other", "passings": 100000}
+    ]
+  },
+  "MN": {
+    "state": "Minnesota",
+    "totalHousingUnits": 2500000,
+    "totalFiberPassings": 1500000,
+    "fiberPenetration": 60.0,
+    "operators": [
+      {"name": "CenturyLink/Lumen", "passings": 620000},
+      {"name": "Frontier", "passings": 380000},
+      {"name": "Comcast", "passings": 285000},
+      {"name": "US Internet", "passings": 115000},
+      {"name": "Other", "passings": 100000}
+    ]
+  },
+  "MS": {
+    "state": "Mississippi",
+    "totalHousingUnits": 1300000,
+    "totalFiberPassings": 520000,
+    "fiberPenetration": 40.0,
+    "operators": [
+      {"name": "AT&T", "passings": 265000},
+      {"name": "C Spire", "passings": 145000},
+      {"name": "Windstream", "passings": 65000},
+      {"name": "Other", "passings": 45000}
+    ]
+  },
+  "MO": {
+    "state": "Missouri",
+    "totalHousingUnits": 2800000,
+    "totalFiberPassings": 1540000,
+    "fiberPenetration": 55.0,
+    "operators": [
+      {"name": "AT&T", "passings": 720000},
+      {"name": "Google Fiber", "passings": 285000},
+      {"name": "CenturyLink/Lumen", "passings": 280000},
+      {"name": "Mediacom", "passings": 155000},
+      {"name": "Other", "passings": 100000}
+    ]
+  },
+  "MT": {
+    "state": "Montana",
+    "totalHousingUnits": 520000,
+    "totalFiberPassings": 156000,
+    "fiberPenetration": 30.0,
+    "operators": [
+      {"name": "CenturyLink/Lumen", "passings": 85000},
+      {"name": "Spectrum", "passings": 45000},
+      {"name": "Other", "passings": 26000}
+    ]
+  },
+  "NE": {
+    "state": "Nebraska",
+    "totalHousingUnits": 850000,
+    "totalFiberPassings": 510000,
+    "fiberPenetration": 60.0,
+    "operators": [
+      {"name": "CenturyLink/Lumen", "passings": 245000},
+      {"name": "ALLO Communications", "passings": 125000},
+      {"name": "Cox", "passings": 85000},
+      {"name": "Other", "passings": 55000}
+    ]
+  },
+  "NV": {
+    "state": "Nevada",
+    "totalHousingUnits": 1350000,
+    "totalFiberPassings": 945000,
+    "fiberPenetration": 70.0,
+    "operators": [
+      {"name": "Cox", "passings": 520000},
+      {"name": "CenturyLink/Lumen", "passings": 285000},
+      {"name": "Frontier", "passings": 85000},
+      {"name": "Other", "passings": 55000}
+    ]
+  },
+  "NH": {
+    "state": "New Hampshire",
+    "totalHousingUnits": 640000,
+    "totalFiberPassings": 352000,
+    "fiberPenetration": 55.0,
+    "operators": [
+      {"name": "Consolidated Comm.", "passings": 195000},
+      {"name": "Comcast", "passings": 95000},
+      {"name": "Other", "passings": 62000}
+    ]
+  },
+  "NJ": {
+    "state": "New Jersey",
+    "totalHousingUnits": 3750000,
+    "totalFiberPassings": 2925000,
+    "fiberPenetration": 78.0,
+    "operators": [
+      {"name": "Verizon Fios", "passings": 2350000},
+      {"name": "Optimum/Altice", "passings": 385000},
+      {"name": "Comcast", "passings": 120000},
+      {"name": "Other", "passings": 70000}
+    ]
+  },
+  "NM": {
+    "state": "New Mexico",
+    "totalHousingUnits": 940000,
+    "totalFiberPassings": 423000,
+    "fiberPenetration": 45.0,
+    "operators": [
+      {"name": "CenturyLink/Lumen", "passings": 185000},
+      {"name": "TDS Telecom", "passings": 95000},
+      {"name": "Comcast", "passings": 85000},
+      {"name": "Other", "passings": 58000}
+    ]
+  },
+  "NY": {
+    "state": "New York",
+    "totalHousingUnits": 8350000,
+    "totalFiberPassings": 5845000,
+    "fiberPenetration": 70.0,
+    "operators": [
+      {"name": "Verizon Fios", "passings": 3250000},
+      {"name": "Optimum/Altice", "passings": 1450000},
+      {"name": "Frontier", "passings": 620000},
+      {"name": "Spectrum", "passings": 325000},
+      {"name": "Other", "passings": 200000}
+    ]
+  },
+  "NC": {
+    "state": "North Carolina",
+    "totalHousingUnits": 4800000,
+    "totalFiberPassings": 2880000,
+    "fiberPenetration": 60.0,
+    "operators": [
+      {"name": "AT&T", "passings": 1350000},
+      {"name": "Google Fiber", "passings": 520000},
+      {"name": "Brightspeed", "passings": 480000},
+      {"name": "Spectrum", "passings": 320000},
+      {"name": "Other", "passings": 210000}
+    ]
+  },
+  "ND": {
+    "state": "North Dakota",
+    "totalHousingUnits": 370000,
+    "totalFiberPassings": 185000,
+    "fiberPenetration": 50.0,
+    "operators": [
+      {"name": "Midco", "passings": 95000},
+      {"name": "CenturyLink/Lumen", "passings": 55000},
+      {"name": "Other", "passings": 35000}
+    ]
+  },
+  "OH": {
+    "state": "Ohio",
+    "totalHousingUnits": 5200000,
+    "totalFiberPassings": 2860000,
+    "fiberPenetration": 55.0,
+    "operators": [
+      {"name": "AT&T", "passings": 1350000},
+      {"name": "Frontier", "passings": 620000},
+      {"name": "Spectrum", "passings": 485000},
+      {"name": "WOW!", "passings": 245000},
+      {"name": "Other", "passings": 160000}
+    ]
+  },
+  "OK": {
+    "state": "Oklahoma",
+    "totalHousingUnits": 1750000,
+    "totalFiberPassings": 875000,
+    "fiberPenetration": 50.0,
+    "operators": [
+      {"name": "AT&T", "passings": 485000},
+      {"name": "Cox", "passings": 195000},
+      {"name": "Windstream", "passings": 115000},
+      {"name": "Other", "passings": 80000}
+    ]
+  },
+  "OR": {
+    "state": "Oregon",
+    "totalHousingUnits": 1850000,
+    "totalFiberPassings": 1110000,
+    "fiberPenetration": 60.0,
+    "operators": [
+      {"name": "CenturyLink/Lumen", "passings": 450000},
+      {"name": "Ziply Fiber", "passings": 320000},
+      {"name": "Comcast", "passings": 195000},
+      {"name": "Other", "passings": 145000}
+    ]
+  },
+  "PA": {
+    "state": "Pennsylvania",
+    "totalHousingUnits": 5750000,
+    "totalFiberPassings": 3450000,
+    "fiberPenetration": 60.0,
+    "operators": [
+      {"name": "Verizon Fios", "passings": 1850000},
+      {"name": "Frontier", "passings": 680000},
+      {"name": "Comcast", "passings": 520000},
+      {"name": "Windstream", "passings": 220000},
+      {"name": "Other", "passings": 180000}
+    ]
+  },
+  "RI": {
+    "state": "Rhode Island",
+    "totalHousingUnits": 470000,
+    "totalFiberPassings": 329000,
+    "fiberPenetration": 70.0,
+    "operators": [
+      {"name": "Verizon Fios", "passings": 245000},
+      {"name": "Cox", "passings": 65000},
+      {"name": "Other", "passings": 19000}
+    ]
+  },
+  "SC": {
+    "state": "South Carolina",
+    "totalHousingUnits": 2350000,
+    "totalFiberPassings": 1269000,
+    "fiberPenetration": 54.0,
+    "operators": [
+      {"name": "AT&T", "passings": 620000},
+      {"name": "Spectrum", "passings": 320000},
+      {"name": "Brightspeed", "passings": 185000},
+      {"name": "Other", "passings": 144000}
+    ]
+  },
+  "SD": {
+    "state": "South Dakota",
+    "totalHousingUnits": 400000,
+    "totalFiberPassings": 180000,
+    "fiberPenetration": 45.0,
+    "operators": [
+      {"name": "Midco", "passings": 85000},
+      {"name": "CenturyLink/Lumen", "passings": 55000},
+      {"name": "Other", "passings": 40000}
+    ]
+  },
+  "TN": {
+    "state": "Tennessee",
+    "totalHousingUnits": 3050000,
+    "totalFiberPassings": 1830000,
+    "fiberPenetration": 60.0,
+    "operators": [
+      {"name": "AT&T", "passings": 980000},
+      {"name": "EPB (Chattanooga)", "passings": 185000},
+      {"name": "Brightspeed", "passings": 285000},
+      {"name": "Comcast", "passings": 220000},
+      {"name": "Other", "passings": 160000}
+    ]
+  },
+  "TX": {
+    "state": "Texas",
+    "totalHousingUnits": 11500000,
+    "totalFiberPassings": 7475000,
+    "fiberPenetration": 65.0,
+    "operators": [
+      {"name": "AT&T", "passings": 4250000},
+      {"name": "Frontier", "passings": 1150000},
+      {"name": "Google Fiber", "passings": 850000},
+      {"name": "CenturyLink/Lumen", "passings": 620000},
+      {"name": "Grande", "passings": 285000},
+      {"name": "Other", "passings": 320000}
+    ]
+  },
+  "UT": {
+    "state": "Utah",
+    "totalHousingUnits": 1150000,
+    "totalFiberPassings": 862500,
+    "fiberPenetration": 75.0,
+    "operators": [
+      {"name": "CenturyLink/Lumen", "passings": 385000},
+      {"name": "Google Fiber", "passings": 195000},
+      {"name": "UTOPIA", "passings": 165000},
+      {"name": "Xfinity", "passings": 85000},
+      {"name": "Other", "passings": 32500}
+    ]
+  },
+  "VT": {
+    "state": "Vermont",
+    "totalHousingUnits": 340000,
+    "totalFiberPassings": 136000,
+    "fiberPenetration": 40.0,
+    "operators": [
+      {"name": "Consolidated Comm.", "passings": 75000},
+      {"name": "Comcast", "passings": 35000},
+      {"name": "Other", "passings": 26000}
+    ]
+  },
+  "VA": {
+    "state": "Virginia",
+    "totalHousingUnits": 3650000,
+    "totalFiberPassings": 2555000,
+    "fiberPenetration": 70.0,
+    "operators": [
+      {"name": "Verizon Fios", "passings": 1650000},
+      {"name": "Cox", "passings": 450000},
+      {"name": "Shentel", "passings": 185000},
+      {"name": "Comcast", "passings": 170000},
+      {"name": "Other", "passings": 100000}
+    ]
+  },
+  "WA": {
+    "state": "Washington",
+    "totalHousingUnits": 3200000,
+    "totalFiberPassings": 2080000,
+    "fiberPenetration": 65.0,
+    "operators": [
+      {"name": "CenturyLink/Lumen", "passings": 850000},
+      {"name": "Ziply Fiber", "passings": 520000},
+      {"name": "Comcast", "passings": 420000},
+      {"name": "Wave/Astound", "passings": 185000},
+      {"name": "Other", "passings": 105000}
+    ]
+  },
+  "WV": {
+    "state": "West Virginia",
+    "totalHousingUnits": 880000,
+    "totalFiberPassings": 308000,
+    "fiberPenetration": 35.0,
+    "operators": [
+      {"name": "Frontier", "passings": 165000},
+      {"name": "Suddenlink", "passings": 85000},
+      {"name": "Other", "passings": 58000}
+    ]
+  },
+  "WI": {
+    "state": "Wisconsin",
+    "totalHousingUnits": 2750000,
+    "totalFiberPassings": 1512500,
+    "fiberPenetration": 55.0,
+    "operators": [
+      {"name": "AT&T", "passings": 720000},
+      {"name": "CenturyLink/Lumen", "passings": 385000},
+      {"name": "TDS Telecom", "passings": 195000},
+      {"name": "Spectrum", "passings": 145000},
+      {"name": "Other", "passings": 67500}
+    ]
+  },
+  "WY": {
+    "state": "Wyoming",
+    "totalHousingUnits": 280000,
+    "totalFiberPassings": 70000,
+    "fiberPenetration": 25.0,
+    "operators": [
+      {"name": "CenturyLink/Lumen", "passings": 35000},
+      {"name": "Spectrum", "passings": 20000},
+      {"name": "Other", "passings": 15000}
+    ]
+  },
+  "DC": {
+    "state": "District of Columbia",
+    "totalHousingUnits": 350000,
+    "totalFiberPassings": 280000,
+    "fiberPenetration": 80.0,
+    "operators": [
+      {"name": "Verizon Fios", "passings": 185000},
+      {"name": "RCN", "passings": 65000},
+      {"name": "Other", "passings": 30000}
+    ]
+  }
+}

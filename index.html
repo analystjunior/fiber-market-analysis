@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>US Fiber Market Analysis</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>US Fiber Market Analysis</h1>
+        <p class="subtitle">State and county-level fiber penetration, demographics, and market opportunity</p>
+    </header>
+
+    <main>
+        <div class="controls-panel" style="display: none;">
+            <div class="control-group">
+                <label>Map Layer</label>
+                <div class="toggle-group" id="layer-toggle">
+                    <button class="toggle-btn active" data-layer="penetration">Fiber Penetration</button>
+                    <button class="toggle-btn" data-layer="demographic">Demographics</button>
+                    <button class="toggle-btn" data-layer="attractiveness">Market Attractiveness</button>
+                </div>
+            </div>
+            <div class="control-group">
+                <label>Filters</label>
+                <div class="filter-group">
+                    <div class="filter-item">
+                        <label for="min-pop">Min Population</label>
+                        <select id="min-pop">
+                            <option value="0">All</option>
+                            <option value="10000">10,000+</option>
+                            <option value="50000">50,000+</option>
+                            <option value="100000">100,000+</option>
+                        </select>
+                    </div>
+                    <div class="filter-item">
+                        <label for="min-density">Min Density</label>
+                        <select id="min-density">
+                            <option value="0">All</option>
+                            <option value="50">50+/sq mi</option>
+                            <option value="100">100+/sq mi</option>
+                            <option value="500">500+/sq mi</option>
+                        </select>
+                    </div>
+                    <div class="filter-item checkbox-item">
+                        <input type="checkbox" id="exclude-nyc">
+                        <label for="exclude-nyc">Exclude NYC boroughs</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-area">
+            <div class="map-container">
+                <div class="map-header">
+                    <div style="display: flex; align-items: center; gap: 1rem;">
+                        <button class="back-btn" onclick="MapRenderer.backToUS()">
+                            <span>&larr;</span> Back to US Map
+                        </button>
+                        <h2 id="map-title">United States - Fiber Coverage by State</h2>
+                    </div>
+                    <div id="legend-container"></div>
+                </div>
+                <div id="map"></div>
+            </div>
+
+            <aside id="info-panel" class="info-panel">
+                <div class="info-panel-content">
+                    <div class="default-message">
+                        <h2>Hover over a state</h2>
+                        <p>to see fiber coverage statistics</p>
+                        <p style="margin-top: 0.5rem; font-size: 0.8rem;">Click on a county to pin details and scroll</p>
+                    </div>
+
+                    <!-- State info (US map view) -->
+                    <div class="state-info" style="display: none;">
+                        <h2 class="state-name"></h2>
+
+                        <div class="stats-section">
+                            <h3>Fiber Coverage</h3>
+                            <div class="stats-grid">
+                                <div class="stat-item">
+                                    <span class="stat-label">Housing Units</span>
+                                    <span class="stat-value" id="state-housing"></span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Fiber Passings</span>
+                                    <span class="stat-value" id="state-fiber"></span>
+                                </div>
+                                <div class="stat-item" style="grid-column: span 2;">
+                                    <span class="stat-label">Fiber Penetration</span>
+                                    <span class="stat-value" style="font-size: 1.5rem;" id="state-penetration"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="operators-section">
+                            <h3>Top Fiber Operators</h3>
+                            <ul class="operators-list" id="state-operators-list"></ul>
+                        </div>
+
+                        <div class="click-hint" style="display: none;">
+                            <strong>Click to explore</strong>
+                            Detailed county-level data available for New York
+                        </div>
+                    </div>
+
+                    <!-- County info (NY county view) -->
+                    <div class="county-info" style="display: none;">
+                        <div class="pin-indicator" style="display: none;">
+                            <span>Click county again or press X to close</span>
+                            <button class="close-pin-btn" onclick="InfoPanel.unpinCounty()">&times;</button>
+                        </div>
+                        <h2 class="county-name"></h2>
+
+                        <div class="score-bars">
+                            <div class="score-bar-item">
+                                <span class="score-label">Market Attractiveness</span>
+                                <div class="score-bar"><div class="score-fill" id="attr-score"></div></div>
+                                <span class="score-value" id="attr-value"></span>
+                            </div>
+                            <div class="score-bar-item">
+                                <span class="score-label">Demographics</span>
+                                <div class="score-bar"><div class="score-fill" id="demo-score"></div></div>
+                                <span class="score-value" id="demo-value"></span>
+                            </div>
+                            <div class="score-bar-item">
+                                <span class="score-label">Fiber Penetration</span>
+                                <div class="score-bar"><div class="score-fill" id="pen-score"></div></div>
+                                <span class="score-value" id="pen-value"></span>
+                            </div>
+                        </div>
+
+                        <div class="stats-section">
+                            <h3>Fiber Coverage</h3>
+                            <div class="stats-grid">
+                                <div class="stat-item">
+                                    <span class="stat-label">Total Locations</span>
+                                    <span class="stat-value" id="total-bsls"></span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Fiber Served</span>
+                                    <span class="stat-value" id="fiber-served"></span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Unserved</span>
+                                    <span class="stat-value highlight-opp" id="fiber-unserved"></span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Penetration</span>
+                                    <span class="stat-value" id="penetration-rate"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="stats-section">
+                            <h3>Demographics & Economics</h3>
+                            <div class="stats-grid">
+                                <div class="stat-item" style="grid-column: span 2; background: #dbeafe;">
+                                    <span class="stat-label">Median Household Income</span>
+                                    <span class="stat-value" style="font-size: 1.2rem; color: #1e40af;" id="median-hhi"></span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Population</span>
+                                    <span class="stat-value" id="population"></span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Pop Growth (5yr)</span>
+                                    <span class="stat-value" id="pop-growth"></span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Housing Units</span>
+                                    <span class="stat-value" id="housing-units"></span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Housing Density</span>
+                                    <span class="stat-value" id="housing-density"></span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Median Rent</span>
+                                    <span class="stat-value" id="median-rent"></span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Owner-Occupied</span>
+                                    <span class="stat-value" id="owner-occ"></span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Work from Home</span>
+                                    <span class="stat-value" id="wfh-pct"></span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Median Home Value</span>
+                                    <span class="stat-value" id="median-home-value"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="operators-section">
+                            <h3>Top 5 Fiber Operators</h3>
+                            <ul class="operators-list" id="operators-list"></ul>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+        <div class="table-section" style="display: none;">
+            <div class="table-header">
+                <h2>County Rankings</h2>
+                <div class="table-controls">
+                    <input type="text" id="table-search" placeholder="Search counties...">
+                </div>
+            </div>
+            <div class="table-container">
+                <table id="county-table">
+                    <thead>
+                        <tr>
+                            <th data-sort="name">County</th>
+                            <th data-sort="attractiveness_index" class="sort-desc">Attractiveness</th>
+                            <th data-sort="demo_score">Demographics</th>
+                            <th data-sort="fiber_penetration">Penetration</th>
+                            <th data-sort="fiber_unserved">Unserved</th>
+                            <th data-sort="median_hhi">Median HHI</th>
+                            <th data-sort="housing_density">Density</th>
+                        </tr>
+                    </thead>
+                    <tbody id="county-table-body">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="caveats-section">
+            <h2>Data Caveats & Methodology</h2>
+            <div class="caveats-grid">
+                <div class="caveat-item">
+                    <h4>Fiber Penetration</h4>
+                    <p>Shows current fiber coverage from FCC BDC data. Red = low penetration (more unserved homes, greater opportunity). Green = high penetration (already well-served by fiber).</p>
+                </div>
+                <div class="caveat-item">
+                    <h4>Demographics Score</h4>
+                    <p>Composite score based on: median household income (ARPU potential), population growth, housing density (build efficiency), work-from-home rates, and owner-occupancy. Green = positive profile for fiber investment.</p>
+                </div>
+                <div class="caveat-item">
+                    <h4>Market Attractiveness</h4>
+                    <p>Combines demographics + fiber opportunity. Counties ranked into thirds: <strong>Most Attractive</strong> (top 33%), <strong>Neutral</strong> (middle 33%), <strong>Least Attractive</strong> (bottom 33%). Higher scores = better demographics AND more unserved homes.</p>
+                </div>
+                <div class="caveat-item">
+                    <h4>Data Limitations</h4>
+                    <p>FCC data relies on provider self-reporting and may overstate coverage. Build costs (terrain, permits, labor) not included. Verify specific markets before investment decisions.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Data sources: <a href="https://www.fcc.gov/BroadbandData" target="_blank">FCC BDC</a> (Dec 2024) |
+        <a href="https://www.census.gov/programs-surveys/acs.html" target="_blank">Census ACS</a> 5-year (2018, 2023) |
+        <a href="https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html" target="_blank">TIGER/Line</a> (2023)</p>
+    </footer>
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://unpkg.com/topojson-client@3"></script>
+    <script src="js/data.js"></script>
+    <script src="js/map.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
