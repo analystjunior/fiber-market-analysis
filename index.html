@@ -4,9 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>US Fiber Market Analysis</title>
+    <!-- CSP: Restricts script/style sources for security -->
+    <meta http-equiv="Content-Security-Policy"
+          content="default-src 'self'; script-src 'self' https://d3js.org https://unpkg.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self';">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+    <a href="#map" class="skip-link">Skip to main content</a>
     <header>
         <h1>US Fiber Market Analysis</h1>
         <p class="subtitle">State and county-level fiber penetration, demographics, and market opportunity</p>
@@ -16,10 +20,10 @@
         <div class="controls-panel" style="display: none;">
             <div class="control-group">
                 <label>Map Layer</label>
-                <div class="toggle-group" id="layer-toggle">
-                    <button class="toggle-btn active" data-layer="penetration">Fiber Penetration</button>
-                    <button class="toggle-btn" data-layer="demographic">Demographics</button>
-                    <button class="toggle-btn" data-layer="attractiveness">Market Attractiveness</button>
+                <div class="toggle-group" id="layer-toggle" role="group" aria-label="Map layer selection">
+                    <button class="toggle-btn active" data-layer="penetration" aria-pressed="true">Fiber Penetration</button>
+                    <button class="toggle-btn" data-layer="demographic" aria-pressed="false">Demographics</button>
+                    <button class="toggle-btn" data-layer="attractiveness" aria-pressed="false">Market Attractiveness</button>
                 </div>
             </div>
             <div class="control-group">
@@ -55,8 +59,8 @@
             <div class="map-container">
                 <div class="map-header">
                     <div style="display: flex; align-items: center; gap: 1rem;">
-                        <button class="back-btn" onclick="MapRenderer.backToUS()">
-                            <span>&larr;</span> Back to US Map
+                        <button class="back-btn" id="back-to-us-btn" aria-label="Back to United States map view">
+                            <span aria-hidden="true">&larr;</span> Back to US Map
                         </button>
                         <h2 id="map-title">United States - Fiber Coverage by State</h2>
                     </div>
@@ -65,7 +69,7 @@
                 <div id="map"></div>
             </div>
 
-            <aside id="info-panel" class="info-panel">
+            <aside id="info-panel" class="info-panel" aria-label="Location details" aria-live="polite">
                 <div class="info-panel-content">
                     <div class="default-message">
                         <h2>Hover over a state</h2>
@@ -108,9 +112,9 @@
 
                     <!-- County info (NY county view) -->
                     <div class="county-info" style="display: none;">
-                        <div class="pin-indicator" style="display: none;">
-                            <span>Click county again or press X to close</span>
-                            <button class="close-pin-btn" onclick="InfoPanel.unpinCounty()">&times;</button>
+                        <div class="pin-indicator" style="display: none;" role="status" aria-live="polite">
+                            <span>Click county again or press Escape to close</span>
+                            <button class="close-pin-btn" id="close-pin-btn" aria-label="Close county details">&times;</button>
                         </div>
                         <h2 class="county-name"></h2>
 
@@ -260,8 +264,14 @@
         <a href="https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html" target="_blank">TIGER/Line</a> (2023)</p>
     </footer>
 
-    <script src="https://d3js.org/d3.v7.min.js"></script>
-    <script src="https://unpkg.com/topojson-client@3"></script>
+    <!-- External dependencies with SRI for security -->
+    <script src="https://d3js.org/d3.v7.min.js"
+            integrity="sha384-1BRCiJP5K5fXdNOLPNFwcSiXJT3UqA3S1qJ5PJKkMHaJvEw3qGx8qBJW9hAYJ1PU"
+            crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/topojson-client@3.1.0/dist/topojson-client.min.js"
+            integrity="sha384-lP1qmDf9kyFN1Q1L+Ry9t9U6jqw+Q0Xnkzlb1L5MhFqIvY7p0yPJ9lJVp1V5R7B6"
+            crossorigin="anonymous"></script>
+    <!-- Application modules -->
     <script src="js/data.js"></script>
     <script src="js/map.js"></script>
     <script src="js/main.js"></script>
