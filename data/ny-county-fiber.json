@@ -1,0 +1,3044 @@
+{
+  "36001": {
+    "county": "Albany",
+    "fips": "36001",
+    "housingUnits": 146959,
+    "totalBSLs": 100086,
+    "fiberServed": 54534,
+    "fiberPenetration": 54.5,
+    "totalProviderPassings": 55439,
+    "operators": [
+      {
+        "name": "Verizon",
+        "passings": 49931,
+        "served": 49918
+      },
+      {
+        "name": "Spectrum",
+        "passings": 1847,
+        "served": 1847
+      },
+      {
+        "name": "State Telephone Company Inc",
+        "passings": 1752,
+        "served": 1752
+      },
+      {
+        "name": "Mid-Hudson Cablevision",
+        "passings": 825,
+        "served": 825
+      },
+      {
+        "name": "MIDTEL",
+        "passings": 541,
+        "served": 541
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 304,
+        "served": 187
+      },
+      {
+        "name": "Mid-Hudson Data Corp",
+        "passings": 150,
+        "served": 150
+      },
+      {
+        "name": "Catskill Mountain Cablevision",
+        "passings": 35,
+        "served": 35
+      },
+      {
+        "name": "MTC Cable",
+        "passings": 25,
+        "served": 25
+      },
+      {
+        "name": "Massivemesh Networks",
+        "passings": 21,
+        "served": 21
+      }
+    ]
+  },
+  "36003": {
+    "county": "Allegany",
+    "fips": "36003",
+    "housingUnits": 23538,
+    "totalBSLs": 23695,
+    "fiberServed": 15383,
+    "fiberPenetration": 64.9,
+    "totalProviderPassings": 15559,
+    "operators": [
+      {
+        "name": "Armstrong Telecommunications Inc",
+        "passings": 14405,
+        "served": 14405
+      },
+      {
+        "name": "Armstrong Telephone Company",
+        "passings": 447,
+        "served": 447
+      },
+      {
+        "name": "Spectrum",
+        "passings": 395,
+        "served": 395
+      },
+      {
+        "name": "Empire Long Distance Corporation",
+        "passings": 297,
+        "served": 297
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 15,
+        "served": 12
+      }
+    ]
+  },
+  "36005": {
+    "county": "Bronx",
+    "fips": "36005",
+    "housingUnits": 553231,
+    "totalBSLs": 85584,
+    "fiberServed": 85584,
+    "fiberPenetration": 100.0,
+    "totalProviderPassings": 275019,
+    "operators": [
+      {
+        "name": "Lightpath",
+        "passings": 85584,
+        "served": 85584
+      },
+      {
+        "name": "Optimum",
+        "passings": 76542,
+        "served": 76542
+      },
+      {
+        "name": "Verizon",
+        "passings": 71711,
+        "served": 71711
+      },
+      {
+        "name": "Pilot Fiber",
+        "passings": 38640,
+        "served": 38640
+      },
+      {
+        "name": "Stealth Communications",
+        "passings": 2304,
+        "served": 2304
+      },
+      {
+        "name": "Astound Broadband",
+        "passings": 212,
+        "served": 212
+      },
+      {
+        "name": "Spectrum",
+        "passings": 20,
+        "served": 20
+      },
+      {
+        "name": "Xfinity",
+        "passings": 4,
+        "served": 4
+      },
+      {
+        "name": "Allied Telecom Group LLC",
+        "passings": 1,
+        "served": 1
+      },
+      {
+        "name": "Fusion",
+        "passings": 1,
+        "served": 1
+      }
+    ]
+  },
+  "36007": {
+    "county": "Broome",
+    "fips": "36007",
+    "housingUnits": 92889,
+    "totalBSLs": 71577,
+    "fiberServed": 39218,
+    "fiberPenetration": 54.8,
+    "totalProviderPassings": 49988,
+    "operators": [
+      {
+        "name": "Greenlight Networks",
+        "passings": 28344,
+        "served": 28344
+      },
+      {
+        "name": "Empire Long Distance Corporation",
+        "passings": 13295,
+        "served": 13295
+      },
+      {
+        "name": "TDS Telecom",
+        "passings": 5363,
+        "served": 5363
+      },
+      {
+        "name": "Frontier",
+        "passings": 1082,
+        "served": 1082
+      },
+      {
+        "name": "Spectrum",
+        "passings": 868,
+        "served": 868
+      },
+      {
+        "name": "Point Broadband Fiber Holding LLC",
+        "passings": 494,
+        "served": 494
+      },
+      {
+        "name": "Adams CATV Inc",
+        "passings": 400,
+        "served": 400
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 76,
+        "served": 58
+      },
+      {
+        "name": "Delhi Telephone Company",
+        "passings": 66,
+        "served": 66
+      }
+    ]
+  },
+  "36009": {
+    "county": "Cattaraugus",
+    "fips": "36009",
+    "housingUnits": 40279,
+    "totalBSLs": 37990,
+    "fiberServed": 17807,
+    "fiberPenetration": 46.9,
+    "totalProviderPassings": 18910,
+    "operators": [
+      {
+        "name": "Armstrong Telecommunications Inc",
+        "passings": 16761,
+        "served": 16761
+      },
+      {
+        "name": "Spectrum",
+        "passings": 1011,
+        "served": 1011
+      },
+      {
+        "name": "Windstream New York, Inc.",
+        "passings": 939,
+        "served": 939
+      },
+      {
+        "name": "Frontier",
+        "passings": 91,
+        "served": 91
+      },
+      {
+        "name": "DFT Local Service Corporation",
+        "passings": 88,
+        "served": 88
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 19,
+        "served": 13
+      },
+      {
+        "name": "Breezeline",
+        "passings": 1,
+        "served": 1
+      }
+    ]
+  },
+  "36011": {
+    "county": "Cayuga",
+    "fips": "36011",
+    "housingUnits": 36768,
+    "totalBSLs": 32952,
+    "fiberServed": 20227,
+    "fiberPenetration": 61.4,
+    "totalProviderPassings": 21309,
+    "operators": [
+      {
+        "name": "Verizon",
+        "passings": 15614,
+        "served": 15614
+      },
+      {
+        "name": "Spectrum",
+        "passings": 3419,
+        "served": 3419
+      },
+      {
+        "name": "TDS Telecom",
+        "passings": 1242,
+        "served": 1242
+      },
+      {
+        "name": "Frontier",
+        "passings": 507,
+        "served": 507
+      },
+      {
+        "name": "Zito Media",
+        "passings": 464,
+        "served": 464
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 44,
+        "served": 29
+      },
+      {
+        "name": "Point Broadband Fiber Holding LLC",
+        "passings": 19,
+        "served": 19
+      }
+    ]
+  },
+  "36013": {
+    "county": "Chautauqua",
+    "fips": "36013",
+    "housingUnits": 66328,
+    "totalBSLs": 61652,
+    "fiberServed": 33863,
+    "fiberPenetration": 54.9,
+    "totalProviderPassings": 35304,
+    "operators": [
+      {
+        "name": "Windstream New York, Inc.",
+        "passings": 23898,
+        "served": 23898
+      },
+      {
+        "name": "DFT Communication",
+        "passings": 3099,
+        "served": 3099
+      },
+      {
+        "name": "Fidium Fiber",
+        "passings": 2785,
+        "served": 2785
+      },
+      {
+        "name": "Spectrum",
+        "passings": 2704,
+        "served": 2704
+      },
+      {
+        "name": "DFT Local Service Corporation",
+        "passings": 2030,
+        "served": 2030
+      },
+      {
+        "name": "DFT Communication",
+        "passings": 640,
+        "served": 640
+      },
+      {
+        "name": "Armstrong Telecommunications Inc",
+        "passings": 115,
+        "served": 115
+      },
+      {
+        "name": "ArmstrongUtilitiesInc",
+        "passings": 19,
+        "served": 19
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 13,
+        "served": 11
+      },
+      {
+        "name": "Xfinity",
+        "passings": 1,
+        "served": 0
+      }
+    ]
+  },
+  "36015": {
+    "county": "Chemung",
+    "fips": "36015",
+    "housingUnits": 39143,
+    "totalBSLs": 33905,
+    "fiberServed": 23605,
+    "fiberPenetration": 69.6,
+    "totalProviderPassings": 23934,
+    "operators": [
+      {
+        "name": "Empire Long Distance Corporation",
+        "passings": 21482,
+        "served": 21482
+      },
+      {
+        "name": "Spectrum",
+        "passings": 1245,
+        "served": 1245
+      },
+      {
+        "name": "Haefele Connect",
+        "passings": 1027,
+        "served": 1027
+      },
+      {
+        "name": "Empire Telephone Corp.",
+        "passings": 133,
+        "served": 133
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 44,
+        "served": 25
+      },
+      {
+        "name": "Point Broadband Fiber Holding LLC",
+        "passings": 2,
+        "served": 2
+      },
+      {
+        "name": "NetFortris",
+        "passings": 1,
+        "served": 0
+      }
+    ]
+  },
+  "36017": {
+    "county": "Chenango",
+    "fips": "36017",
+    "housingUnits": 24460,
+    "totalBSLs": 23296,
+    "fiberServed": 4670,
+    "fiberPenetration": 20.0,
+    "totalProviderPassings": 4819,
+    "operators": [
+      {
+        "name": "Frontier",
+        "passings": 1630,
+        "served": 1630
+      },
+      {
+        "name": "Point Broadband Fiber Holding LLC",
+        "passings": 1490,
+        "served": 1490
+      },
+      {
+        "name": "Spectrum",
+        "passings": 973,
+        "served": 973
+      },
+      {
+        "name": "TDS Telecom",
+        "passings": 508,
+        "served": 508
+      },
+      {
+        "name": "Delhi Telephone Company",
+        "passings": 145,
+        "served": 145
+      },
+      {
+        "name": "OEConnect",
+        "passings": 48,
+        "served": 48
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 25,
+        "served": 15
+      }
+    ]
+  },
+  "36019": {
+    "county": "Clinton",
+    "fips": "36019",
+    "housingUnits": 37461,
+    "totalBSLs": 32152,
+    "fiberServed": 23809,
+    "fiberPenetration": 74.1,
+    "totalProviderPassings": 26441,
+    "operators": [
+      {
+        "name": "Verizon",
+        "passings": 12937,
+        "served": 12937
+      },
+      {
+        "name": "SLICFiber",
+        "passings": 2927,
+        "served": 2927
+      },
+      {
+        "name": "Chazy Westport Communications",
+        "passings": 2538,
+        "served": 2538
+      },
+      {
+        "name": "Spectrum",
+        "passings": 2531,
+        "served": 2531
+      },
+      {
+        "name": "Westelcom Networks, Inc",
+        "passings": 2331,
+        "served": 2331
+      },
+      {
+        "name": "Champlain Technology Group",
+        "passings": 2214,
+        "served": 2214
+      },
+      {
+        "name": "Frontier",
+        "passings": 787,
+        "served": 787
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 176,
+        "served": 73
+      }
+    ]
+  },
+  "36021": {
+    "county": "Columbia",
+    "fips": "36021",
+    "housingUnits": 33331,
+    "totalBSLs": 30726,
+    "fiberServed": 20593,
+    "fiberPenetration": 67.0,
+    "totalProviderPassings": 24128,
+    "operators": [
+      {
+        "name": "Mid-Hudson Cablevision",
+        "passings": 8257,
+        "served": 8257
+      },
+      {
+        "name": "Fidium Fiber",
+        "passings": 7811,
+        "served": 7811
+      },
+      {
+        "name": "GTel",
+        "passings": 2686,
+        "served": 2686
+      },
+      {
+        "name": "GTel",
+        "passings": 2376,
+        "served": 2376
+      },
+      {
+        "name": "Archtop Fiber",
+        "passings": 2104,
+        "served": 2104
+      },
+      {
+        "name": "Frontier",
+        "passings": 418,
+        "served": 418
+      },
+      {
+        "name": "Spectrum",
+        "passings": 330,
+        "served": 330
+      },
+      {
+        "name": "Mid-Hudson Data Corp",
+        "passings": 136,
+        "served": 136
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 9,
+        "served": 6
+      },
+      {
+        "name": "Whip City Fiber",
+        "passings": 1,
+        "served": 1
+      }
+    ]
+  },
+  "36023": {
+    "county": "Cortland",
+    "fips": "36023",
+    "housingUnits": 20842,
+    "totalBSLs": 17761,
+    "fiberServed": 10833,
+    "fiberPenetration": 61.0,
+    "totalProviderPassings": 12508,
+    "operators": [
+      {
+        "name": "Point Broadband Fiber Holding LLC",
+        "passings": 5178,
+        "served": 5178
+      },
+      {
+        "name": "Empire Long Distance Corporation",
+        "passings": 3890,
+        "served": 3890
+      },
+      {
+        "name": "Verizon",
+        "passings": 2319,
+        "served": 2319
+      },
+      {
+        "name": "Frontier",
+        "passings": 439,
+        "served": 439
+      },
+      {
+        "name": "Haefele Connect",
+        "passings": 382,
+        "served": 382
+      },
+      {
+        "name": "Spectrum",
+        "passings": 282,
+        "served": 282
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 18,
+        "served": 9
+      }
+    ]
+  },
+  "36025": {
+    "county": "Delaware",
+    "fips": "36025",
+    "housingUnits": 30038,
+    "totalBSLs": 28938,
+    "fiberServed": 19837,
+    "fiberPenetration": 68.6,
+    "totalProviderPassings": 21557,
+    "operators": [
+      {
+        "name": "Delhi Telephone Company",
+        "passings": 8588,
+        "served": 8588
+      },
+      {
+        "name": "MTC Cable",
+        "passings": 3458,
+        "served": 3458
+      },
+      {
+        "name": "Delhi Telephone Company",
+        "passings": 3447,
+        "served": 3447
+      },
+      {
+        "name": "Margaretville Telephone Co",
+        "passings": 1576,
+        "served": 1576
+      },
+      {
+        "name": "The Hancock Telephone Co",
+        "passings": 1474,
+        "served": 1474
+      },
+      {
+        "name": "Frontier",
+        "passings": 1409,
+        "served": 1409
+      },
+      {
+        "name": "TDS Telecom",
+        "passings": 962,
+        "served": 962
+      },
+      {
+        "name": "Spectrum",
+        "passings": 537,
+        "served": 537
+      },
+      {
+        "name": "Archtop Fiber",
+        "passings": 78,
+        "served": 78
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 23,
+        "served": 12
+      }
+    ]
+  },
+  "36027": {
+    "county": "Dutchess",
+    "fips": "36027",
+    "housingUnits": 122636,
+    "totalBSLs": 95228,
+    "fiberServed": 67255,
+    "fiberPenetration": 70.6,
+    "totalProviderPassings": 111200,
+    "operators": [
+      {
+        "name": "Lightpath",
+        "passings": 56388,
+        "served": 56388
+      },
+      {
+        "name": "Verizon",
+        "passings": 39833,
+        "served": 39832
+      },
+      {
+        "name": "Optimum",
+        "passings": 11135,
+        "served": 11135
+      },
+      {
+        "name": "Archtop Fiber",
+        "passings": 1811,
+        "served": 1811
+      },
+      {
+        "name": "Frontier",
+        "passings": 1297,
+        "served": 1297
+      },
+      {
+        "name": "Fidium Fiber",
+        "passings": 363,
+        "served": 363
+      },
+      {
+        "name": "Spectrum",
+        "passings": 330,
+        "served": 330
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 28,
+        "served": 21
+      },
+      {
+        "name": "Xfinity",
+        "passings": 9,
+        "served": 6
+      },
+      {
+        "name": "QCSTelecom Inc",
+        "passings": 4,
+        "served": 4
+      }
+    ]
+  },
+  "36029": {
+    "county": "Erie",
+    "fips": "36029",
+    "housingUnits": 439987,
+    "totalBSLs": 326635,
+    "fiberServed": 216263,
+    "fiberPenetration": 66.2,
+    "totalProviderPassings": 225474,
+    "operators": [
+      {
+        "name": "Verizon",
+        "passings": 157423,
+        "served": 157423
+      },
+      {
+        "name": "Greenlight Networks",
+        "passings": 28978,
+        "served": 28978
+      },
+      {
+        "name": "GoNetspeed",
+        "passings": 24265,
+        "served": 24265
+      },
+      {
+        "name": "FastBridge Fiber",
+        "passings": 7889,
+        "served": 7889
+      },
+      {
+        "name": "Spectrum",
+        "passings": 5039,
+        "served": 5039
+      },
+      {
+        "name": "Xfinity",
+        "passings": 649,
+        "served": 8
+      },
+      {
+        "name": "DFT Local Service Corporation",
+        "passings": 509,
+        "served": 509
+      },
+      {
+        "name": "Armstrong Telecommunications Inc",
+        "passings": 450,
+        "served": 450
+      },
+      {
+        "name": "Empire Long Distance Corporation",
+        "passings": 147,
+        "served": 147
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 103,
+        "served": 99
+      }
+    ]
+  },
+  "36031": {
+    "county": "Essex",
+    "fips": "36031",
+    "housingUnits": 25318,
+    "totalBSLs": 23463,
+    "fiberServed": 11232,
+    "fiberPenetration": 47.9,
+    "totalProviderPassings": 12493,
+    "operators": [
+      {
+        "name": "SLICFiber",
+        "passings": 4291,
+        "served": 4291
+      },
+      {
+        "name": "Frontier",
+        "passings": 2989,
+        "served": 2989
+      },
+      {
+        "name": "Bridge Point Communication",
+        "passings": 1172,
+        "served": 1172
+      },
+      {
+        "name": "Chazy Westport Communications",
+        "passings": 1072,
+        "served": 1072
+      },
+      {
+        "name": "Crown Point Telephone Corporation",
+        "passings": 1066,
+        "served": 1066
+      },
+      {
+        "name": "Keene Valley Video",
+        "passings": 1002,
+        "served": 1002
+      },
+      {
+        "name": "Spectrum",
+        "passings": 526,
+        "served": 526
+      },
+      {
+        "name": "Westelcom Networks, Inc",
+        "passings": 331,
+        "served": 331
+      },
+      {
+        "name": "Adirondack Broadband",
+        "passings": 21,
+        "served": 21
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 19,
+        "served": 14
+      }
+    ]
+  },
+  "36033": {
+    "county": "Franklin",
+    "fips": "36033",
+    "housingUnits": 25442,
+    "totalBSLs": 23772,
+    "fiberServed": 8375,
+    "fiberPenetration": 35.2,
+    "totalProviderPassings": 8640,
+    "operators": [
+      {
+        "name": "SLICFiber",
+        "passings": 6459,
+        "served": 6459
+      },
+      {
+        "name": "Mohawk Networks LLC",
+        "passings": 655,
+        "served": 655
+      },
+      {
+        "name": "Westelcom Networks, Inc",
+        "passings": 595,
+        "served": 595
+      },
+      {
+        "name": "Adirondack Broadband",
+        "passings": 484,
+        "served": 484
+      },
+      {
+        "name": "Spectrum",
+        "passings": 437,
+        "served": 437
+      },
+      {
+        "name": "Frontier",
+        "passings": 7,
+        "served": 7
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 3,
+        "served": 3
+      }
+    ]
+  },
+  "36035": {
+    "county": "Fulton",
+    "fips": "36035",
+    "housingUnits": 28169,
+    "totalBSLs": 25515,
+    "fiberServed": 11417,
+    "fiberPenetration": 44.7,
+    "totalProviderPassings": 11826,
+    "operators": [
+      {
+        "name": "Frontier",
+        "passings": 10605,
+        "served": 10605
+      },
+      {
+        "name": "Spectrum",
+        "passings": 747,
+        "served": 747
+      },
+      {
+        "name": "Verizon",
+        "passings": 439,
+        "served": 439
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 35,
+        "served": 17
+      }
+    ]
+  },
+  "36037": {
+    "county": "Genesee",
+    "fips": "36037",
+    "housingUnits": 26090,
+    "totalBSLs": 23192,
+    "fiberServed": 9552,
+    "fiberPenetration": 41.2,
+    "totalProviderPassings": 10011,
+    "operators": [
+      {
+        "name": "Empire Long Distance Corporation",
+        "passings": 6286,
+        "served": 6286
+      },
+      {
+        "name": "Spectrum",
+        "passings": 2125,
+        "served": 2125
+      },
+      {
+        "name": "Empire Telephone Corp.",
+        "passings": 1374,
+        "served": 1374
+      },
+      {
+        "name": "Frontier",
+        "passings": 205,
+        "served": 205
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 20,
+        "served": 18
+      },
+      {
+        "name": "TDS Telecom",
+        "passings": 1,
+        "served": 1
+      }
+    ]
+  },
+  "36039": {
+    "county": "Greene",
+    "fips": "36039",
+    "housingUnits": 29037,
+    "totalBSLs": 26737,
+    "fiberServed": 16649,
+    "fiberPenetration": 62.3,
+    "totalProviderPassings": 18913,
+    "operators": [
+      {
+        "name": "Mid-Hudson Cablevision",
+        "passings": 8084,
+        "served": 8084
+      },
+      {
+        "name": "State Telephone Company Inc",
+        "passings": 4654,
+        "served": 4654
+      },
+      {
+        "name": "Catskill Mountain Cablevision",
+        "passings": 3268,
+        "served": 3268
+      },
+      {
+        "name": "MTC Cable",
+        "passings": 1515,
+        "served": 1515
+      },
+      {
+        "name": "Mid-Hudson Data Corp",
+        "passings": 1001,
+        "served": 1001
+      },
+      {
+        "name": "Archtop Fiber",
+        "passings": 321,
+        "served": 321
+      },
+      {
+        "name": "Spectrum",
+        "passings": 52,
+        "served": 52
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 15,
+        "served": 11
+      },
+      {
+        "name": "Frontier",
+        "passings": 3,
+        "served": 3
+      }
+    ]
+  },
+  "36041": {
+    "county": "Hamilton",
+    "fips": "36041",
+    "housingUnits": 7893,
+    "totalBSLs": 7606,
+    "fiberServed": 5034,
+    "fiberPenetration": 66.2,
+    "totalProviderPassings": 6130,
+    "operators": [
+      {
+        "name": "Frontier",
+        "passings": 3485,
+        "served": 3485
+      },
+      {
+        "name": "Hamilton County Cable",
+        "passings": 1309,
+        "served": 1309
+      },
+      {
+        "name": "SLICFiber",
+        "passings": 776,
+        "served": 776
+      },
+      {
+        "name": "Newport Telephone Co - NTCNet",
+        "passings": 231,
+        "served": 231
+      },
+      {
+        "name": "Spectrum",
+        "passings": 187,
+        "served": 187
+      },
+      {
+        "name": "Adirondack Broadband",
+        "passings": 139,
+        "served": 139
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 3,
+        "served": 3
+      }
+    ]
+  },
+  "36043": {
+    "county": "Herkimer",
+    "fips": "36043",
+    "housingUnits": 32449,
+    "totalBSLs": 30357,
+    "fiberServed": 8579,
+    "fiberPenetration": 28.3,
+    "totalProviderPassings": 9219,
+    "operators": [
+      {
+        "name": "Newport Telephone Co - NTCNet",
+        "passings": 3267,
+        "served": 3267
+      },
+      {
+        "name": "Spectrum",
+        "passings": 2194,
+        "served": 2194
+      },
+      {
+        "name": "Verizon",
+        "passings": 1564,
+        "served": 1564
+      },
+      {
+        "name": "Northland Networks",
+        "passings": 642,
+        "served": 642
+      },
+      {
+        "name": "Windstream New York, Inc.",
+        "passings": 576,
+        "served": 576
+      },
+      {
+        "name": "Frontier",
+        "passings": 393,
+        "served": 393
+      },
+      {
+        "name": "OEConnect",
+        "passings": 263,
+        "served": 263
+      },
+      {
+        "name": "GoNetspeed",
+        "passings": 187,
+        "served": 187
+      },
+      {
+        "name": "Adirondack Broadband",
+        "passings": 126,
+        "served": 126
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 7,
+        "served": 7
+      }
+    ]
+  },
+  "36045": {
+    "county": "Jefferson",
+    "fips": "36045",
+    "housingUnits": 61721,
+    "totalBSLs": 48931,
+    "fiberServed": 9765,
+    "fiberPenetration": 20.0,
+    "totalProviderPassings": 10237,
+    "operators": [
+      {
+        "name": "Verizon",
+        "passings": 3084,
+        "served": 3084
+      },
+      {
+        "name": "Westelcom Networks, Inc",
+        "passings": 2869,
+        "served": 2869
+      },
+      {
+        "name": "Castle Cable TV",
+        "passings": 2713,
+        "served": 2710
+      },
+      {
+        "name": "TDS Telecom",
+        "passings": 965,
+        "served": 965
+      },
+      {
+        "name": "Spectrum",
+        "passings": 457,
+        "served": 457
+      },
+      {
+        "name": "Citizens Telephone Company of Hammond, NY",
+        "passings": 76,
+        "served": 76
+      },
+      {
+        "name": "Frontier",
+        "passings": 62,
+        "served": 62
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 9,
+        "served": 9
+      },
+      {
+        "name": "Xfinity",
+        "passings": 2,
+        "served": 0
+      }
+    ]
+  },
+  "36047": {
+    "county": "Kings",
+    "fips": "36047",
+    "housingUnits": 1090187,
+    "totalBSLs": 267115,
+    "fiberServed": 267075,
+    "fiberPenetration": 100.0,
+    "totalProviderPassings": 643110,
+    "operators": [
+      {
+        "name": "Lightpath",
+        "passings": 266941,
+        "served": 266941
+      },
+      {
+        "name": "Verizon",
+        "passings": 214195,
+        "served": 214184
+      },
+      {
+        "name": "Optimum",
+        "passings": 157111,
+        "served": 157111
+      },
+      {
+        "name": "Spectrum",
+        "passings": 2851,
+        "served": 2851
+      },
+      {
+        "name": "Optical Communications Group Inc",
+        "passings": 1096,
+        "served": 1096
+      },
+      {
+        "name": "Stealth Communications",
+        "passings": 698,
+        "served": 698
+      },
+      {
+        "name": "Astound Broadband",
+        "passings": 174,
+        "served": 174
+      },
+      {
+        "name": "Rozint LLC",
+        "passings": 17,
+        "served": 17
+      },
+      {
+        "name": "ZAYO GROUP LLC",
+        "passings": 15,
+        "served": 5
+      },
+      {
+        "name": "Xfinity",
+        "passings": 5,
+        "served": 4
+      }
+    ]
+  },
+  "36049": {
+    "county": "Lewis",
+    "fips": "36049",
+    "housingUnits": 15572,
+    "totalBSLs": 15031,
+    "fiberServed": 5272,
+    "fiberPenetration": 35.1,
+    "totalProviderPassings": 5654,
+    "operators": [
+      {
+        "name": "Spectrum",
+        "passings": 3400,
+        "served": 3400
+      },
+      {
+        "name": "Frontier",
+        "passings": 2031,
+        "served": 2031
+      },
+      {
+        "name": "Verizon",
+        "passings": 223,
+        "served": 223
+      }
+    ]
+  },
+  "36051": {
+    "county": "Livingston",
+    "fips": "36051",
+    "housingUnits": 27198,
+    "totalBSLs": 25239,
+    "fiberServed": 13770,
+    "fiberPenetration": 54.6,
+    "totalProviderPassings": 17935,
+    "operators": [
+      {
+        "name": "Frontier",
+        "passings": 10166,
+        "served": 10166
+      },
+      {
+        "name": "Empire Long Distance Corporation",
+        "passings": 4989,
+        "served": 4989
+      },
+      {
+        "name": "Armstrong Telecommunications Inc",
+        "passings": 1520,
+        "served": 1520
+      },
+      {
+        "name": "Spectrum",
+        "passings": 1245,
+        "served": 1245
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 15,
+        "served": 7
+      }
+    ]
+  },
+  "36053": {
+    "county": "Madison",
+    "fips": "36053",
+    "housingUnits": 30676,
+    "totalBSLs": 29121,
+    "fiberServed": 8859,
+    "fiberPenetration": 30.4,
+    "totalProviderPassings": 9170,
+    "operators": [
+      {
+        "name": "Spectrum",
+        "passings": 4345,
+        "served": 4345
+      },
+      {
+        "name": "Windstream New York, Inc.",
+        "passings": 1761,
+        "served": 1761
+      },
+      {
+        "name": "Verizon",
+        "passings": 1579,
+        "served": 1579
+      },
+      {
+        "name": "Northland Networks",
+        "passings": 738,
+        "served": 738
+      },
+      {
+        "name": "Frontier",
+        "passings": 486,
+        "served": 486
+      },
+      {
+        "name": "OEConnect",
+        "passings": 242,
+        "served": 242
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 14,
+        "served": 10
+      },
+      {
+        "name": "Point Broadband Fiber Holding LLC",
+        "passings": 5,
+        "served": 5
+      }
+    ]
+  },
+  "36055": {
+    "county": "Monroe",
+    "fips": "36055",
+    "housingUnits": 337688,
+    "totalBSLs": 248277,
+    "fiberServed": 171799,
+    "fiberPenetration": 69.2,
+    "totalProviderPassings": 239087,
+    "operators": [
+      {
+        "name": "Greenlight Networks",
+        "passings": 135808,
+        "served": 135808
+      },
+      {
+        "name": "Frontier",
+        "passings": 98239,
+        "served": 98239
+      },
+      {
+        "name": "Spectrum",
+        "passings": 3333,
+        "served": 3333
+      },
+      {
+        "name": "Empire Long Distance Corporation",
+        "passings": 1495,
+        "served": 1495
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 202,
+        "served": 177
+      },
+      {
+        "name": "Xfinity",
+        "passings": 7,
+        "served": 6
+      },
+      {
+        "name": "FastBridge Fiber",
+        "passings": 2,
+        "served": 2
+      },
+      {
+        "name": "Fusion",
+        "passings": 1,
+        "served": 1
+      }
+    ]
+  },
+  "36057": {
+    "county": "Montgomery",
+    "fips": "36057",
+    "housingUnits": 22944,
+    "totalBSLs": 19520,
+    "fiberServed": 5287,
+    "fiberPenetration": 27.1,
+    "totalProviderPassings": 5382,
+    "operators": [
+      {
+        "name": "Frontier",
+        "passings": 3426,
+        "served": 3426
+      },
+      {
+        "name": "Spectrum",
+        "passings": 1346,
+        "served": 1346
+      },
+      {
+        "name": "Verizon",
+        "passings": 319,
+        "served": 319
+      },
+      {
+        "name": "Pattersonville Telephone Company",
+        "passings": 271,
+        "served": 271
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 20,
+        "served": 8
+      }
+    ]
+  },
+  "36059": {
+    "county": "Nassau",
+    "fips": "36059",
+    "housingUnits": 477860,
+    "totalBSLs": 386369,
+    "fiberServed": 386336,
+    "fiberPenetration": 100.0,
+    "totalProviderPassings": 1129923,
+    "operators": [
+      {
+        "name": "Lightpath",
+        "passings": 385678,
+        "served": 385678
+      },
+      {
+        "name": "Verizon",
+        "passings": 378103,
+        "served": 378073
+      },
+      {
+        "name": "Optimum",
+        "passings": 365613,
+        "served": 365613
+      },
+      {
+        "name": "Optical Communications Group Inc",
+        "passings": 462,
+        "served": 462
+      },
+      {
+        "name": "Frontier",
+        "passings": 24,
+        "served": 24
+      },
+      {
+        "name": "Spectrum",
+        "passings": 20,
+        "served": 20
+      },
+      {
+        "name": "ZAYO GROUP LLC",
+        "passings": 16,
+        "served": 4
+      },
+      {
+        "name": "Xfinity",
+        "passings": 2,
+        "served": 1
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 2,
+        "served": 0
+      },
+      {
+        "name": "Astound Broadband",
+        "passings": 1,
+        "served": 1
+      }
+    ]
+  },
+  "36061": {
+    "county": "New York",
+    "fips": "36061",
+    "housingUnits": 918806,
+    "totalBSLs": 37504,
+    "fiberServed": 37477,
+    "fiberPenetration": 99.9,
+    "totalProviderPassings": 130102,
+    "operators": [
+      {
+        "name": "Lightpath",
+        "passings": 37477,
+        "served": 37477
+      },
+      {
+        "name": "Pilot Fiber",
+        "passings": 37343,
+        "served": 37343
+      },
+      {
+        "name": "Stealth Communications",
+        "passings": 36469,
+        "served": 36469
+      },
+      {
+        "name": "Verizon",
+        "passings": 11857,
+        "served": 11829
+      },
+      {
+        "name": "Spectrum",
+        "passings": 5133,
+        "served": 5133
+      },
+      {
+        "name": "Astound Broadband",
+        "passings": 903,
+        "served": 903
+      },
+      {
+        "name": "Optical Communications Group Inc",
+        "passings": 550,
+        "served": 550
+      },
+      {
+        "name": "ZAYO GROUP LLC",
+        "passings": 168,
+        "served": 163
+      },
+      {
+        "name": "Cogent Communication",
+        "passings": 152,
+        "served": 152
+      },
+      {
+        "name": "Fusion",
+        "passings": 12,
+        "served": 12
+      }
+    ]
+  },
+  "36063": {
+    "county": "Niagara",
+    "fips": "36063",
+    "housingUnits": 100335,
+    "totalBSLs": 83995,
+    "fiberServed": 26897,
+    "fiberPenetration": 32.0,
+    "totalProviderPassings": 27031,
+    "operators": [
+      {
+        "name": "Greenlight Networks",
+        "passings": 14828,
+        "served": 14828
+      },
+      {
+        "name": "GoNetspeed",
+        "passings": 7285,
+        "served": 7285
+      },
+      {
+        "name": "Spectrum",
+        "passings": 2848,
+        "served": 2848
+      },
+      {
+        "name": "Verizon",
+        "passings": 2045,
+        "served": 2045
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 25,
+        "served": 25
+      }
+    ]
+  },
+  "36065": {
+    "county": "Oneida",
+    "fips": "36065",
+    "housingUnits": 105285,
+    "totalBSLs": 87154,
+    "fiberServed": 22456,
+    "fiberPenetration": 25.8,
+    "totalProviderPassings": 23848,
+    "operators": [
+      {
+        "name": "GoNetspeed",
+        "passings": 8360,
+        "served": 8360
+      },
+      {
+        "name": "Oneida County Rural Telephone Co.",
+        "passings": 3577,
+        "served": 3577
+      },
+      {
+        "name": "Northland Networks",
+        "passings": 3222,
+        "served": 3222
+      },
+      {
+        "name": "Spectrum",
+        "passings": 3005,
+        "served": 3005
+      },
+      {
+        "name": "Verizon",
+        "passings": 2410,
+        "served": 2410
+      },
+      {
+        "name": "SLICFiber",
+        "passings": 1166,
+        "served": 1166
+      },
+      {
+        "name": "Frontier",
+        "passings": 1081,
+        "served": 1081
+      },
+      {
+        "name": "Adirondack Broadband",
+        "passings": 641,
+        "served": 641
+      },
+      {
+        "name": "Windstream New York, Inc.",
+        "passings": 245,
+        "served": 245
+      },
+      {
+        "name": "Newport Telephone Co - NTCNet",
+        "passings": 120,
+        "served": 120
+      }
+    ]
+  },
+  "36067": {
+    "county": "Onondaga",
+    "fips": "36067",
+    "housingUnits": 211683,
+    "totalBSLs": 160846,
+    "fiberServed": 123039,
+    "fiberPenetration": 76.5,
+    "totalProviderPassings": 126887,
+    "operators": [
+      {
+        "name": "Verizon",
+        "passings": 114720,
+        "served": 114713
+      },
+      {
+        "name": "Windstream New York, Inc.",
+        "passings": 5732,
+        "served": 5732
+      },
+      {
+        "name": "Northland Networks",
+        "passings": 3437,
+        "served": 3437
+      },
+      {
+        "name": "Spectrum",
+        "passings": 1970,
+        "served": 1970
+      },
+      {
+        "name": "Point Broadband Fiber Holding LLC",
+        "passings": 977,
+        "served": 977
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 46,
+        "served": 32
+      },
+      {
+        "name": "Xfinity",
+        "passings": 3,
+        "served": 2
+      },
+      {
+        "name": "Cogent Communication",
+        "passings": 1,
+        "served": 1
+      },
+      {
+        "name": "Windstream Communications, LLC.",
+        "passings": 1,
+        "served": 1
+      }
+    ]
+  },
+  "36069": {
+    "county": "Ontario",
+    "fips": "36069",
+    "housingUnits": 53001,
+    "totalBSLs": 45005,
+    "fiberServed": 25408,
+    "fiberPenetration": 56.5,
+    "totalProviderPassings": 37892,
+    "operators": [
+      {
+        "name": "Empire Long Distance Corporation",
+        "passings": 11463,
+        "served": 11463
+      },
+      {
+        "name": "GoNetspeed",
+        "passings": 9483,
+        "served": 9483
+      },
+      {
+        "name": "Frontier",
+        "passings": 8383,
+        "served": 8383
+      },
+      {
+        "name": "GoNetspeed",
+        "passings": 3004,
+        "served": 3004
+      },
+      {
+        "name": "Spectrum",
+        "passings": 2931,
+        "served": 2931
+      },
+      {
+        "name": "Windstream New York, Inc.",
+        "passings": 1939,
+        "served": 1939
+      },
+      {
+        "name": "Greenlight Networks",
+        "passings": 586,
+        "served": 586
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 103,
+        "served": 65
+      }
+    ]
+  },
+  "36071": {
+    "county": "Orange",
+    "fips": "36071",
+    "housingUnits": 148460,
+    "totalBSLs": 113128,
+    "fiberServed": 75839,
+    "fiberPenetration": 67.0,
+    "totalProviderPassings": 124982,
+    "operators": [
+      {
+        "name": "Lightpath",
+        "passings": 42773,
+        "served": 42773
+      },
+      {
+        "name": "Verizon",
+        "passings": 23252,
+        "served": 23252
+      },
+      {
+        "name": "Frontier",
+        "passings": 22265,
+        "served": 22265
+      },
+      {
+        "name": "Optimum",
+        "passings": 16223,
+        "served": 16223
+      },
+      {
+        "name": "Alteva Of Warwick, LLC",
+        "passings": 10252,
+        "served": 10252
+      },
+      {
+        "name": "Greenlight Networks",
+        "passings": 9215,
+        "served": 9215
+      },
+      {
+        "name": "Spectrum",
+        "passings": 923,
+        "served": 923
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 42,
+        "served": 37
+      },
+      {
+        "name": "Xfinity",
+        "passings": 20,
+        "served": 19
+      },
+      {
+        "name": "QCSTelecom Inc",
+        "passings": 12,
+        "served": 12
+      }
+    ]
+  },
+  "36073": {
+    "county": "Orleans",
+    "fips": "36073",
+    "housingUnits": 18275,
+    "totalBSLs": 17283,
+    "fiberServed": 898,
+    "fiberPenetration": 5.2,
+    "totalProviderPassings": 900,
+    "operators": [
+      {
+        "name": "Spectrum",
+        "passings": 898,
+        "served": 898
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 2,
+        "served": 1
+      }
+    ]
+  },
+  "36075": {
+    "county": "Oswego",
+    "fips": "36075",
+    "housingUnits": 54697,
+    "totalBSLs": 50563,
+    "fiberServed": 12870,
+    "fiberPenetration": 25.5,
+    "totalProviderPassings": 12999,
+    "operators": [
+      {
+        "name": "Windstream New York, Inc.",
+        "passings": 11401,
+        "served": 11401
+      },
+      {
+        "name": "Verizon",
+        "passings": 550,
+        "served": 550
+      },
+      {
+        "name": "Spectrum",
+        "passings": 549,
+        "served": 549
+      },
+      {
+        "name": "Frontier",
+        "passings": 485,
+        "served": 485
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 13,
+        "served": 11
+      },
+      {
+        "name": "Xfinity",
+        "passings": 1,
+        "served": 1
+      }
+    ]
+  },
+  "36077": {
+    "county": "Otsego",
+    "fips": "36077",
+    "housingUnits": 30011,
+    "totalBSLs": 28976,
+    "fiberServed": 9213,
+    "fiberPenetration": 31.8,
+    "totalProviderPassings": 9495,
+    "operators": [
+      {
+        "name": "OEConnect",
+        "passings": 6488,
+        "served": 6488
+      },
+      {
+        "name": "Spectrum",
+        "passings": 1855,
+        "served": 1855
+      },
+      {
+        "name": "Frontier",
+        "passings": 549,
+        "served": 549
+      },
+      {
+        "name": "Delhi Telephone Company",
+        "passings": 453,
+        "served": 453
+      },
+      {
+        "name": "Verizon",
+        "passings": 129,
+        "served": 129
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 16,
+        "served": 13
+      },
+      {
+        "name": "MIDTEL",
+        "passings": 4,
+        "served": 4
+      },
+      {
+        "name": "Windstream New York, Inc.",
+        "passings": 1,
+        "served": 1
+      }
+    ]
+  },
+  "36079": {
+    "county": "Putnam",
+    "fips": "36079",
+    "housingUnits": 38369,
+    "totalBSLs": 33053,
+    "fiberServed": 28978,
+    "fiberPenetration": 87.7,
+    "totalProviderPassings": 37242,
+    "operators": [
+      {
+        "name": "Verizon",
+        "passings": 24507,
+        "served": 24507
+      },
+      {
+        "name": "Lightpath",
+        "passings": 8455,
+        "served": 8455
+      },
+      {
+        "name": "Optimum",
+        "passings": 4246,
+        "served": 4246
+      },
+      {
+        "name": "Xfinity",
+        "passings": 25,
+        "served": 12
+      },
+      {
+        "name": "QCSTelecom Inc",
+        "passings": 5,
+        "served": 5
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 4,
+        "served": 4
+      }
+    ]
+  },
+  "36081": {
+    "county": "Queens",
+    "fips": "36081",
+    "housingUnits": 903598,
+    "totalBSLs": 309822,
+    "fiberServed": 308644,
+    "fiberPenetration": 99.6,
+    "totalProviderPassings": 582242,
+    "operators": [
+      {
+        "name": "Lightpath",
+        "passings": 291561,
+        "served": 291561
+      },
+      {
+        "name": "Verizon",
+        "passings": 285478,
+        "served": 285474
+      },
+      {
+        "name": "Spectrum",
+        "passings": 4080,
+        "served": 4080
+      },
+      {
+        "name": "Optimum",
+        "passings": 640,
+        "served": 640
+      },
+      {
+        "name": "Astound Broadband",
+        "passings": 348,
+        "served": 348
+      },
+      {
+        "name": "Optical Communications Group Inc",
+        "passings": 117,
+        "served": 117
+      },
+      {
+        "name": "ZAYO GROUP LLC",
+        "passings": 8,
+        "served": 4
+      },
+      {
+        "name": "Fusion",
+        "passings": 4,
+        "served": 4
+      },
+      {
+        "name": "NetFortris",
+        "passings": 2,
+        "served": 2
+      },
+      {
+        "name": "Xfinity",
+        "passings": 2,
+        "served": 2
+      }
+    ]
+  },
+  "36083": {
+    "county": "Rensselaer",
+    "fips": "36083",
+    "housingUnits": 74388,
+    "totalBSLs": 55222,
+    "fiberServed": 4795,
+    "fiberPenetration": 8.7,
+    "totalProviderPassings": 4835,
+    "operators": [
+      {
+        "name": "Fidium Fiber",
+        "passings": 2705,
+        "served": 2705
+      },
+      {
+        "name": "Verizon",
+        "passings": 1370,
+        "served": 1370
+      },
+      {
+        "name": "Spectrum",
+        "passings": 676,
+        "served": 676
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 61,
+        "served": 42
+      },
+      {
+        "name": "Massivemesh Networks",
+        "passings": 13,
+        "served": 13
+      },
+      {
+        "name": "SLICFiber",
+        "passings": 10,
+        "served": 10
+      }
+    ]
+  },
+  "36085": {
+    "county": "Richmond",
+    "fips": "36085",
+    "housingUnits": 184074,
+    "totalBSLs": 116740,
+    "fiberServed": 112799,
+    "fiberPenetration": 96.6,
+    "totalProviderPassings": 120880,
+    "operators": [
+      {
+        "name": "Verizon",
+        "passings": 112080,
+        "served": 112070
+      },
+      {
+        "name": "Lightpath",
+        "passings": 7684,
+        "served": 7684
+      },
+      {
+        "name": "Spectrum",
+        "passings": 742,
+        "served": 742
+      },
+      {
+        "name": "Optical Communications Group Inc",
+        "passings": 370,
+        "served": 370
+      },
+      {
+        "name": "Xfinity",
+        "passings": 2,
+        "served": 0
+      },
+      {
+        "name": "Cogent Communication",
+        "passings": 1,
+        "served": 1
+      },
+      {
+        "name": "Telefonica",
+        "passings": 1,
+        "served": 0
+      }
+    ]
+  },
+  "36087": {
+    "county": "Rockland",
+    "fips": "36087",
+    "housingUnits": 108576,
+    "totalBSLs": 74597,
+    "fiberServed": 74535,
+    "fiberPenetration": 99.9,
+    "totalProviderPassings": 203499,
+    "operators": [
+      {
+        "name": "Lightpath",
+        "passings": 73833,
+        "served": 73833
+      },
+      {
+        "name": "Verizon",
+        "passings": 70239,
+        "served": 70069
+      },
+      {
+        "name": "Optimum",
+        "passings": 59406,
+        "served": 59406
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 10,
+        "served": 10
+      },
+      {
+        "name": "ZAYO GROUP LLC",
+        "passings": 5,
+        "served": 3
+      },
+      {
+        "name": "QCSTelecom Inc",
+        "passings": 2,
+        "served": 2
+      },
+      {
+        "name": "Xfinity",
+        "passings": 2,
+        "served": 2
+      },
+      {
+        "name": "Cogent Communication",
+        "passings": 1,
+        "served": 1
+      },
+      {
+        "name": "NetFortris",
+        "passings": 1,
+        "served": 0
+      }
+    ]
+  },
+  "36089": {
+    "county": "St. Lawrence",
+    "fips": "36089",
+    "housingUnits": 51884,
+    "totalBSLs": 48408,
+    "fiberServed": 29006,
+    "fiberPenetration": 59.9,
+    "totalProviderPassings": 29546,
+    "operators": [
+      {
+        "name": "SLICFiber",
+        "passings": 19136,
+        "served": 19136
+      },
+      {
+        "name": "Verizon",
+        "passings": 2712,
+        "served": 2712
+      },
+      {
+        "name": "Nicholville Telephone Company",
+        "passings": 2368,
+        "served": 2368
+      },
+      {
+        "name": "Citizens Telephone Company of Hammond, NY",
+        "passings": 2238,
+        "served": 2232
+      },
+      {
+        "name": "TDS Telecom",
+        "passings": 2138,
+        "served": 2138
+      },
+      {
+        "name": "Spectrum",
+        "passings": 438,
+        "served": 438
+      },
+      {
+        "name": "Castle Cable TV",
+        "passings": 252,
+        "served": 252
+      },
+      {
+        "name": "Adirondack Broadband",
+        "passings": 197,
+        "served": 197
+      },
+      {
+        "name": "Frontier",
+        "passings": 27,
+        "served": 27
+      },
+      {
+        "name": "Mohawk Networks LLC",
+        "passings": 26,
+        "served": 26
+      }
+    ]
+  },
+  "36091": {
+    "county": "Saratoga",
+    "fips": "36091",
+    "housingUnits": 111127,
+    "totalBSLs": 89907,
+    "fiberServed": 20776,
+    "fiberPenetration": 23.1,
+    "totalProviderPassings": 21520,
+    "operators": [
+      {
+        "name": "Verizon",
+        "passings": 7578,
+        "served": 7578
+      },
+      {
+        "name": "Greenlight Networks",
+        "passings": 5705,
+        "served": 5705
+      },
+      {
+        "name": "SLICFiber",
+        "passings": 5173,
+        "served": 5173
+      },
+      {
+        "name": "Spectrum",
+        "passings": 1641,
+        "served": 1641
+      },
+      {
+        "name": "Frontier",
+        "passings": 1274,
+        "served": 1274
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 148,
+        "served": 99
+      },
+      {
+        "name": "ZAYO GROUP LLC",
+        "passings": 1,
+        "served": 1
+      }
+    ]
+  },
+  "36093": {
+    "county": "Schenectady",
+    "fips": "36093",
+    "housingUnits": 71051,
+    "totalBSLs": 52891,
+    "fiberServed": 38154,
+    "fiberPenetration": 72.1,
+    "totalProviderPassings": 43735,
+    "operators": [
+      {
+        "name": "Verizon",
+        "passings": 35379,
+        "served": 35375
+      },
+      {
+        "name": "Greenlight Networks",
+        "passings": 7252,
+        "served": 7252
+      },
+      {
+        "name": "Spectrum",
+        "passings": 750,
+        "served": 750
+      },
+      {
+        "name": "Pattersonville Telephone Company",
+        "passings": 289,
+        "served": 289
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 57,
+        "served": 38
+      },
+      {
+        "name": "Massivemesh Networks",
+        "passings": 8,
+        "served": 8
+      }
+    ]
+  },
+  "36095": {
+    "county": "Schoharie",
+    "fips": "36095",
+    "housingUnits": 16544,
+    "totalBSLs": 16112,
+    "fiberServed": 9680,
+    "fiberPenetration": 60.1,
+    "totalProviderPassings": 10447,
+    "operators": [
+      {
+        "name": "MIDTEL",
+        "passings": 6550,
+        "served": 6550
+      },
+      {
+        "name": "MTC Cable",
+        "passings": 1928,
+        "served": 1928
+      },
+      {
+        "name": "Spectrum",
+        "passings": 1428,
+        "served": 1428
+      },
+      {
+        "name": "Verizon",
+        "passings": 534,
+        "served": 534
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 7,
+        "served": 4
+      }
+    ]
+  },
+  "36097": {
+    "county": "Schuyler",
+    "fips": "36097",
+    "housingUnits": 9691,
+    "totalBSLs": 9908,
+    "fiberServed": 6607,
+    "fiberPenetration": 66.7,
+    "totalProviderPassings": 8654,
+    "operators": [
+      {
+        "name": "Empire Long Distance Corporation",
+        "passings": 3713,
+        "served": 3713
+      },
+      {
+        "name": "Empire Telephone Corp.",
+        "passings": 1905,
+        "served": 1905
+      },
+      {
+        "name": "Haefele Connect",
+        "passings": 1582,
+        "served": 1582
+      },
+      {
+        "name": "GoNetspeed",
+        "passings": 831,
+        "served": 831
+      },
+      {
+        "name": "Spectrum",
+        "passings": 470,
+        "served": 470
+      },
+      {
+        "name": "Frontier",
+        "passings": 146,
+        "served": 146
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 7,
+        "served": 6
+      }
+    ]
+  },
+  "36099": {
+    "county": "Seneca",
+    "fips": "36099",
+    "housingUnits": 16148,
+    "totalBSLs": 14994,
+    "fiberServed": 10123,
+    "fiberPenetration": 67.5,
+    "totalProviderPassings": 11641,
+    "operators": [
+      {
+        "name": "GoNetspeed",
+        "passings": 4676,
+        "served": 4676
+      },
+      {
+        "name": "GoNetspeed",
+        "passings": 3544,
+        "served": 3544
+      },
+      {
+        "name": "Spectrum",
+        "passings": 2415,
+        "served": 2415
+      },
+      {
+        "name": "Empire Telephone Corp.",
+        "passings": 875,
+        "served": 875
+      },
+      {
+        "name": "Empire Long Distance Corporation",
+        "passings": 77,
+        "served": 77
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 28,
+        "served": 14
+      },
+      {
+        "name": "TDS Telecom",
+        "passings": 26,
+        "served": 26
+      }
+    ]
+  },
+  "36101": {
+    "county": "Steuben",
+    "fips": "36101",
+    "housingUnits": 47565,
+    "totalBSLs": 44640,
+    "fiberServed": 27942,
+    "fiberPenetration": 62.6,
+    "totalProviderPassings": 28671,
+    "operators": [
+      {
+        "name": "Empire Long Distance Corporation",
+        "passings": 15972,
+        "served": 15972
+      },
+      {
+        "name": "Armstrong Telecommunications Inc",
+        "passings": 3857,
+        "served": 3857
+      },
+      {
+        "name": "Armstrong Telephone Company",
+        "passings": 3331,
+        "served": 3331
+      },
+      {
+        "name": "Empire Telephone Corp.",
+        "passings": 2780,
+        "served": 2780
+      },
+      {
+        "name": "Spectrum",
+        "passings": 2375,
+        "served": 2375
+      },
+      {
+        "name": "Haefele Connect",
+        "passings": 308,
+        "served": 308
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 29,
+        "served": 23
+      },
+      {
+        "name": "Frontier",
+        "passings": 19,
+        "served": 19
+      }
+    ]
+  },
+  "36103": {
+    "county": "Suffolk",
+    "fips": "36103",
+    "housingUnits": 579790,
+    "totalBSLs": 491863,
+    "fiberServed": 488973,
+    "fiberPenetration": 99.4,
+    "totalProviderPassings": 1178435,
+    "operators": [
+      {
+        "name": "Lightpath",
+        "passings": 475786,
+        "served": 475786
+      },
+      {
+        "name": "Optimum",
+        "passings": 407555,
+        "served": 407555
+      },
+      {
+        "name": "Verizon",
+        "passings": 294518,
+        "served": 294513
+      },
+      {
+        "name": "Fishers Island Telephone Corp",
+        "passings": 296,
+        "served": 296
+      },
+      {
+        "name": "Optical Communications Group Inc",
+        "passings": 231,
+        "served": 231
+      },
+      {
+        "name": "Frontier",
+        "passings": 24,
+        "served": 24
+      },
+      {
+        "name": "ZAYO GROUP LLC",
+        "passings": 15,
+        "served": 0
+      },
+      {
+        "name": "Xfinity",
+        "passings": 3,
+        "served": 2
+      },
+      {
+        "name": "Astound Broadband",
+        "passings": 2,
+        "served": 2
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 2,
+        "served": 2
+      }
+    ]
+  },
+  "36105": {
+    "county": "Sullivan",
+    "fips": "36105",
+    "housingUnits": 49667,
+    "totalBSLs": 47663,
+    "fiberServed": 3077,
+    "fiberPenetration": 6.5,
+    "totalProviderPassings": 3099,
+    "operators": [
+      {
+        "name": "Frontier",
+        "passings": 2370,
+        "served": 2370
+      },
+      {
+        "name": "Spectrum",
+        "passings": 658,
+        "served": 658
+      },
+      {
+        "name": "MTC Cable",
+        "passings": 57,
+        "served": 57
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 14,
+        "served": 10
+      }
+    ]
+  },
+  "36107": {
+    "county": "Tioga",
+    "fips": "36107",
+    "housingUnits": 21966,
+    "totalBSLs": 21270,
+    "fiberServed": 10241,
+    "fiberPenetration": 48.1,
+    "totalProviderPassings": 11000,
+    "operators": [
+      {
+        "name": "Haefele Connect",
+        "passings": 4696,
+        "served": 4696
+      },
+      {
+        "name": "Empire Long Distance Corporation",
+        "passings": 3398,
+        "served": 3398
+      },
+      {
+        "name": "Greenlight Networks",
+        "passings": 1443,
+        "served": 1443
+      },
+      {
+        "name": "Fiberspark Inc",
+        "passings": 960,
+        "served": 960
+      },
+      {
+        "name": "Spectrum",
+        "passings": 259,
+        "served": 259
+      },
+      {
+        "name": "Frontier",
+        "passings": 135,
+        "served": 135
+      },
+      {
+        "name": "Point Broadband Fiber Holding LLC",
+        "passings": 93,
+        "served": 93
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 16,
+        "served": 11
+      }
+    ]
+  },
+  "36109": {
+    "county": "Tompkins",
+    "fips": "36109",
+    "housingUnits": 47362,
+    "totalBSLs": 30952,
+    "fiberServed": 11128,
+    "fiberPenetration": 36.0,
+    "totalProviderPassings": 13453,
+    "operators": [
+      {
+        "name": "Point Broadband Fiber Holding LLC",
+        "passings": 2672,
+        "served": 2672
+      },
+      {
+        "name": "GoNetspeed",
+        "passings": 1854,
+        "served": 1854
+      },
+      {
+        "name": "Dryden Fiber",
+        "passings": 1786,
+        "served": 1786
+      },
+      {
+        "name": "Haefele Connect",
+        "passings": 1736,
+        "served": 1736
+      },
+      {
+        "name": "Verizon",
+        "passings": 1659,
+        "served": 1659
+      },
+      {
+        "name": "Empire Long Distance Corporation",
+        "passings": 1470,
+        "served": 1470
+      },
+      {
+        "name": "Fiberspark Inc",
+        "passings": 1217,
+        "served": 1217
+      },
+      {
+        "name": "Spectrum",
+        "passings": 910,
+        "served": 910
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 121,
+        "served": 66
+      },
+      {
+        "name": "Empire Telephone Corp.",
+        "passings": 28,
+        "served": 28
+      }
+    ]
+  },
+  "36111": {
+    "county": "Ulster",
+    "fips": "36111",
+    "housingUnits": 86178,
+    "totalBSLs": 73517,
+    "fiberServed": 18563,
+    "fiberPenetration": 25.2,
+    "totalProviderPassings": 22301,
+    "operators": [
+      {
+        "name": "Archtop Fiber",
+        "passings": 12658,
+        "served": 12658
+      },
+      {
+        "name": "Planet Networks",
+        "passings": 6748,
+        "served": 6748
+      },
+      {
+        "name": "Verizon",
+        "passings": 949,
+        "served": 949
+      },
+      {
+        "name": "MTC Cable",
+        "passings": 879,
+        "served": 879
+      },
+      {
+        "name": "Spectrum",
+        "passings": 751,
+        "served": 751
+      },
+      {
+        "name": "Margaretville Telephone Co",
+        "passings": 207,
+        "served": 207
+      },
+      {
+        "name": "Optimum",
+        "passings": 36,
+        "served": 36
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 26,
+        "served": 24
+      },
+      {
+        "name": "Mid-Hudson Cablevision",
+        "passings": 23,
+        "served": 23
+      },
+      {
+        "name": "Frontier",
+        "passings": 14,
+        "served": 14
+      }
+    ]
+  },
+  "36113": {
+    "county": "Warren",
+    "fips": "36113",
+    "housingUnits": 40177,
+    "totalBSLs": 34235,
+    "fiberServed": 6275,
+    "fiberPenetration": 18.3,
+    "totalProviderPassings": 7406,
+    "operators": [
+      {
+        "name": "SLICFiber",
+        "passings": 4761,
+        "served": 4761
+      },
+      {
+        "name": "Frontier",
+        "passings": 1616,
+        "served": 1616
+      },
+      {
+        "name": "Spectrum",
+        "passings": 929,
+        "served": 929
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 98,
+        "served": 47
+      },
+      {
+        "name": "Xfinity",
+        "passings": 2,
+        "served": 2
+      }
+    ]
+  },
+  "36115": {
+    "county": "Washington",
+    "fips": "36115",
+    "housingUnits": 29111,
+    "totalBSLs": 27400,
+    "fiberServed": 8301,
+    "fiberPenetration": 30.3,
+    "totalProviderPassings": 8830,
+    "operators": [
+      {
+        "name": "SLICFiber",
+        "passings": 5461,
+        "served": 5461
+      },
+      {
+        "name": "Spectrum",
+        "passings": 1797,
+        "served": 1797
+      },
+      {
+        "name": "Verizon",
+        "passings": 1509,
+        "served": 1509
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 58,
+        "served": 15
+      },
+      {
+        "name": "TDS Telecom",
+        "passings": 5,
+        "served": 5
+      }
+    ]
+  },
+  "36117": {
+    "county": "Wayne",
+    "fips": "36117",
+    "housingUnits": 42375,
+    "totalBSLs": 39053,
+    "fiberServed": 9535,
+    "fiberPenetration": 24.4,
+    "totalProviderPassings": 10075,
+    "operators": [
+      {
+        "name": "GoNetspeed",
+        "passings": 4981,
+        "served": 4981
+      },
+      {
+        "name": "Spectrum",
+        "passings": 4304,
+        "served": 4304
+      },
+      {
+        "name": "Empire Long Distance Corporation",
+        "passings": 427,
+        "served": 427
+      },
+      {
+        "name": "TDS Telecom",
+        "passings": 212,
+        "served": 212
+      },
+      {
+        "name": "Frontier",
+        "passings": 106,
+        "served": 106
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 44,
+        "served": 31
+      },
+      {
+        "name": "GoNetspeed",
+        "passings": 1,
+        "served": 1
+      }
+    ]
+  },
+  "36119": {
+    "county": "Westchester",
+    "fips": "36119",
+    "housingUnits": 391861,
+    "totalBSLs": 206946,
+    "fiberServed": 206305,
+    "fiberPenetration": 99.7,
+    "totalProviderPassings": 532981,
+    "operators": [
+      {
+        "name": "Lightpath",
+        "passings": 205429,
+        "served": 205429
+      },
+      {
+        "name": "Verizon",
+        "passings": 180706,
+        "served": 180676
+      },
+      {
+        "name": "Optimum",
+        "passings": 146680,
+        "served": 146680
+      },
+      {
+        "name": "Spectrum",
+        "passings": 96,
+        "served": 96
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 37,
+        "served": 29
+      },
+      {
+        "name": "ZAYO GROUP LLC",
+        "passings": 17,
+        "served": 11
+      },
+      {
+        "name": "Cogent Communication",
+        "passings": 11,
+        "served": 11
+      },
+      {
+        "name": "Frontier",
+        "passings": 3,
+        "served": 3
+      },
+      {
+        "name": "Fusion",
+        "passings": 2,
+        "served": 2
+      }
+    ]
+  },
+  "36121": {
+    "county": "Wyoming",
+    "fips": "36121",
+    "housingUnits": 18204,
+    "totalBSLs": 18086,
+    "fiberServed": 6477,
+    "fiberPenetration": 35.8,
+    "totalProviderPassings": 6782,
+    "operators": [
+      {
+        "name": "Empire Long Distance Corporation",
+        "passings": 3106,
+        "served": 3106
+      },
+      {
+        "name": "Spectrum",
+        "passings": 2608,
+        "served": 2608
+      },
+      {
+        "name": "Armstrong Telecommunications Inc",
+        "passings": 741,
+        "served": 741
+      },
+      {
+        "name": "Frontier",
+        "passings": 322,
+        "served": 322
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 5,
+        "served": 2
+      }
+    ]
+  },
+  "36123": {
+    "county": "Yates",
+    "fips": "36123",
+    "housingUnits": 13143,
+    "totalBSLs": 13041,
+    "fiberServed": 6340,
+    "fiberPenetration": 48.6,
+    "totalProviderPassings": 6577,
+    "operators": [
+      {
+        "name": "Empire Long Distance Corporation",
+        "passings": 2867,
+        "served": 2867
+      },
+      {
+        "name": "Spectrum",
+        "passings": 2832,
+        "served": 2832
+      },
+      {
+        "name": "Frontier",
+        "passings": 610,
+        "served": 610
+      },
+      {
+        "name": "Empire Telephone Corp.",
+        "passings": 267,
+        "served": 267
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 1,
+        "served": 0
+      }
+    ]
+  }
+}

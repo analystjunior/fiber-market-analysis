@@ -87,6 +87,7 @@ main {
 
 .toggle-group {
     display: flex;
+    flex-wrap: wrap;
     gap: 0.25rem;
     background: var(--background);
     padding: 0.25rem;
@@ -245,12 +246,25 @@ main {
     filter: brightness(0.95);
 }
 
-.state.ny-state {
+/* Featured state styles */
+.state.featured-state {
+    cursor: pointer;
+}
+
+.state.featured-ny {
     fill: #10b981;
 }
 
-.state.ny-state:hover {
+.state.featured-ny:hover {
     fill: #059669;
+}
+
+.state.featured-mo {
+    fill: #8b5cf6;
+}
+
+.state.featured-mo:hover {
+    fill: #7c3aed;
 }
 
 /* County styling */
@@ -789,6 +803,268 @@ input[type="checkbox"]:focus-visible {
     top: 0;
 }
 
+/* BEAD Status Badge */
+.bead-badge {
+    display: inline-block;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem !important;
+    font-weight: 600;
+}
+
+.bead-awarded {
+    background: #ddd6fe;
+    color: #5b21b6;
+}
+
+.bead-in-progress {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.bead-pending {
+    background: #e0e7ff;
+    color: #3730a3;
+}
+
+.bead-not-targeted {
+    background: var(--background);
+    color: var(--text-secondary);
+}
+
+/* Momentum Indicator */
+.momentum-surging {
+    color: #059669 !important;
+}
+
+.momentum-growing {
+    color: #10b981 !important;
+}
+
+.momentum-steady {
+    color: var(--warning-color) !important;
+}
+
+.momentum-stalled {
+    color: var(--danger-color) !important;
+}
+
+/* NPV Trigger Button */
+.npv-trigger-btn {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    margin-top: 1rem;
+    background: linear-gradient(135deg, #7c3aed, #6d28d9);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.npv-trigger-btn:hover {
+    background: linear-gradient(135deg, #6d28d9, #5b21b6);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+}
+
+/* NPV Panel */
+.npv-panel {
+    position: fixed;
+    top: 0;
+    right: -440px;
+    width: 420px;
+    height: 100vh;
+    background: var(--surface);
+    box-shadow: -4px 0 20px rgba(0,0,0,0.15);
+    z-index: 1000;
+    transition: right 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.npv-panel.open {
+    right: 0;
+}
+
+.npv-panel-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 1.25rem;
+    background: linear-gradient(135deg, #7c3aed, #6d28d9);
+    color: white;
+    flex-shrink: 0;
+}
+
+.npv-panel-header h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.npv-county-label {
+    font-size: 0.8rem;
+    opacity: 0.9;
+    flex: 1;
+}
+
+.npv-close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0 0.25rem;
+    line-height: 1;
+    opacity: 0.8;
+}
+
+.npv-close-btn:hover {
+    opacity: 1;
+}
+
+.npv-panel-body {
+    padding: 1.25rem;
+    overflow-y: auto;
+    flex: 1;
+}
+
+/* NPV Sliders */
+.npv-slider-group {
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.npv-slider-group label {
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+    width: 120px;
+    flex-shrink: 0;
+}
+
+.npv-slider-group input[type="range"] {
+    flex: 1;
+    height: 6px;
+    -webkit-appearance: none;
+    appearance: none;
+    background: #e2e8f0;
+    border-radius: 3px;
+    outline: none;
+}
+
+.npv-slider-group input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #7c3aed;
+    cursor: pointer;
+    border: 2px solid white;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+.npv-slider-val {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    width: 55px;
+    text-align: right;
+    flex-shrink: 0;
+}
+
+/* NPV Results */
+.npv-results {
+    margin-top: 1rem;
+    border-top: 1px solid var(--border-color);
+    padding-top: 1rem;
+}
+
+.npv-results h4 {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.75rem;
+}
+
+.npv-results-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+}
+
+.npv-result-item {
+    background: var(--background);
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+}
+
+.npv-result-label {
+    display: block;
+    font-size: 0.6rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.1rem;
+}
+
+.npv-result-value {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.npv-result-highlight {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+}
+
+.npv-result-item.big {
+    padding: 0.75rem;
+    text-align: center;
+}
+
+.npv-result-item.big .npv-result-label {
+    font-size: 0.7rem;
+    margin-bottom: 0.25rem;
+}
+
+.npv-result-item.big .npv-result-value {
+    font-size: 1.3rem;
+}
+
+.npv-result-value.positive {
+    color: var(--success-color);
+}
+
+.npv-result-value.negative {
+    color: var(--danger-color);
+}
+
+/* Deep Dive Button */
+.deep-dive-btn {
+    position: relative;
+}
+
+.deep-dive-btn.active {
+    background: #7c3aed;
+    color: white;
+    animation: pulse-purple 2s infinite;
+}
+
+@keyframes pulse-purple {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(124, 58, 237, 0.4); }
+    50% { box-shadow: 0 0 0 6px rgba(124, 58, 237, 0); }
+}
+
 /* Responsive */
 @media (max-width: 1200px) {
     .content-area {
@@ -822,5 +1098,23 @@ input[type="checkbox"]:focus-visible {
 
     header h1 {
         font-size: 1.4rem;
+    }
+
+    .npv-panel {
+        width: 100%;
+        right: -100%;
+    }
+
+    .npv-panel.open {
+        right: 0;
+    }
+
+    .npv-slider-group {
+        flex-wrap: wrap;
+    }
+
+    .npv-slider-group label {
+        width: 100%;
+        margin-bottom: 0.15rem;
     }
 }

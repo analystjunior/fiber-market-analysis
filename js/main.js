@@ -14,7 +14,6 @@
             console.error('Failed to load data:', loadError);
             var mapEl = document.getElementById('map');
             if (mapEl) {
-                // Use textContent for safety
                 var errorP = document.createElement('p');
                 errorP.style.cssText = 'color: red; text-align: center; padding: 2rem;';
                 errorP.textContent = 'Failed to load data. Please refresh the page.';
@@ -23,18 +22,24 @@
             return;
         }
 
-        console.log('Data loaded:', DataHandler.getAllStates().length, 'states,', DataHandler.getAllCounties().length, 'NY counties');
+        console.log('Data loaded:', DataHandler.getAllStates().length, 'states,',
+            DataHandler.getCountiesForState('NY').length, 'NY counties,',
+            DataHandler.getCountiesForState('MO').length, 'MO counties');
 
         // Initialize components
         InfoPanel.init();
         await MapRenderer.init('map');
         TableManager.init();
+        NPVCalculator.init();
 
-        // Setup UI controls (only used in NY view)
+        // Setup UI controls
         setupControls();
 
         // Setup global event handlers
         setupGlobalHandlers();
+
+        // Auto-drill to Missouri on page load
+        await MapRenderer.drillDownToState('MO');
 
         console.log('Application initialized');
     });
@@ -44,6 +49,9 @@
         var toggleBtns = document.querySelectorAll('#layer-toggle .toggle-btn');
         toggleBtns.forEach(function(btn) {
             btn.addEventListener('click', function() {
+                // Stop deep dive when manually selecting a layer
+                MapRenderer.stopDeepDive();
+
                 // Update active state
                 toggleBtns.forEach(function(b) {
                     b.classList.remove('active');
@@ -54,7 +62,6 @@
                 MapRenderer.setLayer(btn.dataset.layer);
             });
 
-            // Keyboard support
             btn.addEventListener('keydown', function(e) {
                 if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
@@ -86,16 +93,42 @@
                 MapRenderer.setFilters({ excludeNYC: e.target.checked });
             });
         }
+
+        // Exclude STL/KC Metro checkbox
+        var excludeStlKcCheckbox = document.getElementById('exclude-stlkc');
+        if (excludeStlKcCheckbox) {
+            excludeStlKcCheckbox.addEventListener('change', function(e) {
+                MapRenderer.setFilters({ excludeSTLKC: e.target.checked });
+            });
+        }
+
+        // Deep Dive toggle
+        var deepDiveBtn = document.getElementById('deep-dive-btn');
+        if (deepDiveBtn) {
+            deepDiveBtn.addEventListener('click', function() {
+                MapRenderer.toggleDeepDive();
+            });
+        }
+
+        // NPV Calculator trigger button
+        var npvBtn = document.getElementById('open-npv-btn');
+        if (npvBtn) {
+            npvBtn.addEventListener('click', function() {
+                var fips = InfoPanel.pinnedCounty;
+                if (fips) {
+                    NPVCalculator.open(fips);
+                }
+            });
+        }
     }
 
     function setupGlobalHandlers() {
-        // Back to US button (replaces inline onclick)
+        // Back to US button
         var backBtn = document.getElementById('back-to-us-btn');
         if (backBtn) {
             backBtn.addEventListener('click', function() {
                 MapRenderer.backToUS();
             });
-            // Keyboard support
             backBtn.addEventListener('keydown', function(e) {
                 if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
@@ -104,13 +137,12 @@
             });
         }
 
-        // Close pin button (replaces inline onclick)
+        // Close pin button
         var closePinBtn = document.getElementById('close-pin-btn');
         if (closePinBtn) {
             closePinBtn.addEventListener('click', function() {
                 InfoPanel.unpinCounty();
             });
-            // Keyboard support
             closePinBtn.addEventListener('keydown', function(e) {
                 if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();

@@ -79,7 +79,7 @@
      */
     function isValidFips(fips) {
         if (fips === null || fips === undefined) return false;
-        const str = String(fips);
+        var str = String(fips);
         // FIPS codes are 2 digits (state) or 5 digits (county)
         return /^\d{2}$/.test(str) || /^\d{5}$/.test(str);
     }
@@ -101,10 +101,18 @@
     // DATA HANDLER
     // ============================================
 
-    const DataHandler = {
-        // NY county data
-        unifiedData: null,
+    var DataHandler = {
+        // Multi-state county data keyed by state code
+        _stateCountyData: {},
+        _activeState: null,
+
+        // NY-specific GeoJSON (dedicated file)
         tigerGeoJSON: null,
+        // US TopoJSON for extracting state county boundaries
+        usCountiesTopo: null,
+        // Extracted state GeoJSON cache
+        _stateGeoJSONCache: {},
+
         // US state data
         stateData: null,
         usGeoJSON: null,
@@ -115,23 +123,43 @@
         async loadData() {
             try {
                 // Load all data in parallel
-                const [unifiedResponse, tigerResponse, stateResponse, usGeoResponse] = await Promise.all([
+                var responses = await Promise.all([
                     fetch('data/ny-unified-data.json'),
                     fetch('data/ny_counties_tiger.geojson'),
                     fetch('data/fiber-data.json'),
-                    fetch('data/us-states.json')
+                    fetch('data/us-states.json'),
+                    fetch('data/us-counties.json'),
+                    fetch('data/mo-unified-data.json')
                 ]);
+
+                var unifiedResponse = responses[0];
+                var tigerResponse = responses[1];
+                var stateResponse = responses[2];
+                var usGeoResponse = responses[3];
+                var usCountiesResponse = responses[4];
+                var moResponse = responses[5];
 
                 // Check for HTTP errors
                 if (!unifiedResponse.ok) throw new Error('Failed to load NY unified data: ' + unifiedResponse.status);
                 if (!tigerResponse.ok) throw new Error('Failed to load NY GeoJSON: ' + tigerResponse.status);
                 if (!stateResponse.ok) throw new Error('Failed to load state fiber data: ' + stateResponse.status);
                 if (!usGeoResponse.ok) throw new Error('Failed to load US GeoJSON: ' + usGeoResponse.status);
+                if (!usCountiesResponse.ok) throw new Error('Failed to load US counties TopoJSON: ' + usCountiesResponse.status);
+                if (!moResponse.ok) throw new Error('Failed to load MO unified data: ' + moResponse.status);
 
-                this.unifiedData = await unifiedResponse.json();
+                var nyData = await unifiedResponse.json();
                 this.tigerGeoJSON = await tigerResponse.json();
                 this.stateData = await stateResponse.json();
                 this.usGeoJSON = await usGeoResponse.json();
+                this.usCountiesTopo = await usCountiesResponse.json();
+                var moData = await moResponse.json();
+
+                // Store county data by state
+                this._stateCountyData['NY'] = nyData;
+                this._stateCountyData['MO'] = moData;
+
+                // Default active state
+                this._activeState = 'MO';
 
                 // Validate data integrity
                 this._validateData();
@@ -148,13 +176,16 @@
         },
 
         _validateData() {
-            // Validate NY unified data has required fields
-            if (this.unifiedData) {
-                const sampleCounty = Object.values(this.unifiedData)[0];
-                const requiredFields = ['geoid', 'name', 'fiber_penetration', 'demo_score', 'attractiveness_index'];
-                for (const field of requiredFields) {
-                    if (!(field in sampleCounty)) {
-                        console.warn('Missing required field in county data:', field);
+            // Validate each state's county data has required fields
+            var requiredFields = ['geoid', 'name', 'fiber_penetration', 'demo_score', 'attractiveness_index'];
+            for (var stateCode in this._stateCountyData) {
+                var stateCounties = this._stateCountyData[stateCode];
+                if (stateCounties) {
+                    var sampleCounty = Object.values(stateCounties)[0];
+                    for (var i = 0; i < requiredFields.length; i++) {
+                        if (!(requiredFields[i] in sampleCounty)) {
+                            console.warn('Missing required field in ' + stateCode + ' county data:', requiredFields[i]);
+                        }
                     }
                 }
             }
@@ -165,41 +196,112 @@
             }
         },
 
-        isLoaded() {
+        isLoaded: function() {
             return this._isLoaded;
         },
 
-        getLoadError() {
+        getLoadError: function() {
             return this._loadError;
         },
 
-        // NY county methods
-        getCountyData(fips) {
-            if (!this.unifiedData || !fips) return null;
-            return this.unifiedData[fips] || null;
+        // Active state management
+        setActiveState: function(stateCode) {
+            if (this._stateCountyData[stateCode]) {
+                this._activeState = stateCode;
+                return true;
+            }
+            return false;
         },
 
-        getAllCounties() {
-            if (!this.unifiedData) return [];
-            return Object.values(this.unifiedData);
+        getActiveState: function() {
+            return this._activeState;
         },
 
-        getGeoJSON() {
+        // County methods (state-aware)
+        getCountyData: function(fips) {
+            if (!fips) return null;
+            // Try active state first
+            var activeData = this._stateCountyData[this._activeState];
+            if (activeData && activeData[fips]) return activeData[fips];
+            // Fallback: search all states
+            for (var sc in this._stateCountyData) {
+                if (this._stateCountyData[sc][fips]) return this._stateCountyData[sc][fips];
+            }
+            return null;
+        },
+
+        getAllCounties: function() {
+            var activeData = this._stateCountyData[this._activeState];
+            if (!activeData) return [];
+            return Object.values(activeData);
+        },
+
+        getCountiesForState: function(stateCode) {
+            var data = this._stateCountyData[stateCode];
+            if (!data) return [];
+            return Object.values(data);
+        },
+
+        getGeoJSON: function() {
             return this.tigerGeoJSON;
         },
 
+        /**
+         * Extracts county GeoJSON for a state from the US counties TopoJSON.
+         * Uses FIPS prefix to filter geometries.
+         * @param {string} fipsPrefix - 2-digit state FIPS (e.g. '29' for MO)
+         * @returns {Object} GeoJSON FeatureCollection
+         */
+        extractStateGeoJSON: function(fipsPrefix) {
+            // Check cache
+            if (this._stateGeoJSONCache[fipsPrefix]) {
+                return this._stateGeoJSONCache[fipsPrefix];
+            }
+
+            if (!this.usCountiesTopo || !this.usCountiesTopo.objects || !this.usCountiesTopo.objects.counties) {
+                console.error('US counties TopoJSON not loaded or missing counties object');
+                return null;
+            }
+
+            // Filter geometries by FIPS prefix
+            var allGeometries = this.usCountiesTopo.objects.counties.geometries;
+            var filteredGeometries = allGeometries.filter(function(g) {
+                return g.id && String(g.id).startsWith(fipsPrefix);
+            });
+
+            // Create a filtered topology object
+            var filteredObject = {
+                type: 'GeometryCollection',
+                geometries: filteredGeometries
+            };
+
+            // Use topojson.feature to convert to GeoJSON
+            var geojson = topojson.feature(this.usCountiesTopo, filteredObject);
+
+            // Ensure each feature has an id matching the county FIPS
+            geojson.features.forEach(function(f) {
+                if (!f.id && f.properties && f.properties.id) {
+                    f.id = f.properties.id;
+                }
+            });
+
+            // Cache result
+            this._stateGeoJSONCache[fipsPrefix] = geojson;
+            return geojson;
+        },
+
         // US state methods
-        getStateData(stateCode) {
+        getStateData: function(stateCode) {
             if (!this.stateData || !stateCode) return null;
             return this.stateData[stateCode] || null;
         },
 
-        getAllStates() {
+        getAllStates: function() {
             if (!this.stateData) return [];
             return Object.values(this.stateData);
         },
 
-        getUSGeoJSON() {
+        getUSGeoJSON: function() {
             return this.usGeoJSON;
         },
 
@@ -217,7 +319,7 @@
     // COLOR SCALES (with caching)
     // ============================================
 
-    const ColorScales = {
+    var ColorScales = {
         // Cached color lookups for performance
         _colorCache: new Map(),
 
@@ -245,27 +347,57 @@
             { threshold: 0.5, color: '#d9f99d', label: 'Good' },
             { threshold: 1.0, color: '#86efac', label: 'Most Attractive' }
         ],
+        // BEAD Funding: White = none, Purple gradient for claimed %
+        bead: [
+            { threshold: 0.01, color: '#f5f3ff', label: 'Not Targeted' },
+            { threshold: 0.25, color: '#ddd6fe', label: '<25% Claimed' },
+            { threshold: 0.50, color: '#c4b5fd', label: '25-50%' },
+            { threshold: 0.75, color: '#a78bfa', label: '50-75%' },
+            { threshold: 1.0, color: '#7c3aed', label: '>75% Claimed' }
+        ],
+        // Competitive Intensity: Red = monopoly, Green = competitive
+        competitive: [
+            { threshold: 0.25, color: '#fecaca', label: 'Monopoly' },
+            { threshold: 0.50, color: '#fed7aa', label: 'Low' },
+            { threshold: 0.75, color: '#fde68a', label: 'Moderate' },
+            { threshold: 1.0, color: '#86efac', label: 'High' }
+        ],
+        // Build Momentum: Red = stalled, Green = surging
+        momentum: [
+            { threshold: 0.10, color: '#fecaca', label: 'Stalled' },
+            { threshold: 0.27, color: '#fde68a', label: 'Steady' },
+            { threshold: 0.50, color: '#d9f99d', label: 'Growing' },
+            { threshold: 1.0, color: '#86efac', label: 'Surging' }
+        ],
+        // Terrain/Build Difficulty: Green = easy, Red = challenging
+        terrain: [
+            { threshold: 0.2, color: '#86efac', label: 'Easy' },
+            { threshold: 0.4, color: '#d9f99d', label: 'Moderate' },
+            { threshold: 0.6, color: '#fde68a', label: 'Mod-Hard' },
+            { threshold: 0.8, color: '#fed7aa', label: 'Hard' },
+            { threshold: 1.0, color: '#fecaca', label: 'Challenging' }
+        ],
 
-        getColor(layer, value) {
+        getColor: function(layer, value) {
             // Handle invalid inputs
             if (!Number.isFinite(value)) {
                 return '#cbd5e1';
             }
 
-            const scale = this[layer];
+            var scale = this[layer];
             if (!scale) return '#cbd5e1';
 
             // Check cache first
-            const cacheKey = layer + '_' + value.toFixed(3);
+            var cacheKey = layer + '_' + value.toFixed(3);
             if (this._colorCache.has(cacheKey)) {
                 return this._colorCache.get(cacheKey);
             }
 
             // Find color
-            let color = scale[scale.length - 1].color;
-            for (const item of scale) {
-                if (value <= item.threshold) {
-                    color = item.color;
+            var color = scale[scale.length - 1].color;
+            for (var i = 0; i < scale.length; i++) {
+                if (value <= scale[i].threshold) {
+                    color = scale[i].color;
                     break;
                 }
             }
@@ -279,27 +411,33 @@
             return color;
         },
 
-        getLegend(layer) {
+        getLegend: function(layer) {
             return this[layer] || this.penetration;
         },
 
-        clearCache() {
+        clearCache: function() {
             this._colorCache.clear();
         }
     };
 
     // NYC Borough FIPS codes (immutable)
-    const NYC_BOROUGHS = Object.freeze(new Set(['36005', '36047', '36061', '36081', '36085']));
+    var NYC_BOROUGHS = Object.freeze(new Set(['36005', '36047', '36061', '36081', '36085']));
+
+    // STL/KC Metro county FIPS codes
+    var STL_KC_METROS = Object.freeze(new Set([
+        '29189', '29510', '29183', '29099', '29071', '29113', '29219', // STL metro
+        '29095', '29047', '29165', '29037', '29025', '29177', '29049', '29107'  // KC metro
+    ]));
 
     // ============================================
     // EXPORTS
     // ============================================
 
     // Export to global scope (required for current architecture)
-    // In a module system, these would be ES6 exports
     global.DataHandler = DataHandler;
     global.ColorScales = ColorScales;
     global.NYC_BOROUGHS = NYC_BOROUGHS;
+    global.STL_KC_METROS = STL_KC_METROS;
 
     // Also expose utility functions for testing
     global.FiberUtils = {

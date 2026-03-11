@@ -24,6 +24,16 @@
                     <button class="toggle-btn active" data-layer="penetration" aria-pressed="true">Fiber Penetration</button>
                     <button class="toggle-btn" data-layer="demographic" aria-pressed="false">Demographics</button>
                     <button class="toggle-btn" data-layer="attractiveness" aria-pressed="false">Market Attractiveness</button>
+                    <button class="toggle-btn" data-layer="bead" aria-pressed="false">BEAD Funding</button>
+                    <button class="toggle-btn" data-layer="competitive" aria-pressed="false">Competition</button>
+                    <button class="toggle-btn" data-layer="momentum" aria-pressed="false">Build Momentum</button>
+                    <button class="toggle-btn" data-layer="terrain" aria-pressed="false">Build Difficulty</button>
+                </div>
+            </div>
+            <div class="control-group">
+                <label>Tools</label>
+                <div class="toggle-group">
+                    <button class="toggle-btn deep-dive-btn" id="deep-dive-btn">Deep Dive</button>
                 </div>
             </div>
             <div class="control-group">
@@ -50,6 +60,10 @@
                     <div class="filter-item checkbox-item">
                         <input type="checkbox" id="exclude-nyc">
                         <label for="exclude-nyc">Exclude NYC boroughs</label>
+                    </div>
+                    <div class="filter-item checkbox-item">
+                        <input type="checkbox" id="exclude-stlkc">
+                        <label for="exclude-stlkc">Exclude Metro (STL/KC)</label>
                     </div>
                 </div>
             </div>
@@ -106,11 +120,11 @@
 
                         <div class="click-hint" style="display: none;">
                             <strong>Click to explore</strong>
-                            Detailed county-level data available for New York
+                            Detailed county-level data available
                         </div>
                     </div>
 
-                    <!-- County info (NY county view) -->
+                    <!-- County info (state county view) -->
                     <div class="county-info" style="display: none;">
                         <div class="pin-indicator" style="display: none;" role="status" aria-live="polite">
                             <span>Click county again or press Escape to close</span>
@@ -200,13 +214,186 @@
                             </div>
                         </div>
 
+                        <!-- BEAD Funding Section -->
+                        <div class="stats-section" id="bead-section" style="display: none;">
+                            <h3>BEAD Funding</h3>
+                            <div class="stats-grid">
+                                <div class="stat-item" style="grid-column: span 2;">
+                                    <span class="stat-label">BEAD Status</span>
+                                    <span class="stat-value" id="bead-status"></span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Award Amount</span>
+                                    <span class="stat-value" id="bead-dollars"></span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Locations Covered</span>
+                                    <span class="stat-value" id="bead-locations"></span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Unserved Claimed</span>
+                                    <span class="stat-value" id="bead-claimed"></span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Awardees</span>
+                                    <span class="stat-value" id="bead-awardees" style="font-size: 0.75rem;"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Competition & Growth Section -->
+                        <div class="stats-section" id="competition-section" style="display: none;">
+                            <h3>Competition & Growth</h3>
+                            <div class="stats-grid">
+                                <div class="stat-item">
+                                    <span class="stat-label">Competition Level</span>
+                                    <span class="stat-value" id="comp-label"></span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Wireline Providers</span>
+                                    <span class="stat-value" id="comp-providers"></span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Build Momentum</span>
+                                    <span class="stat-value" id="momentum-class"></span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Fiber Growth (v5-v6)</span>
+                                    <span class="stat-value" id="fiber-growth"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Build Environment Section -->
+                        <div class="stats-section" id="build-section" style="display: none;">
+                            <h3>Build Environment</h3>
+                            <div class="stats-grid">
+                                <div class="stat-item">
+                                    <span class="stat-label">Build Difficulty</span>
+                                    <span class="stat-value" id="build-difficulty"></span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Terrain Roughness</span>
+                                    <span class="stat-value" id="terrain-roughness"></span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Mean Elevation</span>
+                                    <span class="stat-value" id="elevation-mean"></span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Cost Tier</span>
+                                    <span class="stat-value" id="cost-tier"></span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Rural Classification</span>
+                                    <span class="stat-value" id="rucc-class"></span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">RUCC Code</span>
+                                    <span class="stat-value" id="rucc-code"></span>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="operators-section">
                             <h3>Top 5 Fiber Operators</h3>
                             <ul class="operators-list" id="operators-list"></ul>
                         </div>
+
+                        <button class="npv-trigger-btn" id="open-npv-btn" style="display: none;">
+                            Open NPV Calculator
+                        </button>
                     </div>
                 </div>
             </aside>
+        </div>
+
+        <!-- NPV Calculator Panel -->
+        <div class="npv-panel" id="npv-panel">
+            <div class="npv-panel-header">
+                <h3>NPV Calculator</h3>
+                <span class="npv-county-label" id="npv-county-name"></span>
+                <button class="npv-close-btn" id="npv-close-btn" aria-label="Close NPV calculator">&times;</button>
+            </div>
+            <div class="npv-panel-body">
+                <div class="npv-sliders">
+                    <div class="npv-slider-group">
+                        <label>ARPU (Monthly)</label>
+                        <input type="range" id="npv-arpu" min="40" max="120" value="65" step="5" data-format="currency">
+                        <span class="npv-slider-val" id="npv-arpu-val">$65</span>
+                    </div>
+                    <div class="npv-slider-group">
+                        <label>Take Rate</label>
+                        <input type="range" id="npv-take-rate" min="10" max="70" value="35" step="5" data-format="percent">
+                        <span class="npv-slider-val" id="npv-take-rate-val">35%</span>
+                    </div>
+                    <div class="npv-slider-group">
+                        <label>Cost/Passing (Aerial)</label>
+                        <input type="range" id="npv-aerial-cost" min="400" max="2000" value="800" step="50" data-format="currency">
+                        <span class="npv-slider-val" id="npv-aerial-cost-val">$800</span>
+                    </div>
+                    <div class="npv-slider-group">
+                        <label>Cost/Passing (Underground)</label>
+                        <input type="range" id="npv-ug-cost" min="1500" max="5000" value="2500" step="100" data-format="currency">
+                        <span class="npv-slider-val" id="npv-ug-cost-val">$2,500</span>
+                    </div>
+                    <div class="npv-slider-group">
+                        <label>Aerial %</label>
+                        <input type="range" id="npv-aerial-pct" min="0" max="100" value="60" step="5" data-format="percent">
+                        <span class="npv-slider-val" id="npv-aerial-pct-val">60%</span>
+                    </div>
+                    <div class="npv-slider-group">
+                        <label>WACC</label>
+                        <input type="range" id="npv-wacc" min="4" max="15" value="8" step="0.5" data-format="percent">
+                        <span class="npv-slider-val" id="npv-wacc-val">8%</span>
+                    </div>
+                    <div class="npv-slider-group">
+                        <label>Horizon</label>
+                        <input type="range" id="npv-horizon" min="5" max="30" value="20" step="1" data-format="years">
+                        <span class="npv-slider-val" id="npv-horizon-val">20 yrs</span>
+                    </div>
+                </div>
+
+                <div class="npv-results">
+                    <h4>Results</h4>
+                    <div class="npv-results-grid">
+                        <div class="npv-result-item">
+                            <span class="npv-result-label">Homes Passed</span>
+                            <span class="npv-result-value" id="npv-homes-passed">-</span>
+                        </div>
+                        <div class="npv-result-item">
+                            <span class="npv-result-label">Subscribers</span>
+                            <span class="npv-result-value" id="npv-subscribers">-</span>
+                        </div>
+                        <div class="npv-result-item">
+                            <span class="npv-result-label">Total CapEx</span>
+                            <span class="npv-result-value" id="npv-total-capex">-</span>
+                        </div>
+                        <div class="npv-result-item">
+                            <span class="npv-result-label">BEAD Subsidy</span>
+                            <span class="npv-result-value" id="npv-bead-subsidy">-</span>
+                        </div>
+                        <div class="npv-result-item">
+                            <span class="npv-result-label">Net CapEx</span>
+                            <span class="npv-result-value" id="npv-net-capex">-</span>
+                        </div>
+                        <div class="npv-result-item">
+                            <span class="npv-result-label">Annual Revenue</span>
+                            <span class="npv-result-value" id="npv-annual-rev">-</span>
+                        </div>
+                    </div>
+                    <div class="npv-result-highlight">
+                        <div class="npv-result-item big">
+                            <span class="npv-result-label">NPV</span>
+                            <span class="npv-result-value" id="npv-result">-</span>
+                        </div>
+                        <div class="npv-result-item big">
+                            <span class="npv-result-label">Payback Period</span>
+                            <span class="npv-result-value" id="npv-payback">-</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="table-section" style="display: none;">
@@ -251,8 +438,24 @@
                     <p>Combines demographics + fiber opportunity. Counties ranked into thirds: <strong>Most Attractive</strong> (top 33%), <strong>Neutral</strong> (middle 33%), <strong>Least Attractive</strong> (bottom 33%). Higher scores = better demographics AND more unserved homes.</p>
                 </div>
                 <div class="caveat-item">
+                    <h4>BEAD Funding</h4>
+                    <p>Displays NTIA BEAD program allocations by county. Shows award status, dollars allocated, and percentage of unserved locations claimed. Purple intensity indicates funding coverage depth.</p>
+                </div>
+                <div class="caveat-item">
+                    <h4>Competition & Build Momentum</h4>
+                    <p>Competition layer shows wireline provider count (0-3 scale). Momentum tracks fiber BSL growth between FCC BDC filing versions (v5 to v6), classifying counties as Stalled, Steady, Growing, or Surging.</p>
+                </div>
+                <div class="caveat-item">
+                    <h4>Terrain & Build Difficulty</h4>
+                    <p>Terrain roughness derived from USGS 3DEP elevation data. Combined with USDA Rural-Urban Continuum Codes (RUCC) to estimate construction cost tiers. Green = easy/flat terrain, Red = challenging/mountainous.</p>
+                </div>
+                <div class="caveat-item">
+                    <h4>NPV Calculator</h4>
+                    <p>Simplified financial model for fiber build feasibility. Assumes 40% OpEx ratio, uniform subscriber acquisition, and constant ARPU. BEAD subsidy offsets CapEx. Results are indicative only&mdash;verify with detailed engineering studies.</p>
+                </div>
+                <div class="caveat-item">
                     <h4>Data Limitations</h4>
-                    <p>FCC data relies on provider self-reporting and may overstate coverage. Build costs (terrain, permits, labor) not included. Verify specific markets before investment decisions.</p>
+                    <p>FCC data relies on provider self-reporting and may overstate coverage. Build costs (terrain, permits, labor) are estimated. MO data uses synthetic projections based on real county characteristics. Verify specific markets before investment decisions.</p>
                 </div>
             </div>
         </div>
@@ -261,7 +464,10 @@
     <footer>
         <p>Data sources: <a href="https://www.fcc.gov/BroadbandData" target="_blank">FCC BDC</a> (Dec 2024) |
         <a href="https://www.census.gov/programs-surveys/acs.html" target="_blank">Census ACS</a> 5-year (2018, 2023) |
-        <a href="https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html" target="_blank">TIGER/Line</a> (2023)</p>
+        <a href="https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html" target="_blank">TIGER/Line</a> (2023) |
+        <a href="https://broadbandusa.ntia.doc.gov/funding-programs/BEAD" target="_blank">NTIA BEAD</a> |
+        <a href="https://www.usgs.gov/3d-elevation-program" target="_blank">USGS 3DEP</a> |
+        <a href="https://www.ers.usda.gov/data-products/rural-urban-continuum-codes/" target="_blank">USDA RUCC</a></p>
     </footer>
 
     <!-- External dependencies -->
@@ -270,6 +476,7 @@
     <!-- Application modules -->
     <script src="js/data.js"></script>
     <script src="js/map.js"></script>
+    <script src="js/npv.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
