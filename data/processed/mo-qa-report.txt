@@ -1,0 +1,183 @@
+# MO County Data QA Report
+Generated: 2026-03-20 17:18
+Counties: 115
+
+## Field Completeness
+
+  attractiveness_index: 115/115 (100%)
+  bead_awardees: 115/115 (100%)
+  bead_claimed_pct: 0/115 (0%) ❌
+  bead_dollars_awarded: 0/115 (0%) ❌
+  bead_locations_covered: 0/115 (0%) ❌
+  bead_status: 115/115 (100%)
+  build_difficulty: 115/115 (100%)
+  competitive_intensity: 115/115 (100%)
+  competitive_label: 115/115 (100%)
+  construction_cost_tier: 115/115 (100%)
+  demo_score: 115/115 (100%)
+  elevation_mean_ft: 115/115 (100%)
+  elevation_std_ft: 115/115 (100%)
+  fiber_bsls_v5: 0/115 (0%) ❌
+  fiber_bsls_v6: 115/115 (100%)
+  fiber_growth_net: 0/115 (0%) ❌
+  fiber_growth_pct: 0/115 (0%) ❌
+  fiber_penetration: 115/115 (100%)
+  fiber_served: 115/115 (100%)
+  fiber_unserved: 115/115 (100%)
+  geoid: 115/115 (100%)
+  housing_density: 115/115 (100%)
+  housing_growth_pct: 115/115 (100%)
+  housing_units: 115/115 (100%)
+  is_metro_county: 115/115 (100%)
+  is_stl_kc_metro: 115/115 (100%)
+  land_area_sqmi: 115/115 (100%)
+  median_hhi: 115/115 (100%)
+  median_home_value: 115/115 (100%)
+  median_rent: 115/115 (100%)
+  momentum_class: 0/115 (0%) ❌
+  name: 115/115 (100%)
+  operators: 115/115 (100%)
+  opportunity_score: 115/115 (100%)
+  owner_occupied_pct: 115/115 (100%)
+  pop_density: 115/115 (100%)
+  pop_growth_pct: 115/115 (100%)
+  population_2018: 115/115 (100%)
+  population_2023: 115/115 (100%)
+  rucc_code: 115/115 (100%)
+  rucc_description: 115/115 (100%)
+  rural_class: 115/115 (100%)
+  segment: 115/115 (100%)
+  terrain_roughness: 115/115 (100%)
+  total_broadband_providers: 115/115 (100%)
+  total_bsls: 115/115 (100%)
+  wfh_pct: 115/115 (100%)
+  wireline_providers: 115/115 (100%)
+
+## Data Source Provenance
+
+  REAL — FCC BDC FTTP Jun 2025:
+    - fiber_served
+    - fiber_unserved
+    - fiber_penetration
+    - operators
+    - wireline_providers
+    - competitive_intensity
+    - competitive_label
+    - fiber_bsls_v6
+
+  REAL — FCC BDC Provider Summary Jun 2025:
+    - total_broadband_providers
+
+  REAL — FCC BDC Place Summary + Census crosswalk:
+    - total_bsls
+
+  REAL — Census ACS 5-year 2023:
+    - population_2023
+    - housing_units
+    - median_hhi
+    - median_rent
+    - median_home_value
+    - owner_occupied_pct
+    - wfh_pct
+
+  REAL — Census ACS 5-year 2018:
+    - population_2018
+
+  DERIVED — from real ACS:
+    - pop_growth_pct
+    - housing_growth_pct
+    - pop_density
+    - housing_density
+    - demo_score
+    - opportunity_score
+    - attractiveness_index
+    - segment
+
+  REAL — USDA RUCC 2023:
+    - rucc_code
+    - rucc_description
+    - rural_class
+    - is_metro_county
+
+  REAL — USGS TRI 2020:
+    - elevation_mean_ft
+    - elevation_std_ft
+    - terrain_roughness
+    - construction_cost_tier
+    - build_difficulty
+
+  FLAGGED — Unverified:
+    - bead_dollars_awarded
+    - bead_awardees
+    - bead_locations_covered
+    - bead_claimed_pct
+    - bead_status
+
+  NULL — Dec 2024 BDC not available:
+    - fiber_bsls_v5
+    - fiber_growth_net
+    - fiber_growth_pct
+    - momentum_class
+
+## Distribution Checks
+
+  fiber_penetration: min=0.004, max=1.000, mean=0.570, median=0.600
+  housing_density: min=3.5, max=2800.6, mean=64.7
+  competitive_intensity=0: 5 counties
+  competitive_intensity=1: 20 counties
+  competitive_intensity=2: 30 counties
+  competitive_intensity=3: 60 counties
+
+  RUCC distribution:
+    RUCC 1: 16 counties
+    RUCC 2: 5 counties
+    RUCC 3: 14 counties
+    RUCC 4: 4 counties
+    RUCC 5: 4 counties
+    RUCC 6: 12 counties
+    RUCC 7: 10 counties
+    RUCC 8: 22 counties
+    RUCC 9: 28 counties
+
+  fiber_providers per county: min=1, max=10, mean=4.0
+  total_broadband_providers per county: min=9, max=29, mean=15.7
+
+## Sanity Checks
+
+  ✅ All sanity checks passed
+
+## Top 10 Counties by Fiber Penetration
+  Andrew: 100.0% (7,551 / 7,551)
+  Bates: 100.0% (7,192 / 7,192)
+  Callaway: 100.0% (18,596 / 18,596)
+  Cedar: 100.0% (6,964 / 6,964)
+  Gentry: 100.0% (2,928 / 2,928)
+  Harrison: 100.0% (4,023 / 4,023)
+  Holt: 100.0% (2,420 / 2,420)
+  Linn: 100.0% (6,007 / 6,007)
+  Mercer: 100.0% (1,908 / 1,908)
+  Moniteau: 100.0% (6,177 / 6,177)
+
+## Bottom 10 Counties by Fiber Penetration
+  Barton: 8.7% (461 / 5,295)
+  Shannon: 8.6% (302 / 3,522)
+  Miller: 8.5% (1,057 / 12,508)
+  Perry: 7.0% (596 / 8,507)
+  Webster: 7.0% (1,075 / 15,360)
+  Osage: 2.9% (191 / 6,490)
+  Stone: 2.5% (513 / 20,267)
+  Madison: 2.2% (128 / 5,853)
+  Hickory: 0.5% (29 / 5,502)
+  Carter: 0.4% (11 / 2,692)
+
+## Top 10 Most Competitive Counties (by fiber provider count)
+  Audrain: 10 fiber providers (Kingdom Networks, Rally Networks, Spectrum, Windstream Missouri, Inc., Air Link Rural Broadband LLC...)
+  Cass: 10 fiber providers (Google Fiber, AT&T, Spectrum, Conexon Connect LLC, Peoples Services LLC...)
+  Boone: 9 fiber providers (Socket Telecom LLC, Brightspeed, Callabyte, Chariton Valley Communication Corporation, Air Link Rural Broadband LLC...)
+  Clay: 9 fiber providers (Google Fiber, AT&T, United Fiber, Everfast Fiber, Spectrum...)
+  Newton: 9 fiber providers (OzarkFiber, Granby Telephone Company, Rally Networks, OPTIC COMMUNICATIONS, GTC Broadband Inc...)
+  Jackson: 8 fiber providers (Google Fiber, Everfast Fiber, AT&T, Spectrum, Socket Telecom LLC...)
+  Pettis: 8 fiber providers (Fastwyre Broadband, AT&T, Socket Telecom LLC, Spectrum, Wisper ISP, LLC...)
+  Franklin: 7 fiber providers (Gateway Fiber, Fidelity Telephone LLC, Bays-ET Highspeed, BlueBit Networks, Spectrum...)
+  Jasper: 7 fiber providers (Carthage Water and Electric Plant, OPTIC COMMUNICATIONS, Craw Kan Telephone Cooperative Inc, Socket Telecom LLC, Sparklight...)
+  Lafayette: 7 fiber providers (Brightspeed, Spectrum, Citizens Telephone Company of Higginsville Missouri, TurboNet, Socket Telecom LLC...)

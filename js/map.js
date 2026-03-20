@@ -864,16 +864,25 @@
                     if (beadStatusEl) {
                         beadStatusEl.className = 'stat-value bead-badge bead-' + (data.bead_status || '').toLowerCase().replace(/\s+/g, '-');
                     }
-                    setTextById('bead-dollars', data.bead_dollars_awarded ? DataHandler.formatCurrency(data.bead_dollars_awarded) : 'N/A');
-                    setTextById('bead-locations', DataHandler.formatNumber(data.bead_locations_covered));
-                    setTextById('bead-claimed', data.bead_claimed_pct != null ? DataHandler.formatPercent(data.bead_claimed_pct) : 'N/A');
 
-                    var awardeesList = document.getElementById('bead-awardees');
-                    if (awardeesList) {
-                        if (data.bead_awardees && data.bead_awardees.length > 0) {
-                            awardeesList.textContent = data.bead_awardees.join(', ');
-                        } else {
-                            awardeesList.textContent = 'None';
+                    // Show detail fields only if BEAD data is verified (not "Unverified")
+                    var hasBeadData = data.bead_status !== 'Unverified' && data.bead_dollars_awarded != null;
+                    var detailIds = ['bead-details-dollars', 'bead-details-locations', 'bead-details-claimed', 'bead-details-awardees'];
+                    detailIds.forEach(function(id) {
+                        var el = document.getElementById(id);
+                        if (el) el.style.display = hasBeadData ? '' : 'none';
+                    });
+                    var beadNote = document.getElementById('bead-note');
+                    if (beadNote) beadNote.style.display = hasBeadData ? 'none' : '';
+
+                    if (hasBeadData) {
+                        setTextById('bead-dollars', DataHandler.formatCurrency(data.bead_dollars_awarded));
+                        setTextById('bead-locations', DataHandler.formatNumber(data.bead_locations_covered));
+                        setTextById('bead-claimed', data.bead_claimed_pct != null ? DataHandler.formatPercent(data.bead_claimed_pct) : 'N/A');
+                        var awardeesList = document.getElementById('bead-awardees');
+                        if (awardeesList) {
+                            awardeesList.textContent = (data.bead_awardees && data.bead_awardees.length > 0) ?
+                                data.bead_awardees.join(', ') : 'None';
                         }
                     }
                 } else {
@@ -888,12 +897,14 @@
                     compSection.style.display = '';
                     setTextById('comp-label', data.competitive_label || 'N/A');
                     setTextById('comp-providers', data.wireline_providers ? data.wireline_providers.length.toString() : 'N/A');
-                    setTextById('momentum-class', data.momentum_class || 'N/A');
+                    setTextById('total-bb-providers', data.total_broadband_providers != null ? data.total_broadband_providers.toString() : 'N/A');
+                    // Momentum: show "Pending" if null (Dec 2024 data not available)
+                    setTextById('momentum-class', data.momentum_class || 'Pending');
                     var momEl = document.getElementById('momentum-class');
                     if (momEl) {
-                        momEl.className = 'stat-value momentum-' + (data.momentum_class || '').toLowerCase();
+                        var momClass = data.momentum_class ? data.momentum_class.toLowerCase() : 'pending';
+                        momEl.className = 'stat-value momentum-' + momClass;
                     }
-                    setTextById('fiber-growth', data.fiber_growth_pct != null ? '+' + data.fiber_growth_pct + '%' : 'N/A');
                 } else {
                     compSection.style.display = 'none';
                 }

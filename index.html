@@ -24,9 +24,9 @@
                     <button class="toggle-btn active" data-layer="penetration" aria-pressed="true">Fiber Penetration</button>
                     <button class="toggle-btn" data-layer="demographic" aria-pressed="false">Demographics</button>
                     <button class="toggle-btn" data-layer="attractiveness" aria-pressed="false">Market Attractiveness</button>
-                    <button class="toggle-btn" data-layer="bead" aria-pressed="false">BEAD Funding</button>
+                    <button class="toggle-btn layer-pending" data-layer="bead" aria-pressed="false" title="County-level BEAD data not yet available">BEAD Funding *</button>
                     <button class="toggle-btn" data-layer="competitive" aria-pressed="false">Competition</button>
-                    <button class="toggle-btn" data-layer="momentum" aria-pressed="false">Build Momentum</button>
+                    <button class="toggle-btn layer-pending" data-layer="momentum" aria-pressed="false" title="Requires Dec 2024 FCC filing">Build Momentum *</button>
                     <button class="toggle-btn" data-layer="terrain" aria-pressed="false">Build Difficulty</button>
                 </div>
             </div>
@@ -222,21 +222,24 @@
                                     <span class="stat-label">BEAD Status</span>
                                     <span class="stat-value" id="bead-status"></span>
                                 </div>
-                                <div class="stat-item">
+                                <div class="stat-item" id="bead-details-dollars" style="display: none;">
                                     <span class="stat-label">Award Amount</span>
                                     <span class="stat-value" id="bead-dollars"></span>
                                 </div>
-                                <div class="stat-item">
+                                <div class="stat-item" id="bead-details-locations" style="display: none;">
                                     <span class="stat-label">Locations Covered</span>
                                     <span class="stat-value" id="bead-locations"></span>
                                 </div>
-                                <div class="stat-item">
+                                <div class="stat-item" id="bead-details-claimed" style="display: none;">
                                     <span class="stat-label">Unserved Claimed</span>
                                     <span class="stat-value" id="bead-claimed"></span>
                                 </div>
-                                <div class="stat-item">
+                                <div class="stat-item" id="bead-details-awardees" style="display: none;">
                                     <span class="stat-label">Awardees</span>
                                     <span class="stat-value" id="bead-awardees" style="font-size: 0.75rem;"></span>
+                                </div>
+                                <div class="stat-item" id="bead-note" style="grid-column: span 2; display: none;">
+                                    <span class="stat-label" style="font-style: italic; color: #64748b;">County-level BEAD awards not yet publicly available</span>
                                 </div>
                             </div>
                         </div>
@@ -246,20 +249,20 @@
                             <h3>Competition & Growth</h3>
                             <div class="stats-grid">
                                 <div class="stat-item">
-                                    <span class="stat-label">Competition Level</span>
+                                    <span class="stat-label">Fiber Competition</span>
                                     <span class="stat-value" id="comp-label"></span>
                                 </div>
                                 <div class="stat-item">
-                                    <span class="stat-label">Wireline Providers</span>
+                                    <span class="stat-label">Fiber Providers</span>
                                     <span class="stat-value" id="comp-providers"></span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">All Broadband Providers</span>
+                                    <span class="stat-value" id="total-bb-providers"></span>
                                 </div>
                                 <div class="stat-item">
                                     <span class="stat-label">Build Momentum</span>
                                     <span class="stat-value" id="momentum-class"></span>
-                                </div>
-                                <div class="stat-item">
-                                    <span class="stat-label">Fiber Growth (v5-v6)</span>
-                                    <span class="stat-value" id="fiber-growth"></span>
                                 </div>
                             </div>
                         </div>
@@ -439,11 +442,11 @@
                 </div>
                 <div class="caveat-item">
                     <h4>BEAD Funding</h4>
-                    <p>Displays NTIA BEAD program allocations by county. Shows award status, dollars allocated, and percentage of unserved locations claimed. Purple intensity indicates funding coverage depth.</p>
+                    <p>NTIA BEAD county-level award data is not yet publicly available. Status shown as "Unverified" pending official release. Layer currently inactive.</p>
                 </div>
                 <div class="caveat-item">
                     <h4>Competition & Build Momentum</h4>
-                    <p>Competition layer shows wireline provider count (0-3 scale). Momentum tracks fiber BSL growth between FCC BDC filing versions (v5 to v6), classifying counties as Stalled, Steady, Growing, or Surging.</p>
+                    <p>Competition intensity derived from FCC FTTP location data — counts distinct fiber providers per county (0-3 scale). Momentum requires two BDC filing periods; currently pending Dec 2024 data release.</p>
                 </div>
                 <div class="caveat-item">
                     <h4>Terrain & Build Difficulty</h4>
@@ -455,14 +458,14 @@
                 </div>
                 <div class="caveat-item">
                     <h4>Data Limitations</h4>
-                    <p>FCC data relies on provider self-reporting and may overstate coverage. Build costs (terrain, permits, labor) are estimated. MO data uses synthetic projections based on real county characteristics. Verify specific markets before investment decisions.</p>
+                    <p>FCC data relies on provider self-reporting and may overstate coverage. Build costs (terrain, permits, labor) are estimated. MO fiber data sourced from FCC BDC FTTP location-level records (Jun 2025). BEAD county-level awards and momentum (Dec 2024 delta) pending data availability. Verify specific markets before investment decisions.</p>
                 </div>
             </div>
         </div>
     </main>
 
     <footer>
-        <p>Data sources: <a href="https://www.fcc.gov/BroadbandData" target="_blank">FCC BDC</a> (Dec 2024) |
+        <p>Data sources: <a href="https://www.fcc.gov/BroadbandData" target="_blank">FCC BDC</a> (Jun 2025) |
         <a href="https://www.census.gov/programs-surveys/acs.html" target="_blank">Census ACS</a> 5-year (2018, 2023) |
         <a href="https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html" target="_blank">TIGER/Line</a> (2023) |
         <a href="https://broadbandusa.ntia.doc.gov/funding-programs/BEAD" target="_blank">NTIA BEAD</a> |

@@ -117,6 +117,20 @@ main {
     color: white;
 }
 
+.toggle-btn.layer-pending {
+    opacity: 0.6;
+    font-style: italic;
+}
+
+.toggle-btn.layer-pending.active {
+    opacity: 0.8;
+}
+
+.momentum-pending {
+    color: var(--text-secondary);
+    font-style: italic;
+}
+
 .filter-group {
     display: flex;
     gap: 1rem;
@@ -830,6 +844,12 @@ input[type="checkbox"]:focus-visible {
 .bead-not-targeted {
     background: var(--background);
     color: var(--text-secondary);
+}
+
+.bead-unverified {
+    background: #f1f5f9;
+    color: #64748b;
+    font-style: italic;
 }
 
 /* Momentum Indicator */
