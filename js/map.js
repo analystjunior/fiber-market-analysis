@@ -906,7 +906,7 @@
                     buildSection.style.display = '';
                     setTextById('build-difficulty', data.build_difficulty || 'N/A');
                     setTextById('terrain-roughness', data.terrain_roughness != null ? data.terrain_roughness.toFixed(2) : 'N/A');
-                    setTextById('elevation-mean', data.elevation_mean_ft != null ? DataHandler.formatNumber(data.elevation_mean_ft) + ' ft' : 'N/A');
+                    setTextById('elevation-mean', data.elevation_mean_ft != null ? data.elevation_mean_ft.toFixed(1) : 'N/A');
                     setTextById('cost-tier', data.construction_cost_tier || 'N/A');
                     setTextById('rucc-class', data.rural_class || 'N/A');
                     setTextById('rucc-code', data.rucc_code != null ? 'RUCC ' + data.rucc_code : 'N/A');

@@ -2,155 +2,31 @@
 """
 Generate Missouri county-level unified data for the fiber market analysis tool.
 
-Data sources (for production refresh):
-- FCC BDC (Dec 2024): fiber_served, fiber_unserved, total_bsls, operators
-- NTIA BEAD: bead_dollars_awarded, bead_awardees, bead_locations_covered, bead_status
-- Census ACS 5-year (2023): population, housing, income, rent, home value, WFH
-- USGS 3DEP: elevation_mean_ft, elevation_std_ft, terrain_roughness
-- USDA RUCC (2023): rucc_code, rucc_description, rural_class
+Data sources:
+- FCC BDC (Jun 2025): Place-level fiber coverage, aggregated to county via Census crosswalk
+- Census ACS 5-year (2023 + 2018): Demographics, income, housing
+- USDA ERS Terrain Ruggedness (2020 tracts): Aggregated to county-level TRI/ARS
+- BEAD: State-level allocation known ($1.74B for MO); county-level awards estimated
+- RUCC: Derived from Census ACS metro/population thresholds
 
-This script generates realistic synthetic data based on actual MO county
-characteristics. Replace with real API calls for production use.
+Usage:
+    python3 scripts/generate-mo-data.py
 """
 
 import json
-import random
+import csv
 import math
 import os
+import random
 
-random.seed(42)  # Reproducibility
+import pandas as pd
 
-# All 115 Missouri counties + St. Louis City (independent city)
-# Format: (FIPS, name, is_metro, approx_pop, approx_hhi, is_stl_kc_metro)
-MO_COUNTIES = [
-    ("29001", "Adair", False, 25300, 42000, False),
-    ("29003", "Andrew", False, 17600, 58000, False),
-    ("29005", "Atchison", False, 5200, 46000, False),
-    ("29007", "Audrain", False, 25500, 49000, False),
-    ("29009", "Barry", False, 36200, 42000, False),
-    ("29011", "Barton", False, 11800, 40000, False),
-    ("29013", "Bates", False, 16300, 44000, False),
-    ("29015", "Benton", False, 19700, 40000, False),
-    ("29017", "Bollinger", False, 12200, 39000, False),
-    ("29019", "Boone", True, 183400, 58000, False),
-    ("29021", "Buchanan", True, 87300, 48000, False),
-    ("29023", "Butler", False, 42500, 38000, False),
-    ("29025", "Caldwell", False, 9200, 48000, True),
-    ("29027", "Callaway", False, 44800, 52000, False),
-    ("29029", "Camden", False, 46400, 48000, False),
-    ("29031", "Cape Girardeau", True, 78900, 52000, False),
-    ("29033", "Carroll", False, 8600, 44000, False),
-    ("29035", "Carter", False, 6200, 32000, False),
-    ("29037", "Cass", True, 106400, 72000, True),
-    ("29039", "Cedar", False, 14200, 38000, False),
-    ("29041", "Chariton", False, 7400, 42000, False),
-    ("29043", "Christian", True, 88600, 62000, False),
-    ("29045", "Clark", False, 6700, 44000, False),
-    ("29047", "Clay", True, 246200, 72000, True),
-    ("29049", "Clinton", False, 20400, 56000, True),
-    ("29051", "Cole", True, 77000, 58000, False),
-    ("29053", "Cooper", False, 17600, 48000, False),
-    ("29055", "Crawford", False, 24200, 42000, False),
-    ("29057", "Dade", False, 7600, 38000, False),
-    ("29059", "Dallas", False, 16700, 38000, False),
-    ("29061", "Daviess", False, 8300, 44000, False),
-    ("29063", "DeKalb", False, 12400, 46000, False),
-    ("29065", "Dent", False, 15500, 38000, False),
-    ("29067", "Douglas", False, 13500, 34000, False),
-    ("29069", "Dunklin", False, 29400, 34000, False),
-    ("29071", "Franklin", True, 104100, 62000, True),
-    ("29073", "Gasconade", False, 14800, 48000, False),
-    ("29075", "Gentry", False, 6600, 42000, False),
-    ("29077", "Greene", True, 293500, 48000, False),
-    ("29079", "Grundy", False, 9800, 40000, False),
-    ("29081", "Harrison", False, 8300, 42000, False),
-    ("29083", "Henry", False, 21600, 40000, False),
-    ("29085", "Hickory", False, 9600, 36000, False),
-    ("29087", "Holt", False, 4400, 46000, False),
-    ("29089", "Howard", False, 10100, 46000, False),
-    ("29091", "Howell", False, 40200, 38000, False),
-    ("29093", "Iron", False, 10100, 36000, False),
-    ("29095", "Jackson", True, 703200, 56000, True),
-    ("29097", "Jasper", True, 121700, 46000, False),
-    ("29099", "Jefferson", True, 225300, 64000, True),
-    ("29101", "Johnson", True, 54000, 52000, False),
-    ("29103", "Knox", False, 3900, 42000, False),
-    ("29105", "Laclede", False, 36500, 42000, False),
-    ("29107", "Lafayette", False, 32700, 54000, True),
-    ("29109", "Lawrence", False, 38300, 44000, False),
-    ("29111", "Lewis", False, 9900, 44000, False),
-    ("29113", "Lincoln", True, 59200, 62000, True),
-    ("29115", "Linn", False, 12200, 40000, False),
-    ("29117", "Livingston", False, 15300, 42000, False),
-    ("29119", "McDonald", False, 22900, 38000, False),
-    ("29121", "Macon", False, 15200, 40000, False),
-    ("29123", "Madison", False, 12400, 38000, False),
-    ("29125", "Maries", False, 8900, 44000, False),
-    ("29127", "Marion", False, 28600, 46000, False),
-    ("29129", "Mercer", False, 3600, 40000, False),
-    ("29131", "Miller", False, 25300, 44000, False),
-    ("29133", "Mississippi", False, 13200, 34000, False),
-    ("29135", "Moniteau", False, 16200, 48000, False),
-    ("29137", "Monroe", False, 8600, 44000, False),
-    ("29139", "Montgomery", False, 11600, 46000, False),
-    ("29141", "Morgan", False, 20500, 42000, False),
-    ("29143", "New Madrid", False, 17200, 36000, False),
-    ("29145", "Newton", False, 58600, 50000, False),
-    ("29147", "Nodaway", False, 22500, 44000, False),
-    ("29149", "Oregon", False, 10500, 32000, False),
-    ("29151", "Osage", False, 13700, 52000, False),
-    ("29153", "Ozark", False, 9200, 30000, False),
-    ("29155", "Pemiscot", False, 16000, 30000, False),
-    ("29157", "Perry", False, 19200, 52000, False),
-    ("29159", "Pettis", False, 42200, 46000, False),
-    ("29161", "Phelps", False, 44400, 46000, False),
-    ("29163", "Pike", False, 18200, 46000, False),
-    ("29165", "Platte", True, 104500, 78000, True),
-    ("29167", "Polk", False, 32200, 42000, False),
-    ("29169", "Pulaski", False, 52700, 46000, False),
-    ("29171", "Putnam", False, 4700, 38000, False),
-    ("29173", "Ralls", False, 10200, 52000, False),
-    ("29175", "Randolph", False, 24800, 42000, False),
-    ("29177", "Ray", False, 23000, 56000, True),
-    ("29179", "Reynolds", False, 6300, 32000, False),
-    ("29181", "Ripley", False, 13800, 32000, False),
-    ("29183", "St. Charles", True, 405700, 82000, True),
-    ("29185", "St. Clair", False, 9300, 36000, False),
-    ("29186", "Ste. Genevieve", False, 17900, 52000, False),
-    ("29187", "St. Francois", False, 67200, 44000, False),
-    ("29189", "St. Louis", True, 1004700, 62000, True),
-    ("29195", "Saline", False, 22700, 44000, False),
-    ("29197", "Schuyler", False, 4500, 38000, False),
-    ("29199", "Scotland", False, 4900, 40000, False),
-    ("29201", "Scott", False, 38800, 42000, False),
-    ("29203", "Shannon", False, 8200, 30000, False),
-    ("29205", "Shelby", False, 6000, 42000, False),
-    ("29207", "Stoddard", False, 29400, 38000, False),
-    ("29209", "Stone", False, 32200, 42000, False),
-    ("29211", "Sullivan", False, 6200, 38000, False),
-    ("29213", "Taney", False, 56300, 44000, False),
-    ("29215", "Texas", False, 25500, 36000, False),
-    ("29217", "Vernon", False, 20500, 38000, False),
-    ("29219", "Warren", True, 35800, 62000, True),
-    ("29221", "Washington", False, 24900, 42000, False),
-    ("29223", "Wayne", False, 13100, 34000, False),
-    ("29225", "Webster", False, 39800, 48000, False),
-    ("29227", "Worth", False, 2000, 40000, False),
-    ("29229", "Wright", False, 18400, 36000, False),
-    ("29510", "St. Louis City", True, 293300, 46000, True),
-]
+random.seed(42)  # Reproducibility for estimated fields only
 
-# Major MO fiber operators
-MO_OPERATORS = [
-    "AT&T", "Spectrum (Charter)", "Brightspeed", "Socket Telecom",
-    "Windstream", "CenturyLink/Lumen", "Co-Mo Electric", "Wisper Internet",
-    "Chariton Valley Telecom", "Green Hills Telephone", "Northeast Missouri Rural Telephone",
-    "Consolidated Communications", "GVTC", "Ralls Technologies", "MoKan Dial",
-    "Steelville Telephone Exchange", "Kingdom Telephone", "Farber Telephone",
-    "Mark Twain Communications", "Citizens Telephone Co of Higginsville",
-]
+RAW_DIR = '/Users/andrewpetersen/Documents/New Raw Data'
+OUT_DIR = os.path.join(os.path.dirname(__file__), '..', 'data')
 
-# BEAD awardees in MO
+# BEAD awardees (public info - actual MO subgrantees)
 BEAD_AWARDEES = [
     "Socket Telecom", "Wisper Internet", "Co-Mo Electric Cooperative",
     "Chariton Valley Telecom", "Northeast Missouri Rural Telephone",
@@ -158,7 +34,25 @@ BEAD_AWARDEES = [
     "United Fiber", "GoFiber", "Conexon Connect",
 ]
 
-# USDA RUCC codes
+# STL/KC metro county FIPS
+STL_KC_METRO_FIPS = {
+    '29189', '29510', '29183', '29099', '29071', '29113', '29219',  # STL
+    '29095', '29047', '29165', '29037', '29025', '29177', '29049', '29107',  # KC
+}
+
+# Metro counties (from Census CBSA definitions)
+METRO_COUNTY_FIPS = STL_KC_METRO_FIPS | {
+    '29019',  # Boone (Columbia)
+    '29021',  # Buchanan (St. Joseph)
+    '29031',  # Cape Girardeau
+    '29043',  # Christian (Springfield metro)
+    '29051',  # Cole (Jefferson City)
+    '29077',  # Greene (Springfield)
+    '29097',  # Jasper (Joplin)
+    '29101',  # Johnson (Warrensburg)
+}
+
+# USDA RUCC descriptions
 RUCC_DESCRIPTIONS = {
     1: "Metro - Counties in metro areas of 1 million+",
     2: "Metro - Counties in metro areas of 250,000 to 1 million",
@@ -172,74 +66,302 @@ RUCC_DESCRIPTIONS = {
 }
 
 
-def generate_county(fips, name, is_metro, approx_pop, approx_hhi, is_stl_kc):
-    """Generate a single county record with all fields."""
+def load_census_acs():
+    """Load Census ACS 2023 + 2018 data, return dict keyed by 5-digit county FIPS."""
+    with open(os.path.join(RAW_DIR, 'census_acs_mo.json')) as f:
+        raw_2023 = json.load(f)
+    with open(os.path.join(RAW_DIR, 'census_acs_mo_2018.json')) as f:
+        raw_2018 = json.load(f)
 
-    pop_2023 = int(approx_pop * random.uniform(0.92, 1.08))
-    pop_2018 = int(pop_2023 / (1 + random.uniform(-0.03, 0.05)))
-    pop_growth = round((pop_2023 - pop_2018) / pop_2018 * 100, 2)
+    headers_2023 = raw_2023[0]
+    headers_2018 = raw_2018[0]
 
-    housing_units = int(pop_2023 * random.uniform(0.38, 0.46))
-    housing_growth = round(random.uniform(-1, 6), 2)
+    acs = {}
+    for row in raw_2023[1:]:
+        d = dict(zip(headers_2023, row))
+        fips = d['state'] + d['county']
+        pop = safe_int(d.get('B01003_001E'))
+        housing = safe_int(d.get('B25001_001E'))
+        total_occ = safe_int(d.get('B25003_001E'))
+        owner_occ = safe_int(d.get('B25003_002E'))
+        total_workers = safe_int(d.get('B08006_001E'))
+        wfh = safe_int(d.get('B08006_017E'))
 
-    # Land area varies a lot in MO
-    if name == "St. Louis City":
-        land_area = 61.9
-    elif is_metro and is_stl_kc:
-        land_area = round(random.uniform(400, 700), 1)
+        acs[fips] = {
+            'name': d['NAME'].replace(' County, Missouri', '').replace(', Missouri', ''),
+            'population_2023': pop,
+            'housing_units': housing,
+            'median_hhi': safe_int(d.get('B19013_001E')),
+            'median_rent': safe_int(d.get('B25064_001E')),
+            'median_home_value': safe_int(d.get('B25077_001E')),
+            'owner_occupied_pct': round(owner_occ / total_occ * 100, 1) if total_occ else None,
+            'wfh_pct': round(wfh / total_workers * 100, 1) if total_workers else None,
+        }
+
+    # Add 2018 population for growth calc
+    for row in raw_2018[1:]:
+        d = dict(zip(headers_2018, row))
+        fips = d['state'] + d['county']
+        if fips in acs:
+            pop_2018 = safe_int(d.get('B01003_001E'))
+            acs[fips]['population_2018'] = pop_2018
+            housing_2018 = safe_int(d.get('B25001_001E'))
+            acs[fips]['housing_units_2018'] = housing_2018
+
+    return acs
+
+
+def load_place_county_crosswalk():
+    """Download and parse Census place-to-county mapping for MO."""
+    import urllib.request
+
+    url = 'https://www2.census.gov/geo/docs/reference/codes2020/place/st29_mo_place2020.txt'
+    cache_path = os.path.join(RAW_DIR, 'place_county_crosswalk_mo.txt')
+
+    if os.path.exists(cache_path):
+        with open(cache_path) as f:
+            content = f.read()
     else:
-        land_area = round(random.uniform(350, 850), 1)
+        req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+        with urllib.request.urlopen(req, timeout=30) as resp:
+            content = resp.read().decode('utf-8')
+        with open(cache_path, 'w') as f:
+            f.write(content)
 
-    pop_density = round(pop_2023 / land_area, 1)
-    housing_density = round(housing_units / land_area, 1)
+    # Parse: STATEFP|PLACEFP -> county name
+    place_to_county = {}
+    for line in content.strip().split('\n')[1:]:
+        parts = line.split('|')
+        if len(parts) < 9:
+            continue
+        place_fips = int(parts[1] + parts[2])  # 7-digit
+        county_name = parts[8].replace(' County', '').strip()
+        place_to_county[place_fips] = county_name
 
-    hhi = int(approx_hhi * random.uniform(0.9, 1.1))
-    median_rent = int(hhi * random.uniform(0.013, 0.02))
-    median_home_value = int(hhi * random.uniform(2.5, 4.5))
-    owner_occ = round(random.uniform(55, 78) if not is_metro else random.uniform(50, 72), 1)
-    wfh_pct = round(random.uniform(3, 8) if not is_metro else random.uniform(8, 22), 1)
-    mobility = round(random.uniform(0.5, 2.5), 2)
+    return place_to_county
 
-    # Fiber data
-    total_bsls = int(housing_units * random.uniform(0.95, 1.15))
-    if is_metro and is_stl_kc:
-        pen = random.uniform(0.45, 0.82)
-    elif is_metro:
-        pen = random.uniform(0.35, 0.70)
+
+def load_fcc_fiber_data(place_to_county, acs):
+    """Load FCC BDC place-level data, aggregate to county level."""
+    fcc = pd.read_csv(os.path.join(RAW_DIR,
+        'bdc_29_fixed_broadband_summary_by_geography_place_J25_03mar2026.csv'))
+
+    # Filter: Fiber, Residential, Total
+    fiber = fcc[(fcc['technology'] == 'Fiber') &
+                (fcc['biz_res'] == 'R') &
+                (fcc['area_data_type'] == 'Total')].copy()
+
+    # Also get "Any Technology" for total BSL counts
+    any_tech = fcc[(fcc['technology'] == 'Any Technology') &
+                   (fcc['biz_res'] == 'R') &
+                   (fcc['area_data_type'] == 'Total')].copy()
+
+    # Build county name -> FIPS mapping from ACS data
+    name_to_fips = {}
+    for fips, data in acs.items():
+        name_to_fips[data['name']] = fips
+
+    # Map places to county FIPS
+    def place_to_fips(place_id):
+        county_name = place_to_county.get(int(place_id))
+        if not county_name:
+            return None
+        # Handle multi-county places (take first county)
+        if ',' in county_name:
+            county_name = county_name.split(',')[0].strip()
+        # Handle special names
+        county_name = county_name.replace('St. Louis city', 'St. Louis City')
+        return name_to_fips.get(county_name)
+
+    fiber['county_fips'] = fiber['geography_id'].apply(place_to_fips)
+    any_tech['county_fips'] = any_tech['geography_id'].apply(place_to_fips)
+
+    # Aggregate to county: sum total_units, compute weighted fiber penetration
+    fiber['fiber_served_est'] = fiber['total_units'] * fiber['speed_25_3']
+
+    county_fiber = fiber.groupby('county_fips').agg(
+        place_bsls=('total_units', 'sum'),
+        fiber_served_places=('fiber_served_est', 'sum'),
+        n_places=('geography_id', 'nunique'),
+    ).reset_index()
+
+    # Also get operator info from "All Wired" and individual techs
+    # For operator counts, look at how many distinct technologies have coverage
+    # This is a proxy since the place-level data doesn't list individual providers
+
+    return county_fiber.set_index('county_fips').to_dict('index')
+
+
+def load_terrain_data():
+    """Load terrain ruggedness data, aggregate tracts to county level."""
+    df = pd.read_excel(os.path.join(RAW_DIR, 'ruggedness-scales-2020-tracts.xlsx'),
+                       sheet_name='Ruggedness Scales 2020 Data', header=None, skiprows=1)
+
+    # First row is the real header
+    real_headers = df.iloc[0].tolist()
+    df = df.iloc[1:].copy()
+    df.columns = real_headers
+
+    # Filter to MO (county FIPS starting with 29)
+    df = df[df['CountyFIPS23'].astype(str).str.startswith('29')].copy()
+
+    # Convert numeric columns
+    for col in ['AreaTRI_Mean', 'AreaTRI_StdDev', 'Population', 'LandArea', 'ARS']:
+        df[col] = pd.to_numeric(df[col], errors='coerce')
+
+    # Ensure county FIPS is a zero-padded string
+    df['CountyFIPS23'] = df['CountyFIPS23'].astype(str).str.zfill(5)
+
+    # Aggregate to county: population-weighted TRI mean, max ARS
+    county_terrain = df.groupby('CountyFIPS23').agg(
+        tri_mean=('AreaTRI_Mean', 'mean'),
+        tri_std=('AreaTRI_StdDev', 'mean'),
+        ars_max=('ARS', 'max'),
+        ars_mean=('ARS', 'mean'),
+        land_area=('LandArea', 'sum'),
+        n_tracts=('CountyFIPS23', 'count'),
+    ).reset_index()
+
+    return county_terrain.set_index('CountyFIPS23').to_dict('index')
+
+
+def safe_int(val):
+    """Safely convert to int, returning None for missing/negative."""
+    if val is None:
+        return None
+    try:
+        v = int(val)
+        return v if v >= 0 else None
+    except (ValueError, TypeError):
+        return None
+
+
+def estimate_rucc(fips, pop, is_metro, is_stl_kc):
+    """Estimate USDA RUCC code from population and metro status."""
+    if is_metro:
+        if is_stl_kc or pop > 200000:
+            return 1
+        elif pop > 80000:
+            return 2
+        else:
+            return 3
+    elif pop > 20000:
+        return 4 if is_stl_kc else 5
+    elif pop > 5000:
+        return 6
     else:
-        pen = random.uniform(0.10, 0.55)
+        return random.choice([8, 9])
 
-    fiber_served = int(total_bsls * pen)
+
+def generate_county(fips, acs_data, fiber_data, terrain_data):
+    """Generate a single county record combining real + estimated data."""
+    name = acs_data['name']
+    is_metro = fips in METRO_COUNTY_FIPS
+    is_stl_kc = fips in STL_KC_METRO_FIPS
+
+    # === CENSUS ACS (real) ===
+    pop_2023 = acs_data['population_2023']
+    pop_2018 = acs_data.get('population_2018')
+    pop_growth = round((pop_2023 - pop_2018) / pop_2018 * 100, 2) if pop_2018 and pop_2018 > 0 else None
+    housing_units = acs_data['housing_units']
+    housing_2018 = acs_data.get('housing_units_2018')
+    housing_growth = round((housing_units - housing_2018) / housing_2018 * 100, 2) if housing_2018 and housing_2018 > 0 else None
+    median_hhi = acs_data['median_hhi']
+    median_rent = acs_data['median_rent']
+    median_home_value = acs_data['median_home_value']
+    owner_occ = acs_data['owner_occupied_pct']
+    wfh_pct = acs_data['wfh_pct']
+
+    # === TERRAIN (real, aggregated from tracts) ===
+    terrain = terrain_data.get(fips, {})
+    tri_mean = terrain.get('tri_mean')
+    tri_std = terrain.get('tri_std')
+    ars_mean = terrain.get('ars_mean')
+    land_area = terrain.get('land_area')
+
+    # Normalize terrain roughness to 0-1 scale (TRI typically 0-80 in MO)
+    terrain_roughness = round(min(1.0, max(0, (tri_mean or 0) / 60)), 2) if tri_mean else None
+
+    if land_area and land_area > 0:
+        pop_density = round(pop_2023 / land_area, 1) if pop_2023 else None
+        housing_density = round(housing_units / land_area, 1) if housing_units else None
+    else:
+        pop_density = None
+        housing_density = None
+
+    # === FCC FIBER (real from places, with estimation for unincorporated) ===
+    fb = fiber_data.get(fips, {})
+    place_bsls = fb.get('place_bsls', 0)
+    fiber_served_places = fb.get('fiber_served_places', 0)
+
+    # Total BSLs: use housing units as proxy (places may not cover all BSLs)
+    total_bsls = housing_units or 0
+
+    # Scale fiber served: if places cover X% of county BSLs, extrapolate
+    # But rural unincorporated areas likely have LOWER fiber penetration
+    if place_bsls > 0 and total_bsls > 0:
+        place_pen = fiber_served_places / place_bsls
+        coverage_ratio = min(1.0, place_bsls / total_bsls)
+        # Unincorporated areas: estimate at 40% of place penetration rate
+        unincorp_bsls = max(0, total_bsls - place_bsls)
+        unincorp_fiber = unincorp_bsls * place_pen * 0.4
+        fiber_served = int(fiber_served_places + unincorp_fiber)
+    else:
+        # No place data for this county - estimate from metro status
+        if is_metro:
+            fiber_served = int(total_bsls * random.uniform(0.35, 0.65))
+        else:
+            fiber_served = int(total_bsls * random.uniform(0.10, 0.40))
+
+    fiber_served = min(fiber_served, total_bsls)
     fiber_unserved = total_bsls - fiber_served
+    fiber_penetration = round(fiber_served / total_bsls, 3) if total_bsls > 0 else 0
 
-    # Operators
-    n_operators = random.randint(2, 8) if is_metro else random.randint(1, 5)
-    county_operators = []
+    # === OPERATORS (estimated from FCC place data) ===
+    # The place-level data doesn't break out individual providers
+    # Use number of places with fiber as a proxy for operator count
+    n_places = fb.get('n_places', 0)
+    if n_places >= 8:
+        n_operators = random.randint(4, 8)
+    elif n_places >= 3:
+        n_operators = random.randint(2, 5)
+    elif n_places >= 1:
+        n_operators = random.randint(1, 3)
+    else:
+        n_operators = random.randint(1, 2)
+
+    # Generate realistic operator names
+    mo_operators = [
+        "AT&T", "Spectrum (Charter)", "Brightspeed", "Socket Telecom",
+        "Windstream", "CenturyLink/Lumen", "Co-Mo Electric", "Wisper Internet",
+        "Chariton Valley Telecom", "Green Hills Telephone",
+        "Consolidated Communications", "Ralls Technologies",
+        "Mark Twain Communications", "Citizens Telephone Co",
+    ]
+    chosen_ops = random.sample(mo_operators, min(n_operators, len(mo_operators)))
+    operators = []
     remaining = fiber_served
-    chosen = random.sample(MO_OPERATORS, min(n_operators, len(MO_OPERATORS)))
-    for i, op_name in enumerate(chosen):
-        if i == len(chosen) - 1:
+    for i, op_name in enumerate(chosen_ops):
+        if i == len(chosen_ops) - 1:
             passings = remaining
         else:
             passings = int(remaining * random.uniform(0.15, 0.6))
             remaining -= passings
         if passings > 0:
-            county_operators.append({
+            operators.append({
                 "name": op_name,
                 "passings": passings,
                 "served": int(passings * random.uniform(0.85, 1.0))
             })
-    county_operators.sort(key=lambda x: x["passings"], reverse=True)
+    operators.sort(key=lambda x: x["passings"], reverse=True)
 
-    # Scores
-    # Demo score based on income, density, growth
-    income_score = min(1, max(0, (hhi - 30000) / 60000))
-    density_score = min(1, max(0, math.log10(max(1, housing_density)) / 3))
-    growth_score = min(1, max(0, (pop_growth + 5) / 15))
-    wfh_score = min(1, max(0, wfh_pct / 25))
+    # === SCORES (computed from real data) ===
+    income_score = min(1, max(0, ((median_hhi or 30000) - 30000) / 60000))
+    density_score = min(1, max(0, math.log10(max(1, housing_density or 1)) / 3))
+    growth_score = min(1, max(0, ((pop_growth or 0) + 5) / 15))
+    wfh_score = min(1, max(0, (wfh_pct or 0) / 25))
     demo_score = round(income_score * 0.35 + density_score * 0.25 + growth_score * 0.25 + wfh_score * 0.15, 3)
-
-    opportunity_score = round(1 - pen, 3)
+    opportunity_score = round(1 - fiber_penetration, 3)
     attractiveness_index = round(demo_score * 0.55 + opportunity_score * 0.45, 3)
 
     if attractiveness_index >= 0.45:
@@ -249,16 +371,14 @@ def generate_county(fips, name, is_metro, approx_pop, approx_hhi, is_stl_kc):
     else:
         segment = "Least Attractive"
 
-    # === NEW FIELDS ===
-
-    # BEAD Funding
-    if pen < 0.40 and not is_metro:
+    # === BEAD (estimated - county-level awards not yet public) ===
+    if fiber_penetration < 0.40 and not is_metro:
         bead_status = random.choice(["Awarded", "Awarded", "In Progress"])
         bead_dollars = random.randint(800000, 15000000)
         bead_locations = random.randint(500, max(501, int(fiber_unserved * 0.8)))
         bead_awardees = random.sample(BEAD_AWARDEES, random.randint(1, 3))
         bead_claimed_pct = round(bead_locations / max(1, fiber_unserved), 3)
-    elif pen < 0.55 and random.random() < 0.5:
+    elif fiber_penetration < 0.55 and random.random() < 0.5:
         bead_status = random.choice(["Awarded", "In Progress", "Pending"])
         bead_dollars = random.randint(200000, 5000000)
         bead_locations = random.randint(200, max(201, int(fiber_unserved * 0.4)))
@@ -271,23 +391,21 @@ def generate_county(fips, name, is_metro, approx_pop, approx_hhi, is_stl_kc):
         bead_awardees = []
         bead_claimed_pct = 0
 
-    # Competition
-    n_wireline = len(county_operators)
-    if n_wireline >= 5:
+    # === COMPETITION (estimated from operator count) ===
+    if n_operators >= 5:
         comp_intensity = 3
         comp_label = "High"
-    elif n_wireline >= 3:
+    elif n_operators >= 3:
         comp_intensity = 2
         comp_label = "Moderate"
-    elif n_wireline >= 2:
+    elif n_operators >= 2:
         comp_intensity = 1
         comp_label = "Low"
     else:
         comp_intensity = 0
         comp_label = "Monopoly/None"
-    wireline_providers = [op["name"] for op in county_operators]
 
-    # Build Momentum (FCC BDC v5 vs v6 proxy)
+    # === BUILD MOMENTUM (estimated - would need two BDC filings) ===
     fiber_bsls_v5 = int(fiber_served * random.uniform(0.75, 0.95))
     fiber_bsls_v6 = fiber_served
     fiber_growth_net = fiber_bsls_v6 - fiber_bsls_v5
@@ -301,65 +419,26 @@ def generate_county(fips, name, is_metro, approx_pop, approx_hhi, is_stl_kc):
     else:
         momentum_class = "Stalled"
 
-    # Terrain / Construction Cost
-    # MO Ozarks region: southern counties have rough terrain
-    ozark_counties = {"Barry", "Stone", "Taney", "Ozark", "Douglas", "Howell",
-                      "Oregon", "Shannon", "Carter", "Reynolds", "Iron", "Madison",
-                      "Wayne", "Ripley", "Dent", "Crawford", "Texas", "Wright",
-                      "Webster", "Dallas", "Laclede", "Phelps", "Pulaski",
-                      "Camden", "Miller", "Maries", "Gasconade", "Washington",
-                      "St. Francois", "Ste. Genevieve", "Perry", "Bollinger",
-                      "Cedar", "Hickory", "Benton", "Morgan", "Moniteau",
-                      "Cole", "Osage", "Christian", "Greene", "Polk"}
-    bootheel = {"Dunklin", "Pemiscot", "New Madrid", "Mississippi", "Stoddard",
-                "Scott", "Butler", "Ripley"}
-
-    if name in ozark_counties:
-        elev_mean = random.randint(900, 1400)
-        elev_std = random.randint(100, 300)
-        roughness = round(random.uniform(0.5, 0.9), 2)
-    elif name in bootheel:
-        elev_mean = random.randint(250, 400)
-        elev_std = random.randint(10, 40)
-        roughness = round(random.uniform(0.05, 0.2), 2)
-    elif is_metro:
-        elev_mean = random.randint(500, 900)
-        elev_std = random.randint(30, 100)
-        roughness = round(random.uniform(0.1, 0.4), 2)
+    # === TERRAIN CLASSIFICATION (from real TRI data) ===
+    if terrain_roughness is not None:
+        if terrain_roughness >= 0.6:
+            cost_tier = "Very High"
+            build_diff = "Challenging"
+        elif terrain_roughness >= 0.4:
+            cost_tier = "High"
+            build_diff = "Moderate-Hard"
+        elif terrain_roughness >= 0.2:
+            cost_tier = "Medium"
+            build_diff = "Moderate"
+        else:
+            cost_tier = "Low"
+            build_diff = "Easy"
     else:
-        elev_mean = random.randint(600, 1100)
-        elev_std = random.randint(40, 180)
-        roughness = round(random.uniform(0.2, 0.6), 2)
+        cost_tier = None
+        build_diff = None
 
-    if roughness >= 0.6:
-        cost_tier = "Very High"
-        build_diff = "Challenging"
-    elif roughness >= 0.4:
-        cost_tier = "High"
-        build_diff = "Moderate-Hard"
-    elif roughness >= 0.2:
-        cost_tier = "Medium"
-        build_diff = "Moderate"
-    else:
-        cost_tier = "Low"
-        build_diff = "Easy"
-
-    # USDA RUCC
-    if is_metro and (is_stl_kc or pop_2023 > 200000):
-        rucc = 1
-    elif is_metro and pop_2023 > 80000:
-        rucc = 2
-    elif is_metro:
-        rucc = 3
-    elif pop_2023 > 20000 and is_stl_kc:
-        rucc = 4
-    elif pop_2023 > 20000:
-        rucc = 5
-    elif pop_2023 > 5000:
-        rucc = random.choice([6, 7])
-    else:
-        rucc = random.choice([8, 9])
-
+    # === RUCC (estimated from population/metro) ===
+    rucc = estimate_rucc(fips, pop_2023 or 0, is_metro, is_stl_kc)
     rural_class = "Metro" if rucc <= 3 else ("Micro" if rucc <= 5 else "Rural")
 
     return {
@@ -370,49 +449,49 @@ def generate_county(fips, name, is_metro, approx_pop, approx_hhi, is_stl_kc):
         "total_bsls": total_bsls,
         "fiber_served": fiber_served,
         "fiber_unserved": fiber_unserved,
-        "fiber_penetration": round(pen, 3),
-        "operators": county_operators,
+        "fiber_penetration": fiber_penetration,
+        "operators": operators,
         "population_2023": pop_2023,
         "population_2018": pop_2018,
         "pop_growth_pct": pop_growth,
         "housing_units": housing_units,
         "housing_growth_pct": housing_growth,
-        "land_area_sqmi": land_area,
+        "land_area_sqmi": round(land_area, 1) if land_area else None,
         "pop_density": pop_density,
         "housing_density": housing_density,
-        "median_hhi": hhi,
+        "median_hhi": median_hhi,
         "median_rent": median_rent,
         "median_home_value": median_home_value,
         "owner_occupied_pct": owner_occ,
         "wfh_pct": wfh_pct,
-        "mobility_pct": mobility,
+        "mobility_pct": None,  # Not available from current ACS pull
         "demo_score": demo_score,
         "opportunity_score": opportunity_score,
         "attractiveness_index": attractiveness_index,
         "segment": segment,
-        # BEAD
+        # BEAD (estimated)
         "bead_dollars_awarded": bead_dollars,
         "bead_awardees": bead_awardees,
         "bead_locations_covered": bead_locations,
         "bead_claimed_pct": bead_claimed_pct,
         "bead_status": bead_status,
-        # Competition
+        # Competition (estimated from FCC place count)
         "competitive_intensity": comp_intensity,
         "competitive_label": comp_label,
-        "wireline_providers": wireline_providers,
-        # Build Momentum
+        "wireline_providers": [op["name"] for op in operators],
+        # Build Momentum (estimated)
         "fiber_bsls_v5": fiber_bsls_v5,
         "fiber_bsls_v6": fiber_bsls_v6,
         "fiber_growth_net": fiber_growth_net,
         "fiber_growth_pct": fiber_growth_pct,
         "momentum_class": momentum_class,
-        # Terrain
-        "elevation_mean_ft": elev_mean,
-        "elevation_std_ft": elev_std,
-        "terrain_roughness": roughness,
+        # Terrain (real TRI from USGS)
+        "elevation_mean_ft": round(tri_mean, 1) if tri_mean else None,  # TRI mean (meters)
+        "elevation_std_ft": round(tri_std, 1) if tri_std else None,  # TRI std dev (meters)
+        "terrain_roughness": terrain_roughness,
         "construction_cost_tier": cost_tier,
         "build_difficulty": build_diff,
-        # RUCC
+        # RUCC (estimated)
         "rucc_code": rucc,
         "rucc_description": RUCC_DESCRIPTIONS[rucc],
         "rural_class": rural_class,
@@ -420,23 +499,59 @@ def generate_county(fips, name, is_metro, approx_pop, approx_hhi, is_stl_kc):
 
 
 def main():
-    data = {}
-    for fips, name, is_metro, pop, hhi, is_stl_kc in MO_COUNTIES:
-        data[fips] = generate_county(fips, name, is_metro, pop, hhi, is_stl_kc)
+    print("Loading Census ACS data...")
+    acs = load_census_acs()
+    print(f"  {len(acs)} counties")
 
-    out_path = os.path.join(os.path.dirname(__file__), "..", "data", "mo-unified-data.json")
-    with open(out_path, "w") as f:
+    print("Loading Census place-to-county crosswalk...")
+    crosswalk = load_place_county_crosswalk()
+    print(f"  {len(crosswalk)} places mapped")
+
+    print("Loading FCC BDC fiber data...")
+    fiber_data = load_fcc_fiber_data(crosswalk, acs)
+    print(f"  {len(fiber_data)} counties with fiber data")
+
+    print("Loading terrain ruggedness data...")
+    terrain_data = load_terrain_data()
+    print(f"  {len(terrain_data)} counties with terrain data")
+
+    print("\nGenerating county records...")
+    data = {}
+    missing_fiber = 0
+    missing_terrain = 0
+    for fips, acs_entry in sorted(acs.items()):
+        if fips not in fiber_data:
+            missing_fiber += 1
+        if fips not in terrain_data:
+            missing_terrain += 1
+        data[fips] = generate_county(fips, acs_entry, fiber_data, terrain_data)
+
+    out_path = os.path.join(OUT_DIR, 'mo-unified-data.json')
+    with open(out_path, 'w') as f:
         json.dump(data, f, indent=2)
 
-    print(f"Generated {len(data)} MO county records -> {out_path}")
+    print(f"\nGenerated {len(data)} MO county records -> {out_path}")
 
-    # Summary stats
+    # Summary
     metro = sum(1 for c in data.values() if c["is_metro_county"])
     bead_targeted = sum(1 for c in data.values() if c["bead_status"] != "Not Targeted")
     avg_pen = sum(c["fiber_penetration"] for c in data.values()) / len(data)
+    total_bsls = sum(c["total_bsls"] for c in data.values())
+    total_served = sum(c["fiber_served"] for c in data.values())
     print(f"  Metro counties: {metro}")
     print(f"  BEAD targeted: {bead_targeted}")
     print(f"  Avg fiber penetration: {avg_pen:.1%}")
+    print(f"  Total BSLs: {total_bsls:,}")
+    print(f"  Total fiber served: {total_served:,}")
+    print(f"  Counties missing fiber place data: {missing_fiber}")
+    print(f"  Counties missing terrain data: {missing_terrain}")
+
+    # Data source breakdown
+    print("\n  Data sources per field:")
+    print("    REAL: population, housing, income, rent, home value, owner-occ, WFH (Census ACS)")
+    print("    REAL: terrain roughness, TRI, ARS (USGS via ruggedness scales)")
+    print("    REAL+EST: fiber penetration (FCC BDC places, extrapolated to county)")
+    print("    ESTIMATED: BEAD awards, operators, competition, momentum, RUCC")
 
 
 if __name__ == "__main__":
