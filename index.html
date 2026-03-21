@@ -6,7 +6,10 @@
     <title>US Fiber Market Analysis</title>
     <!-- CSP: Restricts script/style sources for security -->
     <meta http-equiv="Content-Security-Policy"
-          content="default-src 'self'; script-src 'self' https://d3js.org https://unpkg.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self';">
+          content="default-src 'self'; script-src 'self' https://d3js.org https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self';">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -175,9 +178,9 @@
                         <div class="stats-section">
                             <h3>Demographics & Economics</h3>
                             <div class="stats-grid">
-                                <div class="stat-item" style="grid-column: span 2; background: #dbeafe;">
+                                <div class="stat-item stat-highlight" style="grid-column: span 2;">
                                     <span class="stat-label">Median Household Income</span>
-                                    <span class="stat-value" style="font-size: 1.2rem; color: #1e40af;" id="median-hhi"></span>
+                                    <span class="stat-value" style="font-size: 1.2rem;" id="median-hhi"></span>
                                 </div>
                                 <div class="stat-item">
                                     <span class="stat-label">Population</span>
@@ -239,7 +242,7 @@
                                     <span class="stat-value" id="bead-awardees" style="font-size: 0.75rem;"></span>
                                 </div>
                                 <div class="stat-item" id="bead-note" style="grid-column: span 2; display: none;">
-                                    <span class="stat-label" style="font-style: italic; color: #64748b;">County-level BEAD awards not yet publicly available</span>
+                                    <span class="stat-label" style="font-style: italic;">County-level BEAD awards not yet publicly available</span>
                                 </div>
                             </div>
                         </div>
