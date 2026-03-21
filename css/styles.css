@@ -53,13 +53,13 @@ body {
    Header
    ============================================ */
 header {
-    background: linear-gradient(135deg, #312e81 0%, #4f46e5 30%, #6366f1 70%, #818cf8 100%);
+    background: linear-gradient(135deg, #000000 0%, #0a0a0a 30%, #141414 60%, #1a1a1a 100%);
     padding: 2rem 2rem;
     color: white;
     text-align: center;
     position: relative;
     overflow: hidden;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 header::after {
@@ -70,7 +70,7 @@ header::after {
     transform: translateX(-50%);
     width: 120%;
     height: 200%;
-    background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.08) 0%, transparent 60%);
+    background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.04) 0%, transparent 60%);
     pointer-events: none;
 }
 
@@ -80,11 +80,14 @@ header h1 {
     margin-bottom: 0.25rem;
     position: relative;
     z-index: 1;
+    letter-spacing: 0.5px;
 }
 
 header .subtitle {
-    opacity: 0.85;
+    opacity: 0.5;
     font-size: 0.95rem;
+    font-weight: 400;
+    letter-spacing: 0.3px;
     position: relative;
     z-index: 1;
 }
