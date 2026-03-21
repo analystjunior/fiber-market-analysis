@@ -312,7 +312,7 @@
         </div>
 
         <!-- NPV Calculator Panel -->
-        <div class="npv-panel" id="npv-panel">
+        <div class="npv-panel" id="npv-panel" role="dialog" aria-label="NPV Calculator" aria-modal="false">
             <div class="npv-panel-header">
                 <h3>NPV Calculator</h3>
                 <span class="npv-county-label" id="npv-county-name"></span>
@@ -403,6 +403,7 @@
             <div class="table-header">
                 <h2>County Rankings</h2>
                 <div class="table-controls">
+                    <label for="table-search" class="sr-only">Search counties</label>
                     <input type="text" id="table-search" placeholder="Search counties...">
                 </div>
             </div>
@@ -465,17 +466,17 @@
     </main>
 
     <footer>
-        <p>Data sources: <a href="https://www.fcc.gov/BroadbandData" target="_blank">FCC BDC</a> (Jun 2025) |
-        <a href="https://www.census.gov/programs-surveys/acs.html" target="_blank">Census ACS</a> 5-year (2018, 2023) |
-        <a href="https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html" target="_blank">TIGER/Line</a> (2023) |
-        <a href="https://broadbandusa.ntia.doc.gov/funding-programs/BEAD" target="_blank">NTIA BEAD</a> |
-        <a href="https://www.usgs.gov/3d-elevation-program" target="_blank">USGS 3DEP</a> |
-        <a href="https://www.ers.usda.gov/data-products/rural-urban-continuum-codes/" target="_blank">USDA RUCC</a></p>
+        <p>Data sources: <a href="https://www.fcc.gov/BroadbandData" target="_blank" rel="noopener noreferrer">FCC BDC</a> (Jun 2025) |
+        <a href="https://www.census.gov/programs-surveys/acs.html" target="_blank" rel="noopener noreferrer">Census ACS</a> 5-year (2018, 2023) |
+        <a href="https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html" target="_blank" rel="noopener noreferrer">TIGER/Line</a> (2023) |
+        <a href="https://broadbandusa.ntia.doc.gov/funding-programs/BEAD" target="_blank" rel="noopener noreferrer">NTIA BEAD</a> |
+        <a href="https://www.usgs.gov/3d-elevation-program" target="_blank" rel="noopener noreferrer">USGS 3DEP</a> |
+        <a href="https://www.ers.usda.gov/data-products/rural-urban-continuum-codes/" target="_blank" rel="noopener noreferrer">USDA RUCC</a></p>
     </footer>
 
     <!-- External dependencies -->
-    <script src="https://d3js.org/d3.v7.min.js"></script>
-    <script src="https://unpkg.com/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js" integrity="sha384-CjloA8y00+1SDAUkjs099PVfnY2KmDC2BZnws9kh8D/lX1s46w6EPhpXdqMfjK6i" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/topojson-client@3.1.0/dist/topojson-client.min.js" integrity="sha384-Ukv1p/xTma6P4/2bY5KzWBw+ydSpXmhCMtyciIQVDJ1RmOxtCYNMF1uXT9T63H67" crossorigin="anonymous"></script>
     <!-- Application modules -->
     <script src="js/data.js"></script>
     <script src="js/map.js"></script>

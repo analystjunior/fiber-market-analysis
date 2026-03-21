@@ -22,6 +22,14 @@
         }
     }
 
+    // Allowlist of safe DOM properties for createElement
+    var SAFE_ELEMENT_PROPS = {
+        'className': true, 'id': true, 'tabindex': true, 'tabIndex': true,
+        'role': true, 'type': true, 'htmlFor': true, 'href': true, 'src': true,
+        'alt': true, 'title': true, 'placeholder': true, 'value': true,
+        'disabled': true, 'checked': true, 'name': true, 'rel': true
+    };
+
     function createElement(tag, attrs, textContent) {
         var el = document.createElement(tag);
         if (attrs) {
@@ -33,17 +41,16 @@
                     el.className = value;
                 } else if (key === 'style') {
                     el.style.cssText = value;
-                } else if (key.startsWith('data-')) {
+                } else if (key.startsWith('data-') || key.startsWith('aria-')) {
                     el.setAttribute(key, value);
-                } else if (key.startsWith('aria-')) {
+                } else if (SAFE_ELEMENT_PROPS[key]) {
                     el.setAttribute(key, value);
-                } else {
-                    el[key] = value;
                 }
+                // Silently ignore unknown properties to prevent innerHTML/prototype injection
             }
         }
         if (textContent !== undefined) {
-            el.textContent = DataHandler.sanitizeString(textContent);
+            el.textContent = String(textContent != null ? textContent : '');
         }
         return el;
     }
@@ -330,8 +337,9 @@
                 .attr('aria-label', function(d) {
                     var data = DataHandler.getCountyData(d.id);
                     if (data) {
-                        return data.name + ' County, ' +
-                               (data.fiber_penetration * 100).toFixed(1) + '% fiber penetration';
+                        var pen = Number.isFinite(data.fiber_penetration) ?
+                            (data.fiber_penetration * 100).toFixed(1) + '%' : 'N/A';
+                        return data.name + ' County, ' + pen + ' fiber penetration';
                     }
                     return 'County ' + d.id;
                 })
@@ -360,8 +368,8 @@
 
             this._countyElements = countyPaths.nodes();
 
-            // State outline
-            this.svg.append('path')
+            // State outline (appended to mapGroup so it's cleaned up on navigation)
+            this.mapGroup.append('path')
                 .attr('class', 'state-outline')
                 .datum(geojson)
                 .attr('fill', 'none')
@@ -493,8 +501,8 @@
             if (!county) return true;
             if (this.filters.excludeNYC && county.is_nyc_borough) return true;
             if (this.filters.excludeSTLKC && county.is_stl_kc_metro) return true;
-            if (county.population_2023 < this.filters.minPop) return true;
-            if (county.housing_density < this.filters.minDensity) return true;
+            if (this.filters.minPop > 0 && (county.population_2023 == null || county.population_2023 < this.filters.minPop)) return true;
+            if (this.filters.minDensity > 0 && (county.housing_density == null || county.housing_density < this.filters.minDensity)) return true;
             return false;
         },
 
@@ -577,7 +585,6 @@
         },
 
         backToUS: function() {
-            this.svg.select('.state-outline').remove();
             InfoPanel.pinnedCounty = null;
             var pinIndicator = document.querySelector('.pin-indicator');
             if (pinIndicator) {
@@ -820,7 +827,7 @@
             }
 
             setTextById('housing-units', DataHandler.formatNumber(data.housing_units));
-            setTextById('housing-density', DataHandler.formatNumber(data.housing_density) + '/sq mi');
+            setTextById('housing-density', Number.isFinite(data.housing_density) ? DataHandler.formatNumber(data.housing_density) + '/sq mi' : 'N/A');
             setTextById('median-hhi', DataHandler.formatCurrency(data.median_hhi));
             setTextById('median-rent', DataHandler.formatCurrency(data.median_rent));
             setTextById('owner-occ', DataHandler.formatPercentDirect(data.owner_occupied_pct));
@@ -862,7 +869,9 @@
                     setTextById('bead-status', data.bead_status || 'N/A');
                     var beadStatusEl = document.getElementById('bead-status');
                     if (beadStatusEl) {
-                        beadStatusEl.className = 'stat-value bead-badge bead-' + (data.bead_status || '').toLowerCase().replace(/\s+/g, '-');
+                        var validBeadClasses = { 'awarded': true, 'in-progress': true, 'pending': true, 'not-targeted': true, 'unverified': true };
+                        var beadClass = (data.bead_status || '').toLowerCase().replace(/\s+/g, '-');
+                        beadStatusEl.className = 'stat-value bead-badge' + (validBeadClasses[beadClass] ? ' bead-' + beadClass : '');
                     }
 
                     // Show detail fields only if BEAD data is verified (not "Unverified")
@@ -969,11 +978,7 @@
                 var aVal = a[self.sortColumn];
                 var bVal = b[self.sortColumn];
 
-                if (typeof aVal === 'string') {
-                    aVal = aVal.toLowerCase();
-                    bVal = (bVal || '').toLowerCase();
-                }
-
+                // Normalize nulls
                 if (aVal === null || aVal === undefined || (typeof aVal === 'number' && !Number.isFinite(aVal))) {
                     aVal = -Infinity;
                 }
@@ -981,6 +986,11 @@
                     bVal = -Infinity;
                 }
 
+                // Case-insensitive string comparison
+                if (typeof aVal === 'string') aVal = aVal.toLowerCase();
+                if (typeof bVal === 'string') bVal = bVal.toLowerCase();
+
+                if (aVal === bVal) return 0;
                 if (self.sortDirection === 'asc') {
                     return aVal > bVal ? 1 : -1;
                 } else {

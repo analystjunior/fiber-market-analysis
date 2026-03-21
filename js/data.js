@@ -61,7 +61,8 @@
     }
 
     /**
-     * Sanitizes a string for safe display (prevents XSS)
+     * Converts a value to a safe display string.
+     * Note: XSS protection comes from using textContent (not innerHTML) at all call sites.
      * @param {string|null|undefined} str
      * @returns {string}
      */
@@ -378,12 +379,16 @@
             { threshold: 1.0, color: '#fecaca', label: 'Challenging' }
         ],
 
+        // Valid layer names for getColor
+        _validLayers: { penetration: true, demographic: true, attractiveness: true, bead: true, competitive: true, momentum: true, terrain: true },
+
         getColor: function(layer, value) {
             // Handle invalid inputs
             if (!Number.isFinite(value)) {
                 return '#cbd5e1';
             }
 
+            if (!this._validLayers[layer]) return '#cbd5e1';
             var scale = this[layer];
             if (!scale) return '#cbd5e1';
 

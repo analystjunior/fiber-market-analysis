@@ -22,7 +22,6 @@ import json
 import csv
 import math
 import os
-import sys
 
 import pandas as pd
 

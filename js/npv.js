@@ -64,6 +64,10 @@
             if (!this._panel) return;
             this._panel.classList.remove('open');
             this._currentFips = null;
+            if (this._debounceTimer) {
+                clearTimeout(this._debounceTimer);
+                this._debounceTimer = null;
+            }
         },
 
         _setSlider: function(id, value) {
@@ -109,6 +113,22 @@
             if (!this._currentFips) return;
             var data = DataHandler.getCountyData(this._currentFips);
             if (!data) return;
+
+            // Check if county is fully served (no opportunity)
+            if (!data.fiber_unserved || data.fiber_unserved <= 0) {
+                this._setResult('npv-homes-passed', '0');
+                this._setResult('npv-subscribers', '0');
+                this._setResult('npv-total-capex', '$0');
+                this._setResult('npv-bead-subsidy', '$0');
+                this._setResult('npv-net-capex', '$0');
+                this._setResult('npv-annual-rev', '$0');
+                this._setResult('npv-result', 'N/A');
+                this._setResult('npv-payback', 'N/A');
+                this._setResult('npv-county-name', data.name + ' County (fully served)');
+                var npvEl = document.getElementById('npv-result');
+                if (npvEl) npvEl.className = 'npv-result-value';
+                return;
+            }
 
             // Read slider values
             var arpu = this._getSliderVal('npv-arpu');
@@ -172,7 +192,9 @@
 
         _getSliderVal: function(id) {
             var slider = document.getElementById(id);
-            return slider ? parseFloat(slider.value) : 0;
+            if (!slider) return 0;
+            var val = parseFloat(slider.value);
+            return Number.isFinite(val) ? val : 0;
         },
 
         _setResult: function(id, text) {

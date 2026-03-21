@@ -117,6 +117,11 @@
                 var fips = InfoPanel.pinnedCounty;
                 if (fips) {
                     NPVCalculator.open(fips);
+                } else {
+                    npvBtn.textContent = 'Click a county first';
+                    setTimeout(function() {
+                        npvBtn.textContent = 'Open NPV Calculator';
+                    }, 2000);
                 }
             });
         }
