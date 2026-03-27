@@ -384,12 +384,12 @@
             { threshold: 0.75, color: '#4338ca', label: '50–75%' },
             { threshold: 1.0,  color: '#3730a3', label: '>75% Claimed' }
         ],
-        // Competitive Intensity: red = monopoly, green = high competition
+        // Competitive Intensity: green = monopoly (good — open market), red = high competition (bad)
         competitive: [
-            { threshold: 0.25, color: '#dc2626', label: 'Monopoly' },
-            { threshold: 0.50, color: '#f97316', label: 'Low' },
-            { threshold: 0.75, color: '#ca8a04', label: 'Moderate' },
-            { threshold: 1.0,  color: '#15803d', label: 'High' }
+            { threshold: 0.25, color: '#15803d', label: 'Monopoly' },
+            { threshold: 0.50, color: '#ca8a04', label: 'Low' },
+            { threshold: 0.75, color: '#f97316', label: 'Moderate' },
+            { threshold: 1.0,  color: '#dc2626', label: 'High' }
         ],
         // Build Momentum: red = stalled, green = surging
         momentum: [
