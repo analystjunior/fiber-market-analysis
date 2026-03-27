@@ -130,7 +130,11 @@
                     fetch('data/fiber-data.json'),
                     fetch('data/us-states.json'),
                     fetch('data/us-counties.json'),
-                    fetch('data/mo-unified-data.json')
+                    fetch('data/mo-unified-data.json'),
+                    fetch('data/tx-unified-data.json'),
+                    fetch('data/nc-unified-data.json'),
+                    fetch('data/ga-unified-data.json'),
+                    fetch('data/pa-unified-data.json')
                 ]);
 
                 var unifiedResponse = responses[0];
@@ -139,6 +143,10 @@
                 var usGeoResponse = responses[3];
                 var usCountiesResponse = responses[4];
                 var moResponse = responses[5];
+                var txResponse = responses[6];
+                var ncResponse = responses[7];
+                var gaResponse = responses[8];
+                var paResponse = responses[9];
 
                 // Check for HTTP errors
                 if (!unifiedResponse.ok) throw new Error('Failed to load NY unified data: ' + unifiedResponse.status);
@@ -147,6 +155,10 @@
                 if (!usGeoResponse.ok) throw new Error('Failed to load US GeoJSON: ' + usGeoResponse.status);
                 if (!usCountiesResponse.ok) throw new Error('Failed to load US counties TopoJSON: ' + usCountiesResponse.status);
                 if (!moResponse.ok) throw new Error('Failed to load MO unified data: ' + moResponse.status);
+                if (!txResponse.ok) throw new Error('Failed to load TX unified data: ' + txResponse.status);
+                if (!ncResponse.ok) throw new Error('Failed to load NC unified data: ' + ncResponse.status);
+                if (!gaResponse.ok) throw new Error('Failed to load GA unified data: ' + gaResponse.status);
+                if (!paResponse.ok) throw new Error('Failed to load PA unified data: ' + paResponse.status);
 
                 var nyData = await unifiedResponse.json();
                 this.tigerGeoJSON = await tigerResponse.json();
@@ -154,10 +166,18 @@
                 this.usGeoJSON = await usGeoResponse.json();
                 this.usCountiesTopo = await usCountiesResponse.json();
                 var moData = await moResponse.json();
+                var txData = await txResponse.json();
+                var ncData = await ncResponse.json();
+                var gaData = await gaResponse.json();
+                var paData = await paResponse.json();
 
                 // Store county data by state
                 this._stateCountyData['NY'] = nyData;
                 this._stateCountyData['MO'] = moData;
+                this._stateCountyData['TX'] = txData;
+                this._stateCountyData['NC'] = ncData;
+                this._stateCountyData['GA'] = gaData;
+                this._stateCountyData['PA'] = paData;
 
                 // Default active state
                 this._activeState = 'MO';

@@ -59,8 +59,12 @@
     // ============================================
 
     var FEATURED_STATES = {
-        NY: { color: '#10b981', label: 'New York', fipsPrefix: '36' },
-        MO: { color: '#8b5cf6', label: 'Missouri', fipsPrefix: '29' }
+        NY: { label: 'New York',       fipsPrefix: '36' },
+        MO: { label: 'Missouri',       fipsPrefix: '29' },
+        TX: { label: 'Texas',          fipsPrefix: '48' },
+        NC: { label: 'North Carolina', fipsPrefix: '37' },
+        GA: { label: 'Georgia',        fipsPrefix: '13' },
+        PA: { label: 'Pennsylvania',   fipsPrefix: '42' }
     };
 
     // Zoom level at which county view activates (state view below this)
