@@ -32,14 +32,14 @@
         TableManager.init();
         NPVCalculator.init();
 
+        // Render table for default active state (MO)
+        TableManager.renderTable();
+
         // Setup UI controls
         setupControls();
 
         // Setup global event handlers
         setupGlobalHandlers();
-
-        // Auto-drill to Missouri on page load
-        await MapRenderer.drillDownToState('MO');
 
         console.log('Application initialized');
     });
@@ -128,20 +128,6 @@
     }
 
     function setupGlobalHandlers() {
-        // Back to US button
-        var backBtn = document.getElementById('back-to-us-btn');
-        if (backBtn) {
-            backBtn.addEventListener('click', function() {
-                MapRenderer.backToUS();
-            });
-            backBtn.addEventListener('keydown', function(e) {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    MapRenderer.backToUS();
-                }
-            });
-        }
-
         // Close pin button
         var closePinBtn = document.getElementById('close-pin-btn');
         if (closePinBtn) {

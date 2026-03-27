@@ -46,7 +46,6 @@
                 } else if (SAFE_ELEMENT_PROPS[key]) {
                     el.setAttribute(key, value);
                 }
-                // Silently ignore unknown properties to prevent innerHTML/prototype injection
             }
         }
         if (textContent !== undefined) {
@@ -64,8 +63,11 @@
         MO: { color: '#8b5cf6', label: 'Missouri', fipsPrefix: '29' }
     };
 
+    // Zoom level at which county view activates (state view below this)
+    var COUNTY_ZOOM_THRESHOLD = 6;
+
     // ============================================
-    // MAP RENDERER  (Leaflet-based)
+    // MAP RENDERER  (Leaflet-based, zoom-driven)
     // ============================================
 
     var MapRenderer = {
@@ -75,8 +77,8 @@
         _countyLayerMap: {},   // fips → Leaflet layer
         _countyFipsList: [],   // ordered FIPS for keyboard nav
         _focusedFips: null,
-        currentView: 'us',
-        currentState: null,
+        _inCountyView: false,
+        currentState: 'MO',
         currentLayer: 'penetration',
         filters: {
             minPop: 0,
@@ -106,64 +108,83 @@
 
             L.control.zoom({ position: 'topright' }).addTo(this._map);
 
-            // CartoDB Dark Matter tiles — shows roads/labels underneath translucent fills
+            // CartoDB Dark Matter tiles — roads/labels visible under translucent fills
             L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
                 attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
                 subdomains: 'abcd',
                 maxZoom: 19,
             }).addTo(this._map);
 
-            await this.renderUSMap();
-            this.updateLegendForUS();
+            // Render state layer (always present)
+            this._renderStateLayer();
+
+            // Pre-load all county layers (hidden until zoom threshold)
+            await this._renderAllCountyLayers();
+
+            // Zoom-driven view switching
+            var self = this;
+            this._map.on('zoomend', function() {
+                self._onZoomChanged();
+            });
+
+            // Set initial state based on starting zoom
+            this._onZoomChanged();
             this._setupKeyboardNavigation();
+
+            // Show controls and table immediately
+            var controlsPanel = document.querySelector('.controls-panel');
+            var tableSection = document.querySelector('.table-section');
+            if (controlsPanel) controlsPanel.style.display = 'flex';
+            if (tableSection) tableSection.style.display = 'block';
+
             return true;
         },
 
-        _setupKeyboardNavigation: function() {
-            var self = this;
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape' && InfoPanel.pinnedCounty) {
-                    InfoPanel.unpinCounty();
-                    return;
-                }
-                if (self.currentView === 'state' && self._countyFipsList.length > 0) {
-                    var idx = self._countyFipsList.indexOf(self._focusedFips);
-                    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
-                        e.preventDefault();
-                        self._focusCountyAt(Math.min(idx + 1, self._countyFipsList.length - 1));
-                    } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
-                        e.preventDefault();
-                        self._focusCountyAt(Math.max(0, idx - 1));
-                    } else if ((e.key === 'Enter' || e.key === ' ') && self._focusedFips) {
-                        e.preventDefault();
-                        var layer = self._countyLayerMap[self._focusedFips];
-                        if (layer) self._handleCountyClick(self._focusedFips, layer);
-                    }
-                }
-            });
-        },
+        // ===== ZOOM-DRIVEN VIEW SWITCHING =====
 
-        _focusCountyAt: function(idx) {
-            var fips = this._countyFipsList[idx];
-            if (!fips) return;
-            this._focusedFips = fips;
-            if (!InfoPanel.pinnedCounty) InfoPanel.showCountyInfo(fips);
-            // Pan to county
-            var layer = this._countyLayerMap[fips];
-            if (layer) {
-                this._map.panTo(layer.getBounds().getCenter(), { animate: true, duration: 0.3 });
-                this._refreshCountyStyle(fips, true);
+        _onZoomChanged: function() {
+            var zoom = this._map.getZoom();
+            var shouldBeCountyView = zoom >= COUNTY_ZOOM_THRESHOLD;
+
+            if (shouldBeCountyView === this._inCountyView) return; // no change
+            this._inCountyView = shouldBeCountyView;
+
+            if (shouldBeCountyView) {
+                // Add county layer on top
+                if (this._countyLayer && !this._map.hasLayer(this._countyLayer)) {
+                    this._countyLayer.addTo(this._map);
+                }
+                // Dim state layer to outlines only
+                if (this._stateLayer) {
+                    this._stateLayer.eachLayer(function(l) {
+                        l.setStyle({ fillOpacity: 0.0, color: 'rgba(255,255,255,0.08)', weight: 0.5, opacity: 0.5 });
+                    });
+                }
+                setTextById('map-title', 'County Detail — hover to explore');
+                this.updateLegend();
+            } else {
+                // Remove county layer
+                if (this._countyLayer && this._map.hasLayer(this._countyLayer)) {
+                    this._map.removeLayer(this._countyLayer);
+                }
+                // Restore state layer colors
+                var self = this;
+                if (this._stateLayer) {
+                    this._stateLayer.eachLayer(function(l) {
+                        self._stateLayer.resetStyle(l);
+                    });
+                }
+                // Clear any pinned county
+                if (InfoPanel.pinnedCounty) InfoPanel.unpinCounty();
+                InfoPanel.hideInfo();
+                setTextById('map-title', 'United States — Fiber Coverage by State');
+                this.updateLegendForUS();
             }
         },
 
-        // ===== US MAP VIEW =====
-        async renderUSMap() {
-            this.currentView = 'us';
-            this.currentState = null;
-            this._countyLayerMap = {};
-            this._countyFipsList = [];
+        // ===== STATE LAYER (always loaded) =====
 
-            if (this._countyLayer) { this._map.removeLayer(this._countyLayer); this._countyLayer = null; }
+        _renderStateLayer: function() {
             if (this._stateLayer) { this._map.removeLayer(this._stateLayer); this._stateLayer = null; }
 
             var geojson = DataHandler.getUSGeoJSON();
@@ -189,79 +210,53 @@
                     var sc = self.getStateCode(feature);
                     layer.on({
                         mouseover: function(e) {
-                            InfoPanel.showStateInfo(sc);
-                            if (FEATURED_STATES[sc]) {
+                            // Only show state info when zoomed out
+                            if (!self._inCountyView) {
+                                InfoPanel.showStateInfo(sc);
                                 e.target.setStyle({ fillOpacity: 0.75, weight: 2, color: '#94a3b8' });
                                 e.target.bringToFront();
                             }
                         },
                         mouseout: function(e) {
-                            InfoPanel.hideInfo();
-                            self._stateLayer.resetStyle(e.target);
-                        },
-                        click: function() {
-                            if (FEATURED_STATES[sc]) self.drillDownToState(sc);
+                            if (!self._inCountyView) {
+                                InfoPanel.hideInfo();
+                                self._stateLayer.resetStyle(e.target);
+                            }
                         }
                     });
                 }
             }).addTo(this._map);
 
-            this._map.setView([39.5, -98.35], 4);
             setTextById('map-title', 'United States — Fiber Coverage by State');
-            document.querySelector('.back-btn').classList.remove('visible');
-            document.querySelector('.controls-panel').style.display = 'none';
-            document.querySelector('.table-section').style.display = 'none';
         },
 
-        getStateCode: function(feature) {
-            if (feature.properties && feature.properties.STUSPS) return feature.properties.STUSPS;
-            if (feature.properties && feature.properties.postal) return feature.properties.postal;
-            var fipsToState = {
-                '36': 'NY', '06': 'CA', '48': 'TX', '12': 'FL', '17': 'IL',
-                '42': 'PA', '39': 'OH', '13': 'GA', '37': 'NC', '26': 'MI',
-                '34': 'NJ', '51': 'VA', '53': 'WA', '04': 'AZ', '25': 'MA',
-                '47': 'TN', '18': 'IN', '29': 'MO', '24': 'MD', '55': 'WI',
-                '08': 'CO', '27': 'MN', '45': 'SC', '01': 'AL', '22': 'LA',
-                '21': 'KY', '41': 'OR', '40': 'OK', '09': 'CT', '19': 'IA',
-                '28': 'MS', '05': 'AR', '20': 'KS', '32': 'NV', '35': 'NM',
-                '31': 'NE', '54': 'WV', '16': 'ID', '15': 'HI', '33': 'NH',
-                '23': 'ME', '30': 'MT', '44': 'RI', '10': 'DE', '46': 'SD',
-                '38': 'ND', '02': 'AK', '11': 'DC', '50': 'VT', '56': 'WY',
-                '72': 'PR'
-            };
-            var id = feature.id ? String(feature.id).padStart(2, '0') : null;
-            return id ? (fipsToState[id] || null) : null;
-        },
+        // ===== COUNTY LAYERS (all featured states, zoom-toggled) =====
 
-        _getFips: function(feature) {
-            var fips = feature.id
-                || (feature.properties && (feature.properties.GEOID || feature.properties.geoid));
-            return fips ? String(fips).padStart(5, '0') : null;
-        },
-
-        // ===== GENERALIZED STATE COUNTY VIEW =====
-        async drillDownToState(stateCode) {
-            var config = FEATURED_STATES[stateCode];
-            if (!config) { console.error('No config for state:', stateCode); return; }
-
-            this.currentView = 'state';
-            this.currentState = stateCode;
-            DataHandler.setActiveState(stateCode);
+        _renderAllCountyLayers: async function() {
+            if (this._countyLayer) { this._map.removeLayer(this._countyLayer); this._countyLayer = null; }
             this._countyLayerMap = {};
             this._countyFipsList = [];
-            this._focusedFips = null;
 
-            if (this._stateLayer) { this._map.removeLayer(this._stateLayer); this._stateLayer = null; }
-            if (this._countyLayer) { this._map.removeLayer(this._countyLayer); this._countyLayer = null; }
+            // Merge GeoJSON features from all featured states
+            var allFeatures = [];
+            var stateCodes = Object.keys(FEATURED_STATES);
+            for (var i = 0; i < stateCodes.length; i++) {
+                var sc = stateCodes[i];
+                var config = FEATURED_STATES[sc];
+                var geojson = sc === 'NY'
+                    ? DataHandler.getGeoJSON()
+                    : DataHandler.extractStateGeoJSON(config.fipsPrefix);
+                if (!geojson) continue;
+                var features = geojson.features || [];
+                allFeatures = allFeatures.concat(features);
+            }
 
-            var geojson = stateCode === 'NY'
-                ? DataHandler.getGeoJSON()
-                : DataHandler.extractStateGeoJSON(config.fipsPrefix);
-
-            if (!geojson) { console.error(stateCode + ' GeoJSON not loaded'); return; }
+            if (allFeatures.length === 0) return;
 
             var self = this;
-            this._countyLayer = L.geoJSON(geojson, {
+            var combinedGeoJSON = { type: 'FeatureCollection', features: allFeatures };
+
+            this._countyLayer = L.geoJSON(combinedGeoJSON, {
                 style: function(feature) {
                     return self._countyStyle(feature, false, false);
                 },
@@ -290,26 +285,34 @@
                         }
                     });
                 }
-            }).addTo(this._map);
+            });
+            // Note: NOT added to map yet — zoom controls visibility
+        },
 
-            this._map.fitBounds(this._countyLayer.getBounds(), { padding: [30, 30] });
+        getStateCode: function(feature) {
+            if (feature.properties && feature.properties.STUSPS) return feature.properties.STUSPS;
+            if (feature.properties && feature.properties.postal) return feature.properties.postal;
+            var fipsToState = {
+                '36': 'NY', '06': 'CA', '48': 'TX', '12': 'FL', '17': 'IL',
+                '42': 'PA', '39': 'OH', '13': 'GA', '37': 'NC', '26': 'MI',
+                '34': 'NJ', '51': 'VA', '53': 'WA', '04': 'AZ', '25': 'MA',
+                '47': 'TN', '18': 'IN', '29': 'MO', '24': 'MD', '55': 'WI',
+                '08': 'CO', '27': 'MN', '45': 'SC', '01': 'AL', '22': 'LA',
+                '21': 'KY', '41': 'OR', '40': 'OK', '09': 'CT', '19': 'IA',
+                '28': 'MS', '05': 'AR', '20': 'KS', '32': 'NV', '35': 'NM',
+                '31': 'NE', '54': 'WV', '16': 'ID', '15': 'HI', '33': 'NH',
+                '23': 'ME', '30': 'MT', '44': 'RI', '10': 'DE', '46': 'SD',
+                '38': 'ND', '02': 'AK', '11': 'DC', '50': 'VT', '56': 'WY',
+                '72': 'PR'
+            };
+            var id = feature.id ? String(feature.id).padStart(2, '0') : null;
+            return id ? (fipsToState[id] || null) : null;
+        },
 
-            setTextById('map-title', config.label + ' Counties');
-            document.querySelector('.back-btn').classList.add('visible');
-            document.querySelector('.controls-panel').style.display = 'flex';
-            document.querySelector('.table-section').style.display = 'block';
-
-            var excludeNyc = document.getElementById('exclude-nyc');
-            var excludeStlKc = document.getElementById('exclude-stlkc');
-            if (excludeNyc) excludeNyc.closest('.filter-item').style.display = stateCode === 'NY' ? '' : 'none';
-            if (excludeStlKc) excludeStlKc.closest('.filter-item').style.display = stateCode === 'MO' ? '' : 'none';
-
-            var npvBtn = document.getElementById('open-npv-btn');
-            if (npvBtn) npvBtn.style.display = stateCode === 'MO' ? '' : 'none';
-
-            this.updateLegend();
-            this.applyFilters();
-            TableManager.renderTable();
+        _getFips: function(feature) {
+            var fips = feature.id
+                || (feature.properties && (feature.properties.GEOID || feature.properties.geoid));
+            return fips ? String(fips).padStart(5, '0') : null;
         },
 
         _countyStyle: function(feature, hovered, pinned) {
@@ -351,7 +354,6 @@
             if (InfoPanel.pinnedCounty === fips) {
                 InfoPanel.unpinCounty();
             } else {
-                // Unpin previous if any
                 if (InfoPanel.pinnedCounty) {
                     var prev = this._countyLayerMap[InfoPanel.pinnedCounty];
                     if (prev) prev.setStyle(this._countyStyle(prev.feature, false, false));
@@ -378,10 +380,47 @@
             });
         },
 
+        _setupKeyboardNavigation: function() {
+            var self = this;
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && InfoPanel.pinnedCounty) {
+                    InfoPanel.unpinCounty();
+                    return;
+                }
+                if (self._inCountyView && self._countyFipsList.length > 0) {
+                    var idx = self._countyFipsList.indexOf(self._focusedFips);
+                    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+                        e.preventDefault();
+                        self._focusCountyAt(Math.min(idx + 1, self._countyFipsList.length - 1));
+                    } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+                        e.preventDefault();
+                        self._focusCountyAt(Math.max(0, idx - 1));
+                    } else if ((e.key === 'Enter' || e.key === ' ') && self._focusedFips) {
+                        e.preventDefault();
+                        var layer = self._countyLayerMap[self._focusedFips];
+                        if (layer) self._handleCountyClick(self._focusedFips, layer, layer.feature);
+                    }
+                }
+            });
+        },
+
+        _focusCountyAt: function(idx) {
+            var fips = this._countyFipsList[idx];
+            if (!fips) return;
+            this._focusedFips = fips;
+            if (!InfoPanel.pinnedCounty) InfoPanel.showCountyInfo(fips);
+            var layer = this._countyLayerMap[fips];
+            if (layer) {
+                this._map.panTo(layer.getBounds().getCenter(), { animate: true, duration: 0.3 });
+                this._refreshCountyStyle(fips, true);
+            }
+        },
+
         // ===== SHARED METHODS =====
+
         setLayer: function(layer) {
             this.currentLayer = layer;
-            if (this.currentView === 'state' && this._countyLayer) {
+            if (this._countyLayer) {
                 var self = this;
                 this._countyLayer.eachLayer(function(l) {
                     l.setStyle(self._countyStyle(l.feature, false, InfoPanel.pinnedCounty === self._getFips(l.feature)));
@@ -392,10 +431,8 @@
 
         setFilters: function(filters) {
             this.filters = Object.assign({}, this.filters, filters);
-            if (this.currentView === 'state') {
-                this.applyFilters();
-                TableManager.applyFilters();
-            }
+            this.applyFilters();
+            TableManager.applyFilters();
         },
 
         applyFilters: function() {
@@ -444,7 +481,7 @@
 
         updateLegendForUS: function() {
             var extras = Object.keys(FEATURED_STATES).map(function(sc) {
-                return { color: FEATURED_STATES[sc].color, label: sc + ' (click to explore)' };
+                return { color: FEATURED_STATES[sc].color, label: sc + ' (zoom in to explore)' };
             });
             this._buildLegend('penetration', extras);
         },
@@ -470,33 +507,13 @@
             });
         },
 
-        backToUS: function() {
-            InfoPanel.pinnedCounty = null;
-            var pinIndicator = document.querySelector('.pin-indicator');
-            if (pinIndicator) pinIndicator.style.display = 'none';
-            this._focusedFips = null;
-            this.stopDeepDive();
-            this.renderUSMap();
-            this.updateLegendForUS();
-            InfoPanel.hideInfo();
-            if (typeof NPVCalculator !== 'undefined' && NPVCalculator.close) NPVCalculator.close();
-        },
-
         // ===== DEEP DIVE MODE =====
+
         startDeepDive: function() {
             if (this._deepDiveActive) return;
             this._deepDiveActive = true;
             this._deepDiveIndex = 0;
-
-            // If on US map, drill to MO first
-            if (this.currentView === 'us') {
-                var self = this;
-                this.drillDownToState('MO').then(function() {
-                    self._runDeepDiveCycle();
-                });
-            } else {
-                this._runDeepDiveCycle();
-            }
+            this._runDeepDiveCycle();
         },
 
         _runDeepDiveCycle: function() {
@@ -506,7 +523,6 @@
             var layer = this._deepDiveLayers[this._deepDiveIndex];
             this.setLayer(layer);
 
-            // Update toggle buttons to reflect current layer
             var toggleBtns = document.querySelectorAll('#layer-toggle .toggle-btn');
             toggleBtns.forEach(function(btn) {
                 var isActive = btn.dataset.layer === layer;
@@ -527,7 +543,6 @@
                 clearTimeout(this._deepDiveTimer);
                 this._deepDiveTimer = null;
             }
-            // Update toggle button for deep dive
             var deepDiveBtn = document.getElementById('deep-dive-btn');
             if (deepDiveBtn) {
                 deepDiveBtn.classList.remove('active');
@@ -627,16 +642,16 @@
                 }
             }
 
-            // Show click hint for featured states
+            // Hint for featured states — zoom in instead of click
             var clickHint = document.querySelector('.click-hint');
             if (clickHint) {
                 if (FEATURED_STATES[stateCode]) {
                     clickHint.style.display = 'block';
                     clickHint.textContent = '';
-                    var strong = createElement('strong', {}, 'Click to explore');
+                    var strong = createElement('strong', {}, 'Zoom in to explore');
                     clickHint.appendChild(strong);
                     clickHint.appendChild(document.createTextNode(
-                        ' Detailed county-level data available for ' + FEATURED_STATES[stateCode].label
+                        ' County-level data available for ' + FEATURED_STATES[stateCode].label
                     ));
                 } else {
                     clickHint.style.display = 'none';
@@ -711,12 +726,10 @@
             var operatorsList = document.getElementById('operators-list');
             if (operatorsList) {
                 operatorsList.textContent = '';
-
                 if (data.operators && data.operators.length > 0) {
                     var topOperators = data.operators.slice().sort(function(a, b) {
                         return (b.passings || 0) - (a.passings || 0);
                     }).slice(0, 5);
-
                     topOperators.forEach(function(op) {
                         var li = createElement('li');
                         var nameSpan = createElement('span', { className: 'operator-name' }, op.name);
@@ -727,12 +740,10 @@
                         operatorsList.appendChild(li);
                     });
                 } else {
-                    var li = createElement('li', { style: 'color: #64748b;' }, 'No fiber operators reported');
-                    operatorsList.appendChild(li);
+                    var noOp = createElement('li', { style: 'color: #64748b;' }, 'No fiber operators reported');
+                    operatorsList.appendChild(noOp);
                 }
             }
-
-            // === NEW SECTIONS ===
 
             // BEAD Funding section
             var beadSection = document.getElementById('bead-section');
@@ -746,8 +757,6 @@
                         var beadClass = (data.bead_status || '').toLowerCase().replace(/\s+/g, '-');
                         beadStatusEl.className = 'stat-value bead-badge' + (validBeadClasses[beadClass] ? ' bead-' + beadClass : '');
                     }
-
-                    // Show detail fields only if BEAD data is verified (not "Unverified")
                     var hasBeadData = data.bead_status !== 'Unverified' && data.bead_dollars_awarded != null;
                     var detailIds = ['bead-details-dollars', 'bead-details-locations', 'bead-details-claimed', 'bead-details-awardees'];
                     detailIds.forEach(function(id) {
@@ -756,7 +765,6 @@
                     });
                     var beadNote = document.getElementById('bead-note');
                     if (beadNote) beadNote.style.display = hasBeadData ? 'none' : '';
-
                     if (hasBeadData) {
                         setTextById('bead-dollars', DataHandler.formatCurrency(data.bead_dollars_awarded));
                         setTextById('bead-locations', DataHandler.formatNumber(data.bead_locations_covered));
@@ -796,7 +804,6 @@
                     setTextById('cable-present', data.cable_present ? 'Yes' : 'No');
                     setTextById('fwa-present', data.fwa_present ? 'Yes' : 'No');
                     setTextById('total-bb-providers', data.total_broadband_providers != null ? data.total_broadband_providers.toString() : 'N/A');
-                    // Momentum: show "Pending" if null (Dec 2024 data not available)
                     setTextById('momentum-class', data.momentum_class || 'Pending');
                     var momEl = document.getElementById('momentum-class');
                     if (momEl) {
@@ -824,10 +831,10 @@
                 }
             }
 
-            // NPV button visibility
+            // NPV button — only for MO counties (fips starts with 29)
             var npvBtn = document.getElementById('open-npv-btn');
             if (npvBtn) {
-                npvBtn.style.display = (MapRenderer.currentState === 'MO') ? '' : 'none';
+                npvBtn.style.display = (fips && fips.startsWith('29')) ? '' : 'none';
             }
 
             if (this.defaultEl) this.defaultEl.style.display = 'none';
@@ -867,7 +874,6 @@
                 var aVal = a[self.sortColumn];
                 var bVal = b[self.sortColumn];
 
-                // Normalize nulls
                 if (aVal === null || aVal === undefined || (typeof aVal === 'number' && !Number.isFinite(aVal))) {
                     aVal = -Infinity;
                 }
@@ -875,7 +881,6 @@
                     bVal = -Infinity;
                 }
 
-                // Case-insensitive string comparison
                 if (typeof aVal === 'string') aVal = aVal.toLowerCase();
                 if (typeof bVal === 'string') bVal = bVal.toLowerCase();
 
@@ -907,9 +912,7 @@
                 tr.appendChild(createElement('td', {}, penVal));
 
                 tr.appendChild(createElement('td', {}, DataHandler.formatNumber(c.fiber_unserved)));
-
                 tr.appendChild(createElement('td', {}, c.median_hhi ? DataHandler.formatCurrency(c.median_hhi) : 'N/A'));
-
                 tr.appendChild(createElement('td', {}, DataHandler.formatNumber(c.housing_density)));
 
                 tbody.appendChild(tr);
@@ -961,19 +964,16 @@
             document.querySelectorAll('#county-table th[data-sort]').forEach(function(th) {
                 th.addEventListener('click', function() {
                     var column = th.dataset.sort;
-
                     if (self.sortColumn === column) {
                         self.sortDirection = self.sortDirection === 'asc' ? 'desc' : 'asc';
                     } else {
                         self.sortColumn = column;
                         self.sortDirection = 'desc';
                     }
-
                     document.querySelectorAll('#county-table th').forEach(function(h) {
                         h.classList.remove('sort-asc', 'sort-desc');
                     });
                     th.classList.add(self.sortDirection === 'asc' ? 'sort-asc' : 'sort-desc');
-
                     self.renderTable();
                 });
             });
@@ -981,9 +981,7 @@
             var searchInput = document.getElementById('table-search');
             if (searchInput) {
                 searchInput.addEventListener('input', function(e) {
-                    if (self._searchDebounceTimer) {
-                        clearTimeout(self._searchDebounceTimer);
-                    }
+                    if (self._searchDebounceTimer) clearTimeout(self._searchDebounceTimer);
                     self._searchDebounceTimer = setTimeout(function() {
                         self.searchTerm = e.target.value.toLowerCase();
                         self.applyFilters();
@@ -998,10 +996,7 @@
             rows.forEach(function(row) {
                 var fips = row.dataset.fips;
                 var county = DataHandler.getCountyData(fips);
-                if (!county) {
-                    row.classList.add('filtered-out');
-                    return;
-                }
+                if (!county) { row.classList.add('filtered-out'); return; }
                 var matchesSearch = !self.searchTerm || county.name.toLowerCase().indexOf(self.searchTerm) !== -1;
                 var filtered = MapRenderer.isFiltered(county) || !matchesSearch;
                 row.classList.toggle('filtered-out', filtered);
