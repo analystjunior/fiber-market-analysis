@@ -324,83 +324,87 @@
         // Cached color lookups for performance
         _colorCache: new Map(),
 
-        // Fiber Penetration: Red = low (opportunity), Green = high (saturated)
+        // Shared ramp — red (low/opportunity) → amber → green (high/saturated)
+        // Used by: penetration, cable, fwa, demographic, attractiveness
+        _ramp: ['#dc2626', '#f97316', '#ca8a04', '#16a34a', '#15803d'],
+
+        // Fiber Penetration: red = low coverage (opportunity), green = saturated
         penetration: [
-            { threshold: 0.3, color: '#fecaca', label: '<30%' },
-            { threshold: 0.5, color: '#fde68a', label: '30-50%' },
-            { threshold: 0.7, color: '#d9f99d', label: '50-70%' },
-            { threshold: 0.85, color: '#bbf7d0', label: '70-85%' },
-            { threshold: 1.0, color: '#86efac', label: '>85%' }
+            { threshold: 0.3,  color: '#dc2626', label: '<30%' },
+            { threshold: 0.5,  color: '#f97316', label: '30–50%' },
+            { threshold: 0.7,  color: '#ca8a04', label: '50–70%' },
+            { threshold: 0.85, color: '#16a34a', label: '70–85%' },
+            { threshold: 1.0,  color: '#15803d', label: '>85%' }
         ],
-        // Demographics: Red = poor, Green = excellent
-        demographic: [
-            { threshold: 0.2, color: '#fecaca', label: 'Poor' },
-            { threshold: 0.4, color: '#fed7aa', label: 'Below Avg' },
-            { threshold: 0.6, color: '#fde68a', label: 'Average' },
-            { threshold: 0.8, color: '#d9f99d', label: 'Good' },
-            { threshold: 1.0, color: '#86efac', label: 'Excellent' }
-        ],
-        // Market Attractiveness: Red = least attractive, Green = most attractive
-        attractiveness: [
-            { threshold: 0.2, color: '#fecaca', label: 'Least Attractive' },
-            { threshold: 0.3, color: '#fed7aa', label: 'Low' },
-            { threshold: 0.4, color: '#fde68a', label: 'Neutral' },
-            { threshold: 0.5, color: '#d9f99d', label: 'Good' },
-            { threshold: 1.0, color: '#86efac', label: 'Most Attractive' }
-        ],
-        // BEAD Funding: White = none, Purple gradient for claimed %
-        bead: [
-            { threshold: 0.01, color: '#f5f3ff', label: 'Not Targeted' },
-            { threshold: 0.25, color: '#ddd6fe', label: '<25% Claimed' },
-            { threshold: 0.50, color: '#c4b5fd', label: '25-50%' },
-            { threshold: 0.75, color: '#a78bfa', label: '50-75%' },
-            { threshold: 1.0, color: '#7c3aed', label: '>75% Claimed' }
-        ],
-        // Competitive Intensity: Red = monopoly, Green = competitive
-        competitive: [
-            { threshold: 0.25, color: '#fecaca', label: 'Monopoly' },
-            { threshold: 0.50, color: '#fed7aa', label: 'Low' },
-            { threshold: 0.75, color: '#fde68a', label: 'Moderate' },
-            { threshold: 1.0, color: '#86efac', label: 'High' }
-        ],
-        // Build Momentum: Red = stalled, Green = surging
-        momentum: [
-            { threshold: 0.10, color: '#fecaca', label: 'Stalled' },
-            { threshold: 0.27, color: '#fde68a', label: 'Steady' },
-            { threshold: 0.50, color: '#d9f99d', label: 'Growing' },
-            { threshold: 1.0, color: '#86efac', label: 'Surging' }
-        ],
-        // Terrain/Build Difficulty: Green = easy, Red = challenging
-        terrain: [
-            { threshold: 0.2, color: '#86efac', label: 'Easy' },
-            { threshold: 0.4, color: '#d9f99d', label: 'Moderate' },
-            { threshold: 0.6, color: '#fde68a', label: 'Mod-Hard' },
-            { threshold: 0.8, color: '#fed7aa', label: 'Hard' },
-            { threshold: 1.0, color: '#fecaca', label: 'Challenging' }
-        ],
-        // Cable Coverage: White = none, Blue = high cable penetration
+        // Cable Coverage — identical scale to fiber for direct comparability
         cable: [
-            { threshold: 0.1, color: '#f0f9ff', label: '<10%' },
-            { threshold: 0.3, color: '#bae6fd', label: '10-30%' },
-            { threshold: 0.5, color: '#7dd3fc', label: '30-50%' },
-            { threshold: 0.75, color: '#38bdf8', label: '50-75%' },
-            { threshold: 1.0, color: '#0284c7', label: '>75%' }
+            { threshold: 0.3,  color: '#dc2626', label: '<30%' },
+            { threshold: 0.5,  color: '#f97316', label: '30–50%' },
+            { threshold: 0.7,  color: '#ca8a04', label: '50–70%' },
+            { threshold: 0.85, color: '#16a34a', label: '70–85%' },
+            { threshold: 1.0,  color: '#15803d', label: '>85%' }
         ],
-        // Fixed Wireless (FWA) Coverage: White = none, Orange = high FWA
+        // Fixed Wireless — identical scale to fiber
         fwa: [
-            { threshold: 0.1, color: '#fff7ed', label: '<10%' },
-            { threshold: 0.3, color: '#fed7aa', label: '10-30%' },
-            { threshold: 0.5, color: '#fb923c', label: '30-50%' },
-            { threshold: 0.75, color: '#ea580c', label: '50-75%' },
-            { threshold: 1.0, color: '#c2410c', label: '>75%' }
+            { threshold: 0.3,  color: '#dc2626', label: '<30%' },
+            { threshold: 0.5,  color: '#f97316', label: '30–50%' },
+            { threshold: 0.7,  color: '#ca8a04', label: '50–70%' },
+            { threshold: 0.85, color: '#16a34a', label: '70–85%' },
+            { threshold: 1.0,  color: '#15803d', label: '>85%' }
         ],
-        // Broadband Gap: Green = fully served, Red = high unserved rate
+        // Broadband Gap: green = well-served, red = high unserved rate
         broadband_gap: [
-            { threshold: 0.05, color: '#86efac', label: '<5% Unserved' },
-            { threshold: 0.15, color: '#fde68a', label: '5-15%' },
-            { threshold: 0.30, color: '#fbbf24', label: '15-30%' },
-            { threshold: 0.50, color: '#f97316', label: '30-50%' },
-            { threshold: 1.0, color: '#ef4444', label: '>50% Unserved' }
+            { threshold: 0.05, color: '#15803d', label: '<5% Unserved' },
+            { threshold: 0.15, color: '#16a34a', label: '5–15%' },
+            { threshold: 0.30, color: '#ca8a04', label: '15–30%' },
+            { threshold: 0.50, color: '#f97316', label: '30–50%' },
+            { threshold: 1.0,  color: '#dc2626', label: '>50% Unserved' }
+        ],
+        // Demographics: red = poor profile, green = strong profile
+        demographic: [
+            { threshold: 0.2, color: '#dc2626', label: 'Poor' },
+            { threshold: 0.4, color: '#f97316', label: 'Below Avg' },
+            { threshold: 0.6, color: '#ca8a04', label: 'Average' },
+            { threshold: 0.8, color: '#16a34a', label: 'Good' },
+            { threshold: 1.0, color: '#15803d', label: 'Excellent' }
+        ],
+        // Market Attractiveness: red = least attractive, green = most attractive
+        attractiveness: [
+            { threshold: 0.2, color: '#dc2626', label: 'Least Attractive' },
+            { threshold: 0.3, color: '#f97316', label: 'Low' },
+            { threshold: 0.4, color: '#ca8a04', label: 'Neutral' },
+            { threshold: 0.5, color: '#16a34a', label: 'Good' },
+            { threshold: 1.0, color: '#15803d', label: 'Most Attractive' }
+        ],
+        // BEAD Funding: light → deep indigo
+        bead: [
+            { threshold: 0.01, color: '#e0e7ff', label: 'Not Targeted' },
+            { threshold: 0.25, color: '#a5b4fc', label: '<25% Claimed' },
+            { threshold: 0.50, color: '#6366f1', label: '25–50%' },
+            { threshold: 0.75, color: '#4338ca', label: '50–75%' },
+            { threshold: 1.0,  color: '#3730a3', label: '>75% Claimed' }
+        ],
+        // Competitive Intensity: red = monopoly, green = high competition
+        competitive: [
+            { threshold: 0.25, color: '#dc2626', label: 'Monopoly' },
+            { threshold: 0.50, color: '#f97316', label: 'Low' },
+            { threshold: 0.75, color: '#ca8a04', label: 'Moderate' },
+            { threshold: 1.0,  color: '#15803d', label: 'High' }
+        ],
+        // Build Momentum: red = stalled, green = surging
+        momentum: [
+            { threshold: 0.10, color: '#dc2626', label: 'Stalled' },
+            { threshold: 0.27, color: '#ca8a04', label: 'Steady' },
+            { threshold: 0.50, color: '#16a34a', label: 'Growing' },
+            { threshold: 1.0,  color: '#15803d', label: 'Surging' }
+        ],
+        // Terrain/Build Difficulty: green = easy, red = challenging
+        terrain: [
+            { threshold: 0.2, color: '#15803d', label: 'Easy' },
+            { threshold: 0.4, color: '#16a34a', label: 'Moderate' },
+            { threshold: 0.6, color: '#ca8a04', label: 'Mod-Hard' },
+            { threshold: 0.8, color: '#f97316', label: 'Hard' },
+            { threshold: 1.0, color: '#dc2626', label: 'Challenging' }
         ],
 
         getColor: function(layer, value) {
