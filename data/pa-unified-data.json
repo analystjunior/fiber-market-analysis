@@ -1,13 +1,29 @@
 {
   "42001": {
     "geoid": "42001",
-    "name": "AdamsPennsylvania",
+    "name": "Adams",
     "is_metro_county": true,
     "total_bsls": 43377,
-    "fiber_served": 0,
-    "fiber_unserved": 43377,
-    "fiber_penetration": 0.0,
-    "operators": [],
+    "fiber_served": 12481,
+    "fiber_unserved": 30896,
+    "fiber_penetration": 0.288,
+    "operators": [
+      {
+        "name": "Brightspeed",
+        "passings": 11029,
+        "served": 11029
+      },
+      {
+        "name": "Xfinity",
+        "passings": 1471,
+        "served": 1471
+      },
+      {
+        "name": "Verizon",
+        "passings": 2,
+        "served": 2
+      }
+    ],
     "population_2023": 105183,
     "population_2018": 102023,
     "pop_growth_pct": 3.1,
@@ -22,24 +38,28 @@
     "owner_occupied_pct": 79.1,
     "wfh_pct": 9.8,
     "demo_score": 0.652,
-    "opportunity_score": 1.0,
-    "attractiveness_index": 0.809,
+    "opportunity_score": 0.712,
+    "attractiveness_index": 0.679,
     "segment": "Most Attractive",
     "bead_status": "Unverified",
     "bead_dollars_awarded": null,
     "bead_awardees": [],
     "bead_locations_covered": null,
     "bead_claimed_pct": null,
-    "competitive_intensity": 0,
-    "competitive_label": "None",
-    "wireline_providers": [],
+    "competitive_intensity": 2,
+    "competitive_label": "Moderate",
+    "wireline_providers": [
+      "Brightspeed",
+      "Xfinity",
+      "Verizon"
+    ],
     "total_broadband_providers": 11,
-    "cable_coverage_pct": 0.0,
-    "fwa_coverage_pct": 0.0,
-    "broadband_coverage_pct": 0.0,
+    "cable_coverage_pct": 0.994,
+    "fwa_coverage_pct": 0.776,
+    "broadband_coverage_pct": 1.0,
     "broadband_gap_pct": 0.0,
-    "cable_present": false,
-    "fwa_present": false,
+    "cable_present": true,
+    "fwa_present": true,
     "fiber_growth_pct": null,
     "momentum_class": null,
     "elevation_mean_ft": 20.0,
@@ -53,13 +73,64 @@
   },
   "42003": {
     "geoid": "42003",
-    "name": "AlleghenyPennsylvania",
+    "name": "Allegheny",
     "is_metro_county": true,
     "total_bsls": 604558,
-    "fiber_served": 0,
-    "fiber_unserved": 604558,
-    "fiber_penetration": 0.0,
-    "operators": [],
+    "fiber_served": 412811,
+    "fiber_unserved": 191747,
+    "fiber_penetration": 0.683,
+    "operators": [
+      {
+        "name": "Verizon",
+        "passings": 389825,
+        "served": 389825
+      },
+      {
+        "name": "ArmstrongUtilitiesInc",
+        "passings": 11977,
+        "served": 11977
+      },
+      {
+        "name": "Fidium Fiber",
+        "passings": 11930,
+        "served": 11930
+      },
+      {
+        "name": "Xfinity",
+        "passings": 6052,
+        "served": 6052
+      },
+      {
+        "name": "Salsgiver Inc",
+        "passings": 3160,
+        "served": 3160
+      },
+      {
+        "name": "Windstream Pennsylvania, LLC.",
+        "passings": 2587,
+        "served": 2587
+      },
+      {
+        "name": "Armstrong Telephone Company",
+        "passings": 610,
+        "served": 610
+      },
+      {
+        "name": "NetSpeed LLC",
+        "passings": 242,
+        "served": 242
+      },
+      {
+        "name": "Dojo Networks",
+        "passings": 5,
+        "served": 5
+      },
+      {
+        "name": "Windstream Florida, Inc.",
+        "passings": 5,
+        "served": 5
+      }
+    ],
     "population_2023": 1240476,
     "population_2018": 1225561,
     "pop_growth_pct": 1.22,
@@ -74,24 +145,35 @@
     "owner_occupied_pct": 64.9,
     "wfh_pct": 18.6,
     "demo_score": 0.729,
-    "opportunity_score": 1.0,
-    "attractiveness_index": 0.851,
+    "opportunity_score": 0.317,
+    "attractiveness_index": 0.544,
     "segment": "Most Attractive",
     "bead_status": "Unverified",
     "bead_dollars_awarded": null,
     "bead_awardees": [],
     "bead_locations_covered": null,
     "bead_claimed_pct": null,
-    "competitive_intensity": 0,
-    "competitive_label": "None",
-    "wireline_providers": [],
+    "competitive_intensity": 3,
+    "competitive_label": "High",
+    "wireline_providers": [
+      "Verizon",
+      "ArmstrongUtilitiesInc",
+      "Fidium Fiber",
+      "Xfinity",
+      "Salsgiver Inc",
+      "Windstream Pennsylvania, LLC.",
+      "Armstrong Telephone Company",
+      "NetSpeed LLC",
+      "Dojo Networks",
+      "Windstream Florida, Inc."
+    ],
     "total_broadband_providers": 24,
-    "cable_coverage_pct": 0.0,
-    "fwa_coverage_pct": 0.0,
-    "broadband_coverage_pct": 0.0,
+    "cable_coverage_pct": 0.985,
+    "fwa_coverage_pct": 0.823,
+    "broadband_coverage_pct": 1.0,
     "broadband_gap_pct": 0.0,
-    "cable_present": false,
-    "fwa_present": false,
+    "cable_present": true,
+    "fwa_present": true,
     "fiber_growth_pct": null,
     "momentum_class": null,
     "elevation_mean_ft": 47.9,
@@ -105,13 +187,34 @@
   },
   "42005": {
     "geoid": "42005",
-    "name": "ArmstrongPennsylvania",
+    "name": "Armstrong",
     "is_metro_county": true,
     "total_bsls": 32164,
-    "fiber_served": 0,
-    "fiber_unserved": 32164,
-    "fiber_penetration": 0.0,
-    "operators": [],
+    "fiber_served": 20242,
+    "fiber_unserved": 11922,
+    "fiber_penetration": 0.629,
+    "operators": [
+      {
+        "name": "Windstream Pennsylvania, LLC.",
+        "passings": 17404,
+        "served": 17404
+      },
+      {
+        "name": "Salsgiver Inc",
+        "passings": 7803,
+        "served": 7803
+      },
+      {
+        "name": "Fidium Fiber",
+        "passings": 598,
+        "served": 598
+      },
+      {
+        "name": "ArmstrongUtilitiesInc",
+        "passings": 19,
+        "served": 19
+      }
+    ],
     "population_2023": 65069,
     "population_2018": 66331,
     "pop_growth_pct": -1.9,
@@ -126,24 +229,29 @@
     "owner_occupied_pct": 78.6,
     "wfh_pct": 8.5,
     "demo_score": 0.444,
-    "opportunity_score": 1.0,
-    "attractiveness_index": 0.694,
-    "segment": "Most Attractive",
+    "opportunity_score": 0.371,
+    "attractiveness_index": 0.411,
+    "segment": "Neutral",
     "bead_status": "Unverified",
     "bead_dollars_awarded": null,
     "bead_awardees": [],
     "bead_locations_covered": null,
     "bead_claimed_pct": null,
-    "competitive_intensity": 0,
-    "competitive_label": "None",
-    "wireline_providers": [],
+    "competitive_intensity": 3,
+    "competitive_label": "High",
+    "wireline_providers": [
+      "Windstream Pennsylvania, LLC.",
+      "Salsgiver Inc",
+      "Fidium Fiber",
+      "ArmstrongUtilitiesInc"
+    ],
     "total_broadband_providers": 15,
-    "cable_coverage_pct": 0.0,
-    "fwa_coverage_pct": 0.0,
-    "broadband_coverage_pct": 0.0,
+    "cable_coverage_pct": 0.987,
+    "fwa_coverage_pct": 0.784,
+    "broadband_coverage_pct": 1.0,
     "broadband_gap_pct": 0.0,
-    "cable_present": false,
-    "fwa_present": false,
+    "cable_present": true,
+    "fwa_present": true,
     "fiber_growth_pct": null,
     "momentum_class": null,
     "elevation_mean_ft": 55.2,
@@ -157,13 +265,54 @@
   },
   "42007": {
     "geoid": "42007",
-    "name": "BeaverPennsylvania",
+    "name": "Beaver",
     "is_metro_county": true,
     "total_bsls": 79159,
-    "fiber_served": 0,
-    "fiber_unserved": 79159,
-    "fiber_penetration": 0.0,
-    "operators": [],
+    "fiber_served": 21700,
+    "fiber_unserved": 57459,
+    "fiber_penetration": 0.274,
+    "operators": [
+      {
+        "name": "NetSpeed LLC",
+        "passings": 15896,
+        "served": 15896
+      },
+      {
+        "name": "Verizon",
+        "passings": 3484,
+        "served": 3484
+      },
+      {
+        "name": "Windstream Pennsylvania, LLC.",
+        "passings": 1137,
+        "served": 1137
+      },
+      {
+        "name": "ArmstrongUtilitiesInc",
+        "passings": 788,
+        "served": 788
+      },
+      {
+        "name": "Armstrong Telephone Company",
+        "passings": 481,
+        "served": 481
+      },
+      {
+        "name": "Xfinity",
+        "passings": 180,
+        "served": 180
+      },
+      {
+        "name": "Brightspeed",
+        "passings": 2,
+        "served": 2
+      },
+      {
+        "name": "Frontier",
+        "passings": 2,
+        "served": 2
+      }
+    ],
     "population_2023": 166993,
     "population_2018": 166896,
     "pop_growth_pct": 0.06,
@@ -178,24 +327,33 @@
     "owner_occupied_pct": 74.5,
     "wfh_pct": 11.5,
     "demo_score": 0.576,
-    "opportunity_score": 1.0,
-    "attractiveness_index": 0.767,
+    "opportunity_score": 0.726,
+    "attractiveness_index": 0.643,
     "segment": "Most Attractive",
     "bead_status": "Unverified",
     "bead_dollars_awarded": null,
     "bead_awardees": [],
     "bead_locations_covered": null,
     "bead_claimed_pct": null,
-    "competitive_intensity": 0,
-    "competitive_label": "None",
-    "wireline_providers": [],
+    "competitive_intensity": 3,
+    "competitive_label": "High",
+    "wireline_providers": [
+      "NetSpeed LLC",
+      "Verizon",
+      "Windstream Pennsylvania, LLC.",
+      "ArmstrongUtilitiesInc",
+      "Armstrong Telephone Company",
+      "Xfinity",
+      "Brightspeed",
+      "Frontier"
+    ],
     "total_broadband_providers": 16,
-    "cable_coverage_pct": 0.0,
-    "fwa_coverage_pct": 0.0,
-    "broadband_coverage_pct": 0.0,
+    "cable_coverage_pct": 0.989,
+    "fwa_coverage_pct": 0.793,
+    "broadband_coverage_pct": 1.0,
     "broadband_gap_pct": 0.0,
-    "cable_present": false,
-    "fwa_present": false,
+    "cable_present": true,
+    "fwa_present": true,
     "fiber_growth_pct": null,
     "momentum_class": null,
     "elevation_mean_ft": 45.7,
@@ -209,13 +367,24 @@
   },
   "42009": {
     "geoid": "42009",
-    "name": "BedfordPennsylvania",
+    "name": "Bedford",
     "is_metro_county": false,
     "total_bsls": 23568,
-    "fiber_served": 0,
-    "fiber_unserved": 23568,
-    "fiber_penetration": 0.0,
-    "operators": [],
+    "fiber_served": 1196,
+    "fiber_unserved": 22372,
+    "fiber_penetration": 0.051,
+    "operators": [
+      {
+        "name": "Brightspeed",
+        "passings": 681,
+        "served": 681
+      },
+      {
+        "name": "Frontier",
+        "passings": 515,
+        "served": 515
+      }
+    ],
     "population_2023": 47503,
     "population_2018": 48611,
     "pop_growth_pct": -2.28,
@@ -230,24 +399,27 @@
     "owner_occupied_pct": 78.1,
     "wfh_pct": 6.9,
     "demo_score": 0.377,
-    "opportunity_score": 1.0,
-    "attractiveness_index": 0.657,
+    "opportunity_score": 0.949,
+    "attractiveness_index": 0.634,
     "segment": "Most Attractive",
     "bead_status": "Unverified",
     "bead_dollars_awarded": null,
     "bead_awardees": [],
     "bead_locations_covered": null,
     "bead_claimed_pct": null,
-    "competitive_intensity": 0,
-    "competitive_label": "None",
-    "wireline_providers": [],
+    "competitive_intensity": 1,
+    "competitive_label": "Low",
+    "wireline_providers": [
+      "Brightspeed",
+      "Frontier"
+    ],
     "total_broadband_providers": 16,
-    "cable_coverage_pct": 0.0,
-    "fwa_coverage_pct": 0.0,
-    "broadband_coverage_pct": 0.0,
+    "cable_coverage_pct": 0.994,
+    "fwa_coverage_pct": 0.903,
+    "broadband_coverage_pct": 1.0,
     "broadband_gap_pct": 0.0,
-    "cable_present": false,
-    "fwa_present": false,
+    "cable_present": true,
+    "fwa_present": true,
     "fiber_growth_pct": null,
     "momentum_class": null,
     "elevation_mean_ft": 63.9,
@@ -261,13 +433,69 @@
   },
   "42011": {
     "geoid": "42011",
-    "name": "BerksPennsylvania",
+    "name": "Berks",
     "is_metro_county": true,
     "total_bsls": 171147,
-    "fiber_served": 0,
-    "fiber_unserved": 171147,
-    "fiber_penetration": 0.0,
-    "operators": [],
+    "fiber_served": 52831,
+    "fiber_unserved": 118316,
+    "fiber_penetration": 0.309,
+    "operators": [
+      {
+        "name": "FastBridge Fiber",
+        "passings": 27376,
+        "served": 27376
+      },
+      {
+        "name": "Windstream Conestoga, Inc.",
+        "passings": 16152,
+        "served": 16152
+      },
+      {
+        "name": "Service Electric Cablevision,Inc.",
+        "passings": 4310,
+        "served": 4310
+      },
+      {
+        "name": "Frontier",
+        "passings": 2499,
+        "served": 2499
+      },
+      {
+        "name": "Xfinity",
+        "passings": 2058,
+        "served": 2058
+      },
+      {
+        "name": "Borough of Kutztown",
+        "passings": 1654,
+        "served": 1654
+      },
+      {
+        "name": "Blue Ridge Cable Technologies",
+        "passings": 1010,
+        "served": 1010
+      },
+      {
+        "name": "Verizon",
+        "passings": 754,
+        "served": 754
+      },
+      {
+        "name": "Windstream D&E, Inc.",
+        "passings": 209,
+        "served": 209
+      },
+      {
+        "name": "Astound Broadband",
+        "passings": 17,
+        "served": 17
+      },
+      {
+        "name": "Windstream Pennsylvania, LLC.",
+        "passings": 2,
+        "served": 2
+      }
+    ],
     "population_2023": 429989,
     "population_2018": 416642,
     "pop_growth_pct": 3.2,
@@ -282,24 +510,36 @@
     "owner_occupied_pct": 71.0,
     "wfh_pct": 10.6,
     "demo_score": 0.67,
-    "opportunity_score": 1.0,
-    "attractiveness_index": 0.819,
+    "opportunity_score": 0.691,
+    "attractiveness_index": 0.679,
     "segment": "Most Attractive",
     "bead_status": "Unverified",
     "bead_dollars_awarded": null,
     "bead_awardees": [],
     "bead_locations_covered": null,
     "bead_claimed_pct": null,
-    "competitive_intensity": 0,
-    "competitive_label": "None",
-    "wireline_providers": [],
+    "competitive_intensity": 3,
+    "competitive_label": "High",
+    "wireline_providers": [
+      "FastBridge Fiber",
+      "Windstream Conestoga, Inc.",
+      "Service Electric Cablevision,Inc.",
+      "Frontier",
+      "Xfinity",
+      "Borough of Kutztown",
+      "Blue Ridge Cable Technologies",
+      "Verizon",
+      "Windstream D&E, Inc.",
+      "Astound Broadband",
+      "Windstream Pennsylvania, LLC."
+    ],
     "total_broadband_providers": 24,
-    "cable_coverage_pct": 0.0,
-    "fwa_coverage_pct": 0.0,
-    "broadband_coverage_pct": 0.0,
+    "cable_coverage_pct": 0.995,
+    "fwa_coverage_pct": 0.783,
+    "broadband_coverage_pct": 1.0,
     "broadband_gap_pct": 0.0,
-    "cable_present": false,
-    "fwa_present": false,
+    "cable_present": true,
+    "fwa_present": true,
     "fiber_growth_pct": null,
     "momentum_class": null,
     "elevation_mean_ft": 33.7,
@@ -313,13 +553,44 @@
   },
   "42013": {
     "geoid": "42013",
-    "name": "BlairPennsylvania",
+    "name": "Blair",
     "is_metro_county": true,
     "total_bsls": 55788,
-    "fiber_served": 0,
-    "fiber_unserved": 55788,
-    "fiber_penetration": 0.0,
-    "operators": [],
+    "fiber_served": 20660,
+    "fiber_unserved": 35128,
+    "fiber_penetration": 0.37,
+    "operators": [
+      {
+        "name": "Xfinity",
+        "passings": 17088,
+        "served": 17088
+      },
+      {
+        "name": "Salsgiver Inc",
+        "passings": 3126,
+        "served": 3126
+      },
+      {
+        "name": "Brightspeed",
+        "passings": 1875,
+        "served": 1875
+      },
+      {
+        "name": "Breezeline",
+        "passings": 771,
+        "served": 771
+      },
+      {
+        "name": "Verizon",
+        "passings": 12,
+        "served": 12
+      },
+      {
+        "name": "Dojo Networks",
+        "passings": 1,
+        "served": 1
+      }
+    ],
     "population_2023": 121854,
     "population_2018": 123842,
     "pop_growth_pct": -1.61,
@@ -334,24 +605,31 @@
     "owner_occupied_pct": 72.4,
     "wfh_pct": 5.9,
     "demo_score": 0.439,
-    "opportunity_score": 1.0,
-    "attractiveness_index": 0.691,
+    "opportunity_score": 0.63,
+    "attractiveness_index": 0.525,
     "segment": "Most Attractive",
     "bead_status": "Unverified",
     "bead_dollars_awarded": null,
     "bead_awardees": [],
     "bead_locations_covered": null,
     "bead_claimed_pct": null,
-    "competitive_intensity": 0,
-    "competitive_label": "None",
-    "wireline_providers": [],
+    "competitive_intensity": 3,
+    "competitive_label": "High",
+    "wireline_providers": [
+      "Xfinity",
+      "Salsgiver Inc",
+      "Brightspeed",
+      "Breezeline",
+      "Verizon",
+      "Dojo Networks"
+    ],
     "total_broadband_providers": 16,
-    "cable_coverage_pct": 0.0,
-    "fwa_coverage_pct": 0.0,
-    "broadband_coverage_pct": 0.0,
+    "cable_coverage_pct": 0.923,
+    "fwa_coverage_pct": 0.939,
+    "broadband_coverage_pct": 1.0,
     "broadband_gap_pct": 0.0,
-    "cable_present": false,
-    "fwa_present": false,
+    "cable_present": true,
+    "fwa_present": true,
     "fiber_growth_pct": null,
     "momentum_class": null,
     "elevation_mean_ft": 45.0,
@@ -365,13 +643,64 @@
   },
   "42015": {
     "geoid": "42015",
-    "name": "BradfordPennsylvania",
+    "name": "Bradford",
     "is_metro_county": false,
     "total_bsls": 29421,
-    "fiber_served": 0,
-    "fiber_unserved": 29421,
-    "fiber_penetration": 0.0,
-    "operators": [],
+    "fiber_served": 19095,
+    "fiber_unserved": 10326,
+    "fiber_penetration": 0.649,
+    "operators": [
+      {
+        "name": "Revolution Broadband",
+        "passings": 6378,
+        "served": 6378
+      },
+      {
+        "name": "North Penn Long Distance Corporation",
+        "passings": 5418,
+        "served": 5418
+      },
+      {
+        "name": "Frontier",
+        "passings": 5246,
+        "served": 5246
+      },
+      {
+        "name": "TRI-CO CONNECTIONS",
+        "passings": 2941,
+        "served": 2941
+      },
+      {
+        "name": "North Penn Telephone Company",
+        "passings": 2106,
+        "served": 2106
+      },
+      {
+        "name": "Zito Media",
+        "passings": 504,
+        "served": 504
+      },
+      {
+        "name": "Beaver Valley Cable",
+        "passings": 478,
+        "served": 478
+      },
+      {
+        "name": "Blue Ridge Cable Technologies",
+        "passings": 42,
+        "served": 42
+      },
+      {
+        "name": "Verizon",
+        "passings": 4,
+        "served": 4
+      },
+      {
+        "name": "Spectrum",
+        "passings": 2,
+        "served": 2
+      }
+    ],
     "population_2023": 59971,
     "population_2018": 61304,
     "pop_growth_pct": -2.17,
@@ -386,24 +715,35 @@
     "owner_occupied_pct": 72.3,
     "wfh_pct": 7.1,
     "demo_score": 0.397,
-    "opportunity_score": 1.0,
-    "attractiveness_index": 0.668,
-    "segment": "Most Attractive",
+    "opportunity_score": 0.351,
+    "attractiveness_index": 0.376,
+    "segment": "Neutral",
     "bead_status": "Unverified",
     "bead_dollars_awarded": null,
     "bead_awardees": [],
     "bead_locations_covered": null,
     "bead_claimed_pct": null,
-    "competitive_intensity": 0,
-    "competitive_label": "None",
-    "wireline_providers": [],
+    "competitive_intensity": 3,
+    "competitive_label": "High",
+    "wireline_providers": [
+      "Revolution Broadband",
+      "North Penn Long Distance Corporation",
+      "Frontier",
+      "TRI-CO CONNECTIONS",
+      "North Penn Telephone Company",
+      "Zito Media",
+      "Beaver Valley Cable",
+      "Blue Ridge Cable Technologies",
+      "Verizon",
+      "Spectrum"
+    ],
     "total_broadband_providers": 19,
-    "cable_coverage_pct": 0.0,
-    "fwa_coverage_pct": 0.0,
-    "broadband_coverage_pct": 0.0,
+    "cable_coverage_pct": 0.933,
+    "fwa_coverage_pct": 0.819,
+    "broadband_coverage_pct": 1.0,
     "broadband_gap_pct": 0.0,
-    "cable_present": false,
-    "fwa_present": false,
+    "cable_present": true,
+    "fwa_present": true,
     "fiber_growth_pct": null,
     "momentum_class": null,
     "elevation_mean_ft": 48.5,
@@ -417,13 +757,34 @@
   },
   "42017": {
     "geoid": "42017",
-    "name": "BucksPennsylvania",
+    "name": "Bucks",
     "is_metro_county": true,
     "total_bsls": 256416,
-    "fiber_served": 0,
-    "fiber_unserved": 256416,
-    "fiber_penetration": 0.0,
-    "operators": [],
+    "fiber_served": 187602,
+    "fiber_unserved": 68814,
+    "fiber_penetration": 0.732,
+    "operators": [
+      {
+        "name": "Verizon",
+        "passings": 187224,
+        "served": 187224
+      },
+      {
+        "name": "Xfinity",
+        "passings": 560,
+        "served": 560
+      },
+      {
+        "name": "Frontier",
+        "passings": 253,
+        "served": 253
+      },
+      {
+        "name": "Hotwire Communications",
+        "passings": 3,
+        "served": 3
+      }
+    ],
     "population_2023": 645993,
     "population_2018": 626370,
     "pop_growth_pct": 3.13,
@@ -438,24 +799,29 @@
     "owner_occupied_pct": 78.0,
     "wfh_pct": 17.3,
     "demo_score": 0.808,
-    "opportunity_score": 1.0,
-    "attractiveness_index": 0.894,
+    "opportunity_score": 0.268,
+    "attractiveness_index": 0.565,
     "segment": "Most Attractive",
     "bead_status": "Unverified",
     "bead_dollars_awarded": null,
     "bead_awardees": [],
     "bead_locations_covered": null,
     "bead_claimed_pct": null,
-    "competitive_intensity": 0,
-    "competitive_label": "None",
-    "wireline_providers": [],
+    "competitive_intensity": 3,
+    "competitive_label": "High",
+    "wireline_providers": [
+      "Verizon",
+      "Xfinity",
+      "Frontier",
+      "Hotwire Communications"
+    ],
     "total_broadband_providers": 18,
-    "cable_coverage_pct": 0.0,
-    "fwa_coverage_pct": 0.0,
-    "broadband_coverage_pct": 0.0,
+    "cable_coverage_pct": 0.993,
+    "fwa_coverage_pct": 0.879,
+    "broadband_coverage_pct": 1.0,
     "broadband_gap_pct": 0.0,
-    "cable_present": false,
-    "fwa_present": false,
+    "cable_present": true,
+    "fwa_present": true,
     "fiber_growth_pct": null,
     "momentum_class": null,
     "elevation_mean_ft": 15.7,
@@ -469,13 +835,44 @@
   },
   "42019": {
     "geoid": "42019",
-    "name": "ButlerPennsylvania",
+    "name": "Butler",
     "is_metro_county": true,
     "total_bsls": 86399,
-    "fiber_served": 0,
-    "fiber_unserved": 86399,
-    "fiber_penetration": 0.0,
-    "operators": [],
+    "fiber_served": 50007,
+    "fiber_unserved": 36392,
+    "fiber_penetration": 0.579,
+    "operators": [
+      {
+        "name": "ArmstrongUtilitiesInc",
+        "passings": 35645,
+        "served": 35645
+      },
+      {
+        "name": "Brightspeed",
+        "passings": 16581,
+        "served": 16581
+      },
+      {
+        "name": "Fidium Fiber",
+        "passings": 10939,
+        "served": 10939
+      },
+      {
+        "name": "Xfinity",
+        "passings": 9758,
+        "served": 9758
+      },
+      {
+        "name": "Salsgiver Inc",
+        "passings": 279,
+        "served": 279
+      },
+      {
+        "name": "Verizon",
+        "passings": 2,
+        "served": 2
+      }
+    ],
     "population_2023": 195870,
     "population_2018": 186566,
     "pop_growth_pct": 4.99,
@@ -490,24 +887,31 @@
     "owner_occupied_pct": 76.4,
     "wfh_pct": 13.9,
     "demo_score": 0.751,
-    "opportunity_score": 1.0,
-    "attractiveness_index": 0.863,
+    "opportunity_score": 0.421,
+    "attractiveness_index": 0.603,
     "segment": "Most Attractive",
     "bead_status": "Unverified",
     "bead_dollars_awarded": null,
     "bead_awardees": [],
     "bead_locations_covered": null,
     "bead_claimed_pct": null,
-    "competitive_intensity": 0,
-    "competitive_label": "None",
-    "wireline_providers": [],
+    "competitive_intensity": 3,
+    "competitive_label": "High",
+    "wireline_providers": [
+      "ArmstrongUtilitiesInc",
+      "Brightspeed",
+      "Fidium Fiber",
+      "Xfinity",
+      "Salsgiver Inc",
+      "Verizon"
+    ],
     "total_broadband_providers": 16,
-    "cable_coverage_pct": 0.0,
-    "fwa_coverage_pct": 0.0,
-    "broadband_coverage_pct": 0.0,
+    "cable_coverage_pct": 0.676,
+    "fwa_coverage_pct": 0.772,
+    "broadband_coverage_pct": 1.0,
     "broadband_gap_pct": 0.0,
-    "cable_present": false,
-    "fwa_present": false,
+    "cable_present": true,
+    "fwa_present": true,
     "fiber_growth_pct": null,
     "momentum_class": null,
     "elevation_mean_ft": 35.7,
@@ -521,13 +925,34 @@
   },
   "42021": {
     "geoid": "42021",
-    "name": "CambriaPennsylvania",
+    "name": "Cambria",
     "is_metro_county": true,
     "total_bsls": 64494,
-    "fiber_served": 0,
-    "fiber_unserved": 64494,
-    "fiber_penetration": 0.0,
-    "operators": [],
+    "fiber_served": 3735,
+    "fiber_unserved": 60759,
+    "fiber_penetration": 0.058,
+    "operators": [
+      {
+        "name": "Breezeline",
+        "passings": 2432,
+        "served": 2432
+      },
+      {
+        "name": "In The Stix Broadband| LLC",
+        "passings": 583,
+        "served": 583
+      },
+      {
+        "name": "Windstream Pennsylvania, LLC.",
+        "passings": 495,
+        "served": 495
+      },
+      {
+        "name": "Xfinity",
+        "passings": 242,
+        "served": 242
+      }
+    ],
     "population_2023": 132355,
     "population_2018": 134550,
     "pop_growth_pct": -1.63,
@@ -542,24 +967,29 @@
     "owner_occupied_pct": 75.8,
     "wfh_pct": 9.2,
     "demo_score": 0.429,
-    "opportunity_score": 1.0,
-    "attractiveness_index": 0.686,
+    "opportunity_score": 0.942,
+    "attractiveness_index": 0.66,
     "segment": "Most Attractive",
     "bead_status": "Unverified",
     "bead_dollars_awarded": null,
     "bead_awardees": [],
     "bead_locations_covered": null,
     "bead_claimed_pct": null,
-    "competitive_intensity": 0,
-    "competitive_label": "None",
-    "wireline_providers": [],
+    "competitive_intensity": 3,
+    "competitive_label": "High",
+    "wireline_providers": [
+      "Breezeline",
+      "In The Stix Broadband| LLC",
+      "Windstream Pennsylvania, LLC.",
+      "Xfinity"
+    ],
     "total_broadband_providers": 12,
-    "cable_coverage_pct": 0.0,
-    "fwa_coverage_pct": 0.0,
-    "broadband_coverage_pct": 0.0,
+    "cable_coverage_pct": 0.925,
+    "fwa_coverage_pct": 0.676,
+    "broadband_coverage_pct": 1.0,
     "broadband_gap_pct": 0.0,
-    "cable_present": false,
-    "fwa_present": false,
+    "cable_present": true,
+    "fwa_present": true,
     "fiber_growth_pct": null,
     "momentum_class": null,
     "elevation_mean_ft": 58.2,
@@ -573,13 +1003,29 @@
   },
   "42023": {
     "geoid": "42023",
-    "name": "CameronPennsylvania",
+    "name": "Cameron",
     "is_metro_county": false,
     "total_bsls": 3933,
-    "fiber_served": 0,
-    "fiber_unserved": 3933,
-    "fiber_penetration": 0.0,
-    "operators": [],
+    "fiber_served": 2832,
+    "fiber_unserved": 1101,
+    "fiber_penetration": 0.72,
+    "operators": [
+      {
+        "name": "Windstream Pennsylvania, LLC.",
+        "passings": 2364,
+        "served": 2364
+      },
+      {
+        "name": "Zito Media",
+        "passings": 1352,
+        "served": 1352
+      },
+      {
+        "name": "TRI-CO CONNECTIONS",
+        "passings": 397,
+        "served": 397
+      }
+    ],
     "population_2023": 4475,
     "population_2018": 4686,
     "pop_growth_pct": -4.5,
@@ -594,24 +1040,28 @@
     "owner_occupied_pct": 68.9,
     "wfh_pct": 2.5,
     "demo_score": 0.209,
-    "opportunity_score": 1.0,
-    "attractiveness_index": 0.565,
-    "segment": "Most Attractive",
+    "opportunity_score": 0.28,
+    "attractiveness_index": 0.241,
+    "segment": "Least Attractive",
     "bead_status": "Unverified",
     "bead_dollars_awarded": null,
     "bead_awardees": [],
     "bead_locations_covered": null,
     "bead_claimed_pct": null,
-    "competitive_intensity": 0,
-    "competitive_label": "None",
-    "wireline_providers": [],
+    "competitive_intensity": 2,
+    "competitive_label": "Moderate",
+    "wireline_providers": [
+      "Windstream Pennsylvania, LLC.",
+      "Zito Media",
+      "TRI-CO CONNECTIONS"
+    ],
     "total_broadband_providers": 9,
-    "cable_coverage_pct": 0.0,
-    "fwa_coverage_pct": 0.0,
-    "broadband_coverage_pct": 0.0,
+    "cable_coverage_pct": 0.874,
+    "fwa_coverage_pct": 0.699,
+    "broadband_coverage_pct": 1.0,
     "broadband_gap_pct": 0.0,
-    "cable_present": false,
-    "fwa_present": false,
+    "cable_present": true,
+    "fwa_present": true,
     "fiber_growth_pct": null,
     "momentum_class": null,
     "elevation_mean_ft": 91.3,
@@ -625,13 +1075,39 @@
   },
   "42025": {
     "geoid": "42025",
-    "name": "CarbonPennsylvania",
+    "name": "Carbon",
     "is_metro_county": true,
     "total_bsls": 34299,
-    "fiber_served": 0,
-    "fiber_unserved": 34299,
-    "fiber_penetration": 0.0,
-    "operators": [],
+    "fiber_served": 6177,
+    "fiber_unserved": 28122,
+    "fiber_penetration": 0.18,
+    "operators": [
+      {
+        "name": "Blue Ridge Cable Technologies",
+        "passings": 3788,
+        "served": 3788
+      },
+      {
+        "name": "Windstream Pennsylvania, LLC.",
+        "passings": 3738,
+        "served": 3738
+      },
+      {
+        "name": "Palmerton Telephone Company",
+        "passings": 1851,
+        "served": 1851
+      },
+      {
+        "name": "Frontier",
+        "passings": 8,
+        "served": 8
+      },
+      {
+        "name": "Xfinity",
+        "passings": 8,
+        "served": 8
+      }
+    ],
     "population_2023": 65191,
     "population_2018": 63931,
     "pop_growth_pct": 1.97,
@@ -646,24 +1122,30 @@
     "owner_occupied_pct": 77.2,
     "wfh_pct": 7.7,
     "demo_score": 0.546,
-    "opportunity_score": 1.0,
-    "attractiveness_index": 0.75,
+    "opportunity_score": 0.82,
+    "attractiveness_index": 0.669,
     "segment": "Most Attractive",
     "bead_status": "Unverified",
     "bead_dollars_awarded": null,
     "bead_awardees": [],
     "bead_locations_covered": null,
     "bead_claimed_pct": null,
-    "competitive_intensity": 0,
-    "competitive_label": "None",
-    "wireline_providers": [],
+    "competitive_intensity": 3,
+    "competitive_label": "High",
+    "wireline_providers": [
+      "Blue Ridge Cable Technologies",
+      "Windstream Pennsylvania, LLC.",
+      "Palmerton Telephone Company",
+      "Frontier",
+      "Xfinity"
+    ],
     "total_broadband_providers": 14,
-    "cable_coverage_pct": 0.0,
-    "fwa_coverage_pct": 0.0,
-    "broadband_coverage_pct": 0.0,
+    "cable_coverage_pct": 0.785,
+    "fwa_coverage_pct": 0.592,
+    "broadband_coverage_pct": 1.0,
     "broadband_gap_pct": 0.0,
-    "cable_present": false,
-    "fwa_present": false,
+    "cable_present": true,
+    "fwa_present": true,
     "fiber_growth_pct": null,
     "momentum_class": null,
     "elevation_mean_ft": 58.5,
@@ -677,13 +1159,59 @@
   },
   "42027": {
     "geoid": "42027",
-    "name": "CentrePennsylvania",
+    "name": "Centre",
     "is_metro_county": true,
     "total_bsls": 66023,
-    "fiber_served": 0,
-    "fiber_unserved": 66023,
-    "fiber_penetration": 0.0,
-    "operators": [],
+    "fiber_served": 6900,
+    "fiber_unserved": 59123,
+    "fiber_penetration": 0.105,
+    "operators": [
+      {
+        "name": "Black Bear Fiber",
+        "passings": 2477,
+        "served": 2477
+      },
+      {
+        "name": "Xfinity",
+        "passings": 1759,
+        "served": 1759
+      },
+      {
+        "name": "Breezeline",
+        "passings": 1634,
+        "served": 1634
+      },
+      {
+        "name": "Zito Media",
+        "passings": 1480,
+        "served": 1480
+      },
+      {
+        "name": "Glo Fiber",
+        "passings": 574,
+        "served": 574
+      },
+      {
+        "name": "Windstream Pennsylvania, LLC.",
+        "passings": 277,
+        "served": 277
+      },
+      {
+        "name": "Dojo Networks",
+        "passings": 65,
+        "served": 65
+      },
+      {
+        "name": "State College Internet",
+        "passings": 5,
+        "served": 5
+      },
+      {
+        "name": "Getwireless",
+        "passings": 1,
+        "served": 1
+      }
+    ],
     "population_2023": 158041,
     "population_2018": 161443,
     "pop_growth_pct": -2.11,
@@ -698,24 +1226,34 @@
     "owner_occupied_pct": 61.8,
     "wfh_pct": 13.6,
     "demo_score": 0.527,
-    "opportunity_score": 1.0,
-    "attractiveness_index": 0.74,
+    "opportunity_score": 0.895,
+    "attractiveness_index": 0.693,
     "segment": "Most Attractive",
     "bead_status": "Unverified",
     "bead_dollars_awarded": null,
     "bead_awardees": [],
     "bead_locations_covered": null,
     "bead_claimed_pct": null,
-    "competitive_intensity": 0,
-    "competitive_label": "None",
-    "wireline_providers": [],
+    "competitive_intensity": 3,
+    "competitive_label": "High",
+    "wireline_providers": [
+      "Black Bear Fiber",
+      "Xfinity",
+      "Breezeline",
+      "Zito Media",
+      "Glo Fiber",
+      "Windstream Pennsylvania, LLC.",
+      "Dojo Networks",
+      "State College Internet",
+      "Getwireless"
+    ],
     "total_broadband_providers": 18,
-    "cable_coverage_pct": 0.0,
-    "fwa_coverage_pct": 0.0,
-    "broadband_coverage_pct": 0.0,
+    "cable_coverage_pct": 0.953,
+    "fwa_coverage_pct": 0.834,
+    "broadband_coverage_pct": 1.0,
     "broadband_gap_pct": 0.0,
-    "cable_present": false,
-    "fwa_present": false,
+    "cable_present": true,
+    "fwa_present": true,
     "fiber_growth_pct": null,
     "momentum_class": null,
     "elevation_mean_ft": 39.0,
@@ -729,13 +1267,54 @@
   },
   "42029": {
     "geoid": "42029",
-    "name": "ChesterPennsylvania",
+    "name": "Chester",
     "is_metro_county": true,
     "total_bsls": 210730,
-    "fiber_served": 0,
-    "fiber_unserved": 210730,
-    "fiber_penetration": 0.0,
-    "operators": [],
+    "fiber_served": 147052,
+    "fiber_unserved": 63678,
+    "fiber_penetration": 0.698,
+    "operators": [
+      {
+        "name": "Verizon",
+        "passings": 138747,
+        "served": 138747
+      },
+      {
+        "name": "Xfinity",
+        "passings": 5773,
+        "served": 5773
+      },
+      {
+        "name": "ArmstrongUtilitiesInc",
+        "passings": 4658,
+        "served": 4658
+      },
+      {
+        "name": "Frontier",
+        "passings": 1997,
+        "served": 1997
+      },
+      {
+        "name": "Windstream Conestoga, Inc.",
+        "passings": 531,
+        "served": 531
+      },
+      {
+        "name": "Hotwire Communications",
+        "passings": 4,
+        "served": 4
+      },
+      {
+        "name": "Service Electric Cablevision,Inc.",
+        "passings": 3,
+        "served": 3
+      },
+      {
+        "name": "Windstream Pennsylvania, LLC.",
+        "passings": 1,
+        "served": 1
+      }
+    ],
     "population_2023": 540896,
     "population_2018": 517156,
     "pop_growth_pct": 4.59,
@@ -750,24 +1329,33 @@
     "owner_occupied_pct": 74.9,
     "wfh_pct": 21.7,
     "demo_score": 0.844,
-    "opportunity_score": 1.0,
-    "attractiveness_index": 0.914,
+    "opportunity_score": 0.302,
+    "attractiveness_index": 0.6,
     "segment": "Most Attractive",
     "bead_status": "Unverified",
     "bead_dollars_awarded": null,
     "bead_awardees": [],
     "bead_locations_covered": null,
     "bead_claimed_pct": null,
-    "competitive_intensity": 0,
-    "competitive_label": "None",
-    "wireline_providers": [],
+    "competitive_intensity": 3,
+    "competitive_label": "High",
+    "wireline_providers": [
+      "Verizon",
+      "Xfinity",
+      "ArmstrongUtilitiesInc",
+      "Frontier",
+      "Windstream Conestoga, Inc.",
+      "Hotwire Communications",
+      "Service Electric Cablevision,Inc.",
+      "Windstream Pennsylvania, LLC."
+    ],
     "total_broadband_providers": 19,
-    "cable_coverage_pct": 0.0,
-    "fwa_coverage_pct": 0.0,
-    "broadband_coverage_pct": 0.0,
+    "cable_coverage_pct": 0.946,
+    "fwa_coverage_pct": 0.751,
+    "broadband_coverage_pct": 1.0,
     "broadband_gap_pct": 0.0,
-    "cable_present": false,
-    "fwa_present": false,
+    "cable_present": true,
+    "fwa_present": true,
     "fiber_growth_pct": null,
     "momentum_class": null,
     "elevation_mean_ft": 27.7,
@@ -781,13 +1369,39 @@
   },
   "42031": {
     "geoid": "42031",
-    "name": "ClarionPennsylvania",
+    "name": "Clarion",
     "is_metro_county": false,
     "total_bsls": 18878,
-    "fiber_served": 0,
-    "fiber_unserved": 18878,
-    "fiber_penetration": 0.0,
-    "operators": [],
+    "fiber_served": 6352,
+    "fiber_unserved": 12526,
+    "fiber_penetration": 0.336,
+    "operators": [
+      {
+        "name": "Windstream Pennsylvania, LLC.",
+        "passings": 5502,
+        "served": 5502
+      },
+      {
+        "name": "VenusTelephone",
+        "passings": 677,
+        "served": 677
+      },
+      {
+        "name": "Salsgiver Inc",
+        "passings": 571,
+        "served": 571
+      },
+      {
+        "name": "ArmstrongUtilitiesInc",
+        "passings": 42,
+        "served": 42
+      },
+      {
+        "name": "Verizon",
+        "passings": 1,
+        "served": 1
+      }
+    ],
     "population_2023": 37297,
     "population_2018": 38827,
     "pop_growth_pct": -3.94,
@@ -802,24 +1416,30 @@
     "owner_occupied_pct": 71.4,
     "wfh_pct": 8.8,
     "demo_score": 0.374,
-    "opportunity_score": 1.0,
-    "attractiveness_index": 0.656,
+    "opportunity_score": 0.664,
+    "attractiveness_index": 0.505,
     "segment": "Most Attractive",
     "bead_status": "Unverified",
     "bead_dollars_awarded": null,
     "bead_awardees": [],
     "bead_locations_covered": null,
     "bead_claimed_pct": null,
-    "competitive_intensity": 0,
-    "competitive_label": "None",
-    "wireline_providers": [],
+    "competitive_intensity": 3,
+    "competitive_label": "High",
+    "wireline_providers": [
+      "Windstream Pennsylvania, LLC.",
+      "VenusTelephone",
+      "Salsgiver Inc",
+      "ArmstrongUtilitiesInc",
+      "Verizon"
+    ],
     "total_broadband_providers": 15,
-    "cable_coverage_pct": 0.0,
-    "fwa_coverage_pct": 0.0,
-    "broadband_coverage_pct": 0.0,
+    "cable_coverage_pct": 0.973,
+    "fwa_coverage_pct": 0.495,
+    "broadband_coverage_pct": 1.0,
     "broadband_gap_pct": 0.0,
-    "cable_present": false,
-    "fwa_present": false,
+    "cable_present": true,
+    "fwa_present": true,
     "fiber_growth_pct": null,
     "momentum_class": null,
     "elevation_mean_ft": 44.2,
@@ -833,13 +1453,29 @@
   },
   "42033": {
     "geoid": "42033",
-    "name": "ClearfieldPennsylvania",
+    "name": "Clearfield",
     "is_metro_county": false,
     "total_bsls": 38160,
-    "fiber_served": 0,
-    "fiber_unserved": 38160,
-    "fiber_penetration": 0.0,
-    "operators": [],
+    "fiber_served": 4137,
+    "fiber_unserved": 34023,
+    "fiber_penetration": 0.108,
+    "operators": [
+      {
+        "name": "Zito Media",
+        "passings": 3099,
+        "served": 3099
+      },
+      {
+        "name": "Breezeline",
+        "passings": 611,
+        "served": 611
+      },
+      {
+        "name": "Windstream Pennsylvania, LLC.",
+        "passings": 427,
+        "served": 427
+      }
+    ],
     "population_2023": 78902,
     "population_2018": 80216,
     "pop_growth_pct": -1.64,
@@ -854,24 +1490,28 @@
     "owner_occupied_pct": 78.3,
     "wfh_pct": 7.2,
     "demo_score": 0.402,
-    "opportunity_score": 1.0,
-    "attractiveness_index": 0.671,
+    "opportunity_score": 0.892,
+    "attractiveness_index": 0.623,
     "segment": "Most Attractive",
     "bead_status": "Unverified",
     "bead_dollars_awarded": null,
     "bead_awardees": [],
     "bead_locations_covered": null,
     "bead_claimed_pct": null,
-    "competitive_intensity": 0,
-    "competitive_label": "None",
-    "wireline_providers": [],
+    "competitive_intensity": 2,
+    "competitive_label": "Moderate",
+    "wireline_providers": [
+      "Zito Media",
+      "Breezeline",
+      "Windstream Pennsylvania, LLC."
+    ],
     "total_broadband_providers": 12,
-    "cable_coverage_pct": 0.0,
-    "fwa_coverage_pct": 0.0,
-    "broadband_coverage_pct": 0.0,
+    "cable_coverage_pct": 0.923,
+    "fwa_coverage_pct": 0.661,
+    "broadband_coverage_pct": 1.0,
     "broadband_gap_pct": 0.0,
-    "cable_present": false,
-    "fwa_present": false,
+    "cable_present": true,
+    "fwa_present": true,
     "fiber_growth_pct": null,
     "momentum_class": null,
     "elevation_mean_ft": 45.4,
@@ -885,13 +1525,29 @@
   },
   "42035": {
     "geoid": "42035",
-    "name": "ClintonPennsylvania",
+    "name": "Clinton",
     "is_metro_county": false,
     "total_bsls": 18640,
-    "fiber_served": 0,
-    "fiber_unserved": 18640,
-    "fiber_penetration": 0.0,
-    "operators": [],
+    "fiber_served": 1616,
+    "fiber_unserved": 17024,
+    "fiber_penetration": 0.087,
+    "operators": [
+      {
+        "name": "Brightspeed",
+        "passings": 769,
+        "served": 769
+      },
+      {
+        "name": "TRI-CO CONNECTIONS",
+        "passings": 635,
+        "served": 635
+      },
+      {
+        "name": "PTC",
+        "passings": 212,
+        "served": 212
+      }
+    ],
     "population_2023": 37707,
     "population_2018": 39074,
     "pop_growth_pct": -3.5,
@@ -906,24 +1562,28 @@
     "owner_occupied_pct": 71.6,
     "wfh_pct": 7.5,
     "demo_score": 0.348,
-    "opportunity_score": 1.0,
-    "attractiveness_index": 0.641,
+    "opportunity_score": 0.913,
+    "attractiveness_index": 0.602,
     "segment": "Most Attractive",
     "bead_status": "Unverified",
     "bead_dollars_awarded": null,
     "bead_awardees": [],
     "bead_locations_covered": null,
     "bead_claimed_pct": null,
-    "competitive_intensity": 0,
-    "competitive_label": "None",
-    "wireline_providers": [],
+    "competitive_intensity": 2,
+    "competitive_label": "Moderate",
+    "wireline_providers": [
+      "Brightspeed",
+      "TRI-CO CONNECTIONS",
+      "PTC"
+    ],
     "total_broadband_providers": 15,
-    "cable_coverage_pct": 0.0,
-    "fwa_coverage_pct": 0.0,
-    "broadband_coverage_pct": 0.0,
+    "cable_coverage_pct": 0.98,
+    "fwa_coverage_pct": 0.736,
+    "broadband_coverage_pct": 1.0,
     "broadband_gap_pct": 0.0,
-    "cable_present": false,
-    "fwa_present": false,
+    "cable_present": true,
+    "fwa_present": true,
     "fiber_growth_pct": null,
     "momentum_class": null,
     "elevation_mean_ft": 66.1,
@@ -937,13 +1597,54 @@
   },
   "42037": {
     "geoid": "42037",
-    "name": "ColumbiaPennsylvania",
+    "name": "Columbia",
     "is_metro_county": false,
     "total_bsls": 29775,
-    "fiber_served": 0,
-    "fiber_unserved": 29775,
-    "fiber_penetration": 0.0,
-    "operators": [],
+    "fiber_served": 13796,
+    "fiber_unserved": 15979,
+    "fiber_penetration": 0.463,
+    "operators": [
+      {
+        "name": "Service Electric Cablevision,Inc.",
+        "passings": 6648,
+        "served": 6648
+      },
+      {
+        "name": "Xfinity",
+        "passings": 6254,
+        "served": 6254
+      },
+      {
+        "name": "FastBridge Fiber",
+        "passings": 2741,
+        "served": 2741
+      },
+      {
+        "name": "North Penn Long Distance Corporation",
+        "passings": 2020,
+        "served": 2020
+      },
+      {
+        "name": "Frontier",
+        "passings": 1122,
+        "served": 1122
+      },
+      {
+        "name": "Dojo Networks",
+        "passings": 4,
+        "served": 4
+      },
+      {
+        "name": "Windstream Pennsylvania, LLC.",
+        "passings": 2,
+        "served": 2
+      },
+      {
+        "name": "Breezeline",
+        "passings": 1,
+        "served": 1
+      }
+    ],
     "population_2023": 65055,
     "population_2018": 66220,
     "pop_growth_pct": -1.76,
@@ -958,24 +1659,33 @@
     "owner_occupied_pct": 70.4,
     "wfh_pct": 10.3,
     "demo_score": 0.452,
-    "opportunity_score": 1.0,
-    "attractiveness_index": 0.699,
+    "opportunity_score": 0.537,
+    "attractiveness_index": 0.49,
     "segment": "Most Attractive",
     "bead_status": "Unverified",
     "bead_dollars_awarded": null,
     "bead_awardees": [],
     "bead_locations_covered": null,
     "bead_claimed_pct": null,
-    "competitive_intensity": 0,
-    "competitive_label": "None",
-    "wireline_providers": [],
+    "competitive_intensity": 3,
+    "competitive_label": "High",
+    "wireline_providers": [
+      "Service Electric Cablevision,Inc.",
+      "Xfinity",
+      "FastBridge Fiber",
+      "North Penn Long Distance Corporation",
+      "Frontier",
+      "Dojo Networks",
+      "Windstream Pennsylvania, LLC.",
+      "Breezeline"
+    ],
     "total_broadband_providers": 19,
-    "cable_coverage_pct": 0.0,
-    "fwa_coverage_pct": 0.0,
-    "broadband_coverage_pct": 0.0,
+    "cable_coverage_pct": 0.958,
+    "fwa_coverage_pct": 0.819,
+    "broadband_coverage_pct": 1.0,
     "broadband_gap_pct": 0.0,
-    "cable_present": false,
-    "fwa_present": false,
+    "cable_present": true,
+    "fwa_present": true,
     "fiber_growth_pct": null,
     "momentum_class": null,
     "elevation_mean_ft": 44.8,
@@ -989,13 +1699,39 @@
   },
   "42039": {
     "geoid": "42039",
-    "name": "CrawfordPennsylvania",
+    "name": "Crawford",
     "is_metro_county": false,
     "total_bsls": 42188,
-    "fiber_served": 0,
-    "fiber_unserved": 42188,
-    "fiber_penetration": 0.0,
-    "operators": [],
+    "fiber_served": 21098,
+    "fiber_unserved": 21090,
+    "fiber_penetration": 0.5,
+    "operators": [
+      {
+        "name": "Windstream Pennsylvania, LLC.",
+        "passings": 20721,
+        "served": 20721
+      },
+      {
+        "name": "ArmstrongUtilitiesInc",
+        "passings": 487,
+        "served": 487
+      },
+      {
+        "name": "Blue Fiber",
+        "passings": 54,
+        "served": 54
+      },
+      {
+        "name": "Armstrong Telecommunications Inc",
+        "passings": 40,
+        "served": 40
+      },
+      {
+        "name": "Verizon",
+        "passings": 1,
+        "served": 1
+      }
+    ],
     "population_2023": 83189,
     "population_2018": 86164,
     "pop_growth_pct": -3.45,
@@ -1010,24 +1746,30 @@
     "owner_occupied_pct": 73.7,
     "wfh_pct": 7.0,
     "demo_score": 0.379,
-    "opportunity_score": 1.0,
-    "attractiveness_index": 0.658,
-    "segment": "Most Attractive",
+    "opportunity_score": 0.5,
+    "attractiveness_index": 0.433,
+    "segment": "Neutral",
     "bead_status": "Unverified",
     "bead_dollars_awarded": null,
     "bead_awardees": [],
     "bead_locations_covered": null,
     "bead_claimed_pct": null,
-    "competitive_intensity": 0,
-    "competitive_label": "None",
-    "wireline_providers": [],
+    "competitive_intensity": 3,
+    "competitive_label": "High",
+    "wireline_providers": [
+      "Windstream Pennsylvania, LLC.",
+      "ArmstrongUtilitiesInc",
+      "Blue Fiber",
+      "Armstrong Telecommunications Inc",
+      "Verizon"
+    ],
     "total_broadband_providers": 15,
-    "cable_coverage_pct": 0.0,
-    "fwa_coverage_pct": 0.0,
-    "broadband_coverage_pct": 0.0,
+    "cable_coverage_pct": 0.978,
+    "fwa_coverage_pct": 0.511,
+    "broadband_coverage_pct": 1.0,
     "broadband_gap_pct": 0.0,
-    "cable_present": false,
-    "fwa_present": false,
+    "cable_present": true,
+    "fwa_present": true,
     "fiber_growth_pct": null,
     "momentum_class": null,
     "elevation_mean_ft": 25.4,
@@ -1041,13 +1783,39 @@
   },
   "42041": {
     "geoid": "42041",
-    "name": "CumberlandPennsylvania",
+    "name": "Cumberland",
     "is_metro_county": true,
     "total_bsls": 110265,
-    "fiber_served": 0,
-    "fiber_unserved": 110265,
-    "fiber_penetration": 0.0,
-    "operators": [],
+    "fiber_served": 67899,
+    "fiber_unserved": 42366,
+    "fiber_penetration": 0.616,
+    "operators": [
+      {
+        "name": "Verizon",
+        "passings": 51671,
+        "served": 51671
+      },
+      {
+        "name": "Brightspeed",
+        "passings": 14922,
+        "served": 14922
+      },
+      {
+        "name": "Glo Fiber",
+        "passings": 5947,
+        "served": 5947
+      },
+      {
+        "name": "Xfinity",
+        "passings": 1407,
+        "served": 1407
+      },
+      {
+        "name": "Frontier",
+        "passings": 3,
+        "served": 3
+      }
+    ],
     "population_2023": 264422,
     "population_2018": 247433,
     "pop_growth_pct": 6.87,
@@ -1062,24 +1830,30 @@
     "owner_occupied_pct": 71.4,
     "wfh_pct": 15.4,
     "demo_score": 0.807,
-    "opportunity_score": 1.0,
-    "attractiveness_index": 0.894,
+    "opportunity_score": 0.384,
+    "attractiveness_index": 0.617,
     "segment": "Most Attractive",
     "bead_status": "Unverified",
     "bead_dollars_awarded": null,
     "bead_awardees": [],
     "bead_locations_covered": null,
     "bead_claimed_pct": null,
-    "competitive_intensity": 0,
-    "competitive_label": "None",
-    "wireline_providers": [],
+    "competitive_intensity": 3,
+    "competitive_label": "High",
+    "wireline_providers": [
+      "Verizon",
+      "Brightspeed",
+      "Glo Fiber",
+      "Xfinity",
+      "Frontier"
+    ],
     "total_broadband_providers": 16,
-    "cable_coverage_pct": 0.0,
-    "fwa_coverage_pct": 0.0,
-    "broadband_coverage_pct": 0.0,
+    "cable_coverage_pct": 0.997,
+    "fwa_coverage_pct": 0.915,
+    "broadband_coverage_pct": 1.0,
     "broadband_gap_pct": 0.0,
-    "cable_present": false,
-    "fwa_present": false,
+    "cable_present": true,
+    "fwa_present": true,
     "fiber_growth_pct": null,
     "momentum_class": null,
     "elevation_mean_ft": 22.1,
@@ -1093,13 +1867,39 @@
   },
   "42043": {
     "geoid": "42043",
-    "name": "DauphinPennsylvania",
+    "name": "Dauphin",
     "is_metro_county": true,
     "total_bsls": 127259,
-    "fiber_served": 0,
-    "fiber_unserved": 127259,
-    "fiber_penetration": 0.0,
-    "operators": [],
+    "fiber_served": 84901,
+    "fiber_unserved": 42358,
+    "fiber_penetration": 0.667,
+    "operators": [
+      {
+        "name": "Verizon",
+        "passings": 78481,
+        "served": 78481
+      },
+      {
+        "name": "Frontier",
+        "passings": 6417,
+        "served": 6417
+      },
+      {
+        "name": "Xfinity",
+        "passings": 47,
+        "served": 47
+      },
+      {
+        "name": "Brightspeed",
+        "passings": 7,
+        "served": 7
+      },
+      {
+        "name": "Blue Ridge Cable Technologies",
+        "passings": 1,
+        "served": 1
+      }
+    ],
     "population_2023": 287484,
     "population_2018": 274515,
     "pop_growth_pct": 4.72,
@@ -1114,24 +1914,30 @@
     "owner_occupied_pct": 63.3,
     "wfh_pct": 14.8,
     "demo_score": 0.707,
-    "opportunity_score": 1.0,
-    "attractiveness_index": 0.839,
+    "opportunity_score": 0.333,
+    "attractiveness_index": 0.539,
     "segment": "Most Attractive",
     "bead_status": "Unverified",
     "bead_dollars_awarded": null,
     "bead_awardees": [],
     "bead_locations_covered": null,
     "bead_claimed_pct": null,
-    "competitive_intensity": 0,
-    "competitive_label": "None",
-    "wireline_providers": [],
+    "competitive_intensity": 3,
+    "competitive_label": "High",
+    "wireline_providers": [
+      "Verizon",
+      "Frontier",
+      "Xfinity",
+      "Brightspeed",
+      "Blue Ridge Cable Technologies"
+    ],
     "total_broadband_providers": 23,
-    "cable_coverage_pct": 0.0,
-    "fwa_coverage_pct": 0.0,
-    "broadband_coverage_pct": 0.0,
+    "cable_coverage_pct": 0.997,
+    "fwa_coverage_pct": 0.944,
+    "broadband_coverage_pct": 1.0,
     "broadband_gap_pct": 0.0,
-    "cable_present": false,
-    "fwa_present": false,
+    "cable_present": true,
+    "fwa_present": true,
     "fiber_growth_pct": null,
     "momentum_class": null,
     "elevation_mean_ft": 26.4,
@@ -1145,13 +1951,34 @@
   },
   "42045": {
     "geoid": "42045",
-    "name": "DelawarePennsylvania",
+    "name": "Delaware",
     "is_metro_county": true,
     "total_bsls": 229390,
-    "fiber_served": 0,
-    "fiber_unserved": 229390,
-    "fiber_penetration": 0.0,
-    "operators": [],
+    "fiber_served": 168405,
+    "fiber_unserved": 60985,
+    "fiber_penetration": 0.734,
+    "operators": [
+      {
+        "name": "Verizon",
+        "passings": 168339,
+        "served": 168339
+      },
+      {
+        "name": "Xfinity",
+        "passings": 192,
+        "served": 192
+      },
+      {
+        "name": "Frontier",
+        "passings": 11,
+        "served": 11
+      },
+      {
+        "name": "Hotwire Communications",
+        "passings": 2,
+        "served": 2
+      }
+    ],
     "population_2023": 576195,
     "population_2018": 563527,
     "pop_growth_pct": 2.25,
@@ -1166,24 +1993,29 @@
     "owner_occupied_pct": 69.6,
     "wfh_pct": 15.4,
     "demo_score": 0.805,
-    "opportunity_score": 1.0,
-    "attractiveness_index": 0.893,
+    "opportunity_score": 0.266,
+    "attractiveness_index": 0.562,
     "segment": "Most Attractive",
     "bead_status": "Unverified",
     "bead_dollars_awarded": null,
     "bead_awardees": [],
     "bead_locations_covered": null,
     "bead_claimed_pct": null,
-    "competitive_intensity": 0,
-    "competitive_label": "None",
-    "wireline_providers": [],
+    "competitive_intensity": 3,
+    "competitive_label": "High",
+    "wireline_providers": [
+      "Verizon",
+      "Xfinity",
+      "Frontier",
+      "Hotwire Communications"
+    ],
     "total_broadband_providers": 14,
-    "cable_coverage_pct": 0.0,
-    "fwa_coverage_pct": 0.0,
-    "broadband_coverage_pct": 0.0,
+    "cable_coverage_pct": 0.994,
+    "fwa_coverage_pct": 0.837,
+    "broadband_coverage_pct": 1.0,
     "broadband_gap_pct": 0.0,
-    "cable_present": false,
-    "fwa_present": false,
+    "cable_present": true,
+    "fwa_present": true,
     "fiber_growth_pct": null,
     "momentum_class": null,
     "elevation_mean_ft": 16.9,
@@ -1197,13 +2029,24 @@
   },
   "42047": {
     "geoid": "42047",
-    "name": "ElkPennsylvania",
+    "name": "Elk",
     "is_metro_county": false,
     "total_bsls": 16876,
-    "fiber_served": 0,
-    "fiber_unserved": 16876,
-    "fiber_penetration": 0.0,
-    "operators": [],
+    "fiber_served": 12374,
+    "fiber_unserved": 4502,
+    "fiber_penetration": 0.733,
+    "operators": [
+      {
+        "name": "Windstream Pennsylvania, LLC.",
+        "passings": 10873,
+        "served": 10873
+      },
+      {
+        "name": "Zito Media",
+        "passings": 6787,
+        "served": 6787
+      }
+    ],
     "population_2023": 30703,
     "population_2018": 30608,
     "pop_growth_pct": 0.31,
@@ -1218,24 +2061,27 @@
     "owner_occupied_pct": 78.9,
     "wfh_pct": 2.8,
     "demo_score": 0.413,
-    "opportunity_score": 1.0,
-    "attractiveness_index": 0.677,
-    "segment": "Most Attractive",
+    "opportunity_score": 0.267,
+    "attractiveness_index": 0.347,
+    "segment": "Neutral",
     "bead_status": "Unverified",
     "bead_dollars_awarded": null,
     "bead_awardees": [],
     "bead_locations_covered": null,
     "bead_claimed_pct": null,
-    "competitive_intensity": 0,
-    "competitive_label": "None",
-    "wireline_providers": [],
+    "competitive_intensity": 1,
+    "competitive_label": "Low",
+    "wireline_providers": [
+      "Windstream Pennsylvania, LLC.",
+      "Zito Media"
+    ],
     "total_broadband_providers": 10,
-    "cable_coverage_pct": 0.0,
-    "fwa_coverage_pct": 0.0,
-    "broadband_coverage_pct": 0.0,
+    "cable_coverage_pct": 0.9,
+    "fwa_coverage_pct": 0.413,
+    "broadband_coverage_pct": 1.0,
     "broadband_gap_pct": 0.0,
-    "cable_present": false,
-    "fwa_present": false,
+    "cable_present": true,
+    "fwa_present": true,
     "fiber_growth_pct": null,
     "momentum_class": null,
     "elevation_mean_ft": 63.4,
@@ -1249,13 +2095,49 @@
   },
   "42049": {
     "geoid": "42049",
-    "name": "EriePennsylvania",
+    "name": "Erie",
     "is_metro_county": true,
     "total_bsls": 120019,
-    "fiber_served": 0,
-    "fiber_unserved": 120019,
-    "fiber_penetration": 0.0,
-    "operators": [],
+    "fiber_served": 29560,
+    "fiber_unserved": 90459,
+    "fiber_penetration": 0.246,
+    "operators": [
+      {
+        "name": "Velocity.Net Communications Inc",
+        "passings": 21130,
+        "served": 21130
+      },
+      {
+        "name": "North Penn Long Distance Corporation",
+        "passings": 4816,
+        "served": 4816
+      },
+      {
+        "name": "ArmstrongUtilitiesInc",
+        "passings": 3742,
+        "served": 3742
+      },
+      {
+        "name": "Armstrong Telecommunications Inc",
+        "passings": 1775,
+        "served": 1775
+      },
+      {
+        "name": "Windstream Pennsylvania, LLC.",
+        "passings": 1465,
+        "served": 1465
+      },
+      {
+        "name": "Spectrum",
+        "passings": 805,
+        "served": 805
+      },
+      {
+        "name": "Blue Fiber",
+        "passings": 44,
+        "served": 44
+      }
+    ],
     "population_2023": 269544,
     "population_2018": 275972,
     "pop_growth_pct": -2.33,
@@ -1270,24 +2152,32 @@
     "owner_occupied_pct": 68.3,
     "wfh_pct": 8.2,
     "demo_score": 0.459,
-    "opportunity_score": 1.0,
-    "attractiveness_index": 0.702,
+    "opportunity_score": 0.754,
+    "attractiveness_index": 0.592,
     "segment": "Most Attractive",
     "bead_status": "Unverified",
     "bead_dollars_awarded": null,
     "bead_awardees": [],
     "bead_locations_covered": null,
     "bead_claimed_pct": null,
-    "competitive_intensity": 0,
-    "competitive_label": "None",
-    "wireline_providers": [],
+    "competitive_intensity": 3,
+    "competitive_label": "High",
+    "wireline_providers": [
+      "Velocity.Net Communications Inc",
+      "North Penn Long Distance Corporation",
+      "ArmstrongUtilitiesInc",
+      "Armstrong Telecommunications Inc",
+      "Windstream Pennsylvania, LLC.",
+      "Spectrum",
+      "Blue Fiber"
+    ],
     "total_broadband_providers": 18,
-    "cable_coverage_pct": 0.0,
-    "fwa_coverage_pct": 0.0,
-    "broadband_coverage_pct": 0.0,
+    "cable_coverage_pct": 0.941,
+    "fwa_coverage_pct": 0.704,
+    "broadband_coverage_pct": 1.0,
     "broadband_gap_pct": 0.0,
-    "cable_present": false,
-    "fwa_present": false,
+    "cable_present": true,
+    "fwa_present": true,
     "fiber_growth_pct": null,
     "momentum_class": null,
     "elevation_mean_ft": 16.0,
@@ -1301,13 +2191,64 @@
   },
   "42051": {
     "geoid": "42051",
-    "name": "FayettePennsylvania",
+    "name": "Fayette",
     "is_metro_county": true,
     "total_bsls": 62060,
-    "fiber_served": 0,
-    "fiber_unserved": 62060,
-    "fiber_penetration": 0.0,
-    "operators": [],
+    "fiber_served": 18528,
+    "fiber_unserved": 43532,
+    "fiber_penetration": 0.299,
+    "operators": [
+      {
+        "name": "QCOL",
+        "passings": 9639,
+        "served": 9639
+      },
+      {
+        "name": "Omni Fiber",
+        "passings": 6976,
+        "served": 6976
+      },
+      {
+        "name": "VITALink LLC",
+        "passings": 6568,
+        "served": 6568
+      },
+      {
+        "name": "LHTC Broadband",
+        "passings": 2963,
+        "served": 2963
+      },
+      {
+        "name": "Breezeline",
+        "passings": 1471,
+        "served": 1471
+      },
+      {
+        "name": "ArmstrongUtilitiesInc",
+        "passings": 85,
+        "served": 85
+      },
+      {
+        "name": "Citizens Telephone Company of Kecksburg",
+        "passings": 14,
+        "served": 14
+      },
+      {
+        "name": "Windstream Pennsylvania, LLC.",
+        "passings": 13,
+        "served": 13
+      },
+      {
+        "name": "Prodigi",
+        "passings": 2,
+        "served": 2
+      },
+      {
+        "name": "Konvergence Technologies",
+        "passings": 1,
+        "served": 1
+      }
+    ],
     "population_2023": 126967,
     "population_2018": 132289,
     "pop_growth_pct": -4.02,
@@ -1322,24 +2263,35 @@
     "owner_occupied_pct": 72.5,
     "wfh_pct": 6.6,
     "demo_score": 0.366,
-    "opportunity_score": 1.0,
-    "attractiveness_index": 0.651,
+    "opportunity_score": 0.701,
+    "attractiveness_index": 0.517,
     "segment": "Most Attractive",
     "bead_status": "Unverified",
     "bead_dollars_awarded": null,
     "bead_awardees": [],
     "bead_locations_covered": null,
     "bead_claimed_pct": null,
-    "competitive_intensity": 0,
-    "competitive_label": "None",
-    "wireline_providers": [],
+    "competitive_intensity": 3,
+    "competitive_label": "High",
+    "wireline_providers": [
+      "QCOL",
+      "Omni Fiber",
+      "VITALink LLC",
+      "LHTC Broadband",
+      "Breezeline",
+      "ArmstrongUtilitiesInc",
+      "Citizens Telephone Company of Kecksburg",
+      "Windstream Pennsylvania, LLC.",
+      "Prodigi",
+      "Konvergence Technologies"
+    ],
     "total_broadband_providers": 21,
-    "cable_coverage_pct": 0.0,
-    "fwa_coverage_pct": 0.0,
-    "broadband_coverage_pct": 0.0,
+    "cable_coverage_pct": 0.91,
+    "fwa_coverage_pct": 0.613,
+    "broadband_coverage_pct": 1.0,
     "broadband_gap_pct": 0.0,
-    "cable_present": false,
-    "fwa_present": false,
+    "cable_present": true,
+    "fwa_present": true,
     "fiber_growth_pct": null,
     "momentum_class": null,
     "elevation_mean_ft": 49.7,
@@ -1353,13 +2305,29 @@
   },
   "42053": {
     "geoid": "42053",
-    "name": "ForestPennsylvania",
+    "name": "Forest",
     "is_metro_county": false,
     "total_bsls": 6969,
-    "fiber_served": 0,
-    "fiber_unserved": 6969,
-    "fiber_penetration": 0.0,
-    "operators": [],
+    "fiber_served": 219,
+    "fiber_unserved": 6750,
+    "fiber_penetration": 0.031,
+    "operators": [
+      {
+        "name": "ArmstrongUtilitiesInc",
+        "passings": 161,
+        "served": 161
+      },
+      {
+        "name": "VenusTelephone",
+        "passings": 57,
+        "served": 57
+      },
+      {
+        "name": "Windstream Pennsylvania, LLC.",
+        "passings": 1,
+        "served": 1
+      }
+    ],
     "population_2023": 6785,
     "population_2018": 7351,
     "pop_growth_pct": -7.7,
@@ -1374,24 +2342,28 @@
     "owner_occupied_pct": 76.9,
     "wfh_pct": 14.7,
     "demo_score": 0.306,
-    "opportunity_score": 1.0,
-    "attractiveness_index": 0.618,
+    "opportunity_score": 0.969,
+    "attractiveness_index": 0.604,
     "segment": "Most Attractive",
     "bead_status": "Unverified",
     "bead_dollars_awarded": null,
     "bead_awardees": [],
     "bead_locations_covered": null,
     "bead_claimed_pct": null,
-    "competitive_intensity": 0,
-    "competitive_label": "None",
-    "wireline_providers": [],
+    "competitive_intensity": 2,
+    "competitive_label": "Moderate",
+    "wireline_providers": [
+      "ArmstrongUtilitiesInc",
+      "VenusTelephone",
+      "Windstream Pennsylvania, LLC."
+    ],
     "total_broadband_providers": 10,
-    "cable_coverage_pct": 0.0,
-    "fwa_coverage_pct": 0.0,
-    "broadband_coverage_pct": 0.0,
+    "cable_coverage_pct": 0.982,
+    "fwa_coverage_pct": 0.563,
+    "broadband_coverage_pct": 1.0,
     "broadband_gap_pct": 0.0,
-    "cable_present": false,
-    "fwa_present": false,
+    "cable_present": true,
+    "fwa_present": true,
     "fiber_growth_pct": null,
     "momentum_class": null,
     "elevation_mean_ft": 52.5,
@@ -1405,13 +2377,34 @@
   },
   "42055": {
     "geoid": "42055",
-    "name": "FranklinPennsylvania",
+    "name": "Franklin",
     "is_metro_county": true,
     "total_bsls": 66787,
-    "fiber_served": 0,
-    "fiber_unserved": 66787,
-    "fiber_penetration": 0.0,
-    "operators": [],
+    "fiber_served": 25807,
+    "fiber_unserved": 40980,
+    "fiber_penetration": 0.386,
+    "operators": [
+      {
+        "name": "Brightspeed",
+        "passings": 24643,
+        "served": 24643
+      },
+      {
+        "name": "Glo Fiber",
+        "passings": 5312,
+        "served": 5312
+      },
+      {
+        "name": "Xfinity",
+        "passings": 3,
+        "served": 3
+      },
+      {
+        "name": "Verizon",
+        "passings": 2,
+        "served": 2
+      }
+    ],
     "population_2023": 156626,
     "population_2018": 153751,
     "pop_growth_pct": 1.87,
@@ -1426,24 +2419,29 @@
     "owner_occupied_pct": 73.2,
     "wfh_pct": 8.9,
     "demo_score": 0.592,
-    "opportunity_score": 1.0,
-    "attractiveness_index": 0.776,
+    "opportunity_score": 0.614,
+    "attractiveness_index": 0.602,
     "segment": "Most Attractive",
     "bead_status": "Unverified",
     "bead_dollars_awarded": null,
     "bead_awardees": [],
     "bead_locations_covered": null,
     "bead_claimed_pct": null,
-    "competitive_intensity": 0,
-    "competitive_label": "None",
-    "wireline_providers": [],
+    "competitive_intensity": 3,
+    "competitive_label": "High",
+    "wireline_providers": [
+      "Brightspeed",
+      "Glo Fiber",
+      "Xfinity",
+      "Verizon"
+    ],
     "total_broadband_providers": 18,
-    "cable_coverage_pct": 0.0,
-    "fwa_coverage_pct": 0.0,
-    "broadband_coverage_pct": 0.0,
+    "cable_coverage_pct": 0.993,
+    "fwa_coverage_pct": 0.711,
+    "broadband_coverage_pct": 1.0,
     "broadband_gap_pct": 0.0,
-    "cable_present": false,
-    "fwa_present": false,
+    "cable_present": true,
+    "fwa_present": true,
     "fiber_growth_pct": null,
     "momentum_class": null,
     "elevation_mean_ft": 27.9,
@@ -1457,13 +2455,29 @@
   },
   "42057": {
     "geoid": "42057",
-    "name": "FultonPennsylvania",
+    "name": "Fulton",
     "is_metro_county": false,
     "total_bsls": 7129,
-    "fiber_served": 0,
-    "fiber_unserved": 7129,
-    "fiber_penetration": 0.0,
-    "operators": [],
+    "fiber_served": 1209,
+    "fiber_unserved": 5920,
+    "fiber_penetration": 0.17,
+    "operators": [
+      {
+        "name": "Frontier",
+        "passings": 1205,
+        "served": 1205
+      },
+      {
+        "name": "Brightspeed",
+        "passings": 2,
+        "served": 2
+      },
+      {
+        "name": "Verizon",
+        "passings": 2,
+        "served": 2
+      }
+    ],
     "population_2023": 14545,
     "population_2018": 14506,
     "pop_growth_pct": 0.27,
@@ -1478,24 +2492,28 @@
     "owner_occupied_pct": 77.6,
     "wfh_pct": 6.7,
     "demo_score": 0.432,
-    "opportunity_score": 1.0,
-    "attractiveness_index": 0.688,
+    "opportunity_score": 0.83,
+    "attractiveness_index": 0.611,
     "segment": "Most Attractive",
     "bead_status": "Unverified",
     "bead_dollars_awarded": null,
     "bead_awardees": [],
     "bead_locations_covered": null,
     "bead_claimed_pct": null,
-    "competitive_intensity": 0,
-    "competitive_label": "None",
-    "wireline_providers": [],
+    "competitive_intensity": 2,
+    "competitive_label": "Moderate",
+    "wireline_providers": [
+      "Frontier",
+      "Brightspeed",
+      "Verizon"
+    ],
     "total_broadband_providers": 14,
-    "cable_coverage_pct": 0.0,
-    "fwa_coverage_pct": 0.0,
-    "broadband_coverage_pct": 0.0,
+    "cable_coverage_pct": 0.88,
+    "fwa_coverage_pct": 0.975,
+    "broadband_coverage_pct": 1.0,
     "broadband_gap_pct": 0.0,
-    "cable_present": false,
-    "fwa_present": false,
+    "cable_present": true,
+    "fwa_present": true,
     "fiber_growth_pct": null,
     "momentum_class": null,
     "elevation_mean_ft": 58.2,
@@ -1509,13 +2527,34 @@
   },
   "42059": {
     "geoid": "42059",
-    "name": "GreenePennsylvania",
+    "name": "Greene",
     "is_metro_county": false,
     "total_bsls": 16182,
-    "fiber_served": 0,
-    "fiber_unserved": 16182,
-    "fiber_penetration": 0.0,
-    "operators": [],
+    "fiber_served": 10676,
+    "fiber_unserved": 5506,
+    "fiber_penetration": 0.66,
+    "operators": [
+      {
+        "name": "Windstream Pennsylvania, LLC.",
+        "passings": 10657,
+        "served": 10657
+      },
+      {
+        "name": "West Side Telecommunications",
+        "passings": 51,
+        "served": 51
+      },
+      {
+        "name": "Breezeline",
+        "passings": 1,
+        "served": 1
+      },
+      {
+        "name": "Verizon",
+        "passings": 1,
+        "served": 1
+      }
+    ],
     "population_2023": 35265,
     "population_2018": 37144,
     "pop_growth_pct": -5.06,
@@ -1530,24 +2569,29 @@
     "owner_occupied_pct": 78.1,
     "wfh_pct": 5.8,
     "demo_score": 0.371,
-    "opportunity_score": 1.0,
-    "attractiveness_index": 0.654,
-    "segment": "Most Attractive",
+    "opportunity_score": 0.34,
+    "attractiveness_index": 0.357,
+    "segment": "Neutral",
     "bead_status": "Unverified",
     "bead_dollars_awarded": null,
     "bead_awardees": [],
     "bead_locations_covered": null,
     "bead_claimed_pct": null,
-    "competitive_intensity": 0,
-    "competitive_label": "None",
-    "wireline_providers": [],
+    "competitive_intensity": 3,
+    "competitive_label": "High",
+    "wireline_providers": [
+      "Windstream Pennsylvania, LLC.",
+      "West Side Telecommunications",
+      "Breezeline",
+      "Verizon"
+    ],
     "total_broadband_providers": 15,
-    "cable_coverage_pct": 0.0,
-    "fwa_coverage_pct": 0.0,
-    "broadband_coverage_pct": 0.0,
+    "cable_coverage_pct": 0.93,
+    "fwa_coverage_pct": 0.587,
+    "broadband_coverage_pct": 1.0,
     "broadband_gap_pct": 0.0,
-    "cable_present": false,
-    "fwa_present": false,
+    "cable_present": true,
+    "fwa_present": true,
     "fiber_growth_pct": null,
     "momentum_class": null,
     "elevation_mean_ft": 61.0,
@@ -1561,13 +2605,29 @@
   },
   "42061": {
     "geoid": "42061",
-    "name": "HuntingdonPennsylvania",
+    "name": "Huntingdon",
     "is_metro_county": false,
     "total_bsls": 20932,
-    "fiber_served": 0,
-    "fiber_unserved": 20932,
-    "fiber_penetration": 0.0,
-    "operators": [],
+    "fiber_served": 706,
+    "fiber_unserved": 20226,
+    "fiber_penetration": 0.034,
+    "operators": [
+      {
+        "name": "Brightspeed",
+        "passings": 429,
+        "served": 429
+      },
+      {
+        "name": "Nmax",
+        "passings": 275,
+        "served": 275
+      },
+      {
+        "name": "Frontier",
+        "passings": 2,
+        "served": 2
+      }
+    ],
     "population_2023": 43844,
     "population_2018": 45421,
     "pop_growth_pct": -3.47,
@@ -1582,24 +2642,28 @@
     "owner_occupied_pct": 78.6,
     "wfh_pct": 6.6,
     "demo_score": 0.387,
-    "opportunity_score": 1.0,
-    "attractiveness_index": 0.663,
+    "opportunity_score": 0.966,
+    "attractiveness_index": 0.648,
     "segment": "Most Attractive",
     "bead_status": "Unverified",
     "bead_dollars_awarded": null,
     "bead_awardees": [],
     "bead_locations_covered": null,
     "bead_claimed_pct": null,
-    "competitive_intensity": 0,
-    "competitive_label": "None",
-    "wireline_providers": [],
+    "competitive_intensity": 2,
+    "competitive_label": "Moderate",
+    "wireline_providers": [
+      "Brightspeed",
+      "Nmax",
+      "Frontier"
+    ],
     "total_broadband_providers": 19,
-    "cable_coverage_pct": 0.0,
-    "fwa_coverage_pct": 0.0,
-    "broadband_coverage_pct": 0.0,
+    "cable_coverage_pct": 0.977,
+    "fwa_coverage_pct": 0.813,
+    "broadband_coverage_pct": 1.0,
     "broadband_gap_pct": 0.0,
-    "cable_present": false,
-    "fwa_present": false,
+    "cable_present": true,
+    "fwa_present": true,
     "fiber_growth_pct": null,
     "momentum_class": null,
     "elevation_mean_ft": 61.9,
@@ -1613,13 +2677,39 @@
   },
   "42063": {
     "geoid": "42063",
-    "name": "IndianaPennsylvania",
+    "name": "Indiana",
     "is_metro_county": false,
     "total_bsls": 37672,
-    "fiber_served": 0,
-    "fiber_unserved": 37672,
-    "fiber_penetration": 0.0,
-    "operators": [],
+    "fiber_served": 5873,
+    "fiber_unserved": 31799,
+    "fiber_penetration": 0.156,
+    "operators": [
+      {
+        "name": "Salsgiver Inc",
+        "passings": 5510,
+        "served": 5510
+      },
+      {
+        "name": "Windstream Pennsylvania, LLC.",
+        "passings": 404,
+        "served": 404
+      },
+      {
+        "name": "Xfinity",
+        "passings": 94,
+        "served": 94
+      },
+      {
+        "name": "Verizon",
+        "passings": 22,
+        "served": 22
+      },
+      {
+        "name": "Dojo Networks",
+        "passings": 1,
+        "served": 1
+      }
+    ],
     "population_2023": 83213,
     "population_2018": 85755,
     "pop_growth_pct": -2.96,
@@ -1634,24 +2724,30 @@
     "owner_occupied_pct": 71.1,
     "wfh_pct": 7.4,
     "demo_score": 0.384,
-    "opportunity_score": 1.0,
-    "attractiveness_index": 0.661,
+    "opportunity_score": 0.844,
+    "attractiveness_index": 0.591,
     "segment": "Most Attractive",
     "bead_status": "Unverified",
     "bead_dollars_awarded": null,
     "bead_awardees": [],
     "bead_locations_covered": null,
     "bead_claimed_pct": null,
-    "competitive_intensity": 0,
-    "competitive_label": "None",
-    "wireline_providers": [],
+    "competitive_intensity": 3,
+    "competitive_label": "High",
+    "wireline_providers": [
+      "Salsgiver Inc",
+      "Windstream Pennsylvania, LLC.",
+      "Xfinity",
+      "Verizon",
+      "Dojo Networks"
+    ],
     "total_broadband_providers": 14,
-    "cable_coverage_pct": 0.0,
-    "fwa_coverage_pct": 0.0,
-    "broadband_coverage_pct": 0.0,
+    "cable_coverage_pct": 0.987,
+    "fwa_coverage_pct": 0.758,
+    "broadband_coverage_pct": 1.0,
     "broadband_gap_pct": 0.0,
-    "cable_present": false,
-    "fwa_present": false,
+    "cable_present": true,
+    "fwa_present": true,
     "fiber_growth_pct": null,
     "momentum_class": null,
     "elevation_mean_ft": 44.1,
@@ -1665,13 +2761,19 @@
   },
   "42065": {
     "geoid": "42065",
-    "name": "JeffersonPennsylvania",
+    "name": "Jefferson",
     "is_metro_county": false,
     "total_bsls": 22053,
-    "fiber_served": 0,
-    "fiber_unserved": 22053,
-    "fiber_penetration": 0.0,
-    "operators": [],
+    "fiber_served": 5837,
+    "fiber_unserved": 16216,
+    "fiber_penetration": 0.265,
+    "operators": [
+      {
+        "name": "Windstream Pennsylvania, LLC.",
+        "passings": 5837,
+        "served": 5837
+      }
+    ],
     "population_2023": 44099,
     "population_2018": 44084,
     "pop_growth_pct": 0.03,
@@ -1686,8 +2788,8 @@
     "owner_occupied_pct": 74.2,
     "wfh_pct": 5.1,
     "demo_score": 0.399,
-    "opportunity_score": 1.0,
-    "attractiveness_index": 0.669,
+    "opportunity_score": 0.735,
+    "attractiveness_index": 0.55,
     "segment": "Most Attractive",
     "bead_status": "Unverified",
     "bead_dollars_awarded": null,
@@ -1695,15 +2797,17 @@
     "bead_locations_covered": null,
     "bead_claimed_pct": null,
     "competitive_intensity": 0,
-    "competitive_label": "None",
-    "wireline_providers": [],
+    "competitive_label": "Monopoly",
+    "wireline_providers": [
+      "Windstream Pennsylvania, LLC."
+    ],
     "total_broadband_providers": 9,
-    "cable_coverage_pct": 0.0,
-    "fwa_coverage_pct": 0.0,
-    "broadband_coverage_pct": 0.0,
+    "cable_coverage_pct": 0.89,
+    "fwa_coverage_pct": 0.707,
+    "broadband_coverage_pct": 1.0,
     "broadband_gap_pct": 0.0,
-    "cable_present": false,
-    "fwa_present": false,
+    "cable_present": true,
+    "fwa_present": true,
     "fiber_growth_pct": null,
     "momentum_class": null,
     "elevation_mean_ft": 44.8,
@@ -1717,13 +2821,24 @@
   },
   "42067": {
     "geoid": "42067",
-    "name": "JuniataPennsylvania",
+    "name": "Juniata",
     "is_metro_county": false,
     "total_bsls": 10502,
-    "fiber_served": 0,
-    "fiber_unserved": 10502,
-    "fiber_penetration": 0.0,
-    "operators": [],
+    "fiber_served": 2390,
+    "fiber_unserved": 8112,
+    "fiber_penetration": 0.228,
+    "operators": [
+      {
+        "name": "Zito Media",
+        "passings": 2365,
+        "served": 2365
+      },
+      {
+        "name": "Brightspeed",
+        "passings": 618,
+        "served": 618
+      }
+    ],
     "population_2023": 23419,
     "population_2018": 24562,
     "pop_growth_pct": -4.65,
@@ -1738,24 +2853,27 @@
     "owner_occupied_pct": 73.2,
     "wfh_pct": 9.2,
     "demo_score": 0.378,
-    "opportunity_score": 1.0,
-    "attractiveness_index": 0.658,
+    "opportunity_score": 0.772,
+    "attractiveness_index": 0.555,
     "segment": "Most Attractive",
     "bead_status": "Unverified",
     "bead_dollars_awarded": null,
     "bead_awardees": [],
     "bead_locations_covered": null,
     "bead_claimed_pct": null,
-    "competitive_intensity": 0,
-    "competitive_label": "None",
-    "wireline_providers": [],
+    "competitive_intensity": 1,
+    "competitive_label": "Low",
+    "wireline_providers": [
+      "Zito Media",
+      "Brightspeed"
+    ],
     "total_broadband_providers": 14,
-    "cable_coverage_pct": 0.0,
-    "fwa_coverage_pct": 0.0,
-    "broadband_coverage_pct": 0.0,
+    "cable_coverage_pct": 0.903,
+    "fwa_coverage_pct": 0.822,
+    "broadband_coverage_pct": 1.0,
     "broadband_gap_pct": 0.0,
-    "cable_present": false,
-    "fwa_present": false,
+    "cable_present": true,
+    "fwa_present": true,
     "fiber_growth_pct": null,
     "momentum_class": null,
     "elevation_mean_ft": 66.3,
@@ -1769,13 +2887,79 @@
   },
   "42069": {
     "geoid": "42069",
-    "name": "LackawannaPennsylvania",
+    "name": "Lackawanna",
     "is_metro_county": true,
     "total_bsls": 100013,
-    "fiber_served": 0,
-    "fiber_unserved": 100013,
-    "fiber_penetration": 0.0,
-    "operators": [],
+    "fiber_served": 47328,
+    "fiber_unserved": 52685,
+    "fiber_penetration": 0.473,
+    "operators": [
+      {
+        "name": "North Penn Long Distance Corporation",
+        "passings": 17412,
+        "served": 17412
+      },
+      {
+        "name": "Frontier",
+        "passings": 12606,
+        "served": 12606
+      },
+      {
+        "name": "Astound Broadband",
+        "passings": 10725,
+        "served": 10725
+      },
+      {
+        "name": "Verizon",
+        "passings": 9553,
+        "served": 9553
+      },
+      {
+        "name": "AT&T",
+        "passings": 5904,
+        "served": 5904
+      },
+      {
+        "name": "Loop Internet",
+        "passings": 4830,
+        "served": 4830
+      },
+      {
+        "name": "Adams CATV Inc",
+        "passings": 4070,
+        "served": 4070
+      },
+      {
+        "name": "Greenlight Networks",
+        "passings": 2110,
+        "served": 2110
+      },
+      {
+        "name": "Xfinity",
+        "passings": 1397,
+        "served": 1397
+      },
+      {
+        "name": "The North-Eastern Pennsylvania Telephone Company",
+        "passings": 1364,
+        "served": 1364
+      },
+      {
+        "name": "LHTC Broadband",
+        "passings": 59,
+        "served": 59
+      },
+      {
+        "name": "NEP Telcom Inc",
+        "passings": 19,
+        "served": 19
+      },
+      {
+        "name": "Blue Ridge Cable Technologies",
+        "passings": 10,
+        "served": 10
+      }
+    ],
     "population_2023": 215834,
     "population_2018": 211454,
     "pop_growth_pct": 2.07,
@@ -1790,24 +2974,38 @@
     "owner_occupied_pct": 65.4,
     "wfh_pct": 9.5,
     "demo_score": 0.572,
-    "opportunity_score": 1.0,
-    "attractiveness_index": 0.765,
+    "opportunity_score": 0.527,
+    "attractiveness_index": 0.552,
     "segment": "Most Attractive",
     "bead_status": "Unverified",
     "bead_dollars_awarded": null,
     "bead_awardees": [],
     "bead_locations_covered": null,
     "bead_claimed_pct": null,
-    "competitive_intensity": 0,
-    "competitive_label": "None",
-    "wireline_providers": [],
+    "competitive_intensity": 3,
+    "competitive_label": "High",
+    "wireline_providers": [
+      "North Penn Long Distance Corporation",
+      "Frontier",
+      "Astound Broadband",
+      "Verizon",
+      "AT&T",
+      "Loop Internet",
+      "Adams CATV Inc",
+      "Greenlight Networks",
+      "Xfinity",
+      "The North-Eastern Pennsylvania Telephone Company",
+      "LHTC Broadband",
+      "NEP Telcom Inc",
+      "Blue Ridge Cable Technologies"
+    ],
     "total_broadband_providers": 22,
-    "cable_coverage_pct": 0.0,
-    "fwa_coverage_pct": 0.0,
-    "broadband_coverage_pct": 0.0,
+    "cable_coverage_pct": 0.975,
+    "fwa_coverage_pct": 0.942,
+    "broadband_coverage_pct": 1.0,
     "broadband_gap_pct": 0.0,
-    "cable_present": false,
-    "fwa_present": false,
+    "cable_present": true,
+    "fwa_present": true,
     "fiber_growth_pct": null,
     "momentum_class": null,
     "elevation_mean_ft": 38.4,
@@ -1821,13 +3019,74 @@
   },
   "42071": {
     "geoid": "42071",
-    "name": "LancasterPennsylvania",
+    "name": "Lancaster",
     "is_metro_county": true,
     "total_bsls": 217863,
-    "fiber_served": 0,
-    "fiber_unserved": 217863,
-    "fiber_penetration": 0.0,
-    "operators": [],
+    "fiber_served": 108242,
+    "fiber_unserved": 109621,
+    "fiber_penetration": 0.497,
+    "operators": [
+      {
+        "name": "Glo Fiber",
+        "passings": 31203,
+        "served": 31203
+      },
+      {
+        "name": "Blue Ridge Cable Technologies",
+        "passings": 27488,
+        "served": 27488
+      },
+      {
+        "name": "Frontier",
+        "passings": 23671,
+        "served": 23671
+      },
+      {
+        "name": "Windstream D&E, Inc.",
+        "passings": 22825,
+        "served": 22825
+      },
+      {
+        "name": "Brightspeed",
+        "passings": 21841,
+        "served": 21841
+      },
+      {
+        "name": "Xfinity",
+        "passings": 594,
+        "served": 594
+      },
+      {
+        "name": "Windstream Conestoga, Inc.",
+        "passings": 419,
+        "served": 419
+      },
+      {
+        "name": "Service Electric Cablevision,Inc.",
+        "passings": 43,
+        "served": 43
+      },
+      {
+        "name": "Windstream Pennsylvania, LLC.",
+        "passings": 2,
+        "served": 2
+      },
+      {
+        "name": "Dojo Networks",
+        "passings": 1,
+        "served": 1
+      },
+      {
+        "name": "Verizon",
+        "passings": 1,
+        "served": 1
+      },
+      {
+        "name": "Windstream Communications, LLC.",
+        "passings": 1,
+        "served": 1
+      }
+    ],
     "population_2023": 555151,
     "population_2018": 538347,
     "pop_growth_pct": 3.12,
@@ -1842,24 +3101,37 @@
     "owner_occupied_pct": 69.9,
     "wfh_pct": 10.3,
     "demo_score": 0.707,
-    "opportunity_score": 1.0,
-    "attractiveness_index": 0.839,
+    "opportunity_score": 0.503,
+    "attractiveness_index": 0.615,
     "segment": "Most Attractive",
     "bead_status": "Unverified",
     "bead_dollars_awarded": null,
     "bead_awardees": [],
     "bead_locations_covered": null,
     "bead_claimed_pct": null,
-    "competitive_intensity": 0,
-    "competitive_label": "None",
-    "wireline_providers": [],
+    "competitive_intensity": 3,
+    "competitive_label": "High",
+    "wireline_providers": [
+      "Glo Fiber",
+      "Blue Ridge Cable Technologies",
+      "Frontier",
+      "Windstream D&E, Inc.",
+      "Brightspeed",
+      "Xfinity",
+      "Windstream Conestoga, Inc.",
+      "Service Electric Cablevision,Inc.",
+      "Windstream Pennsylvania, LLC.",
+      "Dojo Networks",
+      "Verizon",
+      "Windstream Communications, LLC."
+    ],
     "total_broadband_providers": 21,
-    "cable_coverage_pct": 0.0,
-    "fwa_coverage_pct": 0.0,
-    "broadband_coverage_pct": 0.0,
+    "cable_coverage_pct": 0.899,
+    "fwa_coverage_pct": 0.89,
+    "broadband_coverage_pct": 1.0,
     "broadband_gap_pct": 0.0,
-    "cable_present": false,
-    "fwa_present": false,
+    "cable_present": true,
+    "fwa_present": true,
     "fiber_growth_pct": null,
     "momentum_class": null,
     "elevation_mean_ft": 21.7,
@@ -1873,13 +3145,29 @@
   },
   "42073": {
     "geoid": "42073",
-    "name": "LawrencePennsylvania",
+    "name": "Lawrence",
     "is_metro_county": true,
     "total_bsls": 39597,
-    "fiber_served": 0,
-    "fiber_unserved": 39597,
-    "fiber_penetration": 0.0,
-    "operators": [],
+    "fiber_served": 2646,
+    "fiber_unserved": 36951,
+    "fiber_penetration": 0.067,
+    "operators": [
+      {
+        "name": "Omni Fiber",
+        "passings": 2503,
+        "served": 2503
+      },
+      {
+        "name": "Windstream Pennsylvania, LLC.",
+        "passings": 92,
+        "served": 92
+      },
+      {
+        "name": "ArmstrongUtilitiesInc",
+        "passings": 51,
+        "served": 51
+      }
+    ],
     "population_2023": 85423,
     "population_2018": 87382,
     "pop_growth_pct": -2.24,
@@ -1894,24 +3182,28 @@
     "owner_occupied_pct": 75.4,
     "wfh_pct": 11.2,
     "demo_score": 0.463,
-    "opportunity_score": 1.0,
-    "attractiveness_index": 0.705,
+    "opportunity_score": 0.933,
+    "attractiveness_index": 0.675,
     "segment": "Most Attractive",
     "bead_status": "Unverified",
     "bead_dollars_awarded": null,
     "bead_awardees": [],
     "bead_locations_covered": null,
     "bead_claimed_pct": null,
-    "competitive_intensity": 0,
-    "competitive_label": "None",
-    "wireline_providers": [],
+    "competitive_intensity": 2,
+    "competitive_label": "Moderate",
+    "wireline_providers": [
+      "Omni Fiber",
+      "Windstream Pennsylvania, LLC.",
+      "ArmstrongUtilitiesInc"
+    ],
     "total_broadband_providers": 17,
-    "cable_coverage_pct": 0.0,
-    "fwa_coverage_pct": 0.0,
-    "broadband_coverage_pct": 0.0,
+    "cable_coverage_pct": 0.984,
+    "fwa_coverage_pct": 0.717,
+    "broadband_coverage_pct": 1.0,
     "broadband_gap_pct": 0.0,
-    "cable_present": false,
-    "fwa_present": false,
+    "cable_present": true,
+    "fwa_present": true,
     "fiber_growth_pct": null,
     "momentum_class": null,
     "elevation_mean_ft": 29.9,
@@ -1925,13 +3217,44 @@
   },
   "42075": {
     "geoid": "42075",
-    "name": "LebanonPennsylvania",
+    "name": "Lebanon",
     "is_metro_county": true,
     "total_bsls": 59582,
-    "fiber_served": 0,
-    "fiber_unserved": 59582,
-    "fiber_penetration": 0.0,
-    "operators": [],
+    "fiber_served": 28279,
+    "fiber_unserved": 31303,
+    "fiber_penetration": 0.475,
+    "operators": [
+      {
+        "name": "Verizon",
+        "passings": 28257,
+        "served": 28257
+      },
+      {
+        "name": "Windstream D&E, Inc.",
+        "passings": 9,
+        "served": 9
+      },
+      {
+        "name": "Patriot Cable System LLC",
+        "passings": 6,
+        "served": 6
+      },
+      {
+        "name": "Frontier",
+        "passings": 5,
+        "served": 5
+      },
+      {
+        "name": "Blue Ridge Cable Technologies",
+        "passings": 3,
+        "served": 3
+      },
+      {
+        "name": "Xfinity",
+        "passings": 3,
+        "served": 3
+      }
+    ],
     "population_2023": 143592,
     "population_2018": 138674,
     "pop_growth_pct": 3.55,
@@ -1946,24 +3269,31 @@
     "owner_occupied_pct": 71.3,
     "wfh_pct": 10.1,
     "demo_score": 0.658,
-    "opportunity_score": 1.0,
-    "attractiveness_index": 0.812,
+    "opportunity_score": 0.525,
+    "attractiveness_index": 0.598,
     "segment": "Most Attractive",
     "bead_status": "Unverified",
     "bead_dollars_awarded": null,
     "bead_awardees": [],
     "bead_locations_covered": null,
     "bead_claimed_pct": null,
-    "competitive_intensity": 0,
-    "competitive_label": "None",
-    "wireline_providers": [],
+    "competitive_intensity": 3,
+    "competitive_label": "High",
+    "wireline_providers": [
+      "Verizon",
+      "Windstream D&E, Inc.",
+      "Patriot Cable System LLC",
+      "Frontier",
+      "Blue Ridge Cable Technologies",
+      "Xfinity"
+    ],
     "total_broadband_providers": 16,
-    "cable_coverage_pct": 0.0,
-    "fwa_coverage_pct": 0.0,
-    "broadband_coverage_pct": 0.0,
+    "cable_coverage_pct": 0.995,
+    "fwa_coverage_pct": 0.939,
+    "broadband_coverage_pct": 1.0,
     "broadband_gap_pct": 0.0,
-    "cable_present": false,
-    "fwa_present": false,
+    "cable_present": true,
+    "fwa_present": true,
     "fiber_growth_pct": null,
     "momentum_class": null,
     "elevation_mean_ft": 21.6,
@@ -1977,13 +3307,44 @@
   },
   "42077": {
     "geoid": "42077",
-    "name": "LehighPennsylvania",
+    "name": "Lehigh",
     "is_metro_county": true,
     "total_bsls": 150547,
-    "fiber_served": 0,
-    "fiber_unserved": 150547,
-    "fiber_penetration": 0.0,
-    "operators": [],
+    "fiber_served": 44168,
+    "fiber_unserved": 106379,
+    "fiber_penetration": 0.293,
+    "operators": [
+      {
+        "name": "Verizon",
+        "passings": 39827,
+        "served": 39827
+      },
+      {
+        "name": "Frontier",
+        "passings": 2002,
+        "served": 2002
+      },
+      {
+        "name": "Ironton Telephone Company",
+        "passings": 1887,
+        "served": 1887
+      },
+      {
+        "name": "Xfinity",
+        "passings": 411,
+        "served": 411
+      },
+      {
+        "name": "Astound Broadband",
+        "passings": 70,
+        "served": 70
+      },
+      {
+        "name": "Windstream Conestoga, Inc.",
+        "passings": 10,
+        "served": 10
+      }
+    ],
     "population_2023": 375408,
     "population_2018": 362613,
     "pop_growth_pct": 3.53,
@@ -1998,24 +3359,31 @@
     "owner_occupied_pct": 65.2,
     "wfh_pct": 12.1,
     "demo_score": 0.712,
-    "opportunity_score": 1.0,
-    "attractiveness_index": 0.842,
+    "opportunity_score": 0.707,
+    "attractiveness_index": 0.71,
     "segment": "Most Attractive",
     "bead_status": "Unverified",
     "bead_dollars_awarded": null,
     "bead_awardees": [],
     "bead_locations_covered": null,
     "bead_claimed_pct": null,
-    "competitive_intensity": 0,
-    "competitive_label": "None",
-    "wireline_providers": [],
+    "competitive_intensity": 3,
+    "competitive_label": "High",
+    "wireline_providers": [
+      "Verizon",
+      "Frontier",
+      "Ironton Telephone Company",
+      "Xfinity",
+      "Astound Broadband",
+      "Windstream Conestoga, Inc."
+    ],
     "total_broadband_providers": 19,
-    "cable_coverage_pct": 0.0,
-    "fwa_coverage_pct": 0.0,
-    "broadband_coverage_pct": 0.0,
+    "cable_coverage_pct": 0.985,
+    "fwa_coverage_pct": 0.879,
+    "broadband_coverage_pct": 1.0,
     "broadband_gap_pct": 0.0,
-    "cable_present": false,
-    "fwa_present": false,
+    "cable_present": true,
+    "fwa_present": true,
     "fiber_growth_pct": null,
     "momentum_class": null,
     "elevation_mean_ft": 26.4,
@@ -2029,13 +3397,64 @@
   },
   "42079": {
     "geoid": "42079",
-    "name": "LuzernePennsylvania",
+    "name": "Luzerne",
     "is_metro_county": true,
     "total_bsls": 151012,
-    "fiber_served": 0,
-    "fiber_unserved": 151012,
-    "fiber_penetration": 0.0,
-    "operators": [],
+    "fiber_served": 74615,
+    "fiber_unserved": 76397,
+    "fiber_penetration": 0.494,
+    "operators": [
+      {
+        "name": "Frontier",
+        "passings": 25535,
+        "served": 25535
+      },
+      {
+        "name": "Astound Broadband",
+        "passings": 23718,
+        "served": 23718
+      },
+      {
+        "name": "Loop Internet",
+        "passings": 17431,
+        "served": 17431
+      },
+      {
+        "name": "Verizon",
+        "passings": 10445,
+        "served": 10445
+      },
+      {
+        "name": "North Penn Long Distance Corporation",
+        "passings": 3987,
+        "served": 3987
+      },
+      {
+        "name": "Xfinity",
+        "passings": 2143,
+        "served": 2143
+      },
+      {
+        "name": "AT&T",
+        "passings": 1777,
+        "served": 1777
+      },
+      {
+        "name": "Breezeline",
+        "passings": 263,
+        "served": 263
+      },
+      {
+        "name": "Service Electric Cablevision,Inc.",
+        "passings": 203,
+        "served": 203
+      },
+      {
+        "name": "Blue Ridge Cable Technologies",
+        "passings": 48,
+        "served": 48
+      }
+    ],
     "population_2023": 325978,
     "population_2018": 317884,
     "pop_growth_pct": 2.55,
@@ -2050,24 +3469,35 @@
     "owner_occupied_pct": 67.8,
     "wfh_pct": 9.3,
     "demo_score": 0.556,
-    "opportunity_score": 1.0,
-    "attractiveness_index": 0.756,
+    "opportunity_score": 0.506,
+    "attractiveness_index": 0.534,
     "segment": "Most Attractive",
     "bead_status": "Unverified",
     "bead_dollars_awarded": null,
     "bead_awardees": [],
     "bead_locations_covered": null,
     "bead_claimed_pct": null,
-    "competitive_intensity": 0,
-    "competitive_label": "None",
-    "wireline_providers": [],
+    "competitive_intensity": 3,
+    "competitive_label": "High",
+    "wireline_providers": [
+      "Frontier",
+      "Astound Broadband",
+      "Loop Internet",
+      "Verizon",
+      "North Penn Long Distance Corporation",
+      "Xfinity",
+      "AT&T",
+      "Breezeline",
+      "Service Electric Cablevision,Inc.",
+      "Blue Ridge Cable Technologies"
+    ],
     "total_broadband_providers": 21,
-    "cable_coverage_pct": 0.0,
-    "fwa_coverage_pct": 0.0,
-    "broadband_coverage_pct": 0.0,
+    "cable_coverage_pct": 0.987,
+    "fwa_coverage_pct": 0.863,
+    "broadband_coverage_pct": 1.0,
     "broadband_gap_pct": 0.0,
-    "cable_present": false,
-    "fwa_present": false,
+    "cable_present": true,
+    "fwa_present": true,
     "fiber_growth_pct": null,
     "momentum_class": null,
     "elevation_mean_ft": 36.9,
@@ -2081,13 +3511,64 @@
   },
   "42081": {
     "geoid": "42081",
-    "name": "LycomingPennsylvania",
+    "name": "Lycoming",
     "is_metro_county": true,
     "total_bsls": 52692,
-    "fiber_served": 0,
-    "fiber_unserved": 52692,
-    "fiber_penetration": 0.0,
-    "operators": [],
+    "fiber_served": 19669,
+    "fiber_unserved": 33023,
+    "fiber_penetration": 0.373,
+    "operators": [
+      {
+        "name": "North Penn Long Distance Corporation",
+        "passings": 7736,
+        "served": 7736
+      },
+      {
+        "name": "FastBridge Fiber",
+        "passings": 6513,
+        "served": 6513
+      },
+      {
+        "name": "Windstream Pennsylvania, LLC.",
+        "passings": 5556,
+        "served": 5556
+      },
+      {
+        "name": "TRI-CO CONNECTIONS",
+        "passings": 2005,
+        "served": 2005
+      },
+      {
+        "name": "PTC",
+        "passings": 622,
+        "served": 622
+      },
+      {
+        "name": "Zito Media",
+        "passings": 94,
+        "served": 94
+      },
+      {
+        "name": "Frontier",
+        "passings": 46,
+        "served": 46
+      },
+      {
+        "name": "Revolution Broadband",
+        "passings": 12,
+        "served": 12
+      },
+      {
+        "name": "Verizon",
+        "passings": 3,
+        "served": 3
+      },
+      {
+        "name": "Windstream Communications, LLC.",
+        "passings": 2,
+        "served": 2
+      }
+    ],
     "population_2023": 113570,
     "population_2018": 114859,
     "pop_growth_pct": -1.12,
@@ -2102,24 +3583,35 @@
     "owner_occupied_pct": 69.2,
     "wfh_pct": 7.5,
     "demo_score": 0.446,
-    "opportunity_score": 1.0,
-    "attractiveness_index": 0.695,
+    "opportunity_score": 0.627,
+    "attractiveness_index": 0.527,
     "segment": "Most Attractive",
     "bead_status": "Unverified",
     "bead_dollars_awarded": null,
     "bead_awardees": [],
     "bead_locations_covered": null,
     "bead_claimed_pct": null,
-    "competitive_intensity": 0,
-    "competitive_label": "None",
-    "wireline_providers": [],
+    "competitive_intensity": 3,
+    "competitive_label": "High",
+    "wireline_providers": [
+      "North Penn Long Distance Corporation",
+      "FastBridge Fiber",
+      "Windstream Pennsylvania, LLC.",
+      "TRI-CO CONNECTIONS",
+      "PTC",
+      "Zito Media",
+      "Frontier",
+      "Revolution Broadband",
+      "Verizon",
+      "Windstream Communications, LLC."
+    ],
     "total_broadband_providers": 21,
-    "cable_coverage_pct": 0.0,
-    "fwa_coverage_pct": 0.0,
-    "broadband_coverage_pct": 0.0,
+    "cable_coverage_pct": 0.998,
+    "fwa_coverage_pct": 0.969,
+    "broadband_coverage_pct": 1.0,
     "broadband_gap_pct": 0.0,
-    "cable_present": false,
-    "fwa_present": false,
+    "cable_present": true,
+    "fwa_present": true,
     "fiber_growth_pct": null,
     "momentum_class": null,
     "elevation_mean_ft": 52.8,
@@ -2133,13 +3625,34 @@
   },
   "42083": {
     "geoid": "42083",
-    "name": "McKeanPennsylvania",
+    "name": "McKean",
     "is_metro_county": false,
     "total_bsls": 19493,
-    "fiber_served": 0,
-    "fiber_unserved": 19493,
-    "fiber_penetration": 0.0,
-    "operators": [],
+    "fiber_served": 1649,
+    "fiber_unserved": 17844,
+    "fiber_penetration": 0.085,
+    "operators": [
+      {
+        "name": "Zito Media",
+        "passings": 1056,
+        "served": 1056
+      },
+      {
+        "name": "Armstrong Telephone Company",
+        "passings": 520,
+        "served": 520
+      },
+      {
+        "name": "TRI-CO CONNECTIONS",
+        "passings": 63,
+        "served": 63
+      },
+      {
+        "name": "Armstrong Telecommunications Inc",
+        "passings": 10,
+        "served": 10
+      }
+    ],
     "population_2023": 40149,
     "population_2018": 41806,
     "pop_growth_pct": -3.96,
@@ -2154,24 +3667,29 @@
     "owner_occupied_pct": 78.7,
     "wfh_pct": 4.7,
     "demo_score": 0.339,
-    "opportunity_score": 1.0,
-    "attractiveness_index": 0.636,
+    "opportunity_score": 0.915,
+    "attractiveness_index": 0.598,
     "segment": "Most Attractive",
     "bead_status": "Unverified",
     "bead_dollars_awarded": null,
     "bead_awardees": [],
     "bead_locations_covered": null,
     "bead_claimed_pct": null,
-    "competitive_intensity": 0,
-    "competitive_label": "None",
-    "wireline_providers": [],
+    "competitive_intensity": 3,
+    "competitive_label": "High",
+    "wireline_providers": [
+      "Zito Media",
+      "Armstrong Telephone Company",
+      "TRI-CO CONNECTIONS",
+      "Armstrong Telecommunications Inc"
+    ],
     "total_broadband_providers": 18,
-    "cable_coverage_pct": 0.0,
-    "fwa_coverage_pct": 0.0,
-    "broadband_coverage_pct": 0.0,
+    "cable_coverage_pct": 0.943,
+    "fwa_coverage_pct": 0.766,
+    "broadband_coverage_pct": 1.0,
     "broadband_gap_pct": 0.0,
-    "cable_present": false,
-    "fwa_present": false,
+    "cable_present": true,
+    "fwa_present": true,
     "fiber_growth_pct": null,
     "momentum_class": null,
     "elevation_mean_ft": 68.0,
@@ -2185,13 +3703,44 @@
   },
   "42085": {
     "geoid": "42085",
-    "name": "MercerPennsylvania",
+    "name": "Mercer",
     "is_metro_county": false,
     "total_bsls": 50884,
-    "fiber_served": 0,
-    "fiber_unserved": 50884,
-    "fiber_penetration": 0.0,
-    "operators": [],
+    "fiber_served": 8533,
+    "fiber_unserved": 42351,
+    "fiber_penetration": 0.168,
+    "operators": [
+      {
+        "name": "Omni Fiber",
+        "passings": 5657,
+        "served": 5657
+      },
+      {
+        "name": "Windstream Pennsylvania, LLC.",
+        "passings": 2333,
+        "served": 2333
+      },
+      {
+        "name": "ArmstrongUtilitiesInc",
+        "passings": 606,
+        "served": 606
+      },
+      {
+        "name": "Pymatuning Independent Telephone Company",
+        "passings": 27,
+        "served": 27
+      },
+      {
+        "name": "Armstrong Telecommunications Inc",
+        "passings": 9,
+        "served": 9
+      },
+      {
+        "name": "Verizon",
+        "passings": 1,
+        "served": 1
+      }
+    ],
     "population_2023": 109852,
     "population_2018": 112630,
     "pop_growth_pct": -2.47,
@@ -2206,24 +3755,31 @@
     "owner_occupied_pct": 72.5,
     "wfh_pct": 7.8,
     "demo_score": 0.424,
-    "opportunity_score": 1.0,
-    "attractiveness_index": 0.683,
+    "opportunity_score": 0.832,
+    "attractiveness_index": 0.608,
     "segment": "Most Attractive",
     "bead_status": "Unverified",
     "bead_dollars_awarded": null,
     "bead_awardees": [],
     "bead_locations_covered": null,
     "bead_claimed_pct": null,
-    "competitive_intensity": 0,
-    "competitive_label": "None",
-    "wireline_providers": [],
+    "competitive_intensity": 3,
+    "competitive_label": "High",
+    "wireline_providers": [
+      "Omni Fiber",
+      "Windstream Pennsylvania, LLC.",
+      "ArmstrongUtilitiesInc",
+      "Pymatuning Independent Telephone Company",
+      "Armstrong Telecommunications Inc",
+      "Verizon"
+    ],
     "total_broadband_providers": 16,
-    "cable_coverage_pct": 0.0,
-    "fwa_coverage_pct": 0.0,
-    "broadband_coverage_pct": 0.0,
+    "cable_coverage_pct": 0.935,
+    "fwa_coverage_pct": 0.772,
+    "broadband_coverage_pct": 1.0,
     "broadband_gap_pct": 0.0,
-    "cable_present": false,
-    "fwa_present": false,
+    "cable_present": true,
+    "fwa_present": true,
     "fiber_growth_pct": null,
     "momentum_class": null,
     "elevation_mean_ft": 20.0,
@@ -2237,13 +3793,39 @@
   },
   "42087": {
     "geoid": "42087",
-    "name": "MifflinPennsylvania",
+    "name": "Mifflin",
     "is_metro_county": false,
     "total_bsls": 21425,
-    "fiber_served": 0,
-    "fiber_unserved": 21425,
-    "fiber_penetration": 0.0,
-    "operators": [],
+    "fiber_served": 3687,
+    "fiber_unserved": 17738,
+    "fiber_penetration": 0.172,
+    "operators": [
+      {
+        "name": "Brightspeed",
+        "passings": 1401,
+        "served": 1401
+      },
+      {
+        "name": "Black Bear Fiber",
+        "passings": 1095,
+        "served": 1095
+      },
+      {
+        "name": "Zito Media",
+        "passings": 826,
+        "served": 826
+      },
+      {
+        "name": "Mifflin County Wireless",
+        "passings": 361,
+        "served": 361
+      },
+      {
+        "name": "Nmax",
+        "passings": 5,
+        "served": 5
+      }
+    ],
     "population_2023": 46074,
     "population_2018": 46362,
     "pop_growth_pct": -0.62,
@@ -2258,24 +3840,30 @@
     "owner_occupied_pct": 71.5,
     "wfh_pct": 5.5,
     "demo_score": 0.432,
-    "opportunity_score": 1.0,
-    "attractiveness_index": 0.688,
+    "opportunity_score": 0.828,
+    "attractiveness_index": 0.61,
     "segment": "Most Attractive",
     "bead_status": "Unverified",
     "bead_dollars_awarded": null,
     "bead_awardees": [],
     "bead_locations_covered": null,
     "bead_claimed_pct": null,
-    "competitive_intensity": 0,
-    "competitive_label": "None",
-    "wireline_providers": [],
+    "competitive_intensity": 3,
+    "competitive_label": "High",
+    "wireline_providers": [
+      "Brightspeed",
+      "Black Bear Fiber",
+      "Zito Media",
+      "Mifflin County Wireless",
+      "Nmax"
+    ],
     "total_broadband_providers": 18,
-    "cable_coverage_pct": 0.0,
-    "fwa_coverage_pct": 0.0,
-    "broadband_coverage_pct": 0.0,
+    "cable_coverage_pct": 0.96,
+    "fwa_coverage_pct": 0.965,
+    "broadband_coverage_pct": 1.0,
     "broadband_gap_pct": 0.0,
-    "cable_present": false,
-    "fwa_present": false,
+    "cable_present": true,
+    "fwa_present": true,
     "fiber_growth_pct": null,
     "momentum_class": null,
     "elevation_mean_ft": 66.9,
@@ -2289,13 +3877,44 @@
   },
   "42089": {
     "geoid": "42089",
-    "name": "MonroePennsylvania",
+    "name": "Monroe",
     "is_metro_county": false,
     "total_bsls": 79458,
-    "fiber_served": 0,
-    "fiber_unserved": 79458,
-    "fiber_penetration": 0.0,
-    "operators": [],
+    "fiber_served": 19015,
+    "fiber_unserved": 60443,
+    "fiber_penetration": 0.239,
+    "operators": [
+      {
+        "name": "Frontier",
+        "passings": 13569,
+        "served": 13569
+      },
+      {
+        "name": "Blue Ridge Cable Technologies",
+        "passings": 5537,
+        "served": 5537
+      },
+      {
+        "name": "Planet Networks",
+        "passings": 1795,
+        "served": 1795
+      },
+      {
+        "name": "Astound Broadband",
+        "passings": 6,
+        "served": 6
+      },
+      {
+        "name": "Verizon",
+        "passings": 3,
+        "served": 3
+      },
+      {
+        "name": "Xfinity",
+        "passings": 1,
+        "served": 1
+      }
+    ],
     "population_2023": 167784,
     "population_2018": 167586,
     "pop_growth_pct": 0.12,
@@ -2310,24 +3929,31 @@
     "owner_occupied_pct": 79.5,
     "wfh_pct": 9.9,
     "demo_score": 0.627,
-    "opportunity_score": 1.0,
-    "attractiveness_index": 0.795,
+    "opportunity_score": 0.761,
+    "attractiveness_index": 0.687,
     "segment": "Most Attractive",
     "bead_status": "Unverified",
     "bead_dollars_awarded": null,
     "bead_awardees": [],
     "bead_locations_covered": null,
     "bead_claimed_pct": null,
-    "competitive_intensity": 0,
-    "competitive_label": "None",
-    "wireline_providers": [],
+    "competitive_intensity": 3,
+    "competitive_label": "High",
+    "wireline_providers": [
+      "Frontier",
+      "Blue Ridge Cable Technologies",
+      "Planet Networks",
+      "Astound Broadband",
+      "Verizon",
+      "Xfinity"
+    ],
     "total_broadband_providers": 14,
-    "cable_coverage_pct": 0.0,
-    "fwa_coverage_pct": 0.0,
-    "broadband_coverage_pct": 0.0,
+    "cable_coverage_pct": 0.897,
+    "fwa_coverage_pct": 0.597,
+    "broadband_coverage_pct": 1.0,
     "broadband_gap_pct": 0.0,
-    "cable_present": false,
-    "fwa_present": false,
+    "cable_present": true,
+    "fwa_present": true,
     "fiber_growth_pct": null,
     "momentum_class": null,
     "elevation_mean_ft": 36.0,
@@ -2341,13 +3967,49 @@
   },
   "42091": {
     "geoid": "42091",
-    "name": "MontgomeryPennsylvania",
+    "name": "Montgomery",
     "is_metro_county": true,
     "total_bsls": 348696,
-    "fiber_served": 0,
-    "fiber_unserved": 348696,
-    "fiber_penetration": 0.0,
-    "operators": [],
+    "fiber_served": 238925,
+    "fiber_unserved": 109771,
+    "fiber_penetration": 0.685,
+    "operators": [
+      {
+        "name": "Verizon",
+        "passings": 235868,
+        "served": 235868
+      },
+      {
+        "name": "Windstream Conestoga, Inc.",
+        "passings": 2922,
+        "served": 2922
+      },
+      {
+        "name": "Xfinity",
+        "passings": 1355,
+        "served": 1355
+      },
+      {
+        "name": "Astound Broadband",
+        "passings": 6,
+        "served": 6
+      },
+      {
+        "name": "Windstream Sugar Land, Inc.",
+        "passings": 4,
+        "served": 4
+      },
+      {
+        "name": "Hotwire Communications",
+        "passings": 2,
+        "served": 2
+      },
+      {
+        "name": "Windstream Pennsylvania, LLC.",
+        "passings": 2,
+        "served": 2
+      }
+    ],
     "population_2023": 861225,
     "population_2018": 821301,
     "pop_growth_pct": 4.86,
@@ -2362,24 +4024,32 @@
     "owner_occupied_pct": 71.7,
     "wfh_pct": 21.1,
     "demo_score": 0.879,
-    "opportunity_score": 1.0,
-    "attractiveness_index": 0.933,
+    "opportunity_score": 0.315,
+    "attractiveness_index": 0.625,
     "segment": "Most Attractive",
     "bead_status": "Unverified",
     "bead_dollars_awarded": null,
     "bead_awardees": [],
     "bead_locations_covered": null,
     "bead_claimed_pct": null,
-    "competitive_intensity": 0,
-    "competitive_label": "None",
-    "wireline_providers": [],
+    "competitive_intensity": 3,
+    "competitive_label": "High",
+    "wireline_providers": [
+      "Verizon",
+      "Windstream Conestoga, Inc.",
+      "Xfinity",
+      "Astound Broadband",
+      "Windstream Sugar Land, Inc.",
+      "Hotwire Communications",
+      "Windstream Pennsylvania, LLC."
+    ],
     "total_broadband_providers": 22,
-    "cable_coverage_pct": 0.0,
-    "fwa_coverage_pct": 0.0,
-    "broadband_coverage_pct": 0.0,
+    "cable_coverage_pct": 0.98,
+    "fwa_coverage_pct": 0.844,
+    "broadband_coverage_pct": 1.0,
     "broadband_gap_pct": 0.0,
-    "cable_present": false,
-    "fwa_present": false,
+    "cable_present": true,
+    "fwa_present": true,
     "fiber_growth_pct": null,
     "momentum_class": null,
     "elevation_mean_ft": 20.2,
@@ -2393,13 +4063,44 @@
   },
   "42093": {
     "geoid": "42093",
-    "name": "MontourPennsylvania",
+    "name": "Montour",
     "is_metro_county": false,
     "total_bsls": 8117,
-    "fiber_served": 0,
-    "fiber_unserved": 8117,
-    "fiber_penetration": 0.0,
-    "operators": [],
+    "fiber_served": 1974,
+    "fiber_unserved": 6143,
+    "fiber_penetration": 0.243,
+    "operators": [
+      {
+        "name": "FastBridge Fiber",
+        "passings": 1844,
+        "served": 1844
+      },
+      {
+        "name": "Xfinity",
+        "passings": 124,
+        "served": 124
+      },
+      {
+        "name": "Service Electric Cablevision,Inc.",
+        "passings": 42,
+        "served": 42
+      },
+      {
+        "name": "Verizon",
+        "passings": 37,
+        "served": 37
+      },
+      {
+        "name": "Windstream Pennsylvania, LLC.",
+        "passings": 35,
+        "served": 35
+      },
+      {
+        "name": "Windstream Conestoga, Inc.",
+        "passings": 1,
+        "served": 1
+      }
+    ],
     "population_2023": 18079,
     "population_2018": 18294,
     "pop_growth_pct": -1.18,
@@ -2414,24 +4115,31 @@
     "owner_occupied_pct": 67.1,
     "wfh_pct": 11.2,
     "demo_score": 0.531,
-    "opportunity_score": 1.0,
-    "attractiveness_index": 0.742,
+    "opportunity_score": 0.757,
+    "attractiveness_index": 0.633,
     "segment": "Most Attractive",
     "bead_status": "Unverified",
     "bead_dollars_awarded": null,
     "bead_awardees": [],
     "bead_locations_covered": null,
     "bead_claimed_pct": null,
-    "competitive_intensity": 0,
-    "competitive_label": "None",
-    "wireline_providers": [],
+    "competitive_intensity": 3,
+    "competitive_label": "High",
+    "wireline_providers": [
+      "FastBridge Fiber",
+      "Xfinity",
+      "Service Electric Cablevision,Inc.",
+      "Verizon",
+      "Windstream Pennsylvania, LLC.",
+      "Windstream Conestoga, Inc."
+    ],
     "total_broadband_providers": 17,
-    "cable_coverage_pct": 0.0,
-    "fwa_coverage_pct": 0.0,
-    "broadband_coverage_pct": 0.0,
+    "cable_coverage_pct": 0.993,
+    "fwa_coverage_pct": 0.974,
+    "broadband_coverage_pct": 1.0,
     "broadband_gap_pct": 0.0,
-    "cable_present": false,
-    "fwa_present": false,
+    "cable_present": true,
+    "fwa_present": true,
     "fiber_growth_pct": null,
     "momentum_class": null,
     "elevation_mean_ft": 45.6,
@@ -2445,13 +4153,39 @@
   },
   "42095": {
     "geoid": "42095",
-    "name": "NorthamptonPennsylvania",
+    "name": "Northampton",
     "is_metro_county": true,
     "total_bsls": 128612,
-    "fiber_served": 0,
-    "fiber_unserved": 128612,
-    "fiber_penetration": 0.0,
-    "operators": [],
+    "fiber_served": 15809,
+    "fiber_unserved": 112803,
+    "fiber_penetration": 0.123,
+    "operators": [
+      {
+        "name": "Frontier",
+        "passings": 6688,
+        "served": 6688
+      },
+      {
+        "name": "Verizon",
+        "passings": 5425,
+        "served": 5425
+      },
+      {
+        "name": "Xfinity",
+        "passings": 3450,
+        "served": 3450
+      },
+      {
+        "name": "Astound Broadband",
+        "passings": 232,
+        "served": 232
+      },
+      {
+        "name": "Blue Ridge Cable Technologies",
+        "passings": 91,
+        "served": 91
+      }
+    ],
     "population_2023": 315927,
     "population_2018": 301778,
     "pop_growth_pct": 4.69,
@@ -2466,24 +4200,30 @@
     "owner_occupied_pct": 71.1,
     "wfh_pct": 12.6,
     "demo_score": 0.78,
-    "opportunity_score": 1.0,
-    "attractiveness_index": 0.879,
+    "opportunity_score": 0.877,
+    "attractiveness_index": 0.824,
     "segment": "Most Attractive",
     "bead_status": "Unverified",
     "bead_dollars_awarded": null,
     "bead_awardees": [],
     "bead_locations_covered": null,
     "bead_claimed_pct": null,
-    "competitive_intensity": 0,
-    "competitive_label": "None",
-    "wireline_providers": [],
+    "competitive_intensity": 3,
+    "competitive_label": "High",
+    "wireline_providers": [
+      "Frontier",
+      "Verizon",
+      "Xfinity",
+      "Astound Broadband",
+      "Blue Ridge Cable Technologies"
+    ],
     "total_broadband_providers": 17,
-    "cable_coverage_pct": 0.0,
-    "fwa_coverage_pct": 0.0,
-    "broadband_coverage_pct": 0.0,
+    "cable_coverage_pct": 0.987,
+    "fwa_coverage_pct": 0.858,
+    "broadband_coverage_pct": 1.0,
     "broadband_gap_pct": 0.0,
-    "cable_present": false,
-    "fwa_present": false,
+    "cable_present": true,
+    "fwa_present": true,
     "fiber_growth_pct": null,
     "momentum_class": null,
     "elevation_mean_ft": 31.9,
@@ -2497,13 +4237,44 @@
   },
   "42097": {
     "geoid": "42097",
-    "name": "NorthumberlandPennsylvania",
+    "name": "Northumberland",
     "is_metro_county": false,
     "total_bsls": 43395,
-    "fiber_served": 0,
-    "fiber_unserved": 43395,
-    "fiber_penetration": 0.0,
-    "operators": [],
+    "fiber_served": 7601,
+    "fiber_unserved": 35794,
+    "fiber_penetration": 0.175,
+    "operators": [
+      {
+        "name": "Service Electric Cablevision,Inc.",
+        "passings": 3237,
+        "served": 3237
+      },
+      {
+        "name": "Windstream Pennsylvania, LLC.",
+        "passings": 2282,
+        "served": 2282
+      },
+      {
+        "name": "Xfinity",
+        "passings": 1643,
+        "served": 1643
+      },
+      {
+        "name": "Windstream Buffalo Valley, Inc.",
+        "passings": 689,
+        "served": 689
+      },
+      {
+        "name": "Frontier",
+        "passings": 1,
+        "served": 1
+      },
+      {
+        "name": "Windstream Communications, LLC.",
+        "passings": 1,
+        "served": 1
+      }
+    ],
     "population_2023": 90925,
     "population_2018": 92325,
     "pop_growth_pct": -1.52,
@@ -2518,24 +4289,31 @@
     "owner_occupied_pct": 74.8,
     "wfh_pct": 8.1,
     "demo_score": 0.434,
-    "opportunity_score": 1.0,
-    "attractiveness_index": 0.689,
+    "opportunity_score": 0.825,
+    "attractiveness_index": 0.61,
     "segment": "Most Attractive",
     "bead_status": "Unverified",
     "bead_dollars_awarded": null,
     "bead_awardees": [],
     "bead_locations_covered": null,
     "bead_claimed_pct": null,
-    "competitive_intensity": 0,
-    "competitive_label": "None",
-    "wireline_providers": [],
+    "competitive_intensity": 3,
+    "competitive_label": "High",
+    "wireline_providers": [
+      "Service Electric Cablevision,Inc.",
+      "Windstream Pennsylvania, LLC.",
+      "Xfinity",
+      "Windstream Buffalo Valley, Inc.",
+      "Frontier",
+      "Windstream Communications, LLC."
+    ],
     "total_broadband_providers": 18,
-    "cable_coverage_pct": 0.0,
-    "fwa_coverage_pct": 0.0,
-    "broadband_coverage_pct": 0.0,
+    "cable_coverage_pct": 0.985,
+    "fwa_coverage_pct": 0.876,
+    "broadband_coverage_pct": 1.0,
     "broadband_gap_pct": 0.0,
-    "cable_present": false,
-    "fwa_present": false,
+    "cable_present": true,
+    "fwa_present": true,
     "fiber_growth_pct": null,
     "momentum_class": null,
     "elevation_mean_ft": 47.2,
@@ -2549,13 +4327,34 @@
   },
   "42099": {
     "geoid": "42099",
-    "name": "PerryPennsylvania",
+    "name": "Perry",
     "is_metro_county": true,
     "total_bsls": 20010,
-    "fiber_served": 0,
-    "fiber_unserved": 20010,
-    "fiber_penetration": 0.0,
-    "operators": [],
+    "fiber_served": 5949,
+    "fiber_unserved": 14061,
+    "fiber_penetration": 0.297,
+    "operators": [
+      {
+        "name": "Brightspeed",
+        "passings": 2881,
+        "served": 2881
+      },
+      {
+        "name": "Blue Ridge Cable Technologies",
+        "passings": 2631,
+        "served": 2631
+      },
+      {
+        "name": "Zito Media",
+        "passings": 1027,
+        "served": 1027
+      },
+      {
+        "name": "Xfinity",
+        "passings": 395,
+        "served": 395
+      }
+    ],
     "population_2023": 45988,
     "population_2018": 45924,
     "pop_growth_pct": 0.14,
@@ -2570,24 +4369,29 @@
     "owner_occupied_pct": 80.7,
     "wfh_pct": 13.0,
     "demo_score": 0.578,
-    "opportunity_score": 1.0,
-    "attractiveness_index": 0.768,
+    "opportunity_score": 0.703,
+    "attractiveness_index": 0.634,
     "segment": "Most Attractive",
     "bead_status": "Unverified",
     "bead_dollars_awarded": null,
     "bead_awardees": [],
     "bead_locations_covered": null,
     "bead_claimed_pct": null,
-    "competitive_intensity": 0,
-    "competitive_label": "None",
-    "wireline_providers": [],
+    "competitive_intensity": 3,
+    "competitive_label": "High",
+    "wireline_providers": [
+      "Brightspeed",
+      "Blue Ridge Cable Technologies",
+      "Zito Media",
+      "Xfinity"
+    ],
     "total_broadband_providers": 13,
-    "cable_coverage_pct": 0.0,
-    "fwa_coverage_pct": 0.0,
-    "broadband_coverage_pct": 0.0,
+    "cable_coverage_pct": 0.811,
+    "fwa_coverage_pct": 0.87,
+    "broadband_coverage_pct": 1.0,
     "broadband_gap_pct": 0.0,
-    "cable_present": false,
-    "fwa_present": false,
+    "cable_present": true,
+    "fwa_present": true,
     "fiber_growth_pct": null,
     "momentum_class": null,
     "elevation_mean_ft": 63.5,
@@ -2601,13 +4405,39 @@
   },
   "42101": {
     "geoid": "42101",
-    "name": "PhiladelphiaPennsylvania",
+    "name": "Philadelphia",
     "is_metro_county": true,
-    "total_bsls": 739725,
-    "fiber_served": 0,
-    "fiber_unserved": 739725,
-    "fiber_penetration": 0.0,
-    "operators": [],
+    "total_bsls": 805564,
+    "fiber_served": 479083,
+    "fiber_unserved": 326481,
+    "fiber_penetration": 0.595,
+    "operators": [
+      {
+        "name": "Verizon",
+        "passings": 479046,
+        "served": 479046
+      },
+      {
+        "name": "Xfinity",
+        "passings": 63,
+        "served": 63
+      },
+      {
+        "name": "Hotwire Communications",
+        "passings": 21,
+        "served": 21
+      },
+      {
+        "name": "Frontier",
+        "passings": 14,
+        "served": 14
+      },
+      {
+        "name": "Astound Broadband",
+        "passings": 2,
+        "served": 2
+      }
+    ],
     "population_2023": 1582432,
     "population_2018": 1575522,
     "pop_growth_pct": 0.44,
@@ -2622,24 +4452,30 @@
     "owner_occupied_pct": 52.3,
     "wfh_pct": 16.4,
     "demo_score": 0.618,
-    "opportunity_score": 1.0,
-    "attractiveness_index": 0.79,
+    "opportunity_score": 0.405,
+    "attractiveness_index": 0.522,
     "segment": "Most Attractive",
     "bead_status": "Unverified",
     "bead_dollars_awarded": null,
     "bead_awardees": [],
     "bead_locations_covered": null,
     "bead_claimed_pct": null,
-    "competitive_intensity": 0,
-    "competitive_label": "None",
-    "wireline_providers": [],
+    "competitive_intensity": 3,
+    "competitive_label": "High",
+    "wireline_providers": [
+      "Verizon",
+      "Xfinity",
+      "Hotwire Communications",
+      "Frontier",
+      "Astound Broadband"
+    ],
     "total_broadband_providers": 22,
-    "cable_coverage_pct": 0.0,
-    "fwa_coverage_pct": 0.0,
-    "broadband_coverage_pct": 0.0,
+    "cable_coverage_pct": 0.989,
+    "fwa_coverage_pct": 0.883,
+    "broadband_coverage_pct": 1.0,
     "broadband_gap_pct": 0.0,
-    "cable_present": false,
-    "fwa_present": false,
+    "cable_present": true,
+    "fwa_present": true,
     "fiber_growth_pct": null,
     "momentum_class": null,
     "elevation_mean_ft": 11.7,
@@ -2653,13 +4489,34 @@
   },
   "42103": {
     "geoid": "42103",
-    "name": "PikePennsylvania",
+    "name": "Pike",
     "is_metro_county": false,
     "total_bsls": 39948,
-    "fiber_served": 0,
-    "fiber_unserved": 39948,
-    "fiber_penetration": 0.0,
-    "operators": [],
+    "fiber_served": 4575,
+    "fiber_unserved": 35373,
+    "fiber_penetration": 0.115,
+    "operators": [
+      {
+        "name": "LHTC Broadband",
+        "passings": 3191,
+        "served": 3191
+      },
+      {
+        "name": "Optimum",
+        "passings": 1288,
+        "served": 1288
+      },
+      {
+        "name": "Blue Ridge Cable Technologies",
+        "passings": 89,
+        "served": 89
+      },
+      {
+        "name": "Verizon",
+        "passings": 7,
+        "served": 7
+      }
+    ],
     "population_2023": 59691,
     "population_2018": 55498,
     "pop_growth_pct": 7.56,
@@ -2674,24 +4531,29 @@
     "owner_occupied_pct": 86.2,
     "wfh_pct": 12.7,
     "demo_score": 0.729,
-    "opportunity_score": 1.0,
-    "attractiveness_index": 0.851,
+    "opportunity_score": 0.885,
+    "attractiveness_index": 0.799,
     "segment": "Most Attractive",
     "bead_status": "Unverified",
     "bead_dollars_awarded": null,
     "bead_awardees": [],
     "bead_locations_covered": null,
     "bead_claimed_pct": null,
-    "competitive_intensity": 0,
-    "competitive_label": "None",
-    "wireline_providers": [],
+    "competitive_intensity": 3,
+    "competitive_label": "High",
+    "wireline_providers": [
+      "LHTC Broadband",
+      "Optimum",
+      "Blue Ridge Cable Technologies",
+      "Verizon"
+    ],
     "total_broadband_providers": 13,
-    "cable_coverage_pct": 0.0,
-    "fwa_coverage_pct": 0.0,
-    "broadband_coverage_pct": 0.0,
+    "cable_coverage_pct": 0.99,
+    "fwa_coverage_pct": 0.381,
+    "broadband_coverage_pct": 1.0,
     "broadband_gap_pct": 0.0,
-    "cable_present": false,
-    "fwa_present": false,
+    "cable_present": true,
+    "fwa_present": true,
     "fiber_growth_pct": null,
     "momentum_class": null,
     "elevation_mean_ft": 36.8,
@@ -2705,13 +4567,29 @@
   },
   "42105": {
     "geoid": "42105",
-    "name": "PotterPennsylvania",
+    "name": "Potter",
     "is_metro_county": false,
     "total_bsls": 12375,
-    "fiber_served": 0,
-    "fiber_unserved": 12375,
-    "fiber_penetration": 0.0,
-    "operators": [],
+    "fiber_served": 9500,
+    "fiber_unserved": 2875,
+    "fiber_penetration": 0.768,
+    "operators": [
+      {
+        "name": "TRI-CO CONNECTIONS",
+        "passings": 7659,
+        "served": 7659
+      },
+      {
+        "name": "Zito Media",
+        "passings": 2064,
+        "served": 2064
+      },
+      {
+        "name": "Blue Ridge Cable Technologies",
+        "passings": 23,
+        "served": 23
+      }
+    ],
     "population_2023": 16276,
     "population_2018": 16937,
     "pop_growth_pct": -3.9,
@@ -2726,24 +4604,28 @@
     "owner_occupied_pct": 80.2,
     "wfh_pct": 9.6,
     "demo_score": 0.338,
-    "opportunity_score": 1.0,
-    "attractiveness_index": 0.636,
-    "segment": "Most Attractive",
+    "opportunity_score": 0.232,
+    "attractiveness_index": 0.29,
+    "segment": "Least Attractive",
     "bead_status": "Unverified",
     "bead_dollars_awarded": null,
     "bead_awardees": [],
     "bead_locations_covered": null,
     "bead_claimed_pct": null,
-    "competitive_intensity": 0,
-    "competitive_label": "None",
-    "wireline_providers": [],
+    "competitive_intensity": 2,
+    "competitive_label": "Moderate",
+    "wireline_providers": [
+      "TRI-CO CONNECTIONS",
+      "Zito Media",
+      "Blue Ridge Cable Technologies"
+    ],
     "total_broadband_providers": 16,
-    "cable_coverage_pct": 0.0,
-    "fwa_coverage_pct": 0.0,
-    "broadband_coverage_pct": 0.0,
+    "cable_coverage_pct": 0.961,
+    "fwa_coverage_pct": 0.348,
+    "broadband_coverage_pct": 1.0,
     "broadband_gap_pct": 0.0,
-    "cable_present": false,
-    "fwa_present": false,
+    "cable_present": true,
+    "fwa_present": true,
     "fiber_growth_pct": null,
     "momentum_class": null,
     "elevation_mean_ft": 85.5,
@@ -2757,13 +4639,39 @@
   },
   "42107": {
     "geoid": "42107",
-    "name": "SchuylkillPennsylvania",
+    "name": "Schuylkill",
     "is_metro_county": false,
     "total_bsls": 67292,
-    "fiber_served": 0,
-    "fiber_unserved": 67292,
-    "fiber_penetration": 0.0,
-    "operators": [],
+    "fiber_served": 11803,
+    "fiber_unserved": 55489,
+    "fiber_penetration": 0.175,
+    "operators": [
+      {
+        "name": "Frontier",
+        "passings": 5055,
+        "served": 5055
+      },
+      {
+        "name": "Xfinity",
+        "passings": 3686,
+        "served": 3686
+      },
+      {
+        "name": "Blue Ridge Cable Technologies",
+        "passings": 2075,
+        "served": 2075
+      },
+      {
+        "name": "Windstream Pennsylvania, LLC.",
+        "passings": 1391,
+        "served": 1391
+      },
+      {
+        "name": "Service Electric Cablevision,Inc.",
+        "passings": 929,
+        "served": 929
+      }
+    ],
     "population_2023": 143259,
     "population_2018": 143555,
     "pop_growth_pct": -0.21,
@@ -2778,24 +4686,30 @@
     "owner_occupied_pct": 76.3,
     "wfh_pct": 6.2,
     "demo_score": 0.494,
-    "opportunity_score": 1.0,
-    "attractiveness_index": 0.722,
+    "opportunity_score": 0.825,
+    "attractiveness_index": 0.643,
     "segment": "Most Attractive",
     "bead_status": "Unverified",
     "bead_dollars_awarded": null,
     "bead_awardees": [],
     "bead_locations_covered": null,
     "bead_claimed_pct": null,
-    "competitive_intensity": 0,
-    "competitive_label": "None",
-    "wireline_providers": [],
+    "competitive_intensity": 3,
+    "competitive_label": "High",
+    "wireline_providers": [
+      "Frontier",
+      "Xfinity",
+      "Blue Ridge Cable Technologies",
+      "Windstream Pennsylvania, LLC.",
+      "Service Electric Cablevision,Inc."
+    ],
     "total_broadband_providers": 19,
-    "cable_coverage_pct": 0.0,
-    "fwa_coverage_pct": 0.0,
-    "broadband_coverage_pct": 0.0,
+    "cable_coverage_pct": 0.967,
+    "fwa_coverage_pct": 0.662,
+    "broadband_coverage_pct": 1.0,
     "broadband_gap_pct": 0.0,
-    "cable_present": false,
-    "fwa_present": false,
+    "cable_present": true,
+    "fwa_present": true,
     "fiber_growth_pct": null,
     "momentum_class": null,
     "elevation_mean_ft": 63.3,
@@ -2809,13 +4723,34 @@
   },
   "42109": {
     "geoid": "42109",
-    "name": "SnyderPennsylvania",
+    "name": "Snyder",
     "is_metro_county": false,
     "total_bsls": 16033,
-    "fiber_served": 0,
-    "fiber_unserved": 16033,
-    "fiber_penetration": 0.0,
-    "operators": [],
+    "fiber_served": 1544,
+    "fiber_unserved": 14489,
+    "fiber_penetration": 0.096,
+    "operators": [
+      {
+        "name": "Zito Media",
+        "passings": 902,
+        "served": 902
+      },
+      {
+        "name": "Service Electric Cablevision,Inc.",
+        "passings": 566,
+        "served": 566
+      },
+      {
+        "name": "Susquehanna Broadband",
+        "passings": 61,
+        "served": 61
+      },
+      {
+        "name": "Windstream Buffalo Valley, Inc.",
+        "passings": 15,
+        "served": 15
+      }
+    ],
     "population_2023": 39711,
     "population_2018": 40466,
     "pop_growth_pct": -1.87,
@@ -2830,24 +4765,29 @@
     "owner_occupied_pct": 74.3,
     "wfh_pct": 8.6,
     "demo_score": 0.469,
-    "opportunity_score": 1.0,
-    "attractiveness_index": 0.708,
+    "opportunity_score": 0.904,
+    "attractiveness_index": 0.665,
     "segment": "Most Attractive",
     "bead_status": "Unverified",
     "bead_dollars_awarded": null,
     "bead_awardees": [],
     "bead_locations_covered": null,
     "bead_claimed_pct": null,
-    "competitive_intensity": 0,
-    "competitive_label": "None",
-    "wireline_providers": [],
+    "competitive_intensity": 3,
+    "competitive_label": "High",
+    "wireline_providers": [
+      "Zito Media",
+      "Service Electric Cablevision,Inc.",
+      "Susquehanna Broadband",
+      "Windstream Buffalo Valley, Inc."
+    ],
     "total_broadband_providers": 19,
-    "cable_coverage_pct": 0.0,
-    "fwa_coverage_pct": 0.0,
-    "broadband_coverage_pct": 0.0,
+    "cable_coverage_pct": 0.958,
+    "fwa_coverage_pct": 0.902,
+    "broadband_coverage_pct": 1.0,
     "broadband_gap_pct": 0.0,
-    "cable_present": false,
-    "fwa_present": false,
+    "cable_present": true,
+    "fwa_present": true,
     "fiber_growth_pct": null,
     "momentum_class": null,
     "elevation_mean_ft": 42.9,
@@ -2861,13 +4801,34 @@
   },
   "42111": {
     "geoid": "42111",
-    "name": "SomersetPennsylvania",
+    "name": "Somerset",
     "is_metro_county": false,
     "total_bsls": 37800,
-    "fiber_served": 0,
-    "fiber_unserved": 37800,
-    "fiber_penetration": 0.0,
-    "operators": [],
+    "fiber_served": 564,
+    "fiber_unserved": 37236,
+    "fiber_penetration": 0.015,
+    "operators": [
+      {
+        "name": "QCOL",
+        "passings": 405,
+        "served": 405
+      },
+      {
+        "name": "LHTC Broadband",
+        "passings": 157,
+        "served": 157
+      },
+      {
+        "name": "Brightspeed",
+        "passings": 1,
+        "served": 1
+      },
+      {
+        "name": "Verizon",
+        "passings": 1,
+        "served": 1
+      }
+    ],
     "population_2023": 73255,
     "population_2018": 74949,
     "pop_growth_pct": -2.26,
@@ -2882,24 +4843,29 @@
     "owner_occupied_pct": 80.3,
     "wfh_pct": 7.5,
     "demo_score": 0.391,
-    "opportunity_score": 1.0,
-    "attractiveness_index": 0.665,
+    "opportunity_score": 0.985,
+    "attractiveness_index": 0.658,
     "segment": "Most Attractive",
     "bead_status": "Unverified",
     "bead_dollars_awarded": null,
     "bead_awardees": [],
     "bead_locations_covered": null,
     "bead_claimed_pct": null,
-    "competitive_intensity": 0,
-    "competitive_label": "None",
-    "wireline_providers": [],
+    "competitive_intensity": 3,
+    "competitive_label": "High",
+    "wireline_providers": [
+      "QCOL",
+      "LHTC Broadband",
+      "Brightspeed",
+      "Verizon"
+    ],
     "total_broadband_providers": 18,
-    "cable_coverage_pct": 0.0,
-    "fwa_coverage_pct": 0.0,
-    "broadband_coverage_pct": 0.0,
+    "cable_coverage_pct": 0.991,
+    "fwa_coverage_pct": 0.692,
+    "broadband_coverage_pct": 1.0,
     "broadband_gap_pct": 0.0,
-    "cable_present": false,
-    "fwa_present": false,
+    "cable_present": true,
+    "fwa_present": true,
     "fiber_growth_pct": null,
     "momentum_class": null,
     "elevation_mean_ft": 47.4,
@@ -2913,13 +4879,29 @@
   },
   "42113": {
     "geoid": "42113",
-    "name": "SullivanPennsylvania",
+    "name": "Sullivan",
     "is_metro_county": false,
     "total_bsls": 5601,
-    "fiber_served": 0,
-    "fiber_unserved": 5601,
-    "fiber_penetration": 0.0,
-    "operators": [],
+    "fiber_served": 1022,
+    "fiber_unserved": 4579,
+    "fiber_penetration": 0.182,
+    "operators": [
+      {
+        "name": "Frontier",
+        "passings": 872,
+        "served": 872
+      },
+      {
+        "name": "Zito Media",
+        "passings": 163,
+        "served": 163
+      },
+      {
+        "name": "Revolution Broadband",
+        "passings": 100,
+        "served": 100
+      }
+    ],
     "population_2023": 5849,
     "population_2018": 6177,
     "pop_growth_pct": -5.31,
@@ -2934,24 +4916,28 @@
     "owner_occupied_pct": 83.2,
     "wfh_pct": 6.2,
     "demo_score": 0.331,
-    "opportunity_score": 1.0,
-    "attractiveness_index": 0.632,
+    "opportunity_score": 0.818,
+    "attractiveness_index": 0.55,
     "segment": "Most Attractive",
     "bead_status": "Unverified",
     "bead_dollars_awarded": null,
     "bead_awardees": [],
     "bead_locations_covered": null,
     "bead_claimed_pct": null,
-    "competitive_intensity": 0,
-    "competitive_label": "None",
-    "wireline_providers": [],
+    "competitive_intensity": 2,
+    "competitive_label": "Moderate",
+    "wireline_providers": [
+      "Frontier",
+      "Zito Media",
+      "Revolution Broadband"
+    ],
     "total_broadband_providers": 15,
-    "cable_coverage_pct": 0.0,
-    "fwa_coverage_pct": 0.0,
-    "broadband_coverage_pct": 0.0,
+    "cable_coverage_pct": 0.964,
+    "fwa_coverage_pct": 0.216,
+    "broadband_coverage_pct": 1.0,
     "broadband_gap_pct": 0.0,
-    "cable_present": false,
-    "fwa_present": false,
+    "cable_present": true,
+    "fwa_present": true,
     "fiber_growth_pct": null,
     "momentum_class": null,
     "elevation_mean_ft": 63.3,
@@ -2965,13 +4951,44 @@
   },
   "42115": {
     "geoid": "42115",
-    "name": "SusquehannaPennsylvania",
+    "name": "Susquehanna",
     "is_metro_county": false,
     "total_bsls": 21335,
-    "fiber_served": 0,
-    "fiber_unserved": 21335,
-    "fiber_penetration": 0.0,
-    "operators": [],
+    "fiber_served": 17816,
+    "fiber_unserved": 3519,
+    "fiber_penetration": 0.835,
+    "operators": [
+      {
+        "name": "The North-Eastern Pennsylvania Telephone Company",
+        "passings": 8341,
+        "served": 8341
+      },
+      {
+        "name": "Frontier",
+        "passings": 4248,
+        "served": 4248
+      },
+      {
+        "name": "Revolution Broadband",
+        "passings": 4209,
+        "served": 4209
+      },
+      {
+        "name": "Adams CATV Inc",
+        "passings": 3301,
+        "served": 3301
+      },
+      {
+        "name": "NEP Telcom Inc",
+        "passings": 2519,
+        "served": 2519
+      },
+      {
+        "name": "Verizon",
+        "passings": 2,
+        "served": 2
+      }
+    ],
     "population_2023": 38349,
     "population_2018": 41340,
     "pop_growth_pct": -7.24,
@@ -2986,24 +5003,31 @@
     "owner_occupied_pct": 78.3,
     "wfh_pct": 12.5,
     "demo_score": 0.408,
-    "opportunity_score": 1.0,
-    "attractiveness_index": 0.674,
-    "segment": "Most Attractive",
+    "opportunity_score": 0.165,
+    "attractiveness_index": 0.299,
+    "segment": "Least Attractive",
     "bead_status": "Unverified",
     "bead_dollars_awarded": null,
     "bead_awardees": [],
     "bead_locations_covered": null,
     "bead_claimed_pct": null,
-    "competitive_intensity": 0,
-    "competitive_label": "None",
-    "wireline_providers": [],
+    "competitive_intensity": 3,
+    "competitive_label": "High",
+    "wireline_providers": [
+      "The North-Eastern Pennsylvania Telephone Company",
+      "Frontier",
+      "Revolution Broadband",
+      "Adams CATV Inc",
+      "NEP Telcom Inc",
+      "Verizon"
+    ],
     "total_broadband_providers": 17,
-    "cable_coverage_pct": 0.0,
-    "fwa_coverage_pct": 0.0,
-    "broadband_coverage_pct": 0.0,
+    "cable_coverage_pct": 0.446,
+    "fwa_coverage_pct": 0.78,
+    "broadband_coverage_pct": 1.0,
     "broadband_gap_pct": 0.0,
-    "cable_present": false,
-    "fwa_present": false,
+    "cable_present": true,
+    "fwa_present": true,
     "fiber_growth_pct": null,
     "momentum_class": null,
     "elevation_mean_ft": 59.9,
@@ -3017,13 +5041,59 @@
   },
   "42117": {
     "geoid": "42117",
-    "name": "TiogaPennsylvania",
+    "name": "Tioga",
     "is_metro_county": false,
     "total_bsls": 21542,
-    "fiber_served": 0,
-    "fiber_unserved": 21542,
-    "fiber_penetration": 0.0,
-    "operators": [],
+    "fiber_served": 11413,
+    "fiber_unserved": 10129,
+    "fiber_penetration": 0.53,
+    "operators": [
+      {
+        "name": "TRI-CO CONNECTIONS",
+        "passings": 5424,
+        "served": 5424
+      },
+      {
+        "name": "Frontier",
+        "passings": 3808,
+        "served": 3808
+      },
+      {
+        "name": "Blue Ridge Cable Technologies",
+        "passings": 1583,
+        "served": 1583
+      },
+      {
+        "name": "North Penn Telephone Company",
+        "passings": 1467,
+        "served": 1467
+      },
+      {
+        "name": "North Penn Long Distance Corporation",
+        "passings": 328,
+        "served": 328
+      },
+      {
+        "name": "Spectrum",
+        "passings": 170,
+        "served": 170
+      },
+      {
+        "name": "Verizon",
+        "passings": 35,
+        "served": 35
+      },
+      {
+        "name": "Armstrong Telecommunications Inc",
+        "passings": 2,
+        "served": 2
+      },
+      {
+        "name": "Armstrong Telephone Company",
+        "passings": 2,
+        "served": 2
+      }
+    ],
     "population_2023": 41078,
     "population_2018": 41226,
     "pop_growth_pct": -0.36,
@@ -3038,24 +5108,34 @@
     "owner_occupied_pct": 76.7,
     "wfh_pct": 7.3,
     "demo_score": 0.42,
-    "opportunity_score": 1.0,
-    "attractiveness_index": 0.681,
-    "segment": "Most Attractive",
+    "opportunity_score": 0.47,
+    "attractiveness_index": 0.443,
+    "segment": "Neutral",
     "bead_status": "Unverified",
     "bead_dollars_awarded": null,
     "bead_awardees": [],
     "bead_locations_covered": null,
     "bead_claimed_pct": null,
-    "competitive_intensity": 0,
-    "competitive_label": "None",
-    "wireline_providers": [],
+    "competitive_intensity": 3,
+    "competitive_label": "High",
+    "wireline_providers": [
+      "TRI-CO CONNECTIONS",
+      "Frontier",
+      "Blue Ridge Cable Technologies",
+      "North Penn Telephone Company",
+      "North Penn Long Distance Corporation",
+      "Spectrum",
+      "Verizon",
+      "Armstrong Telecommunications Inc",
+      "Armstrong Telephone Company"
+    ],
     "total_broadband_providers": 19,
-    "cable_coverage_pct": 0.0,
-    "fwa_coverage_pct": 0.0,
-    "broadband_coverage_pct": 0.0,
+    "cable_coverage_pct": 0.799,
+    "fwa_coverage_pct": 0.887,
+    "broadband_coverage_pct": 1.0,
     "broadband_gap_pct": 0.0,
-    "cable_present": false,
-    "fwa_present": false,
+    "cable_present": true,
+    "fwa_present": true,
     "fiber_growth_pct": null,
     "momentum_class": null,
     "elevation_mean_ft": 66.4,
@@ -3069,13 +5149,39 @@
   },
   "42119": {
     "geoid": "42119",
-    "name": "UnionPennsylvania",
+    "name": "Union",
     "is_metro_county": false,
     "total_bsls": 16158,
-    "fiber_served": 0,
-    "fiber_unserved": 16158,
-    "fiber_penetration": 0.0,
-    "operators": [],
+    "fiber_served": 6874,
+    "fiber_unserved": 9284,
+    "fiber_penetration": 0.425,
+    "operators": [
+      {
+        "name": "Windstream Buffalo Valley, Inc.",
+        "passings": 5793,
+        "served": 5793
+      },
+      {
+        "name": "Windstream Pennsylvania, LLC.",
+        "passings": 989,
+        "served": 989
+      },
+      {
+        "name": "Xfinity",
+        "passings": 141,
+        "served": 141
+      },
+      {
+        "name": "Susquehanna Broadband",
+        "passings": 47,
+        "served": 47
+      },
+      {
+        "name": "Service Electric Cablevision,Inc.",
+        "passings": 1,
+        "served": 1
+      }
+    ],
     "population_2023": 42570,
     "population_2018": 45114,
     "pop_growth_pct": -5.64,
@@ -3090,24 +5196,30 @@
     "owner_occupied_pct": 71.4,
     "wfh_pct": 7.5,
     "demo_score": 0.438,
-    "opportunity_score": 1.0,
-    "attractiveness_index": 0.691,
+    "opportunity_score": 0.575,
+    "attractiveness_index": 0.5,
     "segment": "Most Attractive",
     "bead_status": "Unverified",
     "bead_dollars_awarded": null,
     "bead_awardees": [],
     "bead_locations_covered": null,
     "bead_claimed_pct": null,
-    "competitive_intensity": 0,
-    "competitive_label": "None",
-    "wireline_providers": [],
+    "competitive_intensity": 3,
+    "competitive_label": "High",
+    "wireline_providers": [
+      "Windstream Buffalo Valley, Inc.",
+      "Windstream Pennsylvania, LLC.",
+      "Xfinity",
+      "Susquehanna Broadband",
+      "Service Electric Cablevision,Inc."
+    ],
     "total_broadband_providers": 17,
-    "cable_coverage_pct": 0.0,
-    "fwa_coverage_pct": 0.0,
-    "broadband_coverage_pct": 0.0,
+    "cable_coverage_pct": 0.953,
+    "fwa_coverage_pct": 0.766,
+    "broadband_coverage_pct": 1.0,
     "broadband_gap_pct": 0.0,
-    "cable_present": false,
-    "fwa_present": false,
+    "cable_present": true,
+    "fwa_present": true,
     "fiber_growth_pct": null,
     "momentum_class": null,
     "elevation_mean_ft": 38.2,
@@ -3121,13 +5233,39 @@
   },
   "42121": {
     "geoid": "42121",
-    "name": "VenangoPennsylvania",
+    "name": "Venango",
     "is_metro_county": false,
     "total_bsls": 26203,
-    "fiber_served": 0,
-    "fiber_unserved": 26203,
-    "fiber_penetration": 0.0,
-    "operators": [],
+    "fiber_served": 1191,
+    "fiber_unserved": 25012,
+    "fiber_penetration": 0.045,
+    "operators": [
+      {
+        "name": "Windstream Pennsylvania, LLC.",
+        "passings": 560,
+        "served": 560
+      },
+      {
+        "name": "VenusTelephone",
+        "passings": 484,
+        "served": 484
+      },
+      {
+        "name": "Xfinity",
+        "passings": 110,
+        "served": 110
+      },
+      {
+        "name": "Windstream Communications, LLC.",
+        "passings": 35,
+        "served": 35
+      },
+      {
+        "name": "ArmstrongUtilitiesInc",
+        "passings": 2,
+        "served": 2
+      }
+    ],
     "population_2023": 50096,
     "population_2018": 52376,
     "pop_growth_pct": -4.35,
@@ -3142,24 +5280,30 @@
     "owner_occupied_pct": 75.6,
     "wfh_pct": 8.5,
     "demo_score": 0.379,
-    "opportunity_score": 1.0,
-    "attractiveness_index": 0.658,
+    "opportunity_score": 0.955,
+    "attractiveness_index": 0.638,
     "segment": "Most Attractive",
     "bead_status": "Unverified",
     "bead_dollars_awarded": null,
     "bead_awardees": [],
     "bead_locations_covered": null,
     "bead_claimed_pct": null,
-    "competitive_intensity": 0,
-    "competitive_label": "None",
-    "wireline_providers": [],
+    "competitive_intensity": 3,
+    "competitive_label": "High",
+    "wireline_providers": [
+      "Windstream Pennsylvania, LLC.",
+      "VenusTelephone",
+      "Xfinity",
+      "Windstream Communications, LLC.",
+      "ArmstrongUtilitiesInc"
+    ],
     "total_broadband_providers": 14,
-    "cable_coverage_pct": 0.0,
-    "fwa_coverage_pct": 0.0,
-    "broadband_coverage_pct": 0.0,
+    "cable_coverage_pct": 0.948,
+    "fwa_coverage_pct": 0.617,
+    "broadband_coverage_pct": 1.0,
     "broadband_gap_pct": 0.0,
-    "cable_present": false,
-    "fwa_present": false,
+    "cable_present": true,
+    "fwa_present": true,
     "fiber_growth_pct": null,
     "momentum_class": null,
     "elevation_mean_ft": 55.8,
@@ -3173,13 +5317,39 @@
   },
   "42123": {
     "geoid": "42123",
-    "name": "WarrenPennsylvania",
+    "name": "Warren",
     "is_metro_county": false,
     "total_bsls": 21641,
-    "fiber_served": 0,
-    "fiber_unserved": 21641,
-    "fiber_penetration": 0.0,
-    "operators": [],
+    "fiber_served": 4487,
+    "fiber_unserved": 17154,
+    "fiber_penetration": 0.207,
+    "operators": [
+      {
+        "name": "WestPAnet",
+        "passings": 2830,
+        "served": 2830
+      },
+      {
+        "name": "Windstream Pennsylvania, LLC.",
+        "passings": 776,
+        "served": 776
+      },
+      {
+        "name": "Blue Fiber",
+        "passings": 448,
+        "served": 448
+      },
+      {
+        "name": "Spectrum",
+        "passings": 432,
+        "served": 432
+      },
+      {
+        "name": "Breezeline",
+        "passings": 1,
+        "served": 1
+      }
+    ],
     "population_2023": 38174,
     "population_2018": 40035,
     "pop_growth_pct": -4.65,
@@ -3194,24 +5364,30 @@
     "owner_occupied_pct": 78.0,
     "wfh_pct": 5.0,
     "demo_score": 0.321,
-    "opportunity_score": 1.0,
-    "attractiveness_index": 0.627,
+    "opportunity_score": 0.793,
+    "attractiveness_index": 0.533,
     "segment": "Most Attractive",
     "bead_status": "Unverified",
     "bead_dollars_awarded": null,
     "bead_awardees": [],
     "bead_locations_covered": null,
     "bead_claimed_pct": null,
-    "competitive_intensity": 0,
-    "competitive_label": "None",
-    "wireline_providers": [],
+    "competitive_intensity": 3,
+    "competitive_label": "High",
+    "wireline_providers": [
+      "WestPAnet",
+      "Windstream Pennsylvania, LLC.",
+      "Blue Fiber",
+      "Spectrum",
+      "Breezeline"
+    ],
     "total_broadband_providers": 18,
-    "cable_coverage_pct": 0.0,
-    "fwa_coverage_pct": 0.0,
-    "broadband_coverage_pct": 0.0,
+    "cable_coverage_pct": 0.746,
+    "fwa_coverage_pct": 0.768,
+    "broadband_coverage_pct": 1.0,
     "broadband_gap_pct": 0.0,
-    "cable_present": false,
-    "fwa_present": false,
+    "cable_present": true,
+    "fwa_present": true,
     "fiber_growth_pct": null,
     "momentum_class": null,
     "elevation_mean_ft": 53.5,
@@ -3225,13 +5401,49 @@
   },
   "42125": {
     "geoid": "42125",
-    "name": "WashingtonPennsylvania",
+    "name": "Washington",
     "is_metro_county": true,
     "total_bsls": 97476,
-    "fiber_served": 0,
-    "fiber_unserved": 97476,
-    "fiber_penetration": 0.0,
-    "operators": [],
+    "fiber_served": 45094,
+    "fiber_unserved": 52382,
+    "fiber_penetration": 0.463,
+    "operators": [
+      {
+        "name": "Verizon",
+        "passings": 33796,
+        "served": 33796
+      },
+      {
+        "name": "Hickory Telephone Company",
+        "passings": 7377,
+        "served": 7377
+      },
+      {
+        "name": "Windstream Pennsylvania, LLC.",
+        "passings": 3371,
+        "served": 3371
+      },
+      {
+        "name": "Xfinity",
+        "passings": 792,
+        "served": 792
+      },
+      {
+        "name": "Armstrong Telephone Company",
+        "passings": 122,
+        "served": 122
+      },
+      {
+        "name": "Windstream Communications, LLC.",
+        "passings": 74,
+        "served": 74
+      },
+      {
+        "name": "Frontier",
+        "passings": 1,
+        "served": 1
+      }
+    ],
     "population_2023": 209778,
     "population_2018": 207547,
     "pop_growth_pct": 1.07,
@@ -3246,24 +5458,32 @@
     "owner_occupied_pct": 76.4,
     "wfh_pct": 13.8,
     "demo_score": 0.632,
-    "opportunity_score": 1.0,
-    "attractiveness_index": 0.798,
+    "opportunity_score": 0.537,
+    "attractiveness_index": 0.589,
     "segment": "Most Attractive",
     "bead_status": "Unverified",
     "bead_dollars_awarded": null,
     "bead_awardees": [],
     "bead_locations_covered": null,
     "bead_claimed_pct": null,
-    "competitive_intensity": 0,
-    "competitive_label": "None",
-    "wireline_providers": [],
+    "competitive_intensity": 3,
+    "competitive_label": "High",
+    "wireline_providers": [
+      "Verizon",
+      "Hickory Telephone Company",
+      "Windstream Pennsylvania, LLC.",
+      "Xfinity",
+      "Armstrong Telephone Company",
+      "Windstream Communications, LLC.",
+      "Frontier"
+    ],
     "total_broadband_providers": 20,
-    "cable_coverage_pct": 0.0,
-    "fwa_coverage_pct": 0.0,
-    "broadband_coverage_pct": 0.0,
+    "cable_coverage_pct": 0.981,
+    "fwa_coverage_pct": 0.723,
+    "broadband_coverage_pct": 1.0,
     "broadband_gap_pct": 0.0,
-    "cable_present": false,
-    "fwa_present": false,
+    "cable_present": true,
+    "fwa_present": true,
     "fiber_growth_pct": null,
     "momentum_class": null,
     "elevation_mean_ft": 46.7,
@@ -3277,13 +5497,69 @@
   },
   "42127": {
     "geoid": "42127",
-    "name": "WaynePennsylvania",
+    "name": "Wayne",
     "is_metro_county": false,
     "total_bsls": 32054,
-    "fiber_served": 0,
-    "fiber_unserved": 32054,
-    "fiber_penetration": 0.0,
-    "operators": [],
+    "fiber_served": 11277,
+    "fiber_unserved": 20777,
+    "fiber_penetration": 0.352,
+    "operators": [
+      {
+        "name": "Adams CATV Inc",
+        "passings": 3878,
+        "served": 3878
+      },
+      {
+        "name": "The North-Eastern Pennsylvania Telephone Company",
+        "passings": 2727,
+        "served": 2727
+      },
+      {
+        "name": "LHTC Broadband",
+        "passings": 2349,
+        "served": 2349
+      },
+      {
+        "name": "Spectrum",
+        "passings": 766,
+        "served": 766
+      },
+      {
+        "name": "NEP Telcom Inc",
+        "passings": 586,
+        "served": 586
+      },
+      {
+        "name": "Xfinity",
+        "passings": 407,
+        "served": 407
+      },
+      {
+        "name": "Hancock Telephone Co",
+        "passings": 365,
+        "served": 365
+      },
+      {
+        "name": "The Hancock Telephone Co",
+        "passings": 145,
+        "served": 145
+      },
+      {
+        "name": "Blue Ridge Cable Technologies",
+        "passings": 41,
+        "served": 41
+      },
+      {
+        "name": "TDS Telecom",
+        "passings": 28,
+        "served": 28
+      },
+      {
+        "name": "Verizon",
+        "passings": 2,
+        "served": 2
+      }
+    ],
     "population_2023": 51189,
     "population_2018": 51536,
     "pop_growth_pct": -0.67,
@@ -3298,24 +5574,36 @@
     "owner_occupied_pct": 81.9,
     "wfh_pct": 10.4,
     "demo_score": 0.459,
-    "opportunity_score": 1.0,
-    "attractiveness_index": 0.702,
+    "opportunity_score": 0.648,
+    "attractiveness_index": 0.544,
     "segment": "Most Attractive",
     "bead_status": "Unverified",
     "bead_dollars_awarded": null,
     "bead_awardees": [],
     "bead_locations_covered": null,
     "bead_claimed_pct": null,
-    "competitive_intensity": 0,
-    "competitive_label": "None",
-    "wireline_providers": [],
+    "competitive_intensity": 3,
+    "competitive_label": "High",
+    "wireline_providers": [
+      "Adams CATV Inc",
+      "The North-Eastern Pennsylvania Telephone Company",
+      "LHTC Broadband",
+      "Spectrum",
+      "NEP Telcom Inc",
+      "Xfinity",
+      "Hancock Telephone Co",
+      "The Hancock Telephone Co",
+      "Blue Ridge Cable Technologies",
+      "TDS Telecom",
+      "Verizon"
+    ],
     "total_broadband_providers": 20,
-    "cable_coverage_pct": 0.0,
-    "fwa_coverage_pct": 0.0,
-    "broadband_coverage_pct": 0.0,
+    "cable_coverage_pct": 0.679,
+    "fwa_coverage_pct": 0.595,
+    "broadband_coverage_pct": 1.0,
     "broadband_gap_pct": 0.0,
-    "cable_present": false,
-    "fwa_present": false,
+    "cable_present": true,
+    "fwa_present": true,
     "fiber_growth_pct": null,
     "momentum_class": null,
     "elevation_mean_ft": 40.8,
@@ -3329,13 +5617,59 @@
   },
   "42129": {
     "geoid": "42129",
-    "name": "WestmorelandPennsylvania",
+    "name": "Westmoreland",
     "is_metro_county": true,
     "total_bsls": 168406,
-    "fiber_served": 0,
-    "fiber_unserved": 168406,
-    "fiber_penetration": 0.0,
-    "operators": [],
+    "fiber_served": 32913,
+    "fiber_unserved": 135493,
+    "fiber_penetration": 0.195,
+    "operators": [
+      {
+        "name": "Windstream Pennsylvania, LLC.",
+        "passings": 10917,
+        "served": 10917
+      },
+      {
+        "name": "Citizens Telecom Solutions LLC",
+        "passings": 7130,
+        "served": 7130
+      },
+      {
+        "name": "Citizens Telephone Company of Kecksburg",
+        "passings": 5004,
+        "served": 5004
+      },
+      {
+        "name": "LHTC Broadband",
+        "passings": 4904,
+        "served": 4904
+      },
+      {
+        "name": "Verizon",
+        "passings": 4058,
+        "served": 4058
+      },
+      {
+        "name": "Salsgiver Inc",
+        "passings": 710,
+        "served": 710
+      },
+      {
+        "name": "Xfinity",
+        "passings": 226,
+        "served": 226
+      },
+      {
+        "name": "ArmstrongUtilitiesInc",
+        "passings": 210,
+        "served": 210
+      },
+      {
+        "name": "Fidium Fiber",
+        "passings": 2,
+        "served": 2
+      }
+    ],
     "population_2023": 353345,
     "population_2018": 354751,
     "pop_growth_pct": -0.4,
@@ -3350,24 +5684,34 @@
     "owner_occupied_pct": 78.3,
     "wfh_pct": 11.8,
     "demo_score": 0.58,
-    "opportunity_score": 1.0,
-    "attractiveness_index": 0.769,
+    "opportunity_score": 0.805,
+    "attractiveness_index": 0.681,
     "segment": "Most Attractive",
     "bead_status": "Unverified",
     "bead_dollars_awarded": null,
     "bead_awardees": [],
     "bead_locations_covered": null,
     "bead_claimed_pct": null,
-    "competitive_intensity": 0,
-    "competitive_label": "None",
-    "wireline_providers": [],
+    "competitive_intensity": 3,
+    "competitive_label": "High",
+    "wireline_providers": [
+      "Windstream Pennsylvania, LLC.",
+      "Citizens Telecom Solutions LLC",
+      "Citizens Telephone Company of Kecksburg",
+      "LHTC Broadband",
+      "Verizon",
+      "Salsgiver Inc",
+      "Xfinity",
+      "ArmstrongUtilitiesInc",
+      "Fidium Fiber"
+    ],
     "total_broadband_providers": 18,
-    "cable_coverage_pct": 0.0,
-    "fwa_coverage_pct": 0.0,
-    "broadband_coverage_pct": 0.0,
+    "cable_coverage_pct": 0.992,
+    "fwa_coverage_pct": 0.641,
+    "broadband_coverage_pct": 1.0,
     "broadband_gap_pct": 0.0,
-    "cable_present": false,
-    "fwa_present": false,
+    "cable_present": true,
+    "fwa_present": true,
     "fiber_growth_pct": null,
     "momentum_class": null,
     "elevation_mean_ft": 44.0,
@@ -3381,13 +5725,34 @@
   },
   "42131": {
     "geoid": "42131",
-    "name": "WyomingPennsylvania",
+    "name": "Wyoming",
     "is_metro_county": true,
     "total_bsls": 12858,
-    "fiber_served": 0,
-    "fiber_unserved": 12858,
-    "fiber_penetration": 0.0,
-    "operators": [],
+    "fiber_served": 7900,
+    "fiber_unserved": 4958,
+    "fiber_penetration": 0.614,
+    "operators": [
+      {
+        "name": "Frontier",
+        "passings": 6627,
+        "served": 6627
+      },
+      {
+        "name": "Revolution Broadband",
+        "passings": 1139,
+        "served": 1139
+      },
+      {
+        "name": "Xfinity",
+        "passings": 403,
+        "served": 403
+      },
+      {
+        "name": "Verizon",
+        "passings": 2,
+        "served": 2
+      }
+    ],
     "population_2023": 26075,
     "population_2018": 27588,
     "pop_growth_pct": -5.48,
@@ -3402,24 +5767,29 @@
     "owner_occupied_pct": 76.8,
     "wfh_pct": 7.7,
     "demo_score": 0.407,
-    "opportunity_score": 1.0,
-    "attractiveness_index": 0.674,
-    "segment": "Most Attractive",
+    "opportunity_score": 0.386,
+    "attractiveness_index": 0.398,
+    "segment": "Neutral",
     "bead_status": "Unverified",
     "bead_dollars_awarded": null,
     "bead_awardees": [],
     "bead_locations_covered": null,
     "bead_claimed_pct": null,
-    "competitive_intensity": 0,
-    "competitive_label": "None",
-    "wireline_providers": [],
+    "competitive_intensity": 3,
+    "competitive_label": "High",
+    "wireline_providers": [
+      "Frontier",
+      "Revolution Broadband",
+      "Xfinity",
+      "Verizon"
+    ],
     "total_broadband_providers": 14,
-    "cable_coverage_pct": 0.0,
-    "fwa_coverage_pct": 0.0,
-    "broadband_coverage_pct": 0.0,
+    "cable_coverage_pct": 0.982,
+    "fwa_coverage_pct": 0.652,
+    "broadband_coverage_pct": 1.0,
     "broadband_gap_pct": 0.0,
-    "cable_present": false,
-    "fwa_present": false,
+    "cable_present": true,
+    "fwa_present": true,
     "fiber_growth_pct": null,
     "momentum_class": null,
     "elevation_mean_ft": 69.5,
@@ -3433,13 +5803,54 @@
   },
   "42133": {
     "geoid": "42133",
-    "name": "YorkPennsylvania",
+    "name": "York",
     "is_metro_county": true,
     "total_bsls": 188608,
-    "fiber_served": 0,
-    "fiber_unserved": 188608,
-    "fiber_penetration": 0.0,
-    "operators": [],
+    "fiber_served": 52269,
+    "fiber_unserved": 136339,
+    "fiber_penetration": 0.277,
+    "operators": [
+      {
+        "name": "Glo Fiber",
+        "passings": 30937,
+        "served": 30937
+      },
+      {
+        "name": "Brightspeed",
+        "passings": 11016,
+        "served": 11016
+      },
+      {
+        "name": "Verizon",
+        "passings": 7087,
+        "served": 7087
+      },
+      {
+        "name": "Frontier",
+        "passings": 4130,
+        "served": 4130
+      },
+      {
+        "name": "Blue Ridge Cable Technologies",
+        "passings": 3929,
+        "served": 3929
+      },
+      {
+        "name": "Xfinity",
+        "passings": 1840,
+        "served": 1840
+      },
+      {
+        "name": "ArmstrongUtilitiesInc",
+        "passings": 420,
+        "served": 420
+      },
+      {
+        "name": "DandBBroadband",
+        "passings": 9,
+        "served": 9
+      }
+    ],
     "population_2023": 459312,
     "population_2018": 444014,
     "pop_growth_pct": 3.45,
@@ -3454,24 +5865,33 @@
     "owner_occupied_pct": 75.8,
     "wfh_pct": 10.5,
     "demo_score": 0.702,
-    "opportunity_score": 1.0,
-    "attractiveness_index": 0.836,
+    "opportunity_score": 0.723,
+    "attractiveness_index": 0.711,
     "segment": "Most Attractive",
     "bead_status": "Unverified",
     "bead_dollars_awarded": null,
     "bead_awardees": [],
     "bead_locations_covered": null,
     "bead_claimed_pct": null,
-    "competitive_intensity": 0,
-    "competitive_label": "None",
-    "wireline_providers": [],
+    "competitive_intensity": 3,
+    "competitive_label": "High",
+    "wireline_providers": [
+      "Glo Fiber",
+      "Brightspeed",
+      "Verizon",
+      "Frontier",
+      "Blue Ridge Cable Technologies",
+      "Xfinity",
+      "ArmstrongUtilitiesInc",
+      "DandBBroadband"
+    ],
     "total_broadband_providers": 21,
-    "cable_coverage_pct": 0.0,
-    "fwa_coverage_pct": 0.0,
-    "broadband_coverage_pct": 0.0,
+    "cable_coverage_pct": 0.996,
+    "fwa_coverage_pct": 0.862,
+    "broadband_coverage_pct": 1.0,
     "broadband_gap_pct": 0.0,
-    "cable_present": false,
-    "fwa_present": false,
+    "cable_present": true,
+    "fwa_present": true,
     "fiber_growth_pct": null,
     "momentum_class": null,
     "elevation_mean_ft": 26.7,

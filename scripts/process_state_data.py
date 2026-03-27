@@ -92,11 +92,11 @@ def load_census_acs(state_lower):
         wfh = safe_int(d.get('B08006_017E'))
 
         # Strip state name suffix from county name
-        name = d['NAME']
-        for suffix in [' County', f', {d.get("state_name", "")}']:
-            name = name.replace(suffix, '')
+        # Census API returns e.g. "Durham County, North Carolina"
+        name = d['NAME'].replace(' County', '').strip()
+        if ',' in name:
+            name = name.split(',')[0].strip()
         # Handle "St. Louis city" edge case and similar independent cities
-        name = name.strip()
 
         acs[fips] = {
             'name': name,
