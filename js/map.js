@@ -87,7 +87,7 @@
         // Deep Dive mode
         _deepDiveActive: false,
         _deepDiveTimer: null,
-        _deepDiveLayers: ['penetration', 'demographic', 'attractiveness', 'bead', 'competitive', 'momentum', 'terrain'],
+        _deepDiveLayers: ['penetration', 'cable', 'fwa', 'broadband_gap', 'demographic', 'attractiveness', 'competitive', 'terrain'],
         _deepDiveIndex: 0,
 
         async init(containerId) {
@@ -416,6 +416,15 @@
             switch (this.currentLayer) {
                 case 'penetration':
                     value = data.fiber_penetration;
+                    break;
+                case 'cable':
+                    value = data.cable_coverage_pct != null ? data.cable_coverage_pct : null;
+                    break;
+                case 'fwa':
+                    value = data.fwa_coverage_pct != null ? data.fwa_coverage_pct : null;
+                    break;
+                case 'broadband_gap':
+                    value = data.broadband_gap_pct != null ? data.broadband_gap_pct : null;
                     break;
                 case 'demographic':
                     value = data.demo_score;
@@ -899,6 +908,20 @@
                 }
             }
 
+            // Technology Coverage section
+            var techSection = document.getElementById('tech-coverage-section');
+            if (techSection) {
+                if (data.cable_coverage_pct != null || data.fwa_coverage_pct != null) {
+                    techSection.style.display = '';
+                    setTextById('cable-coverage', DataHandler.formatPercent(data.cable_coverage_pct));
+                    setTextById('fwa-coverage', DataHandler.formatPercent(data.fwa_coverage_pct));
+                    setTextById('bb-coverage', DataHandler.formatPercent(data.broadband_coverage_pct));
+                    setTextById('bb-gap', DataHandler.formatPercent(data.broadband_gap_pct));
+                } else {
+                    techSection.style.display = 'none';
+                }
+            }
+
             // Competition & Growth section
             var compSection = document.getElementById('competition-section');
             if (compSection) {
@@ -906,6 +929,8 @@
                     compSection.style.display = '';
                     setTextById('comp-label', data.competitive_label || 'N/A');
                     setTextById('comp-providers', data.wireline_providers ? data.wireline_providers.length.toString() : 'N/A');
+                    setTextById('cable-present', data.cable_present ? 'Yes' : 'No');
+                    setTextById('fwa-present', data.fwa_present ? 'Yes' : 'No');
                     setTextById('total-bb-providers', data.total_broadband_providers != null ? data.total_broadband_providers.toString() : 'N/A');
                     // Momentum: show "Pending" if null (Dec 2024 data not available)
                     setTextById('momentum-class', data.momentum_class || 'Pending');

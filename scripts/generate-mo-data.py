@@ -326,11 +326,85 @@ def load_place_summary(acs):
     return {fips: {'place_total_bsls': int(total)} for fips, total in county_bsls.items()}
 
 
+def load_technology_coverage(acs):
+    """Load cable and FWA technology coverage from FCC place-level summary.
+
+    Uses the same Census place-to-county crosswalk as load_place_summary().
+
+    Returns dict keyed by county FIPS with:
+    - cable_coverage_pct: fraction of BSLs with cable broadband (25/3 Mbps+)
+    - fwa_coverage_pct:   fraction of BSLs with fixed wireless (25/3 Mbps+)
+    - broadband_coverage_pct: fraction with any broadband (25/3 Mbps+)
+    - broadband_gap_pct:  fraction truly unserved at 25/3 Mbps
+    """
+    print("  Loading technology coverage (cable/FWA) from place summary...")
+
+    # Build crosswalk: Census place FIPS → county FIPS
+    crosswalk_path = os.path.join(RAW_DIR, 'census', 'place_county_crosswalk_mo.txt')
+    with open(crosswalk_path) as f:
+        content = f.read()
+
+    name_to_fips = {data['name']: fips for fips, data in acs.items()}
+    place_to_fips = {}
+    for line in content.strip().split('\n')[1:]:
+        parts = line.split('|')
+        if len(parts) < 9:
+            continue
+        place_fips = int(parts[1] + parts[2])
+        county_name = parts[8].replace(' County', '').strip()
+        if ',' in county_name:
+            county_name = county_name.split(',')[0].strip()
+        county_name = county_name.replace('St. Louis city', 'St. Louis City')
+        cfips = name_to_fips.get(county_name)
+        if cfips:
+            place_to_fips[place_fips] = cfips
+
+    fcc = pd.read_csv(os.path.join(RAW_DIR, 'fcc', 'jun2025', 'broadband_summary_place_mo.csv'))
+
+    # Filter: Residential, Total breakdown only (not Urban/Rural/Tribal)
+    fcc_res = fcc[
+        (fcc['biz_res'] == 'R') &
+        (fcc['area_data_type'] == 'Total')
+    ].copy()
+
+    fcc_res['county_fips'] = fcc_res['geography_id'].apply(
+        lambda pid: place_to_fips.get(int(pid))
+    )
+    fcc_res = fcc_res.dropna(subset=['county_fips'])
+
+    fcc_res['speed_25_3'] = pd.to_numeric(fcc_res['speed_25_3'], errors='coerce').fillna(0)
+    fcc_res['total_units'] = pd.to_numeric(fcc_res['total_units'], errors='coerce').fillna(0)
+    fcc_res['weighted_units'] = fcc_res['total_units'] * fcc_res['speed_25_3']
+
+    result = {}
+    for county_fips, group in fcc_res.groupby('county_fips'):
+        any_tech = group[group['technology'] == 'Any Technology']
+        total_bsls = any_tech['total_units'].sum()
+        if total_bsls == 0:
+            continue
+
+        def safe_pct(tech_name):
+            rows = group[group['technology'] == tech_name]
+            covered = rows['weighted_units'].sum()
+            return round(min(1.0, covered / total_bsls), 3)
+
+        bb_pct = safe_pct('Any Technology')
+        result[county_fips] = {
+            'cable_coverage_pct': safe_pct('Cable'),
+            'fwa_coverage_pct': safe_pct('All Fixed Wireless'),
+            'broadband_coverage_pct': bb_pct,
+            'broadband_gap_pct': round(max(0.0, 1.0 - bb_pct), 3),
+        }
+
+    print(f"  {len(result)} counties with technology coverage data")
+    return result
+
+
 # ─── County Record Builder ──────────────────────────────────────────────────
 
 
 def build_county(fips, acs_data, fttp_data, provider_data, place_data,
-                 terrain_data, rucc_data):
+                 terrain_data, rucc_data, tech_data):
     """Build a single county record from ALL real data sources.
 
     Data provenance per field documented inline.
@@ -394,6 +468,15 @@ def build_county(fips, acs_data, fttp_data, provider_data, place_data,
     # === FCC PROVIDER SUMMARY (REAL — all-tech provider count) ===
     prov = provider_data.get(fips, {})
     total_provider_count = prov.get('total_provider_count', 0)
+
+    # === TECHNOLOGY COVERAGE (REAL — FCC BDC place summary) ===
+    tech = tech_data.get(fips, {})
+    cable_coverage_pct = float(tech.get('cable_coverage_pct', 0) or 0)
+    fwa_coverage_pct = float(tech.get('fwa_coverage_pct', 0) or 0)
+    broadband_coverage_pct = float(tech.get('broadband_coverage_pct', 0) or 0)
+    broadband_gap_pct = float(tech.get('broadband_gap_pct', 0) or 0)
+    cable_present = bool(cable_coverage_pct > 0.05)
+    fwa_present = bool(fwa_coverage_pct > 0.05)
 
     # Competitive intensity based on FIBER provider count (from FTTP)
     if fiber_provider_count >= 4:
@@ -506,11 +589,17 @@ def build_county(fips, acs_data, fttp_data, provider_data, place_data,
         "bead_claimed_pct": bead_claimed_pct,
         "bead_status": bead_status,
 
-        # Competition (REAL — FCC BDC FTTP + Provider Summary)
+        # Competition (REAL — FCC BDC FTTP + Provider Summary + Tech Coverage)
         "competitive_intensity": comp_intensity,
         "competitive_label": comp_label,
         "wireline_providers": wireline_providers,
         "total_broadband_providers": total_provider_count,
+        "cable_coverage_pct": cable_coverage_pct,
+        "fwa_coverage_pct": fwa_coverage_pct,
+        "broadband_coverage_pct": broadband_coverage_pct,
+        "broadband_gap_pct": broadband_gap_pct,
+        "cable_present": cable_present,
+        "fwa_present": fwa_present,
 
         # Momentum (NULL — Dec 2024 BDC not available)
         "fiber_bsls_v5": fiber_bsls_v5,
@@ -737,11 +826,15 @@ def main():
     place = load_place_summary(acs)
     print(f"   {len(place)} counties with place-level BSL data")
 
-    print("\n7. Building county records...")
+    print("\n7. Loading technology coverage (cable/FWA)...")
+    tech = load_technology_coverage(acs)
+    print(f"   {len(tech)} counties with technology coverage data")
+
+    print("\n8. Building county records...")
     data = {}
     for fips in sorted(acs.keys()):
         data[fips] = build_county(
-            fips, acs[fips], fttp, providers, place, terrain, rucc
+            fips, acs[fips], fttp, providers, place, terrain, rucc, tech
         )
 
     # Write output

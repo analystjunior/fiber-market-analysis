@@ -1,2 +1,5 @@
 .DS_Store
 *.zip
+
+# Raw FCC/Census source files — large CSVs, not for version control
+data/raw/

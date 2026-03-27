@@ -1,5 +1,5 @@
 # MO County Data QA Report
-Generated: 2026-03-20 17:18
+Generated: 2026-03-27 10:10
 Counties: 115
 
 ## Field Completeness
@@ -10,7 +10,11 @@ Counties: 115
   bead_dollars_awarded: 0/115 (0%) ❌
   bead_locations_covered: 0/115 (0%) ❌
   bead_status: 115/115 (100%)
+  broadband_coverage_pct: 115/115 (100%)
+  broadband_gap_pct: 115/115 (100%)
   build_difficulty: 115/115 (100%)
+  cable_coverage_pct: 115/115 (100%)
+  cable_present: 115/115 (100%)
   competitive_intensity: 115/115 (100%)
   competitive_label: 115/115 (100%)
   construction_cost_tier: 115/115 (100%)
@@ -24,6 +28,8 @@ Counties: 115
   fiber_penetration: 115/115 (100%)
   fiber_served: 115/115 (100%)
   fiber_unserved: 115/115 (100%)
+  fwa_coverage_pct: 115/115 (100%)
+  fwa_present: 115/115 (100%)
   geoid: 115/115 (100%)
   housing_density: 115/115 (100%)
   housing_growth_pct: 115/115 (100%)

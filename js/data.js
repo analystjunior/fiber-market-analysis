@@ -12,6 +12,7 @@
      * Safely formats a number with locale string
      * @param {number|null|undefined} num
      * @returns {string}
+     * 
      */
     function formatNumber(num) {
         if (num === null || num === undefined || !Number.isFinite(num)) {
@@ -61,8 +62,7 @@
     }
 
     /**
-     * Converts a value to a safe display string.
-     * Note: XSS protection comes from using textContent (not innerHTML) at all call sites.
+     * Sanitizes a string for safe display (prevents XSS)
      * @param {string|null|undefined} str
      * @returns {string}
      */
@@ -378,9 +378,30 @@
             { threshold: 0.8, color: '#fed7aa', label: 'Hard' },
             { threshold: 1.0, color: '#fecaca', label: 'Challenging' }
         ],
-
-        // Valid layer names for getColor
-        _validLayers: { penetration: true, demographic: true, attractiveness: true, bead: true, competitive: true, momentum: true, terrain: true },
+        // Cable Coverage: White = none, Blue = high cable penetration
+        cable: [
+            { threshold: 0.1, color: '#f0f9ff', label: '<10%' },
+            { threshold: 0.3, color: '#bae6fd', label: '10-30%' },
+            { threshold: 0.5, color: '#7dd3fc', label: '30-50%' },
+            { threshold: 0.75, color: '#38bdf8', label: '50-75%' },
+            { threshold: 1.0, color: '#0284c7', label: '>75%' }
+        ],
+        // Fixed Wireless (FWA) Coverage: White = none, Orange = high FWA
+        fwa: [
+            { threshold: 0.1, color: '#fff7ed', label: '<10%' },
+            { threshold: 0.3, color: '#fed7aa', label: '10-30%' },
+            { threshold: 0.5, color: '#fb923c', label: '30-50%' },
+            { threshold: 0.75, color: '#ea580c', label: '50-75%' },
+            { threshold: 1.0, color: '#c2410c', label: '>75%' }
+        ],
+        // Broadband Gap: Green = fully served, Red = high unserved rate
+        broadband_gap: [
+            { threshold: 0.05, color: '#86efac', label: '<5% Unserved' },
+            { threshold: 0.15, color: '#fde68a', label: '5-15%' },
+            { threshold: 0.30, color: '#fbbf24', label: '15-30%' },
+            { threshold: 0.50, color: '#f97316', label: '30-50%' },
+            { threshold: 1.0, color: '#ef4444', label: '>50% Unserved' }
+        ],
 
         getColor: function(layer, value) {
             // Handle invalid inputs
@@ -388,7 +409,6 @@
                 return '#cbd5e1';
             }
 
-            if (!this._validLayers[layer]) return '#cbd5e1';
             var scale = this[layer];
             if (!scale) return '#cbd5e1';
 

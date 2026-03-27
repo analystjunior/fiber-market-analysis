@@ -25,6 +25,9 @@
                 <label>Map Layer</label>
                 <div class="toggle-group" id="layer-toggle" role="group" aria-label="Map layer selection">
                     <button class="toggle-btn active" data-layer="penetration" aria-pressed="true">Fiber Penetration</button>
+                    <button class="toggle-btn" data-layer="cable" aria-pressed="false">Cable Coverage</button>
+                    <button class="toggle-btn" data-layer="fwa" aria-pressed="false">Fixed Wireless</button>
+                    <button class="toggle-btn" data-layer="broadband_gap" aria-pressed="false">Broadband Gap</button>
                     <button class="toggle-btn" data-layer="demographic" aria-pressed="false">Demographics</button>
                     <button class="toggle-btn" data-layer="attractiveness" aria-pressed="false">Market Attractiveness</button>
                     <button class="toggle-btn layer-pending" data-layer="bead" aria-pressed="false" title="County-level BEAD data not yet available">BEAD Funding *</button>
@@ -175,6 +178,29 @@
                             </div>
                         </div>
 
+                        <!-- Technology Coverage Section -->
+                        <div class="stats-section" id="tech-coverage-section" style="display: none;">
+                            <h3>Broadband Technology Coverage</h3>
+                            <div class="stats-grid">
+                                <div class="stat-item">
+                                    <span class="stat-label">Cable (25/3 Mbps+)</span>
+                                    <span class="stat-value" id="cable-coverage"></span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Fixed Wireless</span>
+                                    <span class="stat-value" id="fwa-coverage"></span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Any Broadband</span>
+                                    <span class="stat-value" id="bb-coverage"></span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Unserved (gap)</span>
+                                    <span class="stat-value highlight-opp" id="bb-gap"></span>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="stats-section">
                             <h3>Demographics & Economics</h3>
                             <div class="stats-grid">
@@ -258,6 +284,14 @@
                                 <div class="stat-item">
                                     <span class="stat-label">Fiber Providers</span>
                                     <span class="stat-value" id="comp-providers"></span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Cable Present</span>
+                                    <span class="stat-value" id="cable-present"></span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">FWA Present</span>
+                                    <span class="stat-value" id="fwa-present"></span>
                                 </div>
                                 <div class="stat-item">
                                     <span class="stat-label">All Broadband Providers</span>
