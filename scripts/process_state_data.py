@@ -47,6 +47,16 @@ RAW_DIR = os.path.join(PROJECT_DIR, 'data', 'raw')
 OUT_DIR = os.path.join(PROJECT_DIR, 'data')
 QA_DIR = os.path.join(PROJECT_DIR, 'data', 'processed')
 
+# NTIA BEAD allocations announced June 2023
+BEAD_ALLOCATIONS = {
+    'MO': 1_736_302_708,
+    'NY':   664_618_251,
+    'TX': 3_312_616_455,
+    'NC': 1_532_999_481,
+    'GA': 1_307_214_371,
+    'PA': 1_161_778_272,
+}
+
 
 def parse_args():
     parser = argparse.ArgumentParser(description='Process state broadband data')
@@ -474,8 +484,10 @@ def build_county(fips, acs_data, fttp_data, provider_data, place_data,
         cost_tier = None
         build_diff = None
 
-    # BEAD — flagged pending public release
-    bead_status = "Unverified"
+    # BEAD — eligible locations proxied by fiber_unserved
+    # (locations without fiber = unserved + underserved, both eligible for BEAD funding)
+    bead_eligible_locations = fiber_unserved  # max(0, total_bsls - fiber_served)
+    bead_status = "Eligible" if bead_eligible_locations > 0 else "Not Eligible"
 
     # Momentum — null pending Dec 2024 BDC filing
     fiber_growth_pct = None
@@ -508,9 +520,13 @@ def build_county(fips, acs_data, fttp_data, provider_data, place_data,
         "attractiveness_index": attractiveness_index,
         "segment": segment,
         "bead_status": bead_status,
+        "bead_eligible_locations": bead_eligible_locations,
+        "bead_state_allocation": None,           # filled in post-processing
+        "bead_dollars_per_eligible_loc": None,   # filled in post-processing
+        "bead_implied_county_award": None,       # filled in post-processing
         "bead_dollars_awarded": None,
         "bead_awardees": [],
-        "bead_locations_covered": None,
+        "bead_locations_covered": bead_eligible_locations if bead_eligible_locations > 0 else None,
         "bead_claimed_pct": None,
         "competitive_intensity": comp_intensity,
         "competitive_label": comp_label,
@@ -581,6 +597,21 @@ def main():
         data[fips] = build_county(
             fips, acs[fips], fttp, providers, place, terrain, rucc, tech
         )
+
+    # Post-process: add BEAD state-level metrics
+    state_allocation = BEAD_ALLOCATIONS.get(state)
+    total_eligible = sum(c.get('bead_eligible_locations', 0) for c in data.values())
+    dollars_per_loc = round(state_allocation / total_eligible, 2) if state_allocation and total_eligible > 0 else None
+    for county in data.values():
+        county['bead_state_allocation'] = state_allocation
+        county['bead_dollars_per_eligible_loc'] = dollars_per_loc
+        eligible = county.get('bead_eligible_locations', 0)
+        county['bead_implied_county_award'] = int(round(eligible * dollars_per_loc)) if dollars_per_loc and eligible else 0
+
+    if state_allocation:
+        print(f"\n   BEAD: ${state_allocation/1e9:.2f}B state allocation | "
+              f"{total_eligible:,} eligible locations | "
+              f"${dollars_per_loc:,.0f}/location" if dollars_per_loc else "")
 
     # Output
     os.makedirs(OUT_DIR, exist_ok=True)

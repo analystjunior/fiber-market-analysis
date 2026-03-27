@@ -396,13 +396,14 @@
             { threshold: 0.5, color: '#16a34a', label: 'Good' },
             { threshold: 1.0, color: '#15803d', label: 'Most Attractive' }
         ],
-        // BEAD Funding: light → deep indigo
+        // BEAD Funding: implied county award ($) — light → deep teal
+        // Normalized: 1.0 = $50M+ implied award
         bead: [
-            { threshold: 0.01, color: '#e0e7ff', label: 'Not Targeted' },
-            { threshold: 0.25, color: '#a5b4fc', label: '<25% Claimed' },
-            { threshold: 0.50, color: '#6366f1', label: '25–50%' },
-            { threshold: 0.75, color: '#4338ca', label: '50–75%' },
-            { threshold: 1.0,  color: '#3730a3', label: '>75% Claimed' }
+            { threshold: 0.02, color: '#1e293b', label: 'Not Eligible' },
+            { threshold: 0.10, color: '#164e63', label: '<$5M' },
+            { threshold: 0.30, color: '#0e7490', label: '$5M–$15M' },
+            { threshold: 0.60, color: '#06b6d4', label: '$15M–$30M' },
+            { threshold: 1.0,  color: '#38b292', label: '$30M+' }
         ],
         // Competitive Intensity: green = monopoly (good — open market), red = high competition (bad)
         competitive: [

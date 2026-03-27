@@ -347,7 +347,7 @@
                 case 'broadband_gap': value = data.broadband_gap_pct; break;
                 case 'demographic':   value = data.demo_score; break;
                 case 'attractiveness':value = data.attractiveness_index; break;
-                case 'bead':          value = data.bead_claimed_pct; break;
+                case 'bead':          value = data.bead_implied_county_award != null ? Math.min(1, data.bead_implied_county_award / 50000000) : null; break;
                 case 'competitive':   value = data.competitive_intensity != null ? data.competitive_intensity / 3 : null; break;
                 case 'momentum':      value = data.fiber_growth_pct != null ? Math.min(1, Math.max(0, data.fiber_growth_pct / 30)) : null; break;
                 case 'terrain':       value = data.terrain_roughness; break;
@@ -757,27 +757,33 @@
                     setTextById('bead-status', data.bead_status || 'N/A');
                     var beadStatusEl = document.getElementById('bead-status');
                     if (beadStatusEl) {
-                        var validBeadClasses = { 'awarded': true, 'in-progress': true, 'pending': true, 'not-targeted': true, 'unverified': true };
                         var beadClass = (data.bead_status || '').toLowerCase().replace(/\s+/g, '-');
-                        beadStatusEl.className = 'stat-value bead-badge' + (validBeadClasses[beadClass] ? ' bead-' + beadClass : '');
+                        beadStatusEl.className = 'stat-value bead-badge bead-' + beadClass;
                     }
-                    var hasBeadData = data.bead_status !== 'Unverified' && data.bead_dollars_awarded != null;
-                    var detailIds = ['bead-details-dollars', 'bead-details-locations', 'bead-details-claimed', 'bead-details-awardees'];
+
+                    var hasBeadMetrics = data.bead_eligible_locations != null;
+                    var detailIds = ['bead-details-eligible', 'bead-details-implied', 'bead-details-per-loc', 'bead-details-allocation'];
                     detailIds.forEach(function(id) {
                         var el = document.getElementById(id);
-                        if (el) el.style.display = hasBeadData ? '' : 'none';
+                        if (el) el.style.display = hasBeadMetrics ? '' : 'none';
                     });
                     var beadNote = document.getElementById('bead-note');
-                    if (beadNote) beadNote.style.display = hasBeadData ? 'none' : '';
-                    if (hasBeadData) {
-                        setTextById('bead-dollars', DataHandler.formatCurrency(data.bead_dollars_awarded));
-                        setTextById('bead-locations', DataHandler.formatNumber(data.bead_locations_covered));
-                        setTextById('bead-claimed', data.bead_claimed_pct != null ? DataHandler.formatPercent(data.bead_claimed_pct) : 'N/A');
-                        var awardeesList = document.getElementById('bead-awardees');
-                        if (awardeesList) {
-                            awardeesList.textContent = (data.bead_awardees && data.bead_awardees.length > 0) ?
-                                data.bead_awardees.join(', ') : 'None';
-                        }
+                    if (beadNote) beadNote.style.display = 'none';
+
+                    if (hasBeadMetrics) {
+                        setTextById('bead-eligible-locs', DataHandler.formatNumber(data.bead_eligible_locations));
+                        var impliedAward = data.bead_implied_county_award;
+                        setTextById('bead-implied-award', impliedAward != null && impliedAward > 0
+                            ? '$' + (impliedAward >= 1000000
+                                ? (impliedAward / 1000000).toFixed(1) + 'M'
+                                : DataHandler.formatNumber(impliedAward))
+                            : 'N/A');
+                        setTextById('bead-per-loc', data.bead_dollars_per_eligible_loc != null
+                            ? '$' + DataHandler.formatNumber(Math.round(data.bead_dollars_per_eligible_loc))
+                            : 'N/A');
+                        setTextById('bead-state-alloc', data.bead_state_allocation != null
+                            ? '$' + (data.bead_state_allocation / 1e9).toFixed(2) + 'B'
+                            : 'N/A');
                     }
                 } else {
                     beadSection.style.display = 'none';

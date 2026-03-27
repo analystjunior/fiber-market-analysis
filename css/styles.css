@@ -690,6 +690,16 @@ main {
     font-weight: 600;
 }
 
+.bead-eligible {
+    background: rgba(56, 178, 146, 0.15);
+    color: var(--accent-main);
+}
+
+.bead-not-eligible {
+    background: var(--border-subtle);
+    color: var(--text-tertiary);
+}
+
 .bead-awarded {
     background: rgba(139, 92, 246, 0.15);
     color: #c4b5fd;
@@ -705,15 +715,9 @@ main {
     color: #a5b4fc;
 }
 
-.bead-not-targeted {
-    background: var(--border-subtle);
-    color: var(--text-secondary);
-}
-
-.bead-unverified {
+.bead-not-targeted, .bead-unverified {
     background: var(--border-subtle);
     color: var(--text-tertiary);
-    font-style: italic;
 }
 
 /* ============================================
