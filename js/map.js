@@ -198,22 +198,25 @@
             this._stateLayer = L.geoJSON(geoData, {
                 style: function(feature) {
                     var sc = self.getStateCode(feature);
-                    var featured = FEATURED_STATES[sc];
-                    if (featured) {
-                        return { fillColor: featured.color, fillOpacity: 0.55, color: '#1e293b', weight: 1, opacity: 1 };
-                    }
                     var stData = DataHandler.getStateData(sc);
                     var col = stData ? ColorScales.getColor('penetration', stData.fiberPenetration / 100) : '#1e293b';
-                    return { fillColor: col, fillOpacity: 0.4, color: '#0f172a', weight: 0.5, opacity: 1 };
+                    var isFeatured = !!FEATURED_STATES[sc];
+                    // Featured states (county data available) get a brighter border to signal drilldown
+                    return {
+                        fillColor: col,
+                        fillOpacity: stData ? 0.55 : 0.2,
+                        color: isFeatured ? '#94a3b8' : '#0f172a',
+                        weight: isFeatured ? 1.5 : 0.5,
+                        opacity: 1
+                    };
                 },
                 onEachFeature: function(feature, layer) {
                     var sc = self.getStateCode(feature);
                     layer.on({
                         mouseover: function(e) {
-                            // Only show state info when zoomed out
                             if (!self._inCountyView) {
                                 InfoPanel.showStateInfo(sc);
-                                e.target.setStyle({ fillOpacity: 0.75, weight: 2, color: '#94a3b8' });
+                                e.target.setStyle({ fillOpacity: 0.8, weight: 2, color: '#94a3b8' });
                                 e.target.bringToFront();
                             }
                         },
@@ -480,10 +483,7 @@
         },
 
         updateLegendForUS: function() {
-            var extras = Object.keys(FEATURED_STATES).map(function(sc) {
-                return { color: FEATURED_STATES[sc].color, label: sc + ' (zoom in to explore)' };
-            });
-            this._buildLegend('penetration', extras);
+            this._buildLegend('penetration');
         },
 
         updateLegend: function() {
