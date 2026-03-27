@@ -18,13 +18,13 @@
     --danger-color: #ef4444;
 
     /* Editorial palette */
-    --paper: #c8c5bc;
-    --paper-light: #d8d5cc;
+    --paper: #ece8f8;
+    --paper-light: #f4f0ff;
     --ink: #111111;
-    --ink-secondary: #55524e;
-    --ink-dim: #88857f;
-    --accent: #d6ff24;
-    --accent-hover: #c4ed10;
+    --ink-secondary: #4a4560;
+    --ink-dim: #7a758f;
+    --accent: #c77dff;
+    --accent-hover: #b56bf0;
 
     /* Dark panel palette (controls panel, map area, NPV) */
     --panel-bg: #161616;
@@ -633,7 +633,7 @@ main {
 
 /* Highlighted stat (median HHI) */
 .stat-item.stat-highlight {
-    background: rgba(214, 255, 36, 0.35);
+    background: rgba(199, 125, 255, 0.25);
     border: 1px solid rgba(17, 17, 17, 0.3);
     grid-column: span 2;
 }
@@ -755,7 +755,7 @@ main {
 .click-hint {
     margin: 0.75rem 1.25rem;
     padding: 0.6rem 0.75rem;
-    background: rgba(214, 255, 36, 0.2);
+    background: rgba(199, 125, 255, 0.15);
     border: 1px solid rgba(17, 17, 17, 0.2);
     font-family: 'Space Mono', monospace;
     font-size: 0.62rem;
@@ -1204,7 +1204,7 @@ footer a:hover {
     text-align: center;
     background: #1a1a1a;
     border: 2px solid var(--accent);
-    box-shadow: 3px 3px 0 0 rgba(214, 255, 36, 0.3);
+    box-shadow: 3px 3px 0 0 rgba(199, 125, 255, 0.35);
 }
 
 .npv-result-item.big .npv-result-label {
