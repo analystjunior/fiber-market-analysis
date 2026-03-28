@@ -135,6 +135,12 @@
             this._onZoomChanged();
             this._setupKeyboardNavigation();
 
+            // Redraw map when container resizes (orientation change, window resize)
+            var self = this;
+            window.addEventListener('resize', function() {
+                self._map.invalidateSize();
+            });
+
             // Show controls and table immediately
             var controlsPanel = document.querySelector('.controls-panel');
             var tableSection = document.querySelector('.table-section');

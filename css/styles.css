@@ -1289,38 +1289,80 @@ input:focus-visible {
 
 @media (max-width: 768px) {
     header {
-        padding: 0 16px;
+        padding: 10px 16px;
         height: auto;
-        min-height: 60px;
+        min-height: 52px;
         flex-wrap: wrap;
-        padding-top: 12px;
-        padding-bottom: 12px;
-        gap: 4px;
+        gap: 2px;
+    }
+
+    header h1 {
+        font-size: 14px;
     }
 
     header .subtitle {
         margin-left: 0;
         display: block;
         width: 100%;
+        font-size: 11px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     main {
-        padding: 16px;
-        gap: 16px;
+        padding: 12px;
+        gap: 12px;
     }
 
     .controls-panel {
         flex-direction: column;
         align-items: stretch;
+        padding: 10px 12px;
+        gap: 12px;
     }
 
     .toggle-group {
         flex-wrap: wrap;
     }
 
+    .toggle-btn {
+        font-size: 11px;
+        padding: 4px 9px;
+    }
+
     .filter-group {
         flex-direction: column;
         align-items: stretch;
+    }
+
+    /* Map: proportional height on mobile */
+    #map {
+        min-height: 220px;
+        height: 62vw;
+    }
+
+    .map-header {
+        padding: 8px 12px;
+        gap: 4px;
+    }
+
+    #map-title {
+        font-size: 11px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 55vw;
+    }
+
+    #legend-container {
+        overflow-x: auto;
+        max-width: 42vw;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .content-area {
+        gap: 12px;
     }
 
     .table-controls input {
@@ -1343,5 +1385,31 @@ input:focus-visible {
     .npv-slider-group label {
         width: 100%;
         margin-bottom: 4px;
+    }
+}
+
+/* Very small phones */
+@media (max-width: 400px) {
+    header .subtitle {
+        display: none;
+    }
+
+    main {
+        padding: 8px;
+        gap: 8px;
+    }
+
+    .controls-panel {
+        padding: 8px 10px;
+    }
+
+    .toggle-btn {
+        font-size: 10px;
+        padding: 3px 7px;
+    }
+
+    #map {
+        min-height: 200px;
+        height: 65vw;
     }
 }
