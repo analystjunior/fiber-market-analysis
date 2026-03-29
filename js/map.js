@@ -194,6 +194,9 @@
                 self._map.invalidateSize();
             });
 
+            // Force size recalc after CSS animations/layout settle on mobile
+            setTimeout(function() { self._map.invalidateSize(); }, 300);
+
             // Show controls and table immediately
             var controlsPanel = document.querySelector('.controls-panel');
             var tableSection = document.querySelector('.table-section');
