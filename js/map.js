@@ -375,7 +375,7 @@
                 '31': 'NE', '54': 'WV', '16': 'ID', '15': 'HI', '33': 'NH',
                 '23': 'ME', '30': 'MT', '44': 'RI', '10': 'DE', '46': 'SD',
                 '38': 'ND', '02': 'AK', '11': 'DC', '50': 'VT', '56': 'WY',
-                '72': 'PR'
+                '49': 'UT', '72': 'PR'
             };
             var id = feature.id ? String(feature.id).padStart(2, '0') : null;
             return id ? (fipsToState[id] || null) : null;
