@@ -1,0 +1,1620 @@
+{
+  "23001": {
+    "geoid": "23001",
+    "name": "Androscoggin",
+    "is_metro_county": true,
+    "total_bsls": 50202,
+    "fiber_served": 26053,
+    "fiber_unserved": 24149,
+    "fiber_penetration": 0.519,
+    "operators": [
+      {
+        "name": "Fidium Fiber",
+        "passings": 23048,
+        "served": 23048
+      },
+      {
+        "name": "CRC Communications LLC",
+        "passings": 10670,
+        "served": 10670
+      },
+      {
+        "name": "Axiom",
+        "passings": 1235,
+        "served": 1235
+      },
+      {
+        "name": "Oxford County Telephone Company d/b/a FirstLight Fiber",
+        "passings": 667,
+        "served": 667
+      },
+      {
+        "name": "FirstLight Fiber d/b/a Oxford West Telephone Company",
+        "passings": 351,
+        "served": 351
+      },
+      {
+        "name": "Spectrum",
+        "passings": 317,
+        "served": 317
+      }
+    ],
+    "population_2023": 112323,
+    "population_2018": 107444,
+    "pop_growth_pct": 4.54,
+    "housing_units": 50202,
+    "housing_growth_pct": 0.94,
+    "land_area_sqmi": 468.1,
+    "pop_density": 240.0,
+    "housing_density": 107.2,
+    "median_hhi": 67298,
+    "median_rent": 966,
+    "median_home_value": 232000,
+    "owner_occupied_pct": 67.4,
+    "wfh_pct": 12.1,
+    "demo_score": 0.618,
+    "opportunity_score": 0.481,
+    "attractiveness_index": 0.556,
+    "segment": "Most Attractive",
+    "bead_status": "Eligible",
+    "bead_eligible_locations": 24149,
+    "bead_state_allocation": null,
+    "bead_dollars_per_eligible_loc": null,
+    "bead_implied_county_award": 0,
+    "bead_dollars_awarded": null,
+    "bead_awardees": [],
+    "bead_locations_covered": 24149,
+    "bead_claimed_pct": null,
+    "competitive_intensity": 3,
+    "competitive_label": "High",
+    "wireline_providers": [
+      "Fidium Fiber",
+      "CRC Communications LLC",
+      "Axiom",
+      "Oxford County Telephone Company d/b/a FirstLight Fiber",
+      "FirstLight Fiber d/b/a Oxford West Telephone Company",
+      "Spectrum"
+    ],
+    "total_broadband_providers": 17,
+    "cable_coverage_pct": 0.923,
+    "fwa_coverage_pct": 0.897,
+    "broadband_coverage_pct": 1.0,
+    "broadband_gap_pct": 0.0,
+    "cable_present": true,
+    "fwa_present": true,
+    "fiber_growth_pct": null,
+    "momentum_class": null,
+    "elevation_mean_ft": 23.5,
+    "elevation_std_ft": 11.9,
+    "terrain_roughness": 0.39,
+    "construction_cost_tier": "Medium",
+    "build_difficulty": "Moderate",
+    "rucc_code": 3,
+    "rucc_description": "Metro - Counties in metro areas of fewer than 250,000 population",
+    "rural_class": "Metro"
+  },
+  "23003": {
+    "geoid": "23003",
+    "name": "Aroostook",
+    "is_metro_county": false,
+    "total_bsls": 38444,
+    "fiber_served": 14642,
+    "fiber_unserved": 23802,
+    "fiber_penetration": 0.381,
+    "operators": [
+      {
+        "name": "Fidium Fiber",
+        "passings": 8988,
+        "served": 8988
+      },
+      {
+        "name": "Pioneer Broadband",
+        "passings": 7236,
+        "served": 7236
+      },
+      {
+        "name": "Spectrum",
+        "passings": 870,
+        "served": 870
+      },
+      {
+        "name": "Great Works Internet",
+        "passings": 5,
+        "served": 5
+      }
+    ],
+    "population_2023": 67227,
+    "population_2018": 68269,
+    "pop_growth_pct": -1.53,
+    "housing_units": 38444,
+    "housing_growth_pct": -3.59,
+    "land_area_sqmi": 6671.1,
+    "pop_density": 10.1,
+    "housing_density": 5.8,
+    "median_hhi": 54254,
+    "median_rent": 736,
+    "median_home_value": 131700,
+    "owner_occupied_pct": 74.4,
+    "wfh_pct": 8.1,
+    "demo_score": 0.312,
+    "opportunity_score": 0.619,
+    "attractiveness_index": 0.45,
+    "segment": "Most Attractive",
+    "bead_status": "Eligible",
+    "bead_eligible_locations": 23802,
+    "bead_state_allocation": null,
+    "bead_dollars_per_eligible_loc": null,
+    "bead_implied_county_award": 0,
+    "bead_dollars_awarded": null,
+    "bead_awardees": [],
+    "bead_locations_covered": 23802,
+    "bead_claimed_pct": null,
+    "competitive_intensity": 3,
+    "competitive_label": "High",
+    "wireline_providers": [
+      "Fidium Fiber",
+      "Pioneer Broadband",
+      "Spectrum",
+      "Great Works Internet"
+    ],
+    "total_broadband_providers": 15,
+    "cable_coverage_pct": 0.855,
+    "fwa_coverage_pct": 0.963,
+    "broadband_coverage_pct": 1.0,
+    "broadband_gap_pct": 0.0,
+    "cable_present": true,
+    "fwa_present": true,
+    "fiber_growth_pct": null,
+    "momentum_class": null,
+    "elevation_mean_ft": 23.0,
+    "elevation_std_ft": 15.5,
+    "terrain_roughness": 0.38,
+    "construction_cost_tier": "Medium",
+    "build_difficulty": "Moderate",
+    "rucc_code": 7,
+    "rucc_description": "Nonmetro - Urban population of 5,000 to 20,000, not adjacent to a metro area",
+    "rural_class": "Rural"
+  },
+  "23005": {
+    "geoid": "23005",
+    "name": "Cumberland",
+    "is_metro_county": true,
+    "total_bsls": 151519,
+    "fiber_served": 67901,
+    "fiber_unserved": 83618,
+    "fiber_penetration": 0.448,
+    "operators": [
+      {
+        "name": "Fidium Fiber",
+        "passings": 55282,
+        "served": 55282
+      },
+      {
+        "name": "CRC Communications LLC",
+        "passings": 32665,
+        "served": 32665
+      },
+      {
+        "name": "Pine Tree Telephone LLC",
+        "passings": 4464,
+        "served": 4464
+      },
+      {
+        "name": "Sebago Fiber & WiFi",
+        "passings": 1959,
+        "served": 1959
+      },
+      {
+        "name": "Axiom",
+        "passings": 660,
+        "served": 660
+      },
+      {
+        "name": "Premium Choice Broadband",
+        "passings": 265,
+        "served": 265
+      },
+      {
+        "name": "Spectrum",
+        "passings": 203,
+        "served": 203
+      },
+      {
+        "name": "Great Works Internet",
+        "passings": 119,
+        "served": 119
+      },
+      {
+        "name": "Mid-Maine TelPlus LLC",
+        "passings": 11,
+        "served": 11
+      }
+    ],
+    "population_2023": 305940,
+    "population_2018": 290944,
+    "pop_growth_pct": 5.15,
+    "housing_units": 151519,
+    "housing_growth_pct": 5.71,
+    "land_area_sqmi": 835.9,
+    "pop_density": 366.0,
+    "housing_density": 181.3,
+    "median_hhi": 92983,
+    "median_rent": 1492,
+    "median_home_value": 411400,
+    "owner_occupied_pct": 70.4,
+    "wfh_pct": 19.4,
+    "demo_score": 0.824,
+    "opportunity_score": 0.552,
+    "attractiveness_index": 0.702,
+    "segment": "Most Attractive",
+    "bead_status": "Eligible",
+    "bead_eligible_locations": 83618,
+    "bead_state_allocation": null,
+    "bead_dollars_per_eligible_loc": null,
+    "bead_implied_county_award": 0,
+    "bead_dollars_awarded": null,
+    "bead_awardees": [],
+    "bead_locations_covered": 83618,
+    "bead_claimed_pct": null,
+    "competitive_intensity": 3,
+    "competitive_label": "High",
+    "wireline_providers": [
+      "Fidium Fiber",
+      "CRC Communications LLC",
+      "Pine Tree Telephone LLC",
+      "Sebago Fiber & WiFi",
+      "Axiom",
+      "Premium Choice Broadband",
+      "Spectrum",
+      "Great Works Internet",
+      "Mid-Maine TelPlus LLC"
+    ],
+    "total_broadband_providers": 20,
+    "cable_coverage_pct": 0.898,
+    "fwa_coverage_pct": 0.912,
+    "broadband_coverage_pct": 1.0,
+    "broadband_gap_pct": 0.0,
+    "cable_present": true,
+    "fwa_present": true,
+    "fiber_growth_pct": null,
+    "momentum_class": null,
+    "elevation_mean_ft": 18.9,
+    "elevation_std_ft": 10.3,
+    "terrain_roughness": 0.31,
+    "construction_cost_tier": "Medium",
+    "build_difficulty": "Moderate",
+    "rucc_code": 2,
+    "rucc_description": "Metro - Counties in metro areas of 250,000 to 1 million population",
+    "rural_class": "Metro"
+  },
+  "23007": {
+    "geoid": "23007",
+    "name": "Franklin",
+    "is_metro_county": false,
+    "total_bsls": 21089,
+    "fiber_served": 12658,
+    "fiber_unserved": 8431,
+    "fiber_penetration": 0.6,
+    "operators": [
+      {
+        "name": "Fidium Fiber",
+        "passings": 8915,
+        "served": 8915
+      },
+      {
+        "name": "TDS Telecom",
+        "passings": 3740,
+        "served": 3740
+      },
+      {
+        "name": "Great Works Internet",
+        "passings": 6,
+        "served": 6
+      },
+      {
+        "name": "CRC Communications LLC",
+        "passings": 1,
+        "served": 1
+      },
+      {
+        "name": "Mid-Maine TelPlus LLC",
+        "passings": 1,
+        "served": 1
+      },
+      {
+        "name": "Spectrum",
+        "passings": 1,
+        "served": 1
+      }
+    ],
+    "population_2023": 30145,
+    "population_2018": 30019,
+    "pop_growth_pct": 0.42,
+    "housing_units": 21089,
+    "housing_growth_pct": -4.62,
+    "land_area_sqmi": 1697.1,
+    "pop_density": 17.8,
+    "housing_density": 12.4,
+    "median_hhi": 58522,
+    "median_rent": 759,
+    "median_home_value": 176700,
+    "owner_occupied_pct": 77.0,
+    "wfh_pct": 11.5,
+    "demo_score": 0.417,
+    "opportunity_score": 0.4,
+    "attractiveness_index": 0.409,
+    "segment": "Neutral",
+    "bead_status": "Eligible",
+    "bead_eligible_locations": 8431,
+    "bead_state_allocation": null,
+    "bead_dollars_per_eligible_loc": null,
+    "bead_implied_county_award": 0,
+    "bead_dollars_awarded": null,
+    "bead_awardees": [],
+    "bead_locations_covered": 8431,
+    "bead_claimed_pct": null,
+    "competitive_intensity": 3,
+    "competitive_label": "High",
+    "wireline_providers": [
+      "Fidium Fiber",
+      "TDS Telecom",
+      "Great Works Internet",
+      "CRC Communications LLC",
+      "Mid-Maine TelPlus LLC",
+      "Spectrum"
+    ],
+    "total_broadband_providers": 15,
+    "cable_coverage_pct": 0.854,
+    "fwa_coverage_pct": 0.94,
+    "broadband_coverage_pct": 1.0,
+    "broadband_gap_pct": 0.0,
+    "cable_present": true,
+    "fwa_present": true,
+    "fiber_growth_pct": null,
+    "momentum_class": null,
+    "elevation_mean_ft": 48.3,
+    "elevation_std_ft": 29.6,
+    "terrain_roughness": 0.8,
+    "construction_cost_tier": "Very High",
+    "build_difficulty": "Challenging",
+    "rucc_code": 8,
+    "rucc_description": "Nonmetro - Urban population of fewer than 5,000, adjacent to a metro area",
+    "rural_class": "Rural"
+  },
+  "23009": {
+    "geoid": "23009",
+    "name": "Hancock",
+    "is_metro_county": false,
+    "total_bsls": 40514,
+    "fiber_served": 18111,
+    "fiber_unserved": 22403,
+    "fiber_penetration": 0.447,
+    "operators": [
+      {
+        "name": "Fidium Fiber",
+        "passings": 14138,
+        "served": 14138
+      },
+      {
+        "name": "Union River Telephone Company",
+        "passings": 2779,
+        "served": 2779
+      },
+      {
+        "name": "Premium Choice Broadband",
+        "passings": 1622,
+        "served": 1622
+      },
+      {
+        "name": "TDS Telecom",
+        "passings": 428,
+        "served": 428
+      },
+      {
+        "name": "Spectrum",
+        "passings": 361,
+        "served": 361
+      },
+      {
+        "name": "Axiom",
+        "passings": 265,
+        "served": 265
+      },
+      {
+        "name": "Great Works Internet",
+        "passings": 4,
+        "served": 4
+      },
+      {
+        "name": "CRC Communications LLC",
+        "passings": 1,
+        "served": 1
+      },
+      {
+        "name": "Mid-Maine TelPlus LLC",
+        "passings": 1,
+        "served": 1
+      }
+    ],
+    "population_2023": 56084,
+    "population_2018": 54541,
+    "pop_growth_pct": 2.83,
+    "housing_units": 40514,
+    "housing_growth_pct": -1.3,
+    "land_area_sqmi": 1586.9,
+    "pop_density": 35.3,
+    "housing_density": 25.5,
+    "median_hhi": 69630,
+    "median_rent": 1000,
+    "median_home_value": 278400,
+    "owner_occupied_pct": 78.8,
+    "wfh_pct": 12.2,
+    "demo_score": 0.552,
+    "opportunity_score": 0.553,
+    "attractiveness_index": 0.552,
+    "segment": "Most Attractive",
+    "bead_status": "Eligible",
+    "bead_eligible_locations": 22403,
+    "bead_state_allocation": null,
+    "bead_dollars_per_eligible_loc": null,
+    "bead_implied_county_award": 0,
+    "bead_dollars_awarded": null,
+    "bead_awardees": [],
+    "bead_locations_covered": 22403,
+    "bead_claimed_pct": null,
+    "competitive_intensity": 3,
+    "competitive_label": "High",
+    "wireline_providers": [
+      "Fidium Fiber",
+      "Union River Telephone Company",
+      "Premium Choice Broadband",
+      "TDS Telecom",
+      "Spectrum",
+      "Axiom",
+      "Great Works Internet",
+      "CRC Communications LLC",
+      "Mid-Maine TelPlus LLC"
+    ],
+    "total_broadband_providers": 19,
+    "cable_coverage_pct": 0.804,
+    "fwa_coverage_pct": 0.744,
+    "broadband_coverage_pct": 1.0,
+    "broadband_gap_pct": 0.0,
+    "cable_present": true,
+    "fwa_present": true,
+    "fiber_growth_pct": null,
+    "momentum_class": null,
+    "elevation_mean_ft": 28.8,
+    "elevation_std_ft": 21.0,
+    "terrain_roughness": 0.48,
+    "construction_cost_tier": "High",
+    "build_difficulty": "Moderate-Hard",
+    "rucc_code": 8,
+    "rucc_description": "Nonmetro - Urban population of fewer than 5,000, adjacent to a metro area",
+    "rural_class": "Rural"
+  },
+  "23011": {
+    "geoid": "23011",
+    "name": "Kennebec",
+    "is_metro_county": false,
+    "total_bsls": 63140,
+    "fiber_served": 28271,
+    "fiber_unserved": 34869,
+    "fiber_penetration": 0.448,
+    "operators": [
+      {
+        "name": "Fidium Fiber",
+        "passings": 24028,
+        "served": 24028
+      },
+      {
+        "name": "CRC Communications LLC",
+        "passings": 11125,
+        "served": 11125
+      },
+      {
+        "name": "TDS Telecom",
+        "passings": 1587,
+        "served": 1587
+      },
+      {
+        "name": "Spectrum",
+        "passings": 529,
+        "served": 529
+      },
+      {
+        "name": "UniTel",
+        "passings": 89,
+        "served": 89
+      },
+      {
+        "name": "Mid-Maine TelPlus LLC",
+        "passings": 5,
+        "served": 5
+      },
+      {
+        "name": "Great Works Internet",
+        "passings": 4,
+        "served": 4
+      }
+    ],
+    "population_2023": 125614,
+    "population_2018": 121545,
+    "pop_growth_pct": 3.35,
+    "housing_units": 63140,
+    "housing_growth_pct": 1.08,
+    "land_area_sqmi": 867.4,
+    "pop_density": 144.8,
+    "housing_density": 72.8,
+    "median_hhi": 65062,
+    "median_rent": 952,
+    "median_home_value": 219900,
+    "owner_occupied_pct": 72.8,
+    "wfh_pct": 13.8,
+    "demo_score": 0.582,
+    "opportunity_score": 0.552,
+    "attractiveness_index": 0.569,
+    "segment": "Most Attractive",
+    "bead_status": "Eligible",
+    "bead_eligible_locations": 34869,
+    "bead_state_allocation": null,
+    "bead_dollars_per_eligible_loc": null,
+    "bead_implied_county_award": 0,
+    "bead_dollars_awarded": null,
+    "bead_awardees": [],
+    "bead_locations_covered": 34869,
+    "bead_claimed_pct": null,
+    "competitive_intensity": 3,
+    "competitive_label": "High",
+    "wireline_providers": [
+      "Fidium Fiber",
+      "CRC Communications LLC",
+      "TDS Telecom",
+      "Spectrum",
+      "UniTel",
+      "Mid-Maine TelPlus LLC",
+      "Great Works Internet"
+    ],
+    "total_broadband_providers": 17,
+    "cable_coverage_pct": 0.903,
+    "fwa_coverage_pct": 0.9,
+    "broadband_coverage_pct": 1.0,
+    "broadband_gap_pct": 0.0,
+    "cable_present": true,
+    "fwa_present": true,
+    "fiber_growth_pct": null,
+    "momentum_class": null,
+    "elevation_mean_ft": 23.2,
+    "elevation_std_ft": 12.8,
+    "terrain_roughness": 0.39,
+    "construction_cost_tier": "Medium",
+    "build_difficulty": "Moderate",
+    "rucc_code": 4,
+    "rucc_description": "Nonmetro - Urban population of 20,000 or more, adjacent to a metro area",
+    "rural_class": "Micro"
+  },
+  "23013": {
+    "geoid": "23013",
+    "name": "Knox",
+    "is_metro_county": false,
+    "total_bsls": 24428,
+    "fiber_served": 12697,
+    "fiber_unserved": 11731,
+    "fiber_penetration": 0.52,
+    "operators": [
+      {
+        "name": "Fidium Fiber",
+        "passings": 5438,
+        "served": 5438
+      },
+      {
+        "name": "CRC Communications LLC",
+        "passings": 4484,
+        "served": 4484
+      },
+      {
+        "name": "TIDEWATER O.P.E.N.",
+        "passings": 1713,
+        "served": 1713
+      },
+      {
+        "name": "TDS Telecom",
+        "passings": 1555,
+        "served": 1555
+      },
+      {
+        "name": "Lincolnville Telephone Company",
+        "passings": 1313,
+        "served": 1313
+      },
+      {
+        "name": "Axiom",
+        "passings": 834,
+        "served": 834
+      },
+      {
+        "name": "Spectrum",
+        "passings": 74,
+        "served": 74
+      },
+      {
+        "name": "Great Works Internet",
+        "passings": 15,
+        "served": 15
+      },
+      {
+        "name": "Mid-Maine TelPlus LLC",
+        "passings": 1,
+        "served": 1
+      }
+    ],
+    "population_2023": 40860,
+    "population_2018": 39823,
+    "pop_growth_pct": 2.6,
+    "housing_units": 24428,
+    "housing_growth_pct": 0.46,
+    "land_area_sqmi": 365.0,
+    "pop_density": 111.9,
+    "housing_density": 66.9,
+    "median_hhi": 71903,
+    "median_rent": 1079,
+    "median_home_value": 290800,
+    "owner_occupied_pct": 78.5,
+    "wfh_pct": 14.5,
+    "demo_score": 0.61,
+    "opportunity_score": 0.48,
+    "attractiveness_index": 0.551,
+    "segment": "Most Attractive",
+    "bead_status": "Eligible",
+    "bead_eligible_locations": 11731,
+    "bead_state_allocation": null,
+    "bead_dollars_per_eligible_loc": null,
+    "bead_implied_county_award": 0,
+    "bead_dollars_awarded": null,
+    "bead_awardees": [],
+    "bead_locations_covered": 11731,
+    "bead_claimed_pct": null,
+    "competitive_intensity": 3,
+    "competitive_label": "High",
+    "wireline_providers": [
+      "Fidium Fiber",
+      "CRC Communications LLC",
+      "TIDEWATER O.P.E.N.",
+      "TDS Telecom",
+      "Lincolnville Telephone Company",
+      "Axiom",
+      "Spectrum",
+      "Great Works Internet",
+      "Mid-Maine TelPlus LLC"
+    ],
+    "total_broadband_providers": 16,
+    "cable_coverage_pct": 0.888,
+    "fwa_coverage_pct": 0.97,
+    "broadband_coverage_pct": 1.0,
+    "broadband_gap_pct": 0.0,
+    "cable_present": true,
+    "fwa_present": true,
+    "fiber_growth_pct": null,
+    "momentum_class": null,
+    "elevation_mean_ft": 27.7,
+    "elevation_std_ft": 17.8,
+    "terrain_roughness": 0.46,
+    "construction_cost_tier": "High",
+    "build_difficulty": "Moderate-Hard",
+    "rucc_code": 7,
+    "rucc_description": "Nonmetro - Urban population of 5,000 to 20,000, not adjacent to a metro area",
+    "rural_class": "Rural"
+  },
+  "23015": {
+    "geoid": "23015",
+    "name": "Lincoln",
+    "is_metro_county": false,
+    "total_bsls": 23810,
+    "fiber_served": 16099,
+    "fiber_unserved": 7711,
+    "fiber_penetration": 0.676,
+    "operators": [
+      {
+        "name": "Fidium Fiber",
+        "passings": 10507,
+        "served": 10507
+      },
+      {
+        "name": "TIDEWATER O.P.E.N.",
+        "passings": 4663,
+        "served": 4663
+      },
+      {
+        "name": "Lincolnville Telephone Company",
+        "passings": 800,
+        "served": 800
+      },
+      {
+        "name": "Axiom",
+        "passings": 442,
+        "served": 442
+      },
+      {
+        "name": "Spectrum",
+        "passings": 238,
+        "served": 238
+      },
+      {
+        "name": "Redzone Wireless LLC",
+        "passings": 109,
+        "served": 109
+      },
+      {
+        "name": "TDS Telecom",
+        "passings": 7,
+        "served": 7
+      },
+      {
+        "name": "Great Works Internet",
+        "passings": 5,
+        "served": 5
+      }
+    ],
+    "population_2023": 35840,
+    "population_2018": 34067,
+    "pop_growth_pct": 5.2,
+    "housing_units": 23810,
+    "housing_growth_pct": -0.37,
+    "land_area_sqmi": 456.0,
+    "pop_density": 78.6,
+    "housing_density": 52.2,
+    "median_hhi": 72026,
+    "median_rent": 1003,
+    "median_home_value": 306200,
+    "owner_occupied_pct": 83.8,
+    "wfh_pct": 11.3,
+    "demo_score": 0.626,
+    "opportunity_score": 0.324,
+    "attractiveness_index": 0.49,
+    "segment": "Most Attractive",
+    "bead_status": "Eligible",
+    "bead_eligible_locations": 7711,
+    "bead_state_allocation": null,
+    "bead_dollars_per_eligible_loc": null,
+    "bead_implied_county_award": 0,
+    "bead_dollars_awarded": null,
+    "bead_awardees": [],
+    "bead_locations_covered": 7711,
+    "bead_claimed_pct": null,
+    "competitive_intensity": 3,
+    "competitive_label": "High",
+    "wireline_providers": [
+      "Fidium Fiber",
+      "TIDEWATER O.P.E.N.",
+      "Lincolnville Telephone Company",
+      "Axiom",
+      "Spectrum",
+      "Redzone Wireless LLC",
+      "TDS Telecom",
+      "Great Works Internet"
+    ],
+    "total_broadband_providers": 15,
+    "cable_coverage_pct": 0.866,
+    "fwa_coverage_pct": 0.549,
+    "broadband_coverage_pct": 1.0,
+    "broadband_gap_pct": 0.0,
+    "cable_present": true,
+    "fwa_present": true,
+    "fiber_growth_pct": null,
+    "momentum_class": null,
+    "elevation_mean_ft": 24.5,
+    "elevation_std_ft": 12.7,
+    "terrain_roughness": 0.41,
+    "construction_cost_tier": "High",
+    "build_difficulty": "Moderate-Hard",
+    "rucc_code": 8,
+    "rucc_description": "Nonmetro - Urban population of fewer than 5,000, adjacent to a metro area",
+    "rural_class": "Rural"
+  },
+  "23017": {
+    "geoid": "23017",
+    "name": "Oxford",
+    "is_metro_county": false,
+    "total_bsls": 36558,
+    "fiber_served": 10901,
+    "fiber_unserved": 25657,
+    "fiber_penetration": 0.298,
+    "operators": [
+      {
+        "name": "Fidium Fiber",
+        "passings": 4203,
+        "served": 4203
+      },
+      {
+        "name": "Spectrum",
+        "passings": 2776,
+        "served": 2776
+      },
+      {
+        "name": "FirstLight Fiber d/b/a Oxford West Telephone Company",
+        "passings": 2099,
+        "served": 2099
+      },
+      {
+        "name": "Oxford County Telephone Company d/b/a FirstLight Fiber",
+        "passings": 1984,
+        "served": 1984
+      },
+      {
+        "name": "Great Works Internet",
+        "passings": 27,
+        "served": 27
+      },
+      {
+        "name": "Sebago Fiber & WiFi",
+        "passings": 22,
+        "served": 22
+      }
+    ],
+    "population_2023": 58728,
+    "population_2018": 57325,
+    "pop_growth_pct": 2.45,
+    "housing_units": 36558,
+    "housing_growth_pct": -0.64,
+    "land_area_sqmi": 2076.8,
+    "pop_density": 28.3,
+    "housing_density": 17.6,
+    "median_hhi": 57933,
+    "median_rent": 807,
+    "median_home_value": 192300,
+    "owner_occupied_pct": 80.8,
+    "wfh_pct": 11.3,
+    "demo_score": 0.459,
+    "opportunity_score": 0.702,
+    "attractiveness_index": 0.568,
+    "segment": "Most Attractive",
+    "bead_status": "Eligible",
+    "bead_eligible_locations": 25657,
+    "bead_state_allocation": null,
+    "bead_dollars_per_eligible_loc": null,
+    "bead_implied_county_award": 0,
+    "bead_dollars_awarded": null,
+    "bead_awardees": [],
+    "bead_locations_covered": 25657,
+    "bead_claimed_pct": null,
+    "competitive_intensity": 3,
+    "competitive_label": "High",
+    "wireline_providers": [
+      "Fidium Fiber",
+      "Spectrum",
+      "FirstLight Fiber d/b/a Oxford West Telephone Company",
+      "Oxford County Telephone Company d/b/a FirstLight Fiber",
+      "Great Works Internet",
+      "Sebago Fiber & WiFi"
+    ],
+    "total_broadband_providers": 16,
+    "cable_coverage_pct": 0.896,
+    "fwa_coverage_pct": 0.898,
+    "broadband_coverage_pct": 1.0,
+    "broadband_gap_pct": 0.0,
+    "cable_present": true,
+    "fwa_present": true,
+    "fiber_growth_pct": null,
+    "momentum_class": null,
+    "elevation_mean_ft": 51.9,
+    "elevation_std_ft": 31.3,
+    "terrain_roughness": 0.87,
+    "construction_cost_tier": "Very High",
+    "build_difficulty": "Challenging",
+    "rucc_code": 6,
+    "rucc_description": "Nonmetro - Urban population of 5,000 to 20,000, adjacent to a metro area",
+    "rural_class": "Rural"
+  },
+  "23019": {
+    "geoid": "23019",
+    "name": "Penobscot",
+    "is_metro_county": true,
+    "total_bsls": 75405,
+    "fiber_served": 38267,
+    "fiber_unserved": 37138,
+    "fiber_penetration": 0.507,
+    "operators": [
+      {
+        "name": "Fidium Fiber",
+        "passings": 23812,
+        "served": 23812
+      },
+      {
+        "name": "CRC Communications LLC",
+        "passings": 11755,
+        "served": 11755
+      },
+      {
+        "name": "Premium Choice Broadband",
+        "passings": 3321,
+        "served": 3321
+      },
+      {
+        "name": "TDS Telecom",
+        "passings": 3119,
+        "served": 3119
+      },
+      {
+        "name": "Mid-Maine Telecom LLC",
+        "passings": 2967,
+        "served": 2967
+      },
+      {
+        "name": "Spectrum",
+        "passings": 2354,
+        "served": 2354
+      },
+      {
+        "name": "UniTel",
+        "passings": 1244,
+        "served": 1244
+      },
+      {
+        "name": "Pioneer Broadband",
+        "passings": 95,
+        "served": 95
+      },
+      {
+        "name": "Great Works Internet",
+        "passings": 17,
+        "served": 17
+      },
+      {
+        "name": "Mid-Maine TelPlus LLC",
+        "passings": 17,
+        "served": 17
+      },
+      {
+        "name": "Union River Telephone Company",
+        "passings": 5,
+        "served": 5
+      }
+    ],
+    "population_2023": 153571,
+    "population_2018": 151748,
+    "pop_growth_pct": 1.2,
+    "housing_units": 75405,
+    "housing_growth_pct": -0.11,
+    "land_area_sqmi": 3396.9,
+    "pop_density": 45.2,
+    "housing_density": 22.2,
+    "median_hhi": 63248,
+    "median_rent": 997,
+    "median_home_value": 193800,
+    "owner_occupied_pct": 70.3,
+    "wfh_pct": 10.6,
+    "demo_score": 0.473,
+    "opportunity_score": 0.493,
+    "attractiveness_index": 0.482,
+    "segment": "Most Attractive",
+    "bead_status": "Eligible",
+    "bead_eligible_locations": 37138,
+    "bead_state_allocation": null,
+    "bead_dollars_per_eligible_loc": null,
+    "bead_implied_county_award": 0,
+    "bead_dollars_awarded": null,
+    "bead_awardees": [],
+    "bead_locations_covered": 37138,
+    "bead_claimed_pct": null,
+    "competitive_intensity": 3,
+    "competitive_label": "High",
+    "wireline_providers": [
+      "Fidium Fiber",
+      "CRC Communications LLC",
+      "Premium Choice Broadband",
+      "TDS Telecom",
+      "Mid-Maine Telecom LLC",
+      "Spectrum",
+      "UniTel",
+      "Pioneer Broadband",
+      "Great Works Internet",
+      "Mid-Maine TelPlus LLC",
+      "Union River Telephone Company"
+    ],
+    "total_broadband_providers": 22,
+    "cable_coverage_pct": 0.897,
+    "fwa_coverage_pct": 0.935,
+    "broadband_coverage_pct": 1.0,
+    "broadband_gap_pct": 0.0,
+    "cable_present": true,
+    "fwa_present": true,
+    "fiber_growth_pct": null,
+    "momentum_class": null,
+    "elevation_mean_ft": 18.5,
+    "elevation_std_ft": 11.0,
+    "terrain_roughness": 0.31,
+    "construction_cost_tier": "Medium",
+    "build_difficulty": "Moderate",
+    "rucc_code": 3,
+    "rucc_description": "Metro - Counties in metro areas of fewer than 250,000 population",
+    "rural_class": "Metro"
+  },
+  "23021": {
+    "geoid": "23021",
+    "name": "Piscataquis",
+    "is_metro_county": false,
+    "total_bsls": 14651,
+    "fiber_served": 8403,
+    "fiber_unserved": 6248,
+    "fiber_penetration": 0.574,
+    "operators": [
+      {
+        "name": "Premium Choice Broadband",
+        "passings": 6691,
+        "served": 6691
+      },
+      {
+        "name": "Fidium Fiber",
+        "passings": 3165,
+        "served": 3165
+      },
+      {
+        "name": "TDS Telecom",
+        "passings": 335,
+        "served": 335
+      },
+      {
+        "name": "Mid-Maine Telecom LLC",
+        "passings": 115,
+        "served": 115
+      },
+      {
+        "name": "Spectrum",
+        "passings": 8,
+        "served": 8
+      }
+    ],
+    "population_2023": 17125,
+    "population_2018": 16887,
+    "pop_growth_pct": 1.41,
+    "housing_units": 14651,
+    "housing_growth_pct": -5.13,
+    "land_area_sqmi": 3960.8,
+    "pop_density": 4.3,
+    "housing_density": 3.7,
+    "median_hhi": 55234,
+    "median_rent": 807,
+    "median_home_value": 153300,
+    "owner_occupied_pct": 76.9,
+    "wfh_pct": 8.8,
+    "demo_score": 0.354,
+    "opportunity_score": 0.426,
+    "attractiveness_index": 0.386,
+    "segment": "Neutral",
+    "bead_status": "Eligible",
+    "bead_eligible_locations": 6248,
+    "bead_state_allocation": null,
+    "bead_dollars_per_eligible_loc": null,
+    "bead_implied_county_award": 0,
+    "bead_dollars_awarded": null,
+    "bead_awardees": [],
+    "bead_locations_covered": 6248,
+    "bead_claimed_pct": null,
+    "competitive_intensity": 3,
+    "competitive_label": "High",
+    "wireline_providers": [
+      "Premium Choice Broadband",
+      "Fidium Fiber",
+      "TDS Telecom",
+      "Mid-Maine Telecom LLC",
+      "Spectrum"
+    ],
+    "total_broadband_providers": 16,
+    "cable_coverage_pct": 0.615,
+    "fwa_coverage_pct": 0.955,
+    "broadband_coverage_pct": 1.0,
+    "broadband_gap_pct": 0.0,
+    "cable_present": true,
+    "fwa_present": true,
+    "fiber_growth_pct": null,
+    "momentum_class": null,
+    "elevation_mean_ft": 29.9,
+    "elevation_std_ft": 22.5,
+    "terrain_roughness": 0.5,
+    "construction_cost_tier": "High",
+    "build_difficulty": "Moderate-Hard",
+    "rucc_code": 8,
+    "rucc_description": "Nonmetro - Urban population of fewer than 5,000, adjacent to a metro area",
+    "rural_class": "Rural"
+  },
+  "23023": {
+    "geoid": "23023",
+    "name": "Sagadahoc",
+    "is_metro_county": true,
+    "total_bsls": 19109,
+    "fiber_served": 8942,
+    "fiber_unserved": 10167,
+    "fiber_penetration": 0.468,
+    "operators": [
+      {
+        "name": "Fidium Fiber",
+        "passings": 4621,
+        "served": 4621
+      },
+      {
+        "name": "CRC Communications LLC",
+        "passings": 4306,
+        "served": 4306
+      },
+      {
+        "name": "Axiom",
+        "passings": 1194,
+        "served": 1194
+      },
+      {
+        "name": "Lincolnville Telephone Company",
+        "passings": 496,
+        "served": 496
+      },
+      {
+        "name": "Great Works Internet",
+        "passings": 2,
+        "served": 2
+      }
+    ],
+    "population_2023": 37093,
+    "population_2018": 35277,
+    "pop_growth_pct": 5.15,
+    "housing_units": 19109,
+    "housing_growth_pct": 1.98,
+    "land_area_sqmi": 254.0,
+    "pop_density": 146.0,
+    "housing_density": 75.2,
+    "median_hhi": 82080,
+    "median_rent": 1050,
+    "median_home_value": 300200,
+    "owner_occupied_pct": 77.8,
+    "wfh_pct": 12.6,
+    "demo_score": 0.705,
+    "opportunity_score": 0.532,
+    "attractiveness_index": 0.627,
+    "segment": "Most Attractive",
+    "bead_status": "Eligible",
+    "bead_eligible_locations": 10167,
+    "bead_state_allocation": null,
+    "bead_dollars_per_eligible_loc": null,
+    "bead_implied_county_award": 0,
+    "bead_dollars_awarded": null,
+    "bead_awardees": [],
+    "bead_locations_covered": 10167,
+    "bead_claimed_pct": null,
+    "competitive_intensity": 3,
+    "competitive_label": "High",
+    "wireline_providers": [
+      "Fidium Fiber",
+      "CRC Communications LLC",
+      "Axiom",
+      "Lincolnville Telephone Company",
+      "Great Works Internet"
+    ],
+    "total_broadband_providers": 17,
+    "cable_coverage_pct": 0.99,
+    "fwa_coverage_pct": 0.935,
+    "broadband_coverage_pct": 1.0,
+    "broadband_gap_pct": 0.0,
+    "cable_present": true,
+    "fwa_present": true,
+    "fiber_growth_pct": null,
+    "momentum_class": null,
+    "elevation_mean_ft": 21.0,
+    "elevation_std_ft": 12.6,
+    "terrain_roughness": 0.35,
+    "construction_cost_tier": "Medium",
+    "build_difficulty": "Moderate",
+    "rucc_code": 2,
+    "rucc_description": "Metro - Counties in metro areas of 250,000 to 1 million population",
+    "rural_class": "Metro"
+  },
+  "23025": {
+    "geoid": "23025",
+    "name": "Somerset",
+    "is_metro_county": false,
+    "total_bsls": 30009,
+    "fiber_served": 24561,
+    "fiber_unserved": 5448,
+    "fiber_penetration": 0.818,
+    "operators": [
+      {
+        "name": "Fidium Fiber",
+        "passings": 13500,
+        "served": 13500
+      },
+      {
+        "name": "TDS Telecom",
+        "passings": 8961,
+        "served": 8961
+      },
+      {
+        "name": "Spectrum",
+        "passings": 3218,
+        "served": 3218
+      },
+      {
+        "name": "Premium Choice Broadband",
+        "passings": 1699,
+        "served": 1699
+      },
+      {
+        "name": "Mid-Maine Telecom LLC",
+        "passings": 227,
+        "served": 227
+      },
+      {
+        "name": "Great Works Internet",
+        "passings": 5,
+        "served": 5
+      },
+      {
+        "name": "CRC Communications LLC",
+        "passings": 1,
+        "served": 1
+      },
+      {
+        "name": "Mid-Maine TelPlus LLC",
+        "passings": 1,
+        "served": 1
+      }
+    ],
+    "population_2023": 50852,
+    "population_2018": 50710,
+    "pop_growth_pct": 0.28,
+    "housing_units": 30009,
+    "housing_growth_pct": -2.62,
+    "land_area_sqmi": 3924.3,
+    "pop_density": 13.0,
+    "housing_density": 7.6,
+    "median_hhi": 56199,
+    "median_rent": 887,
+    "median_home_value": 155200,
+    "owner_occupied_pct": 77.3,
+    "wfh_pct": 10.1,
+    "demo_score": 0.375,
+    "opportunity_score": 0.182,
+    "attractiveness_index": 0.288,
+    "segment": "Least Attractive",
+    "bead_status": "Eligible",
+    "bead_eligible_locations": 5448,
+    "bead_state_allocation": null,
+    "bead_dollars_per_eligible_loc": null,
+    "bead_implied_county_award": 0,
+    "bead_dollars_awarded": null,
+    "bead_awardees": [],
+    "bead_locations_covered": 5448,
+    "bead_claimed_pct": null,
+    "competitive_intensity": 3,
+    "competitive_label": "High",
+    "wireline_providers": [
+      "Fidium Fiber",
+      "TDS Telecom",
+      "Spectrum",
+      "Premium Choice Broadband",
+      "Mid-Maine Telecom LLC",
+      "Great Works Internet",
+      "CRC Communications LLC",
+      "Mid-Maine TelPlus LLC"
+    ],
+    "total_broadband_providers": 17,
+    "cable_coverage_pct": 0.902,
+    "fwa_coverage_pct": 0.94,
+    "broadband_coverage_pct": 1.0,
+    "broadband_gap_pct": 0.0,
+    "cable_present": true,
+    "fwa_present": true,
+    "fiber_growth_pct": null,
+    "momentum_class": null,
+    "elevation_mean_ft": 25.4,
+    "elevation_std_ft": 16.1,
+    "terrain_roughness": 0.42,
+    "construction_cost_tier": "High",
+    "build_difficulty": "Moderate-Hard",
+    "rucc_code": 6,
+    "rucc_description": "Nonmetro - Urban population of 5,000 to 20,000, adjacent to a metro area",
+    "rural_class": "Rural"
+  },
+  "23027": {
+    "geoid": "23027",
+    "name": "Waldo",
+    "is_metro_county": false,
+    "total_bsls": 22118,
+    "fiber_served": 11931,
+    "fiber_unserved": 10187,
+    "fiber_penetration": 0.539,
+    "operators": [
+      {
+        "name": "Fidium Fiber",
+        "passings": 6332,
+        "served": 6332
+      },
+      {
+        "name": "UniTel",
+        "passings": 3218,
+        "served": 3218
+      },
+      {
+        "name": "Lincolnville Telephone Company",
+        "passings": 1593,
+        "served": 1593
+      },
+      {
+        "name": "Town of Islesboro",
+        "passings": 799,
+        "served": 799
+      },
+      {
+        "name": "Spectrum",
+        "passings": 687,
+        "served": 687
+      },
+      {
+        "name": "Great Works Internet",
+        "passings": 645,
+        "served": 645
+      },
+      {
+        "name": "TDS Telecom",
+        "passings": 1,
+        "served": 1
+      },
+      {
+        "name": "TIDEWATER O.P.E.N.",
+        "passings": 1,
+        "served": 1
+      }
+    ],
+    "population_2023": 40006,
+    "population_2018": 39418,
+    "pop_growth_pct": 1.49,
+    "housing_units": 22118,
+    "housing_growth_pct": -0.92,
+    "land_area_sqmi": 730.0,
+    "pop_density": 54.8,
+    "housing_density": 30.3,
+    "median_hhi": 68441,
+    "median_rent": 969,
+    "median_home_value": 239100,
+    "owner_occupied_pct": 80.9,
+    "wfh_pct": 15.1,
+    "demo_score": 0.546,
+    "opportunity_score": 0.461,
+    "attractiveness_index": 0.508,
+    "segment": "Most Attractive",
+    "bead_status": "Eligible",
+    "bead_eligible_locations": 10187,
+    "bead_state_allocation": null,
+    "bead_dollars_per_eligible_loc": null,
+    "bead_implied_county_award": 0,
+    "bead_dollars_awarded": null,
+    "bead_awardees": [],
+    "bead_locations_covered": 10187,
+    "bead_claimed_pct": null,
+    "competitive_intensity": 3,
+    "competitive_label": "High",
+    "wireline_providers": [
+      "Fidium Fiber",
+      "UniTel",
+      "Lincolnville Telephone Company",
+      "Town of Islesboro",
+      "Spectrum",
+      "Great Works Internet",
+      "TDS Telecom",
+      "TIDEWATER O.P.E.N."
+    ],
+    "total_broadband_providers": 17,
+    "cable_coverage_pct": 0.859,
+    "fwa_coverage_pct": 0.869,
+    "broadband_coverage_pct": 1.0,
+    "broadband_gap_pct": 0.0,
+    "cable_present": true,
+    "fwa_present": true,
+    "fiber_growth_pct": null,
+    "momentum_class": null,
+    "elevation_mean_ft": 27.3,
+    "elevation_std_ft": 17.3,
+    "terrain_roughness": 0.46,
+    "construction_cost_tier": "High",
+    "build_difficulty": "Moderate-Hard",
+    "rucc_code": 8,
+    "rucc_description": "Nonmetro - Urban population of fewer than 5,000, adjacent to a metro area",
+    "rural_class": "Rural"
+  },
+  "23029": {
+    "geoid": "23029",
+    "name": "Washington",
+    "is_metro_county": false,
+    "total_bsls": 21703,
+    "fiber_served": 5927,
+    "fiber_unserved": 15776,
+    "fiber_penetration": 0.273,
+    "operators": [
+      {
+        "name": "Pioneer Broadband",
+        "passings": 2803,
+        "served": 2803
+      },
+      {
+        "name": "Fidium Fiber",
+        "passings": 1934,
+        "served": 1934
+      },
+      {
+        "name": "Axiom",
+        "passings": 629,
+        "served": 629
+      },
+      {
+        "name": "Spectrum",
+        "passings": 362,
+        "served": 362
+      },
+      {
+        "name": "Union River Telephone Company",
+        "passings": 263,
+        "served": 263
+      },
+      {
+        "name": "Great Works Internet",
+        "passings": 7,
+        "served": 7
+      }
+    ],
+    "population_2023": 31261,
+    "population_2018": 31694,
+    "pop_growth_pct": -1.37,
+    "housing_units": 21703,
+    "housing_growth_pct": -6.83,
+    "land_area_sqmi": 2562.8,
+    "pop_density": 12.2,
+    "housing_density": 8.5,
+    "median_hhi": 52237,
+    "median_rent": 768,
+    "median_home_value": 147100,
+    "owner_occupied_pct": 78.1,
+    "wfh_pct": 10.0,
+    "demo_score": 0.328,
+    "opportunity_score": 0.727,
+    "attractiveness_index": 0.508,
+    "segment": "Most Attractive",
+    "bead_status": "Eligible",
+    "bead_eligible_locations": 15776,
+    "bead_state_allocation": null,
+    "bead_dollars_per_eligible_loc": null,
+    "bead_implied_county_award": 0,
+    "bead_dollars_awarded": null,
+    "bead_awardees": [],
+    "bead_locations_covered": 15776,
+    "bead_claimed_pct": null,
+    "competitive_intensity": 3,
+    "competitive_label": "High",
+    "wireline_providers": [
+      "Pioneer Broadband",
+      "Fidium Fiber",
+      "Axiom",
+      "Spectrum",
+      "Union River Telephone Company",
+      "Great Works Internet"
+    ],
+    "total_broadband_providers": 16,
+    "cable_coverage_pct": 0.869,
+    "fwa_coverage_pct": 0.931,
+    "broadband_coverage_pct": 1.0,
+    "broadband_gap_pct": 0.0,
+    "cable_present": true,
+    "fwa_present": true,
+    "fiber_growth_pct": null,
+    "momentum_class": null,
+    "elevation_mean_ft": 18.9,
+    "elevation_std_ft": 13.7,
+    "terrain_roughness": 0.32,
+    "construction_cost_tier": "Medium",
+    "build_difficulty": "Moderate",
+    "rucc_code": 9,
+    "rucc_description": "Nonmetro - Urban population of fewer than 5,000, not adjacent to a metro area",
+    "rural_class": "Rural"
+  },
+  "23031": {
+    "geoid": "23031",
+    "name": "York",
+    "is_metro_county": true,
+    "total_bsls": 113853,
+    "fiber_served": 38628,
+    "fiber_unserved": 75225,
+    "fiber_penetration": 0.339,
+    "operators": [
+      {
+        "name": "Fidium Fiber",
+        "passings": 26750,
+        "served": 26750
+      },
+      {
+        "name": "CRC Communications LLC",
+        "passings": 15980,
+        "served": 15980
+      },
+      {
+        "name": "Xfinity",
+        "passings": 3886,
+        "served": 3886
+      },
+      {
+        "name": "Breezeline",
+        "passings": 753,
+        "served": 753
+      },
+      {
+        "name": "Spectrum",
+        "passings": 217,
+        "served": 217
+      },
+      {
+        "name": "Great Works Internet",
+        "passings": 31,
+        "served": 31
+      },
+      {
+        "name": "Premium Choice Broadband",
+        "passings": 21,
+        "served": 21
+      },
+      {
+        "name": "Saco River Telephone LLC",
+        "passings": 3,
+        "served": 3
+      }
+    ],
+    "population_2023": 214731,
+    "population_2018": 203102,
+    "pop_growth_pct": 5.73,
+    "housing_units": 113853,
+    "housing_growth_pct": 4.07,
+    "land_area_sqmi": 991.0,
+    "pop_density": 216.7,
+    "housing_density": 114.9,
+    "median_hhi": 82904,
+    "median_rent": 1239,
+    "median_home_value": 357200,
+    "owner_occupied_pct": 76.1,
+    "wfh_pct": 14.8,
+    "demo_score": 0.748,
+    "opportunity_score": 0.661,
+    "attractiveness_index": 0.709,
+    "segment": "Most Attractive",
+    "bead_status": "Eligible",
+    "bead_eligible_locations": 75225,
+    "bead_state_allocation": null,
+    "bead_dollars_per_eligible_loc": null,
+    "bead_implied_county_award": 0,
+    "bead_dollars_awarded": null,
+    "bead_awardees": [],
+    "bead_locations_covered": 75225,
+    "bead_claimed_pct": null,
+    "competitive_intensity": 3,
+    "competitive_label": "High",
+    "wireline_providers": [
+      "Fidium Fiber",
+      "CRC Communications LLC",
+      "Xfinity",
+      "Breezeline",
+      "Spectrum",
+      "Great Works Internet",
+      "Premium Choice Broadband",
+      "Saco River Telephone LLC"
+    ],
+    "total_broadband_providers": 17,
+    "cable_coverage_pct": 0.952,
+    "fwa_coverage_pct": 0.757,
+    "broadband_coverage_pct": 1.0,
+    "broadband_gap_pct": 0.0,
+    "cable_present": true,
+    "fwa_present": true,
+    "fiber_growth_pct": null,
+    "momentum_class": null,
+    "elevation_mean_ft": 16.9,
+    "elevation_std_ft": 9.1,
+    "terrain_roughness": 0.28,
+    "construction_cost_tier": "Medium",
+    "build_difficulty": "Moderate",
+    "rucc_code": 2,
+    "rucc_description": "Metro - Counties in metro areas of 250,000 to 1 million population",
+    "rural_class": "Metro"
+  }
+}

@@ -1257,6 +1257,7 @@ input:focus-visible {
 /* ============================================
    Reduced Motion
    ============================================ */
+
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
         animation-duration: 0.01ms !important;
@@ -1338,8 +1339,9 @@ input:focus-visible {
 
     /* Map: proportional height on mobile */
     #map {
-        min-height: 220px;
-        height: 62vw;
+        min-height: 320px;
+        height: 75vw;
+        max-height: 480px;
     }
 
     .map-header {
@@ -1409,7 +1411,8 @@ input:focus-visible {
     }
 
     #map {
-        min-height: 200px;
-        height: 65vw;
+        min-height: 300px;
+        height: 80vw;
+        max-height: 400px;
     }
 }

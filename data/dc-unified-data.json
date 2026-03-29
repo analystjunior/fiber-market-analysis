@@ -1,0 +1,90 @@
+{
+  "11001": {
+    "geoid": "11001",
+    "name": "District of Columbia",
+    "is_metro_county": true,
+    "total_bsls": 385723,
+    "fiber_served": 106612,
+    "fiber_unserved": 279111,
+    "fiber_penetration": 0.276,
+    "operators": [
+      {
+        "name": "Verizon",
+        "passings": 106502,
+        "served": 106502
+      },
+      {
+        "name": "Astound Broadband",
+        "passings": 159,
+        "served": 159
+      },
+      {
+        "name": "Xfinity",
+        "passings": 117,
+        "served": 117
+      },
+      {
+        "name": "Starry Inc",
+        "passings": 24,
+        "served": 24
+      },
+      {
+        "name": "Believe Broadband",
+        "passings": 1,
+        "served": 1
+      }
+    ],
+    "population_2023": 672079,
+    "population_2018": 684498,
+    "pop_growth_pct": -1.81,
+    "housing_units": 356101,
+    "housing_growth_pct": 14.3,
+    "land_area_sqmi": 61.5,
+    "pop_density": 10928.1,
+    "housing_density": 5790.3,
+    "median_hhi": 106287,
+    "median_rent": 1900,
+    "median_home_value": 724600,
+    "owner_occupied_pct": 41.1,
+    "wfh_pct": 29.4,
+    "demo_score": 0.803,
+    "opportunity_score": 0.724,
+    "attractiveness_index": 0.767,
+    "segment": "Most Attractive",
+    "bead_status": "Eligible",
+    "bead_eligible_locations": 279111,
+    "bead_state_allocation": null,
+    "bead_dollars_per_eligible_loc": null,
+    "bead_implied_county_award": 0,
+    "bead_dollars_awarded": null,
+    "bead_awardees": [],
+    "bead_locations_covered": 279111,
+    "bead_claimed_pct": null,
+    "competitive_intensity": 3,
+    "competitive_label": "High",
+    "wireline_providers": [
+      "Verizon",
+      "Astound Broadband",
+      "Xfinity",
+      "Starry Inc",
+      "Believe Broadband"
+    ],
+    "total_broadband_providers": 24,
+    "cable_coverage_pct": 0.976,
+    "fwa_coverage_pct": 0.93,
+    "broadband_coverage_pct": 1.0,
+    "broadband_gap_pct": 0.0,
+    "cable_present": true,
+    "fwa_present": true,
+    "fiber_growth_pct": null,
+    "momentum_class": null,
+    "elevation_mean_ft": 19.0,
+    "elevation_std_ft": 6.0,
+    "terrain_roughness": 0.32,
+    "construction_cost_tier": "Medium",
+    "build_difficulty": "Moderate",
+    "rucc_code": 1,
+    "rucc_description": "Metro - Counties in metro areas of 1 million population or more",
+    "rural_class": "Metro"
+  }
+}

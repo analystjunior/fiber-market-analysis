@@ -86,22 +86,6 @@
             });
         }
 
-        // Exclude NYC checkbox
-        var excludeNycCheckbox = document.getElementById('exclude-nyc');
-        if (excludeNycCheckbox) {
-            excludeNycCheckbox.addEventListener('change', function(e) {
-                MapRenderer.setFilters({ excludeNYC: e.target.checked });
-            });
-        }
-
-        // Exclude STL/KC Metro checkbox
-        var excludeStlKcCheckbox = document.getElementById('exclude-stlkc');
-        if (excludeStlKcCheckbox) {
-            excludeStlKcCheckbox.addEventListener('change', function(e) {
-                MapRenderer.setFilters({ excludeSTLKC: e.target.checked });
-            });
-        }
-
         // Deep Dive toggle
         var deepDiveBtn = document.getElementById('deep-dive-btn');
         if (deepDiveBtn) {

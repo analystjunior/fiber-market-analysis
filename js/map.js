@@ -59,12 +59,57 @@
     // ============================================
 
     var FEATURED_STATES = {
-        NY: { label: 'New York',       fipsPrefix: '36' },
-        MO: { label: 'Missouri',       fipsPrefix: '29' },
-        TX: { label: 'Texas',          fipsPrefix: '48' },
-        NC: { label: 'North Carolina', fipsPrefix: '37' },
-        GA: { label: 'Georgia',        fipsPrefix: '13' },
-        PA: { label: 'Pennsylvania',   fipsPrefix: '42' }
+        AL: { label: 'Alabama',         fipsPrefix: '01' },
+        AK: { label: 'Alaska',          fipsPrefix: '02' },
+        AZ: { label: 'Arizona',         fipsPrefix: '04' },
+        AR: { label: 'Arkansas',        fipsPrefix: '05' },
+        CA: { label: 'California',      fipsPrefix: '06' },
+        CO: { label: 'Colorado',        fipsPrefix: '08' },
+        CT: { label: 'Connecticut',     fipsPrefix: '09' },
+        DE: { label: 'Delaware',        fipsPrefix: '10' },
+        DC: { label: 'Washington DC',   fipsPrefix: '11' },
+        FL: { label: 'Florida',         fipsPrefix: '12' },
+        GA: { label: 'Georgia',         fipsPrefix: '13' },
+        HI: { label: 'Hawaii',          fipsPrefix: '15' },
+        ID: { label: 'Idaho',           fipsPrefix: '16' },
+        IL: { label: 'Illinois',        fipsPrefix: '17' },
+        IN: { label: 'Indiana',         fipsPrefix: '18' },
+        IA: { label: 'Iowa',            fipsPrefix: '19' },
+        KS: { label: 'Kansas',          fipsPrefix: '20' },
+        KY: { label: 'Kentucky',        fipsPrefix: '21' },
+        LA: { label: 'Louisiana',       fipsPrefix: '22' },
+        ME: { label: 'Maine',           fipsPrefix: '23' },
+        MD: { label: 'Maryland',        fipsPrefix: '24' },
+        MA: { label: 'Massachusetts',   fipsPrefix: '25' },
+        MI: { label: 'Michigan',        fipsPrefix: '26' },
+        MN: { label: 'Minnesota',       fipsPrefix: '27' },
+        MS: { label: 'Mississippi',     fipsPrefix: '28' },
+        MO: { label: 'Missouri',        fipsPrefix: '29' },
+        MT: { label: 'Montana',         fipsPrefix: '30' },
+        NE: { label: 'Nebraska',        fipsPrefix: '31' },
+        NV: { label: 'Nevada',          fipsPrefix: '32' },
+        NH: { label: 'New Hampshire',   fipsPrefix: '33' },
+        NJ: { label: 'New Jersey',      fipsPrefix: '34' },
+        NM: { label: 'New Mexico',      fipsPrefix: '35' },
+        NY: { label: 'New York',        fipsPrefix: '36' },
+        NC: { label: 'North Carolina',  fipsPrefix: '37' },
+        ND: { label: 'North Dakota',    fipsPrefix: '38' },
+        OH: { label: 'Ohio',            fipsPrefix: '39' },
+        OK: { label: 'Oklahoma',        fipsPrefix: '40' },
+        OR: { label: 'Oregon',          fipsPrefix: '41' },
+        PA: { label: 'Pennsylvania',    fipsPrefix: '42' },
+        RI: { label: 'Rhode Island',    fipsPrefix: '44' },
+        SC: { label: 'South Carolina',  fipsPrefix: '45' },
+        SD: { label: 'South Dakota',    fipsPrefix: '46' },
+        TN: { label: 'Tennessee',       fipsPrefix: '47' },
+        TX: { label: 'Texas',           fipsPrefix: '48' },
+        UT: { label: 'Utah',            fipsPrefix: '49' },
+        VT: { label: 'Vermont',         fipsPrefix: '50' },
+        VA: { label: 'Virginia',        fipsPrefix: '51' },
+        WA: { label: 'Washington',      fipsPrefix: '53' },
+        WV: { label: 'West Virginia',   fipsPrefix: '54' },
+        WI: { label: 'Wisconsin',       fipsPrefix: '55' },
+        WY: { label: 'Wyoming',         fipsPrefix: '56' }
     };
 
     // Zoom level at which county view activates (state view below this)
@@ -87,8 +132,6 @@
         filters: {
             minPop: 0,
             minDensity: 0,
-            excludeNYC: false,
-            excludeSTLKC: false
         },
         // Deep Dive mode
         _deepDiveActive: false,
@@ -112,11 +155,21 @@
 
             L.control.zoom({ position: 'topright' }).addTo(this._map);
 
-            // CartoDB Dark Matter tiles — roads/labels visible under translucent fills
-            L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+            // Base tiles without labels — data fills render on top of this
+            L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png', {
                 attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
                 subdomains: 'abcd',
                 maxZoom: 19,
+            }).addTo(this._map);
+
+            // Labels-only tile layer rendered above all data fills
+            var labelsPane = this._map.createPane('labels');
+            labelsPane.style.zIndex = 650;
+            labelsPane.style.pointerEvents = 'none';
+            L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_only_labels/{z}/{x}/{y}{r}.png', {
+                subdomains: 'abcd',
+                maxZoom: 19,
+                pane: 'labels',
             }).addTo(this._map);
 
             // Render state layer (always present)
@@ -250,9 +303,12 @@
             this._countyLayerMap = {};
             this._countyFipsList = [];
 
+            // Lazy-load all state county data concurrently before rendering
+            var stateCodes = Object.keys(FEATURED_STATES);
+            await DataHandler.loadStatesData(stateCodes);
+
             // Merge GeoJSON features from all featured states
             var allFeatures = [];
-            var stateCodes = Object.keys(FEATURED_STATES);
             for (var i = 0; i < stateCodes.length; i++) {
                 var sc = stateCodes[i];
                 var config = FEATURED_STATES[sc];
@@ -458,8 +514,6 @@
 
         isFiltered: function(county) {
             if (!county) return true;
-            if (this.filters.excludeNYC && county.is_nyc_borough) return true;
-            if (this.filters.excludeSTLKC && county.is_stl_kc_metro) return true;
             if (this.filters.minPop > 0 && (county.population_2023 == null || county.population_2023 < this.filters.minPop)) return true;
             if (this.filters.minDensity > 0 && (county.housing_density == null || county.housing_density < this.filters.minDensity)) return true;
             return false;

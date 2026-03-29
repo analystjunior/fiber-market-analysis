@@ -105,6 +105,7 @@
     var DataHandler = {
         // Multi-state county data keyed by state code
         _stateCountyData: {},
+        _stateLoadPromises: {},  // in-flight fetch promises, keyed by state code
         _activeState: null,
 
         // NY-specific GeoJSON (dedicated file)
@@ -123,68 +124,25 @@
 
         async loadData() {
             try {
-                // Load all data in parallel
+                // Load base files only — state county data is lazy-loaded on demand
                 var responses = await Promise.all([
-                    fetch('data/ny-unified-data.json'),
                     fetch('data/ny_counties_tiger.geojson'),
                     fetch('data/fiber-data.json'),
                     fetch('data/us-states.json'),
                     fetch('data/us-counties.json'),
-                    fetch('data/mo-unified-data.json'),
-                    fetch('data/tx-unified-data.json'),
-                    fetch('data/nc-unified-data.json'),
-                    fetch('data/ga-unified-data.json'),
-                    fetch('data/pa-unified-data.json')
                 ]);
 
-                var unifiedResponse = responses[0];
-                var tigerResponse = responses[1];
-                var stateResponse = responses[2];
-                var usGeoResponse = responses[3];
-                var usCountiesResponse = responses[4];
-                var moResponse = responses[5];
-                var txResponse = responses[6];
-                var ncResponse = responses[7];
-                var gaResponse = responses[8];
-                var paResponse = responses[9];
+                if (!responses[0].ok) throw new Error('Failed to load NY GeoJSON: ' + responses[0].status);
+                if (!responses[1].ok) throw new Error('Failed to load state fiber data: ' + responses[1].status);
+                if (!responses[2].ok) throw new Error('Failed to load US states: ' + responses[2].status);
+                if (!responses[3].ok) throw new Error('Failed to load US counties TopoJSON: ' + responses[3].status);
 
-                // Check for HTTP errors
-                if (!unifiedResponse.ok) throw new Error('Failed to load NY unified data: ' + unifiedResponse.status);
-                if (!tigerResponse.ok) throw new Error('Failed to load NY GeoJSON: ' + tigerResponse.status);
-                if (!stateResponse.ok) throw new Error('Failed to load state fiber data: ' + stateResponse.status);
-                if (!usGeoResponse.ok) throw new Error('Failed to load US GeoJSON: ' + usGeoResponse.status);
-                if (!usCountiesResponse.ok) throw new Error('Failed to load US counties TopoJSON: ' + usCountiesResponse.status);
-                if (!moResponse.ok) throw new Error('Failed to load MO unified data: ' + moResponse.status);
-                if (!txResponse.ok) throw new Error('Failed to load TX unified data: ' + txResponse.status);
-                if (!ncResponse.ok) throw new Error('Failed to load NC unified data: ' + ncResponse.status);
-                if (!gaResponse.ok) throw new Error('Failed to load GA unified data: ' + gaResponse.status);
-                if (!paResponse.ok) throw new Error('Failed to load PA unified data: ' + paResponse.status);
+                this.tigerGeoJSON   = await responses[0].json();
+                this.stateData      = await responses[1].json();
+                this.usGeoJSON      = await responses[2].json();
+                this.usCountiesTopo = await responses[3].json();
 
-                var nyData = await unifiedResponse.json();
-                this.tigerGeoJSON = await tigerResponse.json();
-                this.stateData = await stateResponse.json();
-                this.usGeoJSON = await usGeoResponse.json();
-                this.usCountiesTopo = await usCountiesResponse.json();
-                var moData = await moResponse.json();
-                var txData = await txResponse.json();
-                var ncData = await ncResponse.json();
-                var gaData = await gaResponse.json();
-                var paData = await paResponse.json();
-
-                // Store county data by state
-                this._stateCountyData['NY'] = nyData;
-                this._stateCountyData['MO'] = moData;
-                this._stateCountyData['TX'] = txData;
-                this._stateCountyData['NC'] = ncData;
-                this._stateCountyData['GA'] = gaData;
-                this._stateCountyData['PA'] = paData;
-
-                // Default active state
                 this._activeState = 'MO';
-
-                // Validate data integrity
-                this._validateData();
-
                 this._isLoaded = true;
                 this._loadError = null;
                 return true;
@@ -194,6 +152,37 @@
                 this._isLoaded = false;
                 return false;
             }
+        },
+
+        // Lazy-load a single state's county data. Safe to call multiple times (cached).
+        async loadStateData(stateCode) {
+            if (this._stateCountyData[stateCode]) return true;
+            if (this._stateLoadPromises[stateCode]) return this._stateLoadPromises[stateCode];
+
+            var self = this;
+            var filename = stateCode.toLowerCase() + '-unified-data.json';
+            this._stateLoadPromises[stateCode] = fetch('data/' + filename)
+                .then(function(r) {
+                    if (!r.ok) throw new Error('HTTP ' + r.status);
+                    return r.json();
+                })
+                .then(function(data) {
+                    self._stateCountyData[stateCode] = data;
+                    return true;
+                })
+                .catch(function(e) {
+                    console.warn('Could not load ' + filename + ':', e.message);
+                    return false;
+                });
+
+            return this._stateLoadPromises[stateCode];
+        },
+
+        // Load multiple states concurrently. Returns after all settle.
+        async loadStatesData(stateCodes) {
+            return Promise.all(stateCodes.map(function(sc) {
+                return DataHandler.loadStateData(sc);
+            }));
         },
 
         _validateData() {

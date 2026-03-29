@@ -3,3 +3,13 @@
 
 # Raw FCC/Census source files — large CSVs, not for version control
 data/raw/
+
+# FCC downloader — credentials and downloaded data
+scripts/credentials.json
+scripts/token.json
+credentials.json
+token.json
+fcc_data_downloads/
+
+# Python cache
+scripts/__pycache__/

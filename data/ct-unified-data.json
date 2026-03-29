@@ -1,0 +1,466 @@
+{
+  "09001": {
+    "geoid": "09001",
+    "name": "Fairfield",
+    "is_metro_county": true,
+    "total_bsls": 379475,
+    "fiber_served": 239177,
+    "fiber_unserved": 140298,
+    "fiber_penetration": 0.63,
+    "operators": [
+      {
+        "name": "Cogent Communication",
+        "passings": null,
+        "served": null
+      },
+      {
+        "name": "Decatur Telephone Company",
+        "passings": null,
+        "served": null
+      },
+      {
+        "name": "Frontier",
+        "passings": null,
+        "served": null
+      },
+      {
+        "name": "Lightpath",
+        "passings": null,
+        "served": null
+      },
+      {
+        "name": "Metronet Holdings",
+        "passings": null,
+        "served": null
+      },
+      {
+        "name": "NetSpeed LLC",
+        "passings": null,
+        "served": null
+      },
+      {
+        "name": "Optimum",
+        "passings": null,
+        "served": null
+      },
+      {
+        "name": "Spectrum",
+        "passings": null,
+        "served": null
+      },
+      {
+        "name": "Verizon",
+        "passings": null,
+        "served": null
+      },
+      {
+        "name": "Xfinity",
+        "passings": null,
+        "served": null
+      }
+    ],
+    "total_broadband_providers": 11,
+    "cable_coverage_pct": null,
+    "fwa_coverage_pct": null,
+    "broadband_coverage_pct": null,
+    "broadband_gap_pct": null,
+    "cable_present": null,
+    "fwa_present": null,
+    "population": 956446,
+    "median_income": 101194,
+    "owner_occupied_pct": 66.6,
+    "rucc_code": null,
+    "rural_class": null,
+    "terrain_ruggedness": null,
+    "bead_eligible_locations": null,
+    "bead_funding": null,
+    "bead_status": "Unverified",
+    "fiber_momentum": null
+  },
+  "09003": {
+    "geoid": "09003",
+    "name": "Hartford",
+    "is_metro_county": true,
+    "total_bsls": 386537,
+    "fiber_served": 202722,
+    "fiber_unserved": 183815,
+    "fiber_penetration": 0.524,
+    "operators": [
+      {
+        "name": "Cox Communications",
+        "passings": null,
+        "served": null
+      },
+      {
+        "name": "Frontier",
+        "passings": null,
+        "served": null
+      },
+      {
+        "name": "Fusion",
+        "passings": null,
+        "served": null
+      },
+      {
+        "name": "NetSpeed LLC",
+        "passings": null,
+        "served": null
+      },
+      {
+        "name": "Xfinity",
+        "passings": null,
+        "served": null
+      },
+      {
+        "name": "ZAYO GROUP LLC",
+        "passings": null,
+        "served": null
+      }
+    ],
+    "total_broadband_providers": 6,
+    "cable_coverage_pct": null,
+    "fwa_coverage_pct": null,
+    "broadband_coverage_pct": null,
+    "broadband_gap_pct": null,
+    "cable_present": null,
+    "fwa_present": null,
+    "population": 898636,
+    "median_income": 80320,
+    "owner_occupied_pct": 64.8,
+    "rucc_code": null,
+    "rural_class": null,
+    "terrain_ruggedness": null,
+    "bead_eligible_locations": null,
+    "bead_funding": null,
+    "bead_status": "Unverified",
+    "fiber_momentum": null
+  },
+  "09005": {
+    "geoid": "09005",
+    "name": "Litchfield",
+    "is_metro_county": false,
+    "total_bsls": 88177,
+    "fiber_served": 64713,
+    "fiber_unserved": 23464,
+    "fiber_penetration": 0.734,
+    "operators": [
+      {
+        "name": "Frontier",
+        "passings": null,
+        "served": null
+      },
+      {
+        "name": "Lightpath",
+        "passings": null,
+        "served": null
+      },
+      {
+        "name": "NetSpeed LLC",
+        "passings": null,
+        "served": null
+      },
+      {
+        "name": "Optimum",
+        "passings": null,
+        "served": null
+      },
+      {
+        "name": "Spectrum",
+        "passings": null,
+        "served": null
+      },
+      {
+        "name": "Xfinity",
+        "passings": null,
+        "served": null
+      }
+    ],
+    "total_broadband_providers": 6,
+    "cable_coverage_pct": null,
+    "fwa_coverage_pct": null,
+    "broadband_coverage_pct": null,
+    "broadband_gap_pct": null,
+    "cable_present": null,
+    "fwa_present": null,
+    "population": 185175,
+    "median_income": 84797,
+    "owner_occupied_pct": 76.3,
+    "rucc_code": null,
+    "rural_class": null,
+    "terrain_ruggedness": null,
+    "bead_eligible_locations": null,
+    "bead_funding": null,
+    "bead_status": "Unverified",
+    "fiber_momentum": null
+  },
+  "09007": {
+    "geoid": "09007",
+    "name": "Middlesex",
+    "is_metro_county": false,
+    "total_bsls": 76737,
+    "fiber_served": 49084,
+    "fiber_unserved": 27653,
+    "fiber_penetration": 0.64,
+    "operators": [
+      {
+        "name": "Cox Communications",
+        "passings": null,
+        "served": null
+      },
+      {
+        "name": "Frontier",
+        "passings": null,
+        "served": null
+      },
+      {
+        "name": "Lightpath",
+        "passings": null,
+        "served": null
+      },
+      {
+        "name": "NetSpeed LLC",
+        "passings": null,
+        "served": null
+      },
+      {
+        "name": "Xfinity",
+        "passings": null,
+        "served": null
+      }
+    ],
+    "total_broadband_providers": 5,
+    "cable_coverage_pct": null,
+    "fwa_coverage_pct": null,
+    "broadband_coverage_pct": null,
+    "broadband_gap_pct": null,
+    "cable_present": null,
+    "fwa_present": null,
+    "population": 164568,
+    "median_income": 90833,
+    "owner_occupied_pct": 74.1,
+    "rucc_code": null,
+    "rural_class": null,
+    "terrain_ruggedness": null,
+    "bead_eligible_locations": null,
+    "bead_funding": null,
+    "bead_status": "Unverified",
+    "fiber_momentum": null
+  },
+  "09009": {
+    "geoid": "09009",
+    "name": "New Haven",
+    "is_metro_county": true,
+    "total_bsls": 370896,
+    "fiber_served": 212022,
+    "fiber_unserved": 158874,
+    "fiber_penetration": 0.572,
+    "operators": [
+      {
+        "name": "Cox Communications",
+        "passings": null,
+        "served": null
+      },
+      {
+        "name": "Frontier",
+        "passings": null,
+        "served": null
+      },
+      {
+        "name": "Lightpath",
+        "passings": null,
+        "served": null
+      },
+      {
+        "name": "NetSpeed LLC",
+        "passings": null,
+        "served": null
+      },
+      {
+        "name": "Optimum",
+        "passings": null,
+        "served": null
+      },
+      {
+        "name": "Spectrum",
+        "passings": null,
+        "served": null
+      },
+      {
+        "name": "Xfinity",
+        "passings": null,
+        "served": null
+      }
+    ],
+    "total_broadband_providers": 7,
+    "cable_coverage_pct": null,
+    "fwa_coverage_pct": null,
+    "broadband_coverage_pct": null,
+    "broadband_gap_pct": null,
+    "cable_present": null,
+    "fwa_present": null,
+    "population": 864751,
+    "median_income": 75043,
+    "owner_occupied_pct": 62.1,
+    "rucc_code": null,
+    "rural_class": null,
+    "terrain_ruggedness": null,
+    "bead_eligible_locations": null,
+    "bead_funding": null,
+    "bead_status": "Unverified",
+    "fiber_momentum": null
+  },
+  "09011": {
+    "geoid": "09011",
+    "name": "New London",
+    "is_metro_county": false,
+    "total_bsls": 123388,
+    "fiber_served": 77909,
+    "fiber_unserved": 45479,
+    "fiber_penetration": 0.631,
+    "operators": [
+      {
+        "name": "Breezeline",
+        "passings": null,
+        "served": null
+      },
+      {
+        "name": "Frontier",
+        "passings": null,
+        "served": null
+      },
+      {
+        "name": "Lightpath",
+        "passings": null,
+        "served": null
+      },
+      {
+        "name": "Spectrum",
+        "passings": null,
+        "served": null
+      },
+      {
+        "name": "Xfinity",
+        "passings": null,
+        "served": null
+      }
+    ],
+    "total_broadband_providers": 5,
+    "cable_coverage_pct": null,
+    "fwa_coverage_pct": null,
+    "broadband_coverage_pct": null,
+    "broadband_gap_pct": null,
+    "cable_present": null,
+    "fwa_present": null,
+    "population": 269131,
+    "median_income": 79040,
+    "owner_occupied_pct": 67.3,
+    "rucc_code": null,
+    "rural_class": null,
+    "terrain_ruggedness": null,
+    "bead_eligible_locations": null,
+    "bead_funding": null,
+    "bead_status": "Unverified",
+    "fiber_momentum": null
+  },
+  "09013": {
+    "geoid": "09013",
+    "name": "Tolland",
+    "is_metro_county": false,
+    "total_bsls": 60996,
+    "fiber_served": 36522,
+    "fiber_unserved": 24474,
+    "fiber_penetration": 0.599,
+    "operators": [
+      {
+        "name": "Cox Communications",
+        "passings": null,
+        "served": null
+      },
+      {
+        "name": "Frontier",
+        "passings": null,
+        "served": null
+      },
+      {
+        "name": "NetSpeed LLC",
+        "passings": null,
+        "served": null
+      },
+      {
+        "name": "Spectrum",
+        "passings": null,
+        "served": null
+      },
+      {
+        "name": "Xfinity",
+        "passings": null,
+        "served": null
+      }
+    ],
+    "total_broadband_providers": 5,
+    "cable_coverage_pct": null,
+    "fwa_coverage_pct": null,
+    "broadband_coverage_pct": null,
+    "broadband_gap_pct": null,
+    "cable_present": null,
+    "fwa_present": null,
+    "population": 150120,
+    "median_income": 88525,
+    "owner_occupied_pct": 70.3,
+    "rucc_code": null,
+    "rural_class": null,
+    "terrain_ruggedness": null,
+    "bead_eligible_locations": null,
+    "bead_funding": null,
+    "bead_status": "Unverified",
+    "fiber_momentum": null
+  },
+  "09015": {
+    "geoid": "09015",
+    "name": "Windham",
+    "is_metro_county": false,
+    "total_bsls": 49843,
+    "fiber_served": 34426,
+    "fiber_unserved": 15417,
+    "fiber_penetration": 0.691,
+    "operators": [
+      {
+        "name": "Breezeline",
+        "passings": null,
+        "served": null
+      },
+      {
+        "name": "Frontier",
+        "passings": null,
+        "served": null
+      },
+      {
+        "name": "Spectrum",
+        "passings": null,
+        "served": null
+      },
+      {
+        "name": "Xfinity",
+        "passings": null,
+        "served": null
+      }
+    ],
+    "total_broadband_providers": 4,
+    "cable_coverage_pct": null,
+    "fwa_coverage_pct": null,
+    "broadband_coverage_pct": null,
+    "broadband_gap_pct": null,
+    "cable_present": null,
+    "fwa_present": null,
+    "population": 116503,
+    "median_income": 71418,
+    "owner_occupied_pct": 69.2,
+    "rucc_code": null,
+    "rural_class": null,
+    "terrain_ruggedness": null,
+    "bead_eligible_locations": null,
+    "bead_funding": null,
+    "bead_status": "Unverified",
+    "fiber_momentum": null
+  }
+}
