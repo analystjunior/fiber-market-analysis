@@ -78,19 +78,6 @@
         </div>
         </div><!-- end #market-controls -->
 
-        <!-- ── BY PROVIDER controls ── -->
-        <div id="provider-controls" style="display:none;">
-        <div class="controls-panel provider-controls-panel">
-            <div class="control-group" style="flex:1; min-width:0;">
-                <label>Search Provider</label>
-                <input type="text" id="provider-search" class="provider-search-input" placeholder="e.g. AT&T, Frontier, Google Fiber…" autocomplete="off" spellcheck="false">
-            </div>
-            <div class="provider-list-wrap">
-                <div id="provider-list" class="provider-list" role="listbox" aria-label="Provider list"></div>
-            </div>
-        </div>
-        </div><!-- end #provider-controls -->
-
         <div class="content-area">
             <div class="map-container">
                 <div class="map-header">
@@ -104,6 +91,17 @@
 
             <aside id="info-panel" class="info-panel" aria-label="Location details" aria-live="polite">
                 <div class="info-panel-content">
+                    <!-- Provider picker — visible only in provider mode -->
+                    <div id="provider-picker-panel" class="provider-picker-panel" style="display:none;">
+                        <div class="provider-picker-header">
+                            <span class="provider-picker-title">Select Provider</span>
+                            <input type="text" id="provider-search" class="provider-search-input" placeholder="Search…" autocomplete="off" spellcheck="false">
+                        </div>
+                        <div class="provider-list-wrap">
+                            <div id="provider-list" class="provider-list" role="listbox" aria-label="Provider list"></div>
+                        </div>
+                    </div>
+
                     <div class="default-message">
                         <h2>Hover over a state</h2>
                         <p>to see fiber coverage statistics</p>

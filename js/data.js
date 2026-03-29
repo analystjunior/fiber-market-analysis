@@ -417,15 +417,16 @@
             { threshold: 1.0, color: '#dc2626', label: 'Challenging' }
         ],
 
-        // Provider footprint: dark (no presence) → deep blue → bright blue (dominant)
+        // Provider footprint: absent=dark, then amber→orange→lime as coverage grows
+        // Value = provider passings / total county BSLs (0–1)
         provider: [
-            { threshold: 0.001, color: '#1e293b', label: 'No Presence'  },
-            { threshold: 0.10,  color: '#1e3a5f', label: '<10%'         },
-            { threshold: 0.25,  color: '#1d4e89', label: '10–25%'       },
-            { threshold: 0.40,  color: '#2471a3', label: '25–40%'       },
-            { threshold: 0.60,  color: '#2e86c1', label: '40–60%'       },
-            { threshold: 0.80,  color: '#3498db', label: '60–80%'       },
-            { threshold: 1.0,   color: '#5dade2', label: '80%+'         },
+            { threshold: 0.001, color: '#1e293b', label: 'No Presence'     },
+            { threshold: 0.10,  color: '#92400e', label: '<10% of locations' },
+            { threshold: 0.25,  color: '#b45309', label: '10–25%'           },
+            { threshold: 0.40,  color: '#d97706', label: '25–40%'           },
+            { threshold: 0.60,  color: '#f59e0b', label: '40–60%'           },
+            { threshold: 0.80,  color: '#84cc16', label: '60–80%'           },
+            { threshold: 1.0,   color: '#22c55e', label: '80%+ (dominant)'  },
         ],
 
         getColor: function(layer, value) {

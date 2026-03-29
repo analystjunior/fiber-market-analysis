@@ -1299,14 +1299,28 @@ input:focus-visible {
 }
 
 /* ============================================
-   PROVIDER CONTROLS PANEL
+   PROVIDER PICKER — lives in info panel sidebar
    ============================================ */
 
-.provider-controls-panel {
+.provider-picker-panel {
+    border-bottom: 1px solid var(--border-muted);
+    padding-bottom: 12px;
+    margin-bottom: 4px;
+}
+
+.provider-picker-header {
+    padding: 12px 16px 8px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    min-height: 0;
+    gap: 8px;
+}
+
+.provider-picker-title {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
 }
 
 .provider-search-input {
@@ -1317,7 +1331,7 @@ input:focus-visible {
     color: #fff;
     font-family: 'Inter', sans-serif;
     font-size: 13px;
-    padding: 8px 12px;
+    padding: 7px 10px;
     outline: none;
     box-sizing: border-box;
     transition: border-color 0.15s;
@@ -1328,28 +1342,28 @@ input:focus-visible {
 
 .provider-list-wrap {
     overflow-y: auto;
-    max-height: 220px;
+    max-height: 260px;
+    padding: 0 8px;
     scrollbar-width: thin;
-    scrollbar-color: rgba(255,255,255,0.15) transparent;
+    scrollbar-color: rgba(255,255,255,0.12) transparent;
 }
 
 .provider-list {
     display: flex;
     flex-direction: column;
-    gap: 1px;
 }
 
 .provider-group {
-    margin-bottom: 6px;
+    margin-bottom: 4px;
 }
 
 .provider-group-label {
     font-size: 10px;
     font-weight: 600;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.07em;
     text-transform: uppercase;
-    color: rgba(255,255,255,0.3);
-    padding: 6px 8px 3px;
+    color: rgba(255,255,255,0.25);
+    padding: 8px 4px 3px;
 }
 
 .provider-item {
@@ -1358,23 +1372,23 @@ input:focus-visible {
     text-align: left;
     background: transparent;
     border: none;
-    border-radius: 5px;
-    color: rgba(255,255,255,0.65);
+    border-radius: 4px;
+    color: rgba(255,255,255,0.6);
     font-family: 'Inter', sans-serif;
-    font-size: 13px;
-    padding: 6px 10px;
+    font-size: 12.5px;
+    padding: 5px 8px;
     cursor: pointer;
-    transition: background 0.12s, color 0.12s;
+    transition: background 0.1s, color 0.1s;
 }
 
 .provider-item:hover {
-    background: rgba(255,255,255,0.07);
+    background: rgba(255,255,255,0.06);
     color: #fff;
 }
 
 .provider-item.active {
-    background: rgba(52, 152, 219, 0.25);
-    color: #5dade2;
+    background: rgba(245, 158, 11, 0.18);
+    color: #f59e0b;
     font-weight: 600;
 }
 

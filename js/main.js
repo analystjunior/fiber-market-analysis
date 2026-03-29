@@ -46,10 +46,10 @@
 
     function setupControls() {
         // ── Mode switcher (By Market / By Provider) ──
-        var modeMarketBtn   = document.getElementById('mode-market');
-        var modeProviderBtn = document.getElementById('mode-provider');
-        var marketControls  = document.getElementById('market-controls');
-        var providerControls= document.getElementById('provider-controls');
+        var modeMarketBtn    = document.getElementById('mode-market');
+        var modeProviderBtn  = document.getElementById('mode-provider');
+        var marketControls   = document.getElementById('market-controls');
+        var providerPickerEl = document.getElementById('provider-picker-panel');
 
         function switchMode(mode) {
             var isProvider = mode === 'provider';
@@ -57,8 +57,8 @@
             modeMarketBtn.setAttribute('aria-pressed', isProvider ? 'false' : 'true');
             modeProviderBtn.classList.toggle('active', isProvider);
             modeProviderBtn.setAttribute('aria-pressed', isProvider ? 'true' : 'false');
-            marketControls.style.display  = isProvider ? 'none' : '';
-            providerControls.style.display = isProvider ? '' : 'none';
+            marketControls.style.display = isProvider ? 'none' : '';
+            if (providerPickerEl) providerPickerEl.style.display = isProvider ? 'block' : 'none';
             MapRenderer.setMode(mode);
             InfoPanel.setMode(mode);
         }

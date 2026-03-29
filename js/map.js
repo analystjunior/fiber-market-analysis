@@ -212,7 +212,8 @@
 
         _onZoomChanged: function() {
             var zoom = this._map.getZoom();
-            var shouldBeCountyView = zoom >= COUNTY_ZOOM_THRESHOLD;
+            // Provider mode always shows counties regardless of zoom level
+            var shouldBeCountyView = this.currentMode === 'provider' || zoom >= COUNTY_ZOOM_THRESHOLD;
 
             if (shouldBeCountyView === this._inCountyView) return; // no change
             this._inCountyView = shouldBeCountyView;
@@ -528,6 +529,17 @@
         setMode: function(mode) {
             this.currentMode = mode;
             this.stopDeepDive();
+
+            // Force county layer on when entering provider mode
+            if (mode === 'provider') {
+                this._inCountyView = false; // reset so _onZoomChanged triggers
+                this._onZoomChanged();
+            } else {
+                // Return to normal zoom-based logic
+                this._inCountyView = false;
+                this._onZoomChanged();
+            }
+
             var self = this;
             if (this._countyLayer) {
                 this._countyLayer.eachLayer(function(l) {
