@@ -1416,6 +1416,52 @@ input:focus-visible {
     color: rgba(245, 158, 11, 0.6);
 }
 
+/* Tech filter row */
+.tech-filter-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 12px 12px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.tech-filter-label {
+    font-size: 11px;
+    color: rgba(255,255,255,0.4);
+    white-space: nowrap;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.tech-filter-btns {
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
+}
+
+.tech-btn {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.10);
+    border-radius: 4px;
+    color: rgba(255,255,255,0.5);
+    font-size: 11px;
+    font-weight: 500;
+    padding: 3px 8px;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.tech-btn:hover {
+    background: rgba(255,255,255,0.12);
+    color: rgba(255,255,255,0.8);
+}
+
+.tech-btn.active {
+    background: rgba(245,158,11,0.18);
+    border-color: rgba(245,158,11,0.4);
+    color: #f59e0b;
+}
+
 /* ============================================
    PROVIDER INFO PANEL
    ============================================ */

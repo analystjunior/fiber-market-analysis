@@ -192,21 +192,21 @@ def load_terrain_data(fips_prefix):
     return county_terrain.set_index('CountyFIPS23').to_dict('index')
 
 
-def load_fttp_locations(state_lower, fips_prefix):
-    """Load FCC FTTP location data, aggregate to county. Returns dict keyed by county FIPS."""
-    fttp_path = os.path.join(RAW_DIR, 'fcc', 'jun2025', f'fttp_locations_{state_lower}.csv')
-    if not os.path.exists(fttp_path):
-        print(f"  WARNING: FTTP locations file not found at {fttp_path}")
-        print(f"  Download from FCC BDC and save to that path. Fiber fields will be zero.")
-        return {}
+def _load_location_csv(path, fips_prefix, tech_label):
+    """
+    Generic loader for any FCC BDC location CSV (FTTP, cable, DSL).
+    Returns dict: { county_fips: { 'total': int, 'operators': [{name, passings}] } }
+    """
+    if not os.path.exists(path):
+        return None
 
-    print(f"  Loading FTTP locations (may take a moment)...")
-    df = pd.read_csv(fttp_path, dtype={
+    print(f"  Loading {tech_label} locations (may take a moment)...")
+    df = pd.read_csv(path, dtype={
         'frn': str, 'provider_id': str, 'brand_name': str,
         'location_id': str, 'technology': str,
         'business_residential_code': str, 'state_usps': str,
         'block_geoid': str,
-    })
+    }, low_memory=False)
 
     df['county_fips'] = df['block_geoid'].str[:5]
     df = df[
@@ -214,33 +214,67 @@ def load_fttp_locations(state_lower, fips_prefix):
         df['business_residential_code'].isin(['R', 'X'])
     ].copy()
 
-    print(f"  {len(df):,} residential FTTP records")
+    print(f"  {len(df):,} residential {tech_label} records")
 
     result = {}
     for fips, group in df.groupby('county_fips'):
-        unique_locations = group['location_id'].nunique()
-        provider_stats = group.groupby('brand_name').agg(
-            passings=('location_id', 'nunique'),
-        ).reset_index().sort_values('passings', ascending=False)
-
-        operators = []
-        for _, prow in provider_stats.iterrows():
-            name = prow['brand_name'].strip().strip('"')
-            if name:
-                operators.append({
-                    'name': name,
-                    'passings': int(prow['passings']),
-                    'served': int(prow['passings']),
-                })
-
-        result[fips] = {
-            'fiber_served': unique_locations,
-            'operators': operators,
-            'wireline_providers': [op['name'] for op in operators],
-            'fiber_provider_count': len(operators),
-        }
+        total = group['location_id'].nunique()
+        by_provider = (
+            group.groupby('brand_name')['location_id']
+            .nunique()
+            .sort_values(ascending=False)
+        )
+        operators = [
+            {'name': n.strip().strip('"'), 'passings': int(p)}
+            for n, p in by_provider.items()
+            if n and n.strip()
+        ]
+        result[fips] = {'total': int(total), 'operators': operators}
 
     return result
+
+
+def load_fttp_locations(state_lower, fips_prefix):
+    """Load FCC FTTP (tech 50) location data. Returns dict keyed by county FIPS."""
+    path = os.path.join(RAW_DIR, 'fcc', 'jun2025', f'fttp_locations_{state_lower}.csv')
+    raw = _load_location_csv(path, fips_prefix, 'FTTP')
+    if raw is None:
+        print(f"  WARNING: FTTP locations file not found at {path}")
+        print(f"  Fiber fields will be zero.")
+        return {}
+
+    result = {}
+    for fips, d in raw.items():
+        ops = [{'name': op['name'], 'passings': op['passings'],
+                'fiber_passings': op['passings'], 'cable_passings': 0, 'dsl_passings': 0}
+               for op in d['operators']]
+        result[fips] = {
+            'fiber_served': d['total'],
+            'operators': ops,
+            'wireline_providers': [op['name'] for op in ops],
+            'fiber_provider_count': len(ops),
+        }
+    return result
+
+
+def load_cable_locations(state_lower, fips_prefix):
+    """Load FCC cable/HFC (tech 40) location data. Returns dict keyed by county FIPS."""
+    path = os.path.join(RAW_DIR, 'fcc', 'jun2025', f'cable_locations_{state_lower}.csv')
+    raw = _load_location_csv(path, fips_prefix, 'Cable')
+    if raw is None:
+        print(f"  WARNING: Cable locations file not found at {path} — cable fields will be zero.")
+        return {}
+    return raw
+
+
+def load_dsl_locations(state_lower, fips_prefix):
+    """Load FCC DSL/copper (tech 10) location data. Returns dict keyed by county FIPS."""
+    path = os.path.join(RAW_DIR, 'fcc', 'jun2025', f'dsl_locations_{state_lower}.csv')
+    raw = _load_location_csv(path, fips_prefix, 'DSL')
+    if raw is None:
+        print(f"  WARNING: DSL locations file not found at {path} — DSL fields will be zero.")
+        return {}
+    return raw
 
 
 def load_provider_summary(fips_prefix):
@@ -366,8 +400,8 @@ def load_technology_coverage(state_lower, fips_prefix, acs):
 
 # ─── County Record Builder ────────────────────────────────────────────────────
 
-def build_county(fips, acs_data, fttp_data, provider_data, place_data,
-                 terrain_data, rucc_data, tech_data):
+def build_county(fips, acs_data, fttp_data, cable_data, dsl_data,
+                 provider_data, place_data, terrain_data, rucc_data, tech_data):
     """Build a unified county record from all real data sources."""
     name = acs_data['name']
 
@@ -405,12 +439,65 @@ def build_county(fips, acs_data, fttp_data, provider_data, place_data,
         pop_density = None
         housing_density = None
 
-    # FCC FTTP
+    # FCC FTTP (fiber)
     fttp = fttp_data.get(fips, {})
     fiber_served = fttp.get('fiber_served', 0)
-    operators = fttp.get('operators', [])
     wireline_providers = fttp.get('wireline_providers', [])
     fiber_provider_count = fttp.get('fiber_provider_count', 0)
+
+    # FCC Cable (tech 40) + DSL (tech 10)
+    cable = cable_data.get(fips, {})
+    dsl   = dsl_data.get(fips, {})
+    cable_served = cable.get('total', 0)
+    dsl_served   = dsl.get('total', 0)
+
+    # Build unified operators list with per-tech passings
+    cable_by_name = {op['name']: op['passings'] for op in cable.get('operators', [])}
+    dsl_by_name   = {op['name']: op['passings'] for op in dsl.get('operators', [])}
+
+    operators = []
+    seen = set()
+    for op in fttp.get('operators', []):
+        name = op['name']
+        seen.add(name)
+        operators.append({
+            'name': name,
+            'passings': op['passings'],          # fiber passings (backward compat)
+            'fiber_passings': op['passings'],
+            'cable_passings': cable_by_name.get(name, 0),
+            'dsl_passings':   dsl_by_name.get(name, 0),
+        })
+    for op in cable.get('operators', []):
+        name = op['name']
+        if name not in seen:
+            seen.add(name)
+            operators.append({
+                'name': name,
+                'passings': 0,
+                'fiber_passings': 0,
+                'cable_passings': op['passings'],
+                'dsl_passings':   dsl_by_name.get(name, 0),
+            })
+    for op in dsl.get('operators', []):
+        name = op['name']
+        if name not in seen:
+            seen.add(name)
+            operators.append({
+                'name': name,
+                'passings': 0,
+                'fiber_passings': 0,
+                'cable_passings': 0,
+                'dsl_passings':   op['passings'],
+            })
+
+    cable_operators = sorted(
+        [{'name': n, 'passings': p} for n, p in cable_by_name.items()],
+        key=lambda x: x['passings'], reverse=True
+    )
+    dsl_operators = sorted(
+        [{'name': n, 'passings': p} for n, p in dsl_by_name.items()],
+        key=lambda x: x['passings'], reverse=True
+    )
 
     # Total BSLs
     place = place_data.get(fips, {})
@@ -499,9 +586,15 @@ def build_county(fips, acs_data, fttp_data, provider_data, place_data,
         "is_metro_county": is_metro,
         "total_bsls": total_bsls,
         "fiber_served": fiber_served,
+        "cable_served": cable_served,
+        "dsl_served": dsl_served,
         "fiber_unserved": fiber_unserved,
         "fiber_penetration": fiber_penetration,
         "operators": operators,
+        "cable_operators": cable_operators,
+        "dsl_operators": dsl_operators,
+        "cable_operator_count": len(cable_operators),
+        "dsl_operator_count": len(dsl_operators),
         "population_2023": pop_2023,
         "population_2018": pop_2018,
         "pop_growth_pct": pop_growth,
@@ -579,6 +672,14 @@ def main():
     fttp = load_fttp_locations(state_lower, fips_prefix)
     print(f"   {len(fttp)} counties with fiber location data")
 
+    print("\n4b. Loading FCC Cable location data (tech 40)...")
+    cable = load_cable_locations(state_lower, fips_prefix)
+    print(f"   {len(cable)} counties with cable location data")
+
+    print("\n4c. Loading FCC DSL location data (tech 10)...")
+    dsl = load_dsl_locations(state_lower, fips_prefix)
+    print(f"   {len(dsl)} counties with DSL location data")
+
     print("\n5. Loading FCC provider summary...")
     providers = load_provider_summary(fips_prefix)
     print(f"   {len(providers)} counties with provider data")
@@ -595,7 +696,7 @@ def main():
     data = {}
     for fips in sorted(acs.keys()):
         data[fips] = build_county(
-            fips, acs[fips], fttp, providers, place, terrain, rucc, tech
+            fips, acs[fips], fttp, cable, dsl, providers, place, terrain, rucc, tech
         )
 
     # Post-process: add BEAD state-level metrics

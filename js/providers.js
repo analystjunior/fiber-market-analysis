@@ -252,22 +252,33 @@
         return ALIASES[trimmed] || trimmed;
     }
 
-    // Return total passings for a canonical provider in a given county data object
-    function getPassings(countyData, canonicalName) {
+    // Return passings for a canonical provider in a county, optionally filtered by tech type.
+    // techType: 'fiber' | 'cable' | 'dsl' | 'all' (default: 'fiber' for backward compat)
+    function getPassings(countyData, canonicalName, techType) {
         if (!countyData || !countyData.operators) return 0;
+        var tech = techType || 'fiber';
         var total = 0;
         for (var i = 0; i < countyData.operators.length; i++) {
             var op = countyData.operators[i];
-            if (resolve(op.name) === canonicalName) {
-                total += (op.passings || op.served || 0);
+            if (resolve(op.name) !== canonicalName) continue;
+            if (tech === 'fiber') {
+                total += (op.fiber_passings != null ? op.fiber_passings : (op.passings || 0));
+            } else if (tech === 'cable') {
+                total += (op.cable_passings || 0);
+            } else if (tech === 'dsl') {
+                total += (op.dsl_passings || 0);
+            } else {
+                // 'all' — sum every tech
+                var fiber = op.fiber_passings != null ? op.fiber_passings : (op.passings || 0);
+                total += fiber + (op.cable_passings || 0) + (op.dsl_passings || 0);
             }
         }
         return total;
     }
 
-    // Return true if provider has any presence in the county
-    function hasPresence(countyData, canonicalName) {
-        return getPassings(countyData, canonicalName) > 0;
+    // Return true if provider has any presence in the county for the given tech type
+    function hasPresence(countyData, canonicalName, techType) {
+        return getPassings(countyData, canonicalName, techType) > 0;
     }
 
     // Flat list of all canonical provider names in display order
@@ -279,8 +290,8 @@
         return list;
     }
 
-    // Sum passings for every canonical provider across all loaded counties.
-    // Returns a plain object: { 'AT&T': 12345678, 'Frontier': 3456789, ... }
+    // Sum passings for every canonical provider across all loaded counties, split by tech.
+    // Returns: { 'AT&T': { fiber: 12M, cable: 0, dsl: 41M, all: 53M }, ... }
     function computeNationalTotals() {
         var totals = {};
         DataHandler.iterateAllCounties(function(county) {
@@ -289,11 +300,23 @@
                 var op = county.operators[i];
                 var canonical = resolve(op.name);
                 if (!canonical) continue;
-                var p = op.passings || op.served || 0;
-                totals[canonical] = (totals[canonical] || 0) + p;
+                if (!totals[canonical]) totals[canonical] = { fiber: 0, cable: 0, dsl: 0, all: 0 };
+                var fiber = op.fiber_passings != null ? op.fiber_passings : (op.passings || 0);
+                var cable = op.cable_passings || 0;
+                var dsl   = op.dsl_passings   || 0;
+                totals[canonical].fiber += fiber;
+                totals[canonical].cable += cable;
+                totals[canonical].dsl   += dsl;
+                totals[canonical].all   += (fiber + cable + dsl);
             }
         });
         return totals;
+    }
+
+    // Get the fiber-only total for a provider (used for picker badge display)
+    function getFiberTotal(totals, canonicalName) {
+        var t = totals[canonicalName];
+        return t ? t.fiber : 0;
     }
 
     // Format a raw passings number to a compact string: 1,234,567 → "1.2M"
@@ -311,6 +334,7 @@
         hasPresence: hasPresence,
         allProviders: allProviders,
         computeNationalTotals: computeNationalTotals,
+        getFiberTotal: getFiberTotal,
         formatPassings: formatPassings,
     };
 

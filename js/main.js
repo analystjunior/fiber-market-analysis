@@ -124,6 +124,20 @@
             });
         }
 
+        // Tech filter buttons (Fiber / Cable / DSL / All) in provider picker
+        var techBtns = document.querySelectorAll('#tech-filter .tech-btn');
+        techBtns.forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                techBtns.forEach(function(b) {
+                    b.classList.remove('active');
+                    b.setAttribute('aria-pressed', 'false');
+                });
+                btn.classList.add('active');
+                btn.setAttribute('aria-pressed', 'true');
+                MapRenderer.setTech(btn.dataset.tech);
+            });
+        });
+
         // NPV Calculator trigger button
         var npvBtn = document.getElementById('open-npv-btn');
         if (npvBtn) {
@@ -172,9 +186,9 @@
                 nameSpan.textContent = name;
                 btn.appendChild(nameSpan);
 
-                // National passings badge
-                var total = totals[name];
-                var formatted = ProviderIndex.formatPassings(total);
+                // National passings badge — show fiber passings for now
+                var provTotals = totals[name];
+                var formatted = ProviderIndex.formatPassings(provTotals ? provTotals.fiber : 0);
                 if (formatted) {
                     var badge = document.createElement('span');
                     badge.className = 'provider-item-passings';

@@ -100,6 +100,15 @@
                         <div class="provider-list-wrap">
                             <div id="provider-list" class="provider-list" role="listbox" aria-label="Provider list"></div>
                         </div>
+                        <div class="tech-filter-row">
+                            <span class="tech-filter-label">Show:</span>
+                            <div class="tech-filter-btns" id="tech-filter">
+                                <button class="tech-btn active" data-tech="fiber" aria-pressed="true">Fiber</button>
+                                <button class="tech-btn" data-tech="cable" aria-pressed="false">Cable</button>
+                                <button class="tech-btn" data-tech="dsl" aria-pressed="false">DSL/Copper</button>
+                                <button class="tech-btn" data-tech="all" aria-pressed="false">All</button>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="default-message">
@@ -365,19 +374,37 @@
                             <h3 id="prov-panel-title">Provider Footprint</h3>
                             <div class="stats-grid">
                                 <div class="stat-item" style="grid-column: span 2;">
-                                    <span class="stat-label">Fiber Passings</span>
+                                    <span class="stat-label">Passings (selected tech)</span>
                                     <span class="stat-value" style="font-size:1.4rem;" id="prov-passings"></span>
                                 </div>
                                 <div class="stat-item">
-                                    <span class="stat-label">Coverage</span>
+                                    <span class="stat-label">Coverage %</span>
                                     <span class="stat-value" id="prov-coverage"></span>
                                 </div>
                                 <div class="stat-item">
                                     <span class="stat-label">Total Locations</span>
                                     <span class="stat-value" id="prov-total-bsls"></span>
                                 </div>
+                            </div>
+                        </div>
+
+                        <div class="stats-section">
+                            <h3>Tech Breakdown</h3>
+                            <div class="stats-grid">
+                                <div class="stat-item">
+                                    <span class="stat-label">Fiber Passings</span>
+                                    <span class="stat-value" id="prov-fiber-passings">—</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Cable Passings</span>
+                                    <span class="stat-value" id="prov-cable-passings">—</span>
+                                </div>
                                 <div class="stat-item" style="grid-column: span 2;">
-                                    <span class="stat-label">All Fiber Providers in County</span>
+                                    <span class="stat-label">DSL/Copper Passings</span>
+                                    <span class="stat-value" id="prov-dsl-passings">—</span>
+                                </div>
+                                <div class="stat-item" style="grid-column: span 2;">
+                                    <span class="stat-label">All Providers in County</span>
                                     <span class="stat-value" id="prov-competitors"></span>
                                 </div>
                             </div>

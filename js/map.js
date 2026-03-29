@@ -131,6 +131,7 @@
         currentLayer: 'penetration',
         currentMode: 'market',     // 'market' | 'provider'
         currentProvider: null,     // canonical provider name when in provider mode
+        currentTech: 'fiber',      // 'fiber' | 'cable' | 'dsl' | 'all'
         filters: {
             minPop: 0,
             minDensity: 0,
@@ -417,7 +418,7 @@
             // Provider mode — color by selected provider's footprint depth
             if (this.currentMode === 'provider') {
                 if (!this.currentProvider) return '#1e293b';
-                var passings = ProviderIndex.getPassings(data, this.currentProvider);
+                var passings = ProviderIndex.getPassings(data, this.currentProvider, this.currentTech);
                 var bsls = data.total_bsls || 1;
                 var ratio = passings > 0 ? Math.min(1, passings / bsls) : 0;
                 // Use threshold 0.001 to distinguish "present but tiny" from "absent"
@@ -559,7 +560,31 @@
                 });
             }
             this._buildLegend('provider');
-            setTextById('map-title', canonicalName ? canonicalName + ' — Fiber Footprint' : 'Select a provider');
+            this._updateProviderTitle();
+        },
+
+        setTech: function(techType) {
+            this.currentTech = techType || 'fiber';
+            ColorScales.clearCache();
+            var self = this;
+            if (this._countyLayer) {
+                this._countyLayer.eachLayer(function(l) {
+                    l.setStyle(self._countyStyle(l.feature, false, InfoPanel.pinnedCounty === self._getFips(l.feature)));
+                });
+            }
+            // Refresh pinned panel if open
+            if (InfoPanel.pinnedCounty) {
+                InfoPanel.showProviderInfo(InfoPanel.pinnedCounty);
+            }
+            this._updateProviderTitle();
+        },
+
+        _updateProviderTitle: function() {
+            var techLabel = { fiber: 'Fiber', cable: 'Cable', dsl: 'DSL/Copper', all: 'All Tech' };
+            var label = this.currentProvider
+                ? this.currentProvider + ' — ' + (techLabel[this.currentTech] || 'Fiber') + ' Footprint'
+                : 'Select a provider';
+            setTextById('map-title', label);
         },
 
         setFilters: function(filters) {
@@ -999,25 +1024,37 @@
             var data = DataHandler.getCountyData(fips);
             if (!data) return;
             var provider = MapRenderer.currentProvider;
-            var passings = provider ? ProviderIndex.getPassings(data, provider) : 0;
+            var tech = MapRenderer.currentTech || 'fiber';
             var bsls = data.total_bsls || 0;
-            var pct = bsls > 0 && passings > 0 ? (passings / bsls * 100).toFixed(1) + '%' : '—';
+
+            // Per-tech passings for selected provider
+            var fiberP = provider ? ProviderIndex.getPassings(data, provider, 'fiber') : 0;
+            var cableP = provider ? ProviderIndex.getPassings(data, provider, 'cable') : 0;
+            var dslP   = provider ? ProviderIndex.getPassings(data, provider, 'dsl')   : 0;
+            var activeP = tech === 'cable' ? cableP : tech === 'dsl' ? dslP : fiberP;
+            var pct = bsls > 0 && activeP > 0 ? (activeP / bsls * 100).toFixed(1) + '%' : '—';
 
             setTextById('prov-county-name', (data.name || '') + (data.state_code ? ', ' + data.state_code : ''));
             setTextById('prov-panel-title', provider || 'Provider Footprint');
-            setTextById('prov-passings', passings > 0 ? passings.toLocaleString() : '—');
+            setTextById('prov-passings', activeP > 0 ? activeP.toLocaleString() : '—');
             setTextById('prov-coverage', pct);
             setTextById('prov-total-bsls', bsls > 0 ? bsls.toLocaleString() : '—');
 
-            // List other fiber providers
-            var others = (data.operators || [])
-                .map(function(op) { return ProviderIndex.resolve(op.name); })
-                .filter(function(n, i, arr) { return n && arr.indexOf(n) === i; })
-                .join(', ');
-            setTextById('prov-competitors', others || '—');
+            // Per-tech breakdown rows
+            setTextById('prov-fiber-passings', fiberP > 0 ? fiberP.toLocaleString() : '—');
+            setTextById('prov-cable-passings', cableP > 0 ? cableP.toLocaleString() : '—');
+            setTextById('prov-dsl-passings',   dslP   > 0 ? dslP.toLocaleString()   : '—');
 
-            setTextById('prov-population', data.population ? data.population.toLocaleString() : '—');
-            var inc = data.median_income;
+            // All operators in county across any tech
+            var allNames = {};
+            (data.operators || []).forEach(function(op) {
+                var n = ProviderIndex.resolve(op.name);
+                if (n) allNames[n] = true;
+            });
+            setTextById('prov-competitors', Object.keys(allNames).join(', ') || '—');
+
+            setTextById('prov-population', data.population_2023 ? data.population_2023.toLocaleString() : '—');
+            var inc = data.median_hhi;
             setTextById('prov-income', inc ? '$' + Number(inc).toLocaleString() : '—');
             setTextById('prov-fiber-pct', data.fiber_penetration != null
                 ? (data.fiber_penetration * 100).toFixed(1) + '%' : '—');
