@@ -129,6 +129,8 @@
         _inCountyView: false,
         currentState: 'MO',
         currentLayer: 'penetration',
+        currentMode: 'market',     // 'market' | 'provider'
+        currentProvider: null,     // canonical provider name when in provider mode
         filters: {
             minPop: 0,
             minDensity: 0,
@@ -340,7 +342,13 @@
 
                     layer.on({
                         mouseover: function(e) {
-                            if (!InfoPanel.pinnedCounty) InfoPanel.showCountyInfo(fips);
+                            if (!InfoPanel.pinnedCounty) {
+                                if (MapRenderer.currentMode === 'provider') {
+                                    InfoPanel.showProviderInfo(fips);
+                                } else {
+                                    InfoPanel.showCountyInfo(fips);
+                                }
+                            }
                             if (InfoPanel.pinnedCounty !== fips) {
                                 e.target.setStyle(self._countyStyle(feature, true, false));
                                 e.target.bringToFront();
@@ -353,7 +361,11 @@
                             }
                         },
                         click: function() {
-                            self._handleCountyClick(fips, layer, feature);
+                            if (MapRenderer.currentMode === 'provider') {
+                                InfoPanel.showProviderInfo(fips);
+                            } else {
+                                self._handleCountyClick(fips, layer, feature);
+                            }
                         }
                     });
                 }
@@ -404,6 +416,18 @@
 
         _countyColor: function(data) {
             if (!data) return '#1e293b';
+
+            // Provider mode — color by selected provider's footprint depth
+            if (this.currentMode === 'provider') {
+                if (!this.currentProvider) return '#1e293b';
+                var passings = ProviderIndex.getPassings(data, this.currentProvider);
+                var bsls = data.total_bsls || 1;
+                var ratio = passings > 0 ? Math.min(1, passings / bsls) : 0;
+                // Use threshold 0.001 to distinguish "present but tiny" from "absent"
+                var colorValue = passings > 0 ? Math.max(0.002, ratio) : 0;
+                return ColorScales.getColor('provider', colorValue);
+            }
+
             var value;
             switch (this.currentLayer) {
                 case 'penetration':   value = data.fiber_penetration; break;
@@ -501,6 +525,35 @@
             }
         },
 
+        setMode: function(mode) {
+            this.currentMode = mode;
+            this.stopDeepDive();
+            var self = this;
+            if (this._countyLayer) {
+                this._countyLayer.eachLayer(function(l) {
+                    l.setStyle(self._countyStyle(l.feature, false, InfoPanel.pinnedCounty === self._getFips(l.feature)));
+                });
+            }
+            if (mode === 'provider') {
+                this._buildLegend('provider');
+            } else {
+                this.updateLegend();
+            }
+        },
+
+        setProvider: function(canonicalName) {
+            this.currentProvider = canonicalName;
+            ColorScales.clearCache();
+            var self = this;
+            if (this._countyLayer) {
+                this._countyLayer.eachLayer(function(l) {
+                    l.setStyle(self._countyStyle(l.feature, false, InfoPanel.pinnedCounty === self._getFips(l.feature)));
+                });
+            }
+            this._buildLegend('provider');
+            setTextById('map-title', canonicalName ? canonicalName + ' — Fiber Footprint' : 'Select a provider');
+        },
+
         setFilters: function(filters) {
             this.filters = Object.assign({}, this.filters, filters);
             this.applyFilters();
@@ -554,7 +607,7 @@
         },
 
         updateLegend: function() {
-            this._buildLegend(this.currentLayer);
+            this._buildLegend(this.currentMode === 'provider' ? 'provider' : this.currentLayer);
         },
 
         highlightCounty: function(fips) {
@@ -639,12 +692,27 @@
         defaultEl: null,
         countyInfoEl: null,
         stateInfoEl: null,
+        providerInfoEl: null,
         pinnedCounty: null,
+        _mode: 'market',
 
         init: function() {
             this.defaultEl = document.querySelector('.default-message');
             this.countyInfoEl = document.querySelector('.county-info');
             this.stateInfoEl = document.querySelector('.state-info');
+            this.providerInfoEl = document.querySelector('.provider-info');
+        },
+
+        setMode: function(mode) {
+            this._mode = mode;
+            this.pinnedCounty = null;
+            this.hideInfo();
+            if (this.defaultEl) {
+                this.defaultEl.querySelector('h2').textContent =
+                    mode === 'provider' ? 'Hover over a county' : 'Hover over a state';
+                this.defaultEl.querySelector('p').textContent =
+                    mode === 'provider' ? 'to see provider footprint' : 'to see fiber coverage statistics';
+            }
         },
 
         pinCounty: function(fips) {
@@ -915,10 +983,45 @@
             if (this.countyInfoEl) this.countyInfoEl.style.display = 'block';
         },
 
+        showProviderInfo: function(fips) {
+            var data = DataHandler.getCountyData(fips);
+            if (!data) return;
+            var provider = MapRenderer.currentProvider;
+            var passings = provider ? ProviderIndex.getPassings(data, provider) : 0;
+            var bsls = data.total_bsls || 0;
+            var pct = bsls > 0 && passings > 0 ? (passings / bsls * 100).toFixed(1) + '%' : '—';
+
+            setTextById('prov-county-name', (data.name || '') + (data.state_code ? ', ' + data.state_code : ''));
+            setTextById('prov-panel-title', provider || 'Provider Footprint');
+            setTextById('prov-passings', passings > 0 ? passings.toLocaleString() : '—');
+            setTextById('prov-coverage', pct);
+            setTextById('prov-total-bsls', bsls > 0 ? bsls.toLocaleString() : '—');
+
+            // List other fiber providers
+            var others = (data.operators || [])
+                .map(function(op) { return ProviderIndex.resolve(op.name); })
+                .filter(function(n, i, arr) { return n && arr.indexOf(n) === i; })
+                .join(', ');
+            setTextById('prov-competitors', others || '—');
+
+            setTextById('prov-population', data.population ? data.population.toLocaleString() : '—');
+            var inc = data.median_income;
+            setTextById('prov-income', inc ? '$' + Number(inc).toLocaleString() : '—');
+            setTextById('prov-fiber-pct', data.fiber_penetration != null
+                ? (data.fiber_penetration * 100).toFixed(1) + '%' : '—');
+            setTextById('prov-market-type', data.is_metro_county ? 'Metro' : (data.rural_class || 'Rural'));
+
+            if (this.defaultEl) this.defaultEl.style.display = 'none';
+            if (this.countyInfoEl) this.countyInfoEl.style.display = 'none';
+            if (this.stateInfoEl) this.stateInfoEl.style.display = 'none';
+            if (this.providerInfoEl) this.providerInfoEl.style.display = 'block';
+        },
+
         hideInfo: function() {
             if (this.defaultEl) this.defaultEl.style.display = 'block';
             if (this.countyInfoEl) this.countyInfoEl.style.display = 'none';
             if (this.stateInfoEl) this.stateInfoEl.style.display = 'none';
+            if (this.providerInfoEl) this.providerInfoEl.style.display = 'none';
         }
     };
 

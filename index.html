@@ -21,6 +21,14 @@
     </header>
 
     <main>
+        <!-- Top-level mode switcher -->
+        <div class="mode-switcher" role="group" aria-label="View mode">
+            <button class="mode-btn active" id="mode-market" aria-pressed="true">By Market</button>
+            <button class="mode-btn" id="mode-provider" aria-pressed="false">By Provider</button>
+        </div>
+
+        <!-- ── BY MARKET controls ── -->
+        <div id="market-controls">
         <div class="controls-panel">
             <div class="control-group">
                 <label>Map Layer</label>
@@ -68,6 +76,20 @@
                 </div>
             </div>
         </div>
+        </div><!-- end #market-controls -->
+
+        <!-- ── BY PROVIDER controls ── -->
+        <div id="provider-controls" style="display:none;">
+        <div class="controls-panel provider-controls-panel">
+            <div class="control-group" style="flex:1; min-width:0;">
+                <label>Search Provider</label>
+                <input type="text" id="provider-search" class="provider-search-input" placeholder="e.g. AT&T, Frontier, Google Fiber…" autocomplete="off" spellcheck="false">
+            </div>
+            <div class="provider-list-wrap">
+                <div id="provider-list" class="provider-list" role="listbox" aria-label="Provider list"></div>
+            </div>
+        </div>
+        </div><!-- end #provider-controls -->
 
         <div class="content-area">
             <div class="map-container">
@@ -334,6 +356,59 @@
                         </button>
                     </div>
                 </div>
+
+                    <!-- Provider mode info panel -->
+                    <div class="provider-info" style="display: none;">
+                        <div class="provider-info-header">
+                            <span class="provider-info-name" id="prov-county-name"></span>
+                        </div>
+
+                        <div class="stats-section">
+                            <h3 id="prov-panel-title">Provider Footprint</h3>
+                            <div class="stats-grid">
+                                <div class="stat-item" style="grid-column: span 2;">
+                                    <span class="stat-label">Fiber Passings</span>
+                                    <span class="stat-value" style="font-size:1.4rem;" id="prov-passings"></span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Coverage</span>
+                                    <span class="stat-value" id="prov-coverage"></span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Total Locations</span>
+                                    <span class="stat-value" id="prov-total-bsls"></span>
+                                </div>
+                                <div class="stat-item" style="grid-column: span 2;">
+                                    <span class="stat-label">All Fiber Providers in County</span>
+                                    <span class="stat-value" id="prov-competitors"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="stats-section">
+                            <h3>County Context</h3>
+                            <div class="stats-grid">
+                                <div class="stat-item">
+                                    <span class="stat-label">Population</span>
+                                    <span class="stat-value" id="prov-population"></span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Median Income</span>
+                                    <span class="stat-value" id="prov-income"></span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Overall Fiber %</span>
+                                    <span class="stat-value" id="prov-fiber-pct"></span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Market Type</span>
+                                    <span class="stat-value" id="prov-market-type"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </aside>
         </div>
 
@@ -505,6 +580,7 @@
     <script src="https://unpkg.com/topojson-client@3.1.0/dist/topojson-client.min.js" integrity="sha384-Ukv1p/xTma6P4/2bY5KzWBw+ydSpXmhCMtyciIQVDJ1RmOxtCYNMF1uXT9T63H67" crossorigin="anonymous"></script>
     <!-- Application modules -->
     <script src="js/data.js"></script>
+    <script src="js/providers.js"></script>
     <script src="js/map.js"></script>
     <script src="js/npv.js"></script>
     <script src="js/main.js"></script>

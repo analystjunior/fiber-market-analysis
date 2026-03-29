@@ -45,6 +45,36 @@
     });
 
     function setupControls() {
+        // ── Mode switcher (By Market / By Provider) ──
+        var modeMarketBtn   = document.getElementById('mode-market');
+        var modeProviderBtn = document.getElementById('mode-provider');
+        var marketControls  = document.getElementById('market-controls');
+        var providerControls= document.getElementById('provider-controls');
+
+        function switchMode(mode) {
+            var isProvider = mode === 'provider';
+            modeMarketBtn.classList.toggle('active', !isProvider);
+            modeMarketBtn.setAttribute('aria-pressed', isProvider ? 'false' : 'true');
+            modeProviderBtn.classList.toggle('active', isProvider);
+            modeProviderBtn.setAttribute('aria-pressed', isProvider ? 'true' : 'false');
+            marketControls.style.display  = isProvider ? 'none' : '';
+            providerControls.style.display = isProvider ? '' : 'none';
+            MapRenderer.setMode(mode);
+            InfoPanel.setMode(mode);
+        }
+
+        if (modeMarketBtn) modeMarketBtn.addEventListener('click', function() { switchMode('market'); });
+        if (modeProviderBtn) modeProviderBtn.addEventListener('click', function() { switchMode('provider'); });
+
+        // ── Provider picker ──
+        buildProviderList();
+        var providerSearch = document.getElementById('provider-search');
+        if (providerSearch) {
+            providerSearch.addEventListener('input', function() {
+                filterProviderList(this.value.trim().toLowerCase());
+            });
+        }
+
         // Layer toggle buttons with ARIA support
         var toggleBtns = document.querySelectorAll('#layer-toggle .toggle-btn');
         toggleBtns.forEach(function(btn) {
@@ -109,6 +139,62 @@
                 }
             });
         }
+    }
+
+    var _activeProviderBtn = null;
+
+    function buildProviderList() {
+        var container = document.getElementById('provider-list');
+        if (!container) return;
+        container.textContent = '';
+
+        ProviderIndex.GROUPS.forEach(function(group) {
+            var groupEl = document.createElement('div');
+            groupEl.className = 'provider-group';
+
+            var label = document.createElement('div');
+            label.className = 'provider-group-label';
+            label.textContent = group.group;
+            groupEl.appendChild(label);
+
+            group.providers.forEach(function(name) {
+                var btn = document.createElement('button');
+                btn.className = 'provider-item';
+                btn.textContent = name;
+                btn.setAttribute('role', 'option');
+                btn.setAttribute('aria-selected', 'false');
+                btn.dataset.provider = name;
+                btn.addEventListener('click', function() {
+                    if (_activeProviderBtn) {
+                        _activeProviderBtn.classList.remove('active');
+                        _activeProviderBtn.setAttribute('aria-selected', 'false');
+                    }
+                    btn.classList.add('active');
+                    btn.setAttribute('aria-selected', 'true');
+                    _activeProviderBtn = btn;
+                    MapRenderer.setProvider(name);
+                });
+                groupEl.appendChild(btn);
+            });
+
+            container.appendChild(groupEl);
+        });
+    }
+
+    function filterProviderList(query) {
+        var container = document.getElementById('provider-list');
+        if (!container) return;
+        var groups = container.querySelectorAll('.provider-group');
+        groups.forEach(function(group) {
+            var items = group.querySelectorAll('.provider-item');
+            var anyVisible = false;
+            items.forEach(function(item) {
+                var match = !query || item.textContent.toLowerCase().indexOf(query) !== -1;
+                item.style.display = match ? '' : 'none';
+                if (match) anyVisible = true;
+            });
+            group.style.display = anyVisible ? '' : 'none';
+        });
     }
 
     function setupGlobalHandlers() {
