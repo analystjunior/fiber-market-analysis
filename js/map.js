@@ -362,11 +362,7 @@
                             }
                         },
                         click: function() {
-                            if (MapRenderer.currentMode === 'provider') {
-                                InfoPanel.showProviderInfo(fips);
-                            } else {
-                                self._handleCountyClick(fips, layer, feature);
-                            }
+                            self._handleCountyClick(fips, layer, feature);
                         }
                     });
                 }
@@ -729,7 +725,11 @@
 
         pinCounty: function(fips) {
             this.pinnedCounty = fips;
-            this.showCountyInfo(fips);
+            if (this._mode === 'provider') {
+                this.showProviderInfo(fips);
+            } else {
+                this.showCountyInfo(fips);
+            }
             var pinIndicator = document.querySelector('.pin-indicator');
             if (pinIndicator) pinIndicator.style.display = 'flex';
             MapRenderer.updatePinStyles(fips);
