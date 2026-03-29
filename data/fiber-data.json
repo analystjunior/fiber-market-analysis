@@ -781,9 +781,9 @@
   },
   "NY": {
     "state": "New York",
-    "totalHousingUnits": 11504813,
+    "totalHousingUnits": 8661594,
     "totalFiberPassings": 3128907,
-    "fiberPenetration": 27.2,
+    "fiberPenetration": 36.1,
     "operators": [
       {
         "name": "Verizon Fios",

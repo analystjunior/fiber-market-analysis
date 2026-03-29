@@ -2273,10 +2273,10 @@
     "geoid": "36047",
     "name": "Kings",
     "is_metro_county": true,
-    "total_bsls": 3933406,
+    "total_bsls": 1090187,
     "fiber_served": 231366,
-    "fiber_unserved": 3702040,
-    "fiber_penetration": 0.059,
+    "fiber_unserved": 858821,
+    "fiber_penetration": 0.212,
     "operators": [
       {
         "name": "Verizon",
