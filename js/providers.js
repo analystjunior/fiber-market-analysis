@@ -279,12 +279,39 @@
         return list;
     }
 
+    // Sum passings for every canonical provider across all loaded counties.
+    // Returns a plain object: { 'AT&T': 12345678, 'Frontier': 3456789, ... }
+    function computeNationalTotals() {
+        var totals = {};
+        DataHandler.iterateAllCounties(function(county) {
+            if (!county.operators) return;
+            for (var i = 0; i < county.operators.length; i++) {
+                var op = county.operators[i];
+                var canonical = resolve(op.name);
+                if (!canonical) continue;
+                var p = op.passings || op.served || 0;
+                totals[canonical] = (totals[canonical] || 0) + p;
+            }
+        });
+        return totals;
+    }
+
+    // Format a raw passings number to a compact string: 1,234,567 → "1.2M"
+    function formatPassings(n) {
+        if (!n || n === 0) return null;
+        if (n >= 1000000) return (n / 1000000).toFixed(1).replace(/\.0$/, '') + 'M';
+        if (n >= 1000)    return (n / 1000).toFixed(0) + 'K';
+        return String(n);
+    }
+
     global.ProviderIndex = {
         GROUPS: PROVIDER_GROUPS,
         resolve: resolve,
         getPassings: getPassings,
         hasPresence: hasPresence,
         allProviders: allProviders,
+        computeNationalTotals: computeNationalTotals,
+        formatPassings: formatPassings,
     };
 
 })(window);

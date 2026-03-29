@@ -28,14 +28,14 @@
 
         // Initialize components
         InfoPanel.init();
-        await MapRenderer.init('map');
+        await MapRenderer.init('map');  // loads all state county data
         TableManager.init();
         NPVCalculator.init();
 
         // Render table for default active state (MO)
         TableManager.renderTable();
 
-        // Setup UI controls
+        // Setup UI controls (buildProviderList runs after all county data is loaded)
         setupControls();
 
         // Setup global event handlers
@@ -148,6 +148,8 @@
         if (!container) return;
         container.textContent = '';
 
+        var totals = ProviderIndex.computeNationalTotals();
+
         ProviderIndex.GROUPS.forEach(function(group) {
             var groupEl = document.createElement('div');
             groupEl.className = 'provider-group';
@@ -160,10 +162,26 @@
             group.providers.forEach(function(name) {
                 var btn = document.createElement('button');
                 btn.className = 'provider-item';
-                btn.textContent = name;
                 btn.setAttribute('role', 'option');
                 btn.setAttribute('aria-selected', 'false');
                 btn.dataset.provider = name;
+
+                // Provider name
+                var nameSpan = document.createElement('span');
+                nameSpan.className = 'provider-item-name';
+                nameSpan.textContent = name;
+                btn.appendChild(nameSpan);
+
+                // National passings badge
+                var total = totals[name];
+                var formatted = ProviderIndex.formatPassings(total);
+                if (formatted) {
+                    var badge = document.createElement('span');
+                    badge.className = 'provider-item-passings';
+                    badge.textContent = formatted;
+                    btn.appendChild(badge);
+                }
+
                 btn.addEventListener('click', function() {
                     if (_activeProviderBtn) {
                         _activeProviderBtn.classList.remove('active');

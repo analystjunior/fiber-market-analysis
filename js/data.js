@@ -252,6 +252,16 @@
             return Object.values(data);
         },
 
+        // Iterate every county across all loaded states, calling fn(countyData)
+        iterateAllCounties: function(fn) {
+            for (var sc in this._stateCountyData) {
+                var stateData = this._stateCountyData[sc];
+                for (var fips in stateData) {
+                    fn(stateData[fips]);
+                }
+            }
+        },
+
         getGeoJSON: function() {
             return this.tigerGeoJSON;
         },
