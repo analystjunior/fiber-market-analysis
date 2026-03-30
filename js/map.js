@@ -212,44 +212,14 @@
         // ===== ZOOM-DRIVEN VIEW SWITCHING =====
 
         _onZoomChanged: function() {
-            var zoom = this._map.getZoom();
-            // Provider mode always shows counties regardless of zoom level
-            var shouldBeCountyView = this.currentMode === 'provider' || zoom >= COUNTY_ZOOM_THRESHOLD;
+            // Always show county view — state-level view removed
+            if (this._inCountyView) return;
+            this._inCountyView = true;
 
-            if (shouldBeCountyView === this._inCountyView) return; // no change
-            this._inCountyView = shouldBeCountyView;
-
-            if (shouldBeCountyView) {
-                // Add county layer on top
-                if (this._countyLayer && !this._map.hasLayer(this._countyLayer)) {
-                    this._countyLayer.addTo(this._map);
-                }
-                // Dim state layer to outlines only
-                if (this._stateLayer) {
-                    this._stateLayer.eachLayer(function(l) {
-                        l.setStyle({ fillOpacity: 0.0, color: 'rgba(255,255,255,0.08)', weight: 0.5, opacity: 0.5 });
-                    });
-                }
-                setTextById('map-title', 'County Detail — hover to explore');
-                this.updateLegend();
-            } else {
-                // Remove county layer
-                if (this._countyLayer && this._map.hasLayer(this._countyLayer)) {
-                    this._map.removeLayer(this._countyLayer);
-                }
-                // Restore state layer colors
-                var self = this;
-                if (this._stateLayer) {
-                    this._stateLayer.eachLayer(function(l) {
-                        self._stateLayer.resetStyle(l);
-                    });
-                }
-                // Clear any pinned county
-                if (InfoPanel.pinnedCounty) InfoPanel.unpinCounty();
-                InfoPanel.hideInfo();
-                setTextById('map-title', 'United States — Fiber Coverage by State');
-                this.updateLegendForUS();
+            if (this._countyLayer && !this._map.hasLayer(this._countyLayer)) {
+                this._countyLayer.addTo(this._map);
             }
+            this.updateLegend();
         },
 
         // ===== STATE LAYER (always loaded) =====
@@ -264,43 +234,19 @@
                 ? topojson.feature(geojson, geojson.objects.states)
                 : geojson;
 
-            var self = this;
             this._stateLayer = L.geoJSON(geoData, {
-                style: function(feature) {
-                    var sc = self.getStateCode(feature);
-                    var stData = DataHandler.getStateData(sc);
-                    var col = stData ? ColorScales.getColor('penetration', stData.fiberPenetration / 100) : '#1e293b';
-                    var isFeatured = !!FEATURED_STATES[sc];
-                    // Featured states (county data available) get a brighter border to signal drilldown
+                style: function() {
                     return {
-                        fillColor: col,
-                        fillOpacity: stData ? 0.55 : 0.2,
-                        color: isFeatured ? '#94a3b8' : '#0f172a',
-                        weight: isFeatured ? 1.5 : 0.5,
+                        fillOpacity: 0,
+                        color: 'rgba(255,255,255,0.12)',
+                        weight: 0.8,
                         opacity: 1
                     };
                 },
-                onEachFeature: function(feature, layer) {
-                    var sc = self.getStateCode(feature);
-                    layer.on({
-                        mouseover: function(e) {
-                            if (!self._inCountyView) {
-                                InfoPanel.showStateInfo(sc);
-                                e.target.setStyle({ fillOpacity: 0.8, weight: 2, color: '#94a3b8' });
-                                e.target.bringToFront();
-                            }
-                        },
-                        mouseout: function(e) {
-                            if (!self._inCountyView) {
-                                InfoPanel.hideInfo();
-                                self._stateLayer.resetStyle(e.target);
-                            }
-                        }
-                    });
-                }
+                interactive: false
             }).addTo(this._map);
 
-            setTextById('map-title', 'United States — Fiber Coverage by State');
+            setTextById('map-title', 'United States — County-Level Detail');
         },
 
         // ===== COUNTY LAYERS (all featured states, zoom-toggled) =====
