@@ -11,47 +11,81 @@
       {
         "name": "Verizon",
         "passings": 49931,
-        "served": 49931
+        "served": 49931,
+        "fiber_passings": 49931,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "State Telephone Company Inc",
         "passings": 1752,
-        "served": 1752
+        "served": 1752,
+        "fiber_passings": 1752,
+        "cable_passings": 0,
+        "dsl_passings": 549
       },
       {
         "name": "Mid-Hudson Cablevision",
         "passings": 824,
-        "served": 824
+        "served": 824,
+        "fiber_passings": 824,
+        "cable_passings": 3409,
+        "dsl_passings": 0
       },
       {
         "name": "MIDTEL",
         "passings": 536,
-        "served": 536
+        "served": 536,
+        "fiber_passings": 536,
+        "cable_passings": 0,
+        "dsl_passings": 4
       },
       {
         "name": "Mid-Hudson Data Corp",
         "passings": 150,
-        "served": 150
+        "served": 150,
+        "fiber_passings": 150,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Spectrum",
         "passings": 124,
-        "served": 124
+        "served": 124,
+        "fiber_passings": 124,
+        "cable_passings": 88615,
+        "dsl_passings": 0
       },
       {
         "name": "Catskill Mountain Cablevision",
         "passings": 35,
-        "served": 35
+        "served": 35,
+        "fiber_passings": 35,
+        "cable_passings": 627,
+        "dsl_passings": 0
       },
       {
         "name": "MTC Cable",
         "passings": 25,
-        "served": 25
+        "served": 25,
+        "fiber_passings": 25,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Massivemesh Networks",
         "passings": 21,
-        "served": 21
+        "served": 21,
+        "fiber_passings": 21,
+        "cable_passings": 0,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Consolidated Communications",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 0,
+        "dsl_passings": 2
       }
     ],
     "population_2023": 315374,
@@ -109,7 +143,39 @@
     "build_difficulty": "Moderate",
     "rucc_code": 2,
     "rucc_description": "Metro - Counties in metro areas of 250,000 to 1 million population",
-    "rural_class": "Metro"
+    "rural_class": "Metro",
+    "cable_served": 92610,
+    "dsl_served": 555,
+    "cable_operators": [
+      {
+        "name": "Spectrum",
+        "passings": 88615
+      },
+      {
+        "name": "Mid-Hudson Cablevision",
+        "passings": 3409
+      },
+      {
+        "name": "Catskill Mountain Cablevision",
+        "passings": 627
+      }
+    ],
+    "cable_operator_count": 3,
+    "dsl_operators": [
+      {
+        "name": "State Telephone Company Inc",
+        "passings": 549
+      },
+      {
+        "name": "MIDTEL",
+        "passings": 4
+      },
+      {
+        "name": "Consolidated Communications",
+        "passings": 2
+      }
+    ],
+    "dsl_operator_count": 3
   },
   "36003": {
     "geoid": "36003",
@@ -123,22 +189,41 @@
       {
         "name": "Armstrong Telecommunications Inc",
         "passings": 14405,
-        "served": 14405
+        "served": 14405,
+        "fiber_passings": 14405,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Armstrong Telephone Company",
         "passings": 447,
-        "served": 447
+        "served": 447,
+        "fiber_passings": 447,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Empire Long Distance Corporation",
         "passings": 275,
-        "served": 275
+        "served": 275,
+        "fiber_passings": 275,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Spectrum",
         "passings": 140,
-        "served": 140
+        "served": 140,
+        "fiber_passings": 140,
+        "cable_passings": 11088,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Frontier",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 0,
+        "dsl_passings": 2843
       }
     ],
     "population_2023": 47027,
@@ -191,7 +276,23 @@
     "build_difficulty": "Challenging",
     "rucc_code": 7,
     "rucc_description": "Nonmetro - Urban population of 5,000 to 20,000, not adjacent to a metro area",
-    "rural_class": "Rural"
+    "rural_class": "Rural",
+    "cable_served": 11088,
+    "dsl_served": 2843,
+    "cable_operators": [
+      {
+        "name": "Spectrum",
+        "passings": 11088
+      }
+    ],
+    "cable_operator_count": 1,
+    "dsl_operators": [
+      {
+        "name": "Frontier",
+        "passings": 2843
+      }
+    ],
+    "dsl_operator_count": 1
   },
   "36005": {
     "geoid": "36005",
@@ -205,17 +306,40 @@
       {
         "name": "Optimum",
         "passings": 75896,
-        "served": 75896
+        "served": 75896,
+        "fiber_passings": 75896,
+        "cable_passings": 84368,
+        "dsl_passings": 0
       },
       {
         "name": "Verizon",
         "passings": 71711,
-        "served": 71711
+        "served": 71711,
+        "fiber_passings": 71711,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Astound Broadband",
         "passings": 212,
-        "served": 212
+        "served": 212,
+        "fiber_passings": 212,
+        "cable_passings": 32,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Spectrum",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 845,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Xfinity",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 2,
+        "dsl_passings": 0
       }
     ],
     "population_2023": 1419250,
@@ -267,7 +391,30 @@
     "build_difficulty": "Moderate",
     "rucc_code": 1,
     "rucc_description": "Metro - Counties in metro areas of 1 million population or more",
-    "rural_class": "Metro"
+    "rural_class": "Metro",
+    "cable_served": 84381,
+    "dsl_served": 0,
+    "cable_operators": [
+      {
+        "name": "Optimum",
+        "passings": 84368
+      },
+      {
+        "name": "Spectrum",
+        "passings": 845
+      },
+      {
+        "name": "Astound Broadband",
+        "passings": 32
+      },
+      {
+        "name": "Xfinity",
+        "passings": 2
+      }
+    ],
+    "cable_operator_count": 4,
+    "dsl_operators": [],
+    "dsl_operator_count": 0
   },
   "36007": {
     "geoid": "36007",
@@ -281,42 +428,66 @@
       {
         "name": "Greenlight Networks",
         "passings": 28272,
-        "served": 28272
+        "served": 28272,
+        "fiber_passings": 28272,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Empire Long Distance Corporation",
         "passings": 12642,
-        "served": 12642
+        "served": 12642,
+        "fiber_passings": 12642,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "TDS Telecom",
         "passings": 5362,
-        "served": 5362
+        "served": 5362,
+        "fiber_passings": 5362,
+        "cable_passings": 0,
+        "dsl_passings": 108
       },
       {
         "name": "Frontier",
         "passings": 1063,
-        "served": 1063
+        "served": 1063,
+        "fiber_passings": 1063,
+        "cable_passings": 0,
+        "dsl_passings": 3176
       },
       {
         "name": "Point Broadband Fiber Holding LLC",
         "passings": 494,
-        "served": 494
+        "served": 494,
+        "fiber_passings": 494,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Adams CATV Inc",
         "passings": 400,
-        "served": 400
+        "served": 400,
+        "fiber_passings": 400,
+        "cable_passings": 4160,
+        "dsl_passings": 0
       },
       {
         "name": "Delhi Telephone Company",
         "passings": 66,
-        "served": 66
+        "served": 66,
+        "fiber_passings": 66,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Spectrum",
         "passings": 25,
-        "served": 25
+        "served": 25,
+        "fiber_passings": 25,
+        "cable_passings": 61128,
+        "dsl_passings": 0
       }
     ],
     "population_2023": 197738,
@@ -373,7 +544,31 @@
     "build_difficulty": "Challenging",
     "rucc_code": 3,
     "rucc_description": "Metro - Counties in metro areas of fewer than 250,000 population",
-    "rural_class": "Metro"
+    "rural_class": "Metro",
+    "cable_served": 65113,
+    "dsl_served": 3284,
+    "cable_operators": [
+      {
+        "name": "Spectrum",
+        "passings": 61128
+      },
+      {
+        "name": "Adams CATV Inc",
+        "passings": 4160
+      }
+    ],
+    "cable_operator_count": 2,
+    "dsl_operators": [
+      {
+        "name": "Frontier",
+        "passings": 3176
+      },
+      {
+        "name": "TDS Telecom",
+        "passings": 108
+      }
+    ],
+    "dsl_operator_count": 2
   },
   "36009": {
     "geoid": "36009",
@@ -387,32 +582,57 @@
       {
         "name": "Armstrong Telecommunications Inc",
         "passings": 16761,
-        "served": 16761
+        "served": 16761,
+        "fiber_passings": 16761,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Windstream New York, Inc.",
         "passings": 939,
-        "served": 939
+        "served": 939,
+        "fiber_passings": 939,
+        "cable_passings": 0,
+        "dsl_passings": 1940
       },
       {
         "name": "Spectrum",
         "passings": 566,
-        "served": 566
+        "served": 566,
+        "fiber_passings": 566,
+        "cable_passings": 19726,
+        "dsl_passings": 0
       },
       {
         "name": "Frontier",
         "passings": 89,
-        "served": 89
+        "served": 89,
+        "fiber_passings": 89,
+        "cable_passings": 0,
+        "dsl_passings": 460
       },
       {
         "name": "DFT Local Service Corporation",
         "passings": 85,
-        "served": 85
+        "served": 85,
+        "fiber_passings": 85,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Breezeline",
         "passings": 1,
-        "served": 1
+        "served": 1,
+        "fiber_passings": 1,
+        "cable_passings": 4273,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Windstream Communications, LLC.",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 0,
+        "dsl_passings": 1
       }
     ],
     "population_2023": 76479,
@@ -467,7 +687,35 @@
     "build_difficulty": "Challenging",
     "rucc_code": 4,
     "rucc_description": "Nonmetro - Urban population of 20,000 or more, adjacent to a metro area",
-    "rural_class": "Micro"
+    "rural_class": "Micro",
+    "cable_served": 23999,
+    "dsl_served": 2401,
+    "cable_operators": [
+      {
+        "name": "Spectrum",
+        "passings": 19726
+      },
+      {
+        "name": "Breezeline",
+        "passings": 4273
+      }
+    ],
+    "cable_operator_count": 2,
+    "dsl_operators": [
+      {
+        "name": "Windstream New York, Inc.",
+        "passings": 1940
+      },
+      {
+        "name": "Frontier",
+        "passings": 460
+      },
+      {
+        "name": "Windstream Communications, LLC.",
+        "passings": 1
+      }
+    ],
+    "dsl_operator_count": 3
   },
   "36011": {
     "geoid": "36011",
@@ -481,32 +729,50 @@
       {
         "name": "Verizon",
         "passings": 15614,
-        "served": 15614
+        "served": 15614,
+        "fiber_passings": 15614,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Spectrum",
         "passings": 3004,
-        "served": 3004
+        "served": 3004,
+        "fiber_passings": 3004,
+        "cable_passings": 19965,
+        "dsl_passings": 0
       },
       {
         "name": "TDS Telecom",
         "passings": 1242,
-        "served": 1242
+        "served": 1242,
+        "fiber_passings": 1242,
+        "cable_passings": 0,
+        "dsl_passings": 963
       },
       {
         "name": "Frontier",
         "passings": 492,
-        "served": 492
+        "served": 492,
+        "fiber_passings": 492,
+        "cable_passings": 0,
+        "dsl_passings": 1643
       },
       {
         "name": "Zito Media",
         "passings": 464,
-        "served": 464
+        "served": 464,
+        "fiber_passings": 464,
+        "cable_passings": 1918,
+        "dsl_passings": 0
       },
       {
         "name": "Point Broadband Fiber Holding LLC",
         "passings": 19,
-        "served": 19
+        "served": 19,
+        "fiber_passings": 19,
+        "cable_passings": 0,
+        "dsl_passings": 0
       }
     ],
     "population_2023": 75464,
@@ -561,7 +827,31 @@
     "build_difficulty": "Moderate",
     "rucc_code": 4,
     "rucc_description": "Nonmetro - Urban population of 20,000 or more, adjacent to a metro area",
-    "rural_class": "Micro"
+    "rural_class": "Micro",
+    "cable_served": 21860,
+    "dsl_served": 2604,
+    "cable_operators": [
+      {
+        "name": "Spectrum",
+        "passings": 19965
+      },
+      {
+        "name": "Zito Media",
+        "passings": 1918
+      }
+    ],
+    "cable_operator_count": 2,
+    "dsl_operators": [
+      {
+        "name": "Frontier",
+        "passings": 1643
+      },
+      {
+        "name": "TDS Telecom",
+        "passings": 963
+      }
+    ],
+    "dsl_operator_count": 2
   },
   "36013": {
     "geoid": "36013",
@@ -575,37 +865,65 @@
       {
         "name": "Windstream New York, Inc.",
         "passings": 23898,
-        "served": 23898
+        "served": 23898,
+        "fiber_passings": 23898,
+        "cable_passings": 0,
+        "dsl_passings": 20357
       },
       {
         "name": "DFT Communication",
         "passings": 3486,
-        "served": 3486
+        "served": 3486,
+        "fiber_passings": 3486,
+        "cable_passings": 0,
+        "dsl_passings": 2079
       },
       {
         "name": "Fidium Fiber",
         "passings": 2726,
-        "served": 2726
+        "served": 2726,
+        "fiber_passings": 2726,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Spectrum",
         "passings": 1861,
-        "served": 1861
+        "served": 1861,
+        "fiber_passings": 1861,
+        "cable_passings": 47509,
+        "dsl_passings": 0
       },
       {
         "name": "DFT Local Service Corporation",
         "passings": 1673,
-        "served": 1673
+        "served": 1673,
+        "fiber_passings": 1673,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Armstrong Telecommunications Inc",
         "passings": 115,
-        "served": 115
+        "served": 115,
+        "fiber_passings": 115,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "ArmstrongUtilitiesInc",
         "passings": 19,
-        "served": 19
+        "served": 19,
+        "fiber_passings": 19,
+        "cable_passings": 0,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Consolidated Communications",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 0,
+        "dsl_passings": 4457
       }
     ],
     "population_2023": 126329,
@@ -661,7 +979,31 @@
     "build_difficulty": "Moderate",
     "rucc_code": 4,
     "rucc_description": "Nonmetro - Urban population of 20,000 or more, adjacent to a metro area",
-    "rural_class": "Micro"
+    "rural_class": "Micro",
+    "cable_served": 47509,
+    "dsl_served": 26823,
+    "cable_operators": [
+      {
+        "name": "Spectrum",
+        "passings": 47509
+      }
+    ],
+    "cable_operator_count": 1,
+    "dsl_operators": [
+      {
+        "name": "Windstream New York, Inc.",
+        "passings": 20357
+      },
+      {
+        "name": "Consolidated Communications",
+        "passings": 4457
+      },
+      {
+        "name": "DFT Communication",
+        "passings": 2079
+      }
+    ],
+    "dsl_operator_count": 3
   },
   "36015": {
     "geoid": "36015",
@@ -675,27 +1017,49 @@
       {
         "name": "Empire Long Distance Corporation",
         "passings": 20232,
-        "served": 20232
+        "served": 20232,
+        "fiber_passings": 20232,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Haefele Connect",
         "passings": 1027,
-        "served": 1027
+        "served": 1027,
+        "fiber_passings": 1027,
+        "cable_passings": 26,
+        "dsl_passings": 0
       },
       {
         "name": "Spectrum",
         "passings": 895,
-        "served": 895
+        "served": 895,
+        "fiber_passings": 895,
+        "cable_passings": 29744,
+        "dsl_passings": 0
       },
       {
         "name": "Empire Telephone Corp.",
         "passings": 126,
-        "served": 126
+        "served": 126,
+        "fiber_passings": 126,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Point Broadband Fiber Holding LLC",
         "passings": 2,
-        "served": 2
+        "served": 2,
+        "fiber_passings": 2,
+        "cable_passings": 0,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Frontier",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 0,
+        "dsl_passings": 714
       }
     ],
     "population_2023": 82805,
@@ -749,7 +1113,27 @@
     "build_difficulty": "Moderate-Hard",
     "rucc_code": 3,
     "rucc_description": "Metro - Counties in metro areas of fewer than 250,000 population",
-    "rural_class": "Metro"
+    "rural_class": "Metro",
+    "cable_served": 29766,
+    "dsl_served": 714,
+    "cable_operators": [
+      {
+        "name": "Spectrum",
+        "passings": 29744
+      },
+      {
+        "name": "Haefele Connect",
+        "passings": 26
+      }
+    ],
+    "cable_operator_count": 2,
+    "dsl_operators": [
+      {
+        "name": "Frontier",
+        "passings": 714
+      }
+    ],
+    "dsl_operator_count": 1
   },
   "36017": {
     "geoid": "36017",
@@ -763,32 +1147,57 @@
       {
         "name": "Frontier",
         "passings": 1574,
-        "served": 1574
+        "served": 1574,
+        "fiber_passings": 1574,
+        "cable_passings": 0,
+        "dsl_passings": 11657
       },
       {
         "name": "Point Broadband Fiber Holding LLC",
         "passings": 1490,
-        "served": 1490
+        "served": 1490,
+        "fiber_passings": 1490,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Spectrum",
         "passings": 684,
-        "served": 684
+        "served": 684,
+        "fiber_passings": 684,
+        "cable_passings": 15504,
+        "dsl_passings": 0
       },
       {
         "name": "TDS Telecom",
         "passings": 508,
-        "served": 508
+        "served": 508,
+        "fiber_passings": 508,
+        "cable_passings": 0,
+        "dsl_passings": 1224
       },
       {
         "name": "Delhi Telephone Company",
         "passings": 145,
-        "served": 145
+        "served": 145,
+        "fiber_passings": 145,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "OEConnect",
         "passings": 48,
-        "served": 48
+        "served": 48,
+        "fiber_passings": 48,
+        "cable_passings": 0,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Adams CATV Inc",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 103,
+        "dsl_passings": 0
       }
     ],
     "population_2023": 46685,
@@ -843,7 +1252,31 @@
     "build_difficulty": "Challenging",
     "rucc_code": 6,
     "rucc_description": "Nonmetro - Urban population of 5,000 to 20,000, adjacent to a metro area",
-    "rural_class": "Rural"
+    "rural_class": "Rural",
+    "cable_served": 15569,
+    "dsl_served": 12880,
+    "cable_operators": [
+      {
+        "name": "Spectrum",
+        "passings": 15504
+      },
+      {
+        "name": "Adams CATV Inc",
+        "passings": 103
+      }
+    ],
+    "cable_operator_count": 2,
+    "dsl_operators": [
+      {
+        "name": "Frontier",
+        "passings": 11657
+      },
+      {
+        "name": "TDS Telecom",
+        "passings": 1224
+      }
+    ],
+    "dsl_operator_count": 2
   },
   "36019": {
     "geoid": "36019",
@@ -857,42 +1290,66 @@
       {
         "name": "Verizon",
         "passings": 12937,
-        "served": 12937
+        "served": 12937,
+        "fiber_passings": 12937,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "SLICFiber",
         "passings": 2762,
-        "served": 2762
+        "served": 2762,
+        "fiber_passings": 2762,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Chazy Westport Communications",
         "passings": 2538,
-        "served": 2538
+        "served": 2538,
+        "fiber_passings": 2538,
+        "cable_passings": 0,
+        "dsl_passings": 142
       },
       {
         "name": "Spectrum",
         "passings": 2228,
-        "served": 2228
+        "served": 2228,
+        "fiber_passings": 2228,
+        "cable_passings": 24286,
+        "dsl_passings": 0
       },
       {
         "name": "Champlain Technology Group",
         "passings": 2214,
-        "served": 2214
+        "served": 2214,
+        "fiber_passings": 2214,
+        "cable_passings": 0,
+        "dsl_passings": 2523
       },
       {
         "name": "Westelcom Networks, Inc",
         "passings": 2027,
-        "served": 2027
+        "served": 2027,
+        "fiber_passings": 2027,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Frontier",
         "passings": 745,
-        "served": 745
+        "served": 745,
+        "fiber_passings": 745,
+        "cable_passings": 0,
+        "dsl_passings": 617
       },
       {
         "name": "FirstLight Fiber",
         "passings": 10,
-        "served": 10
+        "served": 10,
+        "fiber_passings": 10,
+        "cable_passings": 0,
+        "dsl_passings": 13
       }
     ],
     "population_2023": 78961,
@@ -949,7 +1406,35 @@
     "build_difficulty": "Moderate",
     "rucc_code": 4,
     "rucc_description": "Nonmetro - Urban population of 20,000 or more, adjacent to a metro area",
-    "rural_class": "Micro"
+    "rural_class": "Micro",
+    "cable_served": 24286,
+    "dsl_served": 3294,
+    "cable_operators": [
+      {
+        "name": "Spectrum",
+        "passings": 24286
+      }
+    ],
+    "cable_operator_count": 1,
+    "dsl_operators": [
+      {
+        "name": "Champlain Technology Group",
+        "passings": 2523
+      },
+      {
+        "name": "Frontier",
+        "passings": 617
+      },
+      {
+        "name": "Chazy Westport Communications",
+        "passings": 142
+      },
+      {
+        "name": "FirstLight Fiber",
+        "passings": 13
+      }
+    ],
+    "dsl_operator_count": 4
   },
   "36021": {
     "geoid": "36021",
@@ -963,42 +1448,87 @@
       {
         "name": "Mid-Hudson Cablevision",
         "passings": 8257,
-        "served": 8257
+        "served": 8257,
+        "fiber_passings": 8257,
+        "cable_passings": 9397,
+        "dsl_passings": 0
       },
       {
         "name": "Fidium Fiber",
         "passings": 7643,
-        "served": 7643
+        "served": 7643,
+        "fiber_passings": 7643,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "GTel",
         "passings": 4797,
-        "served": 4797
+        "served": 4797,
+        "fiber_passings": 4797,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Archtop Fiber",
         "passings": 1917,
-        "served": 1917
+        "served": 1917,
+        "fiber_passings": 1917,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Frontier",
         "passings": 412,
-        "served": 412
+        "served": 412,
+        "fiber_passings": 412,
+        "cable_passings": 0,
+        "dsl_passings": 292
       },
       {
         "name": "Spectrum",
         "passings": 167,
-        "served": 167
+        "served": 167,
+        "fiber_passings": 167,
+        "cable_passings": 12173,
+        "dsl_passings": 0
       },
       {
         "name": "Mid-Hudson Data Corp",
         "passings": 136,
-        "served": 136
+        "served": 136,
+        "fiber_passings": 136,
+        "cable_passings": 8,
+        "dsl_passings": 0
       },
       {
         "name": "Whip City Fiber",
         "passings": 1,
-        "served": 1
+        "served": 1,
+        "fiber_passings": 1,
+        "cable_passings": 0,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Optimum",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 11,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Consolidated Communications",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 2,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Xfinity",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 1,
+        "dsl_passings": 0
       }
     ],
     "population_2023": 61245,
@@ -1055,7 +1585,47 @@
     "build_difficulty": "Moderate-Hard",
     "rucc_code": 6,
     "rucc_description": "Nonmetro - Urban population of 5,000 to 20,000, adjacent to a metro area",
-    "rural_class": "Rural"
+    "rural_class": "Rural",
+    "cable_served": 21552,
+    "dsl_served": 5236,
+    "cable_operators": [
+      {
+        "name": "Spectrum",
+        "passings": 12173
+      },
+      {
+        "name": "Mid-Hudson Cablevision",
+        "passings": 9397
+      },
+      {
+        "name": "Optimum",
+        "passings": 11
+      },
+      {
+        "name": "Mid-Hudson Data Corp",
+        "passings": 8
+      },
+      {
+        "name": "Consolidated Communications",
+        "passings": 2
+      },
+      {
+        "name": "Xfinity",
+        "passings": 1
+      }
+    ],
+    "cable_operator_count": 6,
+    "dsl_operators": [
+      {
+        "name": "Consolidated Communications",
+        "passings": 4944
+      },
+      {
+        "name": "Frontier",
+        "passings": 292
+      }
+    ],
+    "dsl_operator_count": 2
   },
   "36023": {
     "geoid": "36023",
@@ -1069,32 +1639,50 @@
       {
         "name": "Point Broadband Fiber Holding LLC",
         "passings": 5178,
-        "served": 5178
+        "served": 5178,
+        "fiber_passings": 5178,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Empire Long Distance Corporation",
         "passings": 3702,
-        "served": 3702
+        "served": 3702,
+        "fiber_passings": 3702,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Verizon",
         "passings": 2319,
-        "served": 2319
+        "served": 2319,
+        "fiber_passings": 2319,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Frontier",
         "passings": 419,
-        "served": 419
+        "served": 419,
+        "fiber_passings": 419,
+        "cable_passings": 0,
+        "dsl_passings": 2088
       },
       {
         "name": "Haefele Connect",
         "passings": 382,
-        "served": 382
+        "served": 382,
+        "fiber_passings": 382,
+        "cable_passings": 628,
+        "dsl_passings": 0
       },
       {
         "name": "Spectrum",
         "passings": 9,
-        "served": 9
+        "served": 9,
+        "fiber_passings": 9,
+        "cable_passings": 12405,
+        "dsl_passings": 0
       }
     ],
     "population_2023": 46401,
@@ -1149,7 +1737,27 @@
     "build_difficulty": "Moderate-Hard",
     "rucc_code": 4,
     "rucc_description": "Nonmetro - Urban population of 20,000 or more, adjacent to a metro area",
-    "rural_class": "Micro"
+    "rural_class": "Micro",
+    "cable_served": 12978,
+    "dsl_served": 2088,
+    "cable_operators": [
+      {
+        "name": "Spectrum",
+        "passings": 12405
+      },
+      {
+        "name": "Haefele Connect",
+        "passings": 628
+      }
+    ],
+    "cable_operator_count": 2,
+    "dsl_operators": [
+      {
+        "name": "Frontier",
+        "passings": 2088
+      }
+    ],
+    "dsl_operator_count": 1
   },
   "36025": {
     "geoid": "36025",
@@ -1163,52 +1771,89 @@
       {
         "name": "Delhi Telephone Company",
         "passings": 12035,
-        "served": 12035
+        "served": 12035,
+        "fiber_passings": 12035,
+        "cable_passings": 0,
+        "dsl_passings": 52
       },
       {
         "name": "MTC Cable",
         "passings": 3458,
-        "served": 3458
+        "served": 3458,
+        "fiber_passings": 3458,
+        "cable_passings": 4369,
+        "dsl_passings": 0
       },
       {
         "name": "Margaretville Telephone Co",
         "passings": 1576,
-        "served": 1576
+        "served": 1576,
+        "fiber_passings": 1576,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "The Hancock Telephone Co",
         "passings": 1331,
-        "served": 1331
+        "served": 1331,
+        "fiber_passings": 1331,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Frontier",
         "passings": 1319,
-        "served": 1319
+        "served": 1319,
+        "fiber_passings": 1319,
+        "cable_passings": 0,
+        "dsl_passings": 5293
       },
       {
         "name": "TDS Telecom",
         "passings": 962,
-        "served": 962
+        "served": 962,
+        "fiber_passings": 962,
+        "cable_passings": 0,
+        "dsl_passings": 62
       },
       {
         "name": "Spectrum",
         "passings": 242,
-        "served": 242
+        "served": 242,
+        "fiber_passings": 242,
+        "cable_passings": 7308,
+        "dsl_passings": 0
       },
       {
         "name": "Archtop Fiber",
         "passings": 75,
-        "served": 75
+        "served": 75,
+        "fiber_passings": 75,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Adams CATV Inc",
         "passings": 3,
-        "served": 3
+        "served": 3,
+        "fiber_passings": 3,
+        "cable_passings": 465,
+        "dsl_passings": 0
       },
       {
         "name": "Mid-Hudson Data Corp",
         "passings": 2,
-        "served": 2
+        "served": 2,
+        "fiber_passings": 2,
+        "cable_passings": 0,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Catskill Mountain Cablevision",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 28,
+        "dsl_passings": 0
       }
     ],
     "population_2023": 44551,
@@ -1267,7 +1912,43 @@
     "build_difficulty": "Challenging",
     "rucc_code": 8,
     "rucc_description": "Nonmetro - Urban population of fewer than 5,000, adjacent to a metro area",
-    "rural_class": "Rural"
+    "rural_class": "Rural",
+    "cable_served": 12133,
+    "dsl_served": 5407,
+    "cable_operators": [
+      {
+        "name": "Spectrum",
+        "passings": 7308
+      },
+      {
+        "name": "MTC Cable",
+        "passings": 4369
+      },
+      {
+        "name": "Adams CATV Inc",
+        "passings": 465
+      },
+      {
+        "name": "Catskill Mountain Cablevision",
+        "passings": 28
+      }
+    ],
+    "cable_operator_count": 4,
+    "dsl_operators": [
+      {
+        "name": "Frontier",
+        "passings": 5293
+      },
+      {
+        "name": "TDS Telecom",
+        "passings": 62
+      },
+      {
+        "name": "Delhi Telephone Company",
+        "passings": 52
+      }
+    ],
+    "dsl_operator_count": 3
   },
   "36027": {
     "geoid": "36027",
@@ -1281,42 +1962,87 @@
       {
         "name": "Verizon",
         "passings": 39833,
-        "served": 39833
+        "served": 39833,
+        "fiber_passings": 39833,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Optimum",
         "passings": 10657,
-        "served": 10657
+        "served": 10657,
+        "fiber_passings": 10657,
+        "cable_passings": 59573,
+        "dsl_passings": 0
       },
       {
         "name": "Archtop Fiber",
         "passings": 1714,
-        "served": 1714
+        "served": 1714,
+        "fiber_passings": 1714,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Frontier",
         "passings": 1246,
-        "served": 1246
+        "served": 1246,
+        "fiber_passings": 1246,
+        "cable_passings": 0,
+        "dsl_passings": 9060
       },
       {
         "name": "Fidium Fiber",
         "passings": 353,
-        "served": 353
+        "served": 353,
+        "fiber_passings": 353,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Spectrum",
         "passings": 62,
-        "served": 62
+        "served": 62,
+        "fiber_passings": 62,
+        "cable_passings": 22810,
+        "dsl_passings": 0
       },
       {
         "name": "GTel",
         "passings": 1,
-        "served": 1
+        "served": 1,
+        "fiber_passings": 1,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Mid-Hudson Data Corp",
         "passings": 1,
-        "served": 1
+        "served": 1,
+        "fiber_passings": 1,
+        "cable_passings": 0,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Xfinity",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 7289,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Mid-Hudson Cablevision",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 25,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Consolidated Communications",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 0,
+        "dsl_passings": 1592
       }
     ],
     "population_2023": 297144,
@@ -1373,7 +2099,39 @@
     "build_difficulty": "Moderate-Hard",
     "rucc_code": 2,
     "rucc_description": "Metro - Counties in metro areas of 250,000 to 1 million population",
-    "rural_class": "Metro"
+    "rural_class": "Metro",
+    "cable_served": 88633,
+    "dsl_served": 10651,
+    "cable_operators": [
+      {
+        "name": "Optimum",
+        "passings": 59573
+      },
+      {
+        "name": "Spectrum",
+        "passings": 22810
+      },
+      {
+        "name": "Xfinity",
+        "passings": 7289
+      },
+      {
+        "name": "Mid-Hudson Cablevision",
+        "passings": 25
+      }
+    ],
+    "cable_operator_count": 4,
+    "dsl_operators": [
+      {
+        "name": "Frontier",
+        "passings": 9060
+      },
+      {
+        "name": "Consolidated Communications",
+        "passings": 1592
+      }
+    ],
+    "dsl_operator_count": 2
   },
   "36029": {
     "geoid": "36029",
@@ -1387,47 +2145,74 @@
       {
         "name": "Verizon",
         "passings": 157423,
-        "served": 157423
+        "served": 157423,
+        "fiber_passings": 157423,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Greenlight Networks",
         "passings": 28977,
-        "served": 28977
+        "served": 28977,
+        "fiber_passings": 28977,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "GoNetspeed",
         "passings": 24265,
-        "served": 24265
+        "served": 24265,
+        "fiber_passings": 24265,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "FastBridge Fiber",
         "passings": 7889,
-        "served": 7889
+        "served": 7889,
+        "fiber_passings": 7889,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "DFT Local Service Corporation",
         "passings": 495,
-        "served": 495
+        "served": 495,
+        "fiber_passings": 495,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Armstrong Telecommunications Inc",
         "passings": 450,
-        "served": 450
+        "served": 450,
+        "fiber_passings": 450,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Spectrum",
         "passings": 160,
-        "served": 160
+        "served": 160,
+        "fiber_passings": 160,
+        "cable_passings": 309365,
+        "dsl_passings": 0
       },
       {
         "name": "Empire Long Distance Corporation",
         "passings": 147,
-        "served": 147
+        "served": 147,
+        "fiber_passings": 147,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Frontier",
         "passings": 1,
-        "served": 1
+        "served": 1,
+        "fiber_passings": 1,
+        "cable_passings": 0,
+        "dsl_passings": 4
       }
     ],
     "population_2023": 950044,
@@ -1485,7 +2270,23 @@
     "build_difficulty": "Easy",
     "rucc_code": 1,
     "rucc_description": "Metro - Counties in metro areas of 1 million population or more",
-    "rural_class": "Metro"
+    "rural_class": "Metro",
+    "cable_served": 309365,
+    "dsl_served": 4,
+    "cable_operators": [
+      {
+        "name": "Spectrum",
+        "passings": 309365
+      }
+    ],
+    "cable_operator_count": 1,
+    "dsl_operators": [
+      {
+        "name": "Frontier",
+        "passings": 4
+      }
+    ],
+    "dsl_operator_count": 1
   },
   "36031": {
     "geoid": "36031",
@@ -1499,52 +2300,89 @@
       {
         "name": "SLICFiber",
         "passings": 3871,
-        "served": 3871
+        "served": 3871,
+        "fiber_passings": 3871,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Frontier",
         "passings": 2875,
-        "served": 2875
+        "served": 2875,
+        "fiber_passings": 2875,
+        "cable_passings": 0,
+        "dsl_passings": 799
       },
       {
         "name": "Chazy Westport Communications",
         "passings": 1072,
-        "served": 1072
+        "served": 1072,
+        "fiber_passings": 1072,
+        "cable_passings": 0,
+        "dsl_passings": 43
       },
       {
         "name": "Bridge Point Communication",
         "passings": 1007,
-        "served": 1007
+        "served": 1007,
+        "fiber_passings": 1007,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Crown Point Telephone Corporation",
         "passings": 991,
-        "served": 991
+        "served": 991,
+        "fiber_passings": 991,
+        "cable_passings": 0,
+        "dsl_passings": 8
       },
       {
         "name": "Keene Valley Video",
         "passings": 944,
-        "served": 944
+        "served": 944,
+        "fiber_passings": 944,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Westelcom Networks, Inc",
         "passings": 282,
-        "served": 282
+        "served": 282,
+        "fiber_passings": 282,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Spectrum",
         "passings": 257,
-        "served": 257
+        "served": 257,
+        "fiber_passings": 257,
+        "cable_passings": 14823,
+        "dsl_passings": 0
       },
       {
         "name": "Adirondack Broadband",
         "passings": 21,
-        "served": 21
+        "served": 21,
+        "fiber_passings": 21,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Lake Placid Fiber",
         "passings": 3,
-        "served": 3
+        "served": 3,
+        "fiber_passings": 3,
+        "cable_passings": 0,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Xfinity",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 1,
+        "dsl_passings": 0
       }
     ],
     "population_2023": 37077,
@@ -1603,7 +2441,35 @@
     "build_difficulty": "Challenging",
     "rucc_code": 6,
     "rucc_description": "Nonmetro - Urban population of 5,000 to 20,000, adjacent to a metro area",
-    "rural_class": "Rural"
+    "rural_class": "Rural",
+    "cable_served": 14823,
+    "dsl_served": 850,
+    "cable_operators": [
+      {
+        "name": "Spectrum",
+        "passings": 14823
+      },
+      {
+        "name": "Xfinity",
+        "passings": 1
+      }
+    ],
+    "cable_operator_count": 2,
+    "dsl_operators": [
+      {
+        "name": "Frontier",
+        "passings": 799
+      },
+      {
+        "name": "Chazy Westport Communications",
+        "passings": 43
+      },
+      {
+        "name": "Crown Point Telephone Corporation",
+        "passings": 8
+      }
+    ],
+    "dsl_operator_count": 3
   },
   "36033": {
     "geoid": "36033",
@@ -1617,32 +2483,50 @@
       {
         "name": "SLICFiber",
         "passings": 6007,
-        "served": 6007
+        "served": 6007,
+        "fiber_passings": 6007,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Mohawk Networks LLC",
         "passings": 578,
-        "served": 578
+        "served": 578,
+        "fiber_passings": 578,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Adirondack Broadband",
         "passings": 484,
-        "served": 484
+        "served": 484,
+        "fiber_passings": 484,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Westelcom Networks, Inc",
         "passings": 445,
-        "served": 445
+        "served": 445,
+        "fiber_passings": 445,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Spectrum",
         "passings": 170,
-        "served": 170
+        "served": 170,
+        "fiber_passings": 170,
+        "cable_passings": 14505,
+        "dsl_passings": 0
       },
       {
         "name": "Frontier",
         "passings": 7,
-        "served": 7
+        "served": 7,
+        "fiber_passings": 7,
+        "cable_passings": 0,
+        "dsl_passings": 100
       }
     ],
     "population_2023": 47066,
@@ -1697,7 +2581,23 @@
     "build_difficulty": "Moderate-Hard",
     "rucc_code": 7,
     "rucc_description": "Nonmetro - Urban population of 5,000 to 20,000, not adjacent to a metro area",
-    "rural_class": "Rural"
+    "rural_class": "Rural",
+    "cable_served": 14505,
+    "dsl_served": 100,
+    "cable_operators": [
+      {
+        "name": "Spectrum",
+        "passings": 14505
+      }
+    ],
+    "cable_operator_count": 1,
+    "dsl_operators": [
+      {
+        "name": "Frontier",
+        "passings": 100
+      }
+    ],
+    "dsl_operator_count": 1
   },
   "36035": {
     "geoid": "36035",
@@ -1711,17 +2611,26 @@
       {
         "name": "Frontier",
         "passings": 10209,
-        "served": 10209
+        "served": 10209,
+        "fiber_passings": 10209,
+        "cable_passings": 0,
+        "dsl_passings": 5912
       },
       {
         "name": "Spectrum",
         "passings": 443,
-        "served": 443
+        "served": 443,
+        "fiber_passings": 443,
+        "cable_passings": 21109,
+        "dsl_passings": 0
       },
       {
         "name": "Verizon",
         "passings": 439,
-        "served": 439
+        "served": 439,
+        "fiber_passings": 439,
+        "cable_passings": 0,
+        "dsl_passings": 0
       }
     ],
     "population_2023": 52787,
@@ -1773,7 +2682,23 @@
     "build_difficulty": "Moderate-Hard",
     "rucc_code": 4,
     "rucc_description": "Nonmetro - Urban population of 20,000 or more, adjacent to a metro area",
-    "rural_class": "Micro"
+    "rural_class": "Micro",
+    "cable_served": 21109,
+    "dsl_served": 5912,
+    "cable_operators": [
+      {
+        "name": "Spectrum",
+        "passings": 21109
+      }
+    ],
+    "cable_operator_count": 1,
+    "dsl_operators": [
+      {
+        "name": "Frontier",
+        "passings": 5912
+      }
+    ],
+    "dsl_operator_count": 1
   },
   "36037": {
     "geoid": "36037",
@@ -1787,27 +2712,42 @@
       {
         "name": "Empire Long Distance Corporation",
         "passings": 5762,
-        "served": 5762
+        "served": 5762,
+        "fiber_passings": 5762,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Spectrum",
         "passings": 1646,
-        "served": 1646
+        "served": 1646,
+        "fiber_passings": 1646,
+        "cable_passings": 19267,
+        "dsl_passings": 0
       },
       {
         "name": "Empire Telephone Corp.",
         "passings": 1287,
-        "served": 1287
+        "served": 1287,
+        "fiber_passings": 1287,
+        "cable_passings": 0,
+        "dsl_passings": 1
       },
       {
         "name": "Frontier",
         "passings": 188,
-        "served": 188
+        "served": 188,
+        "fiber_passings": 188,
+        "cable_passings": 0,
+        "dsl_passings": 3849
       },
       {
         "name": "TDS Telecom",
         "passings": 1,
-        "served": 1
+        "served": 1,
+        "fiber_passings": 1,
+        "cable_passings": 0,
+        "dsl_passings": 0
       }
     ],
     "population_2023": 57943,
@@ -1861,7 +2801,27 @@
     "build_difficulty": "Easy",
     "rucc_code": 4,
     "rucc_description": "Nonmetro - Urban population of 20,000 or more, adjacent to a metro area",
-    "rural_class": "Micro"
+    "rural_class": "Micro",
+    "cable_served": 19267,
+    "dsl_served": 3850,
+    "cable_operators": [
+      {
+        "name": "Spectrum",
+        "passings": 19267
+      }
+    ],
+    "cable_operator_count": 1,
+    "dsl_operators": [
+      {
+        "name": "Frontier",
+        "passings": 3849
+      },
+      {
+        "name": "Empire Telephone Corp.",
+        "passings": 1
+      }
+    ],
+    "dsl_operator_count": 2
   },
   "36039": {
     "geoid": "36039",
@@ -1875,42 +2835,73 @@
       {
         "name": "Mid-Hudson Cablevision",
         "passings": 8084,
-        "served": 8084
+        "served": 8084,
+        "fiber_passings": 8084,
+        "cable_passings": 13121,
+        "dsl_passings": 0
       },
       {
         "name": "State Telephone Company Inc",
         "passings": 4654,
-        "served": 4654
+        "served": 4654,
+        "fiber_passings": 4654,
+        "cable_passings": 0,
+        "dsl_passings": 902
       },
       {
         "name": "Catskill Mountain Cablevision",
         "passings": 3268,
-        "served": 3268
+        "served": 3268,
+        "fiber_passings": 3268,
+        "cable_passings": 3617,
+        "dsl_passings": 0
       },
       {
         "name": "MTC Cable",
         "passings": 1515,
-        "served": 1515
+        "served": 1515,
+        "fiber_passings": 1515,
+        "cable_passings": 3,
+        "dsl_passings": 0
       },
       {
         "name": "Mid-Hudson Data Corp",
         "passings": 1001,
-        "served": 1001
+        "served": 1001,
+        "fiber_passings": 1001,
+        "cable_passings": 82,
+        "dsl_passings": 0
       },
       {
         "name": "Archtop Fiber",
         "passings": 299,
-        "served": 299
+        "served": 299,
+        "fiber_passings": 299,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Spectrum",
         "passings": 4,
-        "served": 4
+        "served": 4,
+        "fiber_passings": 4,
+        "cable_passings": 3910,
+        "dsl_passings": 0
       },
       {
         "name": "Frontier",
         "passings": 3,
-        "served": 3
+        "served": 3,
+        "fiber_passings": 3,
+        "cable_passings": 0,
+        "dsl_passings": 2
+      },
+      {
+        "name": "Consolidated Communications",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 0,
+        "dsl_passings": 1
       }
     ],
     "population_2023": 47554,
@@ -1967,7 +2958,47 @@
     "build_difficulty": "Challenging",
     "rucc_code": 6,
     "rucc_description": "Nonmetro - Urban population of 5,000 to 20,000, adjacent to a metro area",
-    "rural_class": "Rural"
+    "rural_class": "Rural",
+    "cable_served": 20625,
+    "dsl_served": 905,
+    "cable_operators": [
+      {
+        "name": "Mid-Hudson Cablevision",
+        "passings": 13121
+      },
+      {
+        "name": "Spectrum",
+        "passings": 3910
+      },
+      {
+        "name": "Catskill Mountain Cablevision",
+        "passings": 3617
+      },
+      {
+        "name": "Mid-Hudson Data Corp",
+        "passings": 82
+      },
+      {
+        "name": "MTC Cable",
+        "passings": 3
+      }
+    ],
+    "cable_operator_count": 5,
+    "dsl_operators": [
+      {
+        "name": "State Telephone Company Inc",
+        "passings": 902
+      },
+      {
+        "name": "Frontier",
+        "passings": 2
+      },
+      {
+        "name": "Consolidated Communications",
+        "passings": 1
+      }
+    ],
+    "dsl_operator_count": 3
   },
   "36041": {
     "geoid": "36041",
@@ -1981,32 +3012,50 @@
       {
         "name": "Frontier",
         "passings": 3346,
-        "served": 3346
+        "served": 3346,
+        "fiber_passings": 3346,
+        "cable_passings": 0,
+        "dsl_passings": 1608
       },
       {
         "name": "Hamilton County Cable",
         "passings": 1218,
-        "served": 1218
+        "served": 1218,
+        "fiber_passings": 1218,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "SLICFiber",
         "passings": 727,
-        "served": 727
+        "served": 727,
+        "fiber_passings": 727,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Newport Telephone Co - NTCNet",
         "passings": 231,
-        "served": 231
+        "served": 231,
+        "fiber_passings": 231,
+        "cable_passings": 0,
+        "dsl_passings": 1
       },
       {
         "name": "Spectrum",
         "passings": 164,
-        "served": 164
+        "served": 164,
+        "fiber_passings": 164,
+        "cable_passings": 607,
+        "dsl_passings": 0
       },
       {
         "name": "Adirondack Broadband",
         "passings": 139,
-        "served": 139
+        "served": 139,
+        "fiber_passings": 139,
+        "cable_passings": 0,
+        "dsl_passings": 0
       }
     ],
     "population_2023": 5102,
@@ -2061,7 +3110,27 @@
     "build_difficulty": "Challenging",
     "rucc_code": 8,
     "rucc_description": "Nonmetro - Urban population of fewer than 5,000, adjacent to a metro area",
-    "rural_class": "Rural"
+    "rural_class": "Rural",
+    "cable_served": 607,
+    "dsl_served": 1609,
+    "cable_operators": [
+      {
+        "name": "Spectrum",
+        "passings": 607
+      }
+    ],
+    "cable_operator_count": 1,
+    "dsl_operators": [
+      {
+        "name": "Frontier",
+        "passings": 1608
+      },
+      {
+        "name": "Newport Telephone Co - NTCNet",
+        "passings": 1
+      }
+    ],
+    "dsl_operator_count": 2
   },
   "36043": {
     "geoid": "36043",
@@ -2075,42 +3144,66 @@
       {
         "name": "Newport Telephone Co - NTCNet",
         "passings": 3266,
-        "served": 3266
+        "served": 3266,
+        "fiber_passings": 3266,
+        "cable_passings": 0,
+        "dsl_passings": 323
       },
       {
         "name": "Spectrum",
         "passings": 1884,
-        "served": 1884
+        "served": 1884,
+        "fiber_passings": 1884,
+        "cable_passings": 20562,
+        "dsl_passings": 0
       },
       {
         "name": "Verizon",
         "passings": 1564,
-        "served": 1564
+        "served": 1564,
+        "fiber_passings": 1564,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Windstream New York, Inc.",
         "passings": 576,
-        "served": 576
+        "served": 576,
+        "fiber_passings": 576,
+        "cable_passings": 0,
+        "dsl_passings": 512
       },
       {
         "name": "Frontier",
         "passings": 382,
-        "served": 382
+        "served": 382,
+        "fiber_passings": 382,
+        "cable_passings": 0,
+        "dsl_passings": 1715
       },
       {
         "name": "OEConnect",
         "passings": 263,
-        "served": 263
+        "served": 263,
+        "fiber_passings": 263,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "GoNetspeed",
         "passings": 187,
-        "served": 187
+        "served": 187,
+        "fiber_passings": 187,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Adirondack Broadband",
         "passings": 126,
-        "served": 126
+        "served": 126,
+        "fiber_passings": 126,
+        "cable_passings": 0,
+        "dsl_passings": 0
       }
     ],
     "population_2023": 59932,
@@ -2167,7 +3260,31 @@
     "build_difficulty": "Moderate-Hard",
     "rucc_code": 2,
     "rucc_description": "Metro - Counties in metro areas of 250,000 to 1 million population",
-    "rural_class": "Metro"
+    "rural_class": "Metro",
+    "cable_served": 20562,
+    "dsl_served": 2550,
+    "cable_operators": [
+      {
+        "name": "Spectrum",
+        "passings": 20562
+      }
+    ],
+    "cable_operator_count": 1,
+    "dsl_operators": [
+      {
+        "name": "Frontier",
+        "passings": 1715
+      },
+      {
+        "name": "Windstream New York, Inc.",
+        "passings": 512
+      },
+      {
+        "name": "Newport Telephone Co - NTCNet",
+        "passings": 323
+      }
+    ],
+    "dsl_operator_count": 3
   },
   "36045": {
     "geoid": "36045",
@@ -2181,37 +3298,58 @@
       {
         "name": "Verizon",
         "passings": 3084,
-        "served": 3084
+        "served": 3084,
+        "fiber_passings": 3084,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Castle Cable TV",
         "passings": 2713,
-        "served": 2713
+        "served": 2713,
+        "fiber_passings": 2713,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Westelcom Networks, Inc",
         "passings": 2370,
-        "served": 2370
+        "served": 2370,
+        "fiber_passings": 2370,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "TDS Telecom",
         "passings": 965,
-        "served": 965
+        "served": 965,
+        "fiber_passings": 965,
+        "cable_passings": 0,
+        "dsl_passings": 5945
       },
       {
         "name": "Citizens Telephone Company of Hammond, NY",
         "passings": 76,
-        "served": 76
+        "served": 76,
+        "fiber_passings": 76,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Frontier",
         "passings": 61,
-        "served": 61
+        "served": 61,
+        "fiber_passings": 61,
+        "cable_passings": 0,
+        "dsl_passings": 3970
       },
       {
         "name": "Spectrum",
         "passings": 5,
-        "served": 5
+        "served": 5,
+        "fiber_passings": 5,
+        "cable_passings": 41105,
+        "dsl_passings": 0
       }
     ],
     "population_2023": 116130,
@@ -2267,7 +3405,27 @@
     "build_difficulty": "Moderate",
     "rucc_code": 3,
     "rucc_description": "Metro - Counties in metro areas of fewer than 250,000 population",
-    "rural_class": "Metro"
+    "rural_class": "Metro",
+    "cable_served": 41105,
+    "dsl_served": 9915,
+    "cable_operators": [
+      {
+        "name": "Spectrum",
+        "passings": 41105
+      }
+    ],
+    "cable_operator_count": 1,
+    "dsl_operators": [
+      {
+        "name": "TDS Telecom",
+        "passings": 5945
+      },
+      {
+        "name": "Frontier",
+        "passings": 3970
+      }
+    ],
+    "dsl_operator_count": 2
   },
   "36047": {
     "geoid": "36047",
@@ -2281,27 +3439,56 @@
       {
         "name": "Verizon",
         "passings": 214194,
-        "served": 214194
+        "served": 214194,
+        "fiber_passings": 214194,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Optimum",
         "passings": 144992,
-        "served": 144992
+        "served": 144992,
+        "fiber_passings": 144992,
+        "cable_passings": 186167,
+        "dsl_passings": 0
       },
       {
         "name": "Spectrum",
         "passings": 816,
-        "served": 816
+        "served": 816,
+        "fiber_passings": 816,
+        "cable_passings": 63235,
+        "dsl_passings": 0
       },
       {
         "name": "Astound Broadband",
         "passings": 174,
-        "served": 174
+        "served": 174,
+        "fiber_passings": 174,
+        "cable_passings": 383,
+        "dsl_passings": 0
       },
       {
         "name": "Starry Inc",
         "passings": 41,
-        "served": 41
+        "served": 41,
+        "fiber_passings": 41,
+        "cable_passings": 0,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Skywire Networks",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 0,
+        "dsl_passings": 17
+      },
+      {
+        "name": "AT&T",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 0,
+        "dsl_passings": 1
       }
     ],
     "population_2023": 2646306,
@@ -2355,7 +3542,35 @@
     "build_difficulty": "Easy",
     "rucc_code": 1,
     "rucc_description": "Metro - Counties in metro areas of 1 million population or more",
-    "rural_class": "Metro"
+    "rural_class": "Metro",
+    "cable_served": 244419,
+    "dsl_served": 18,
+    "cable_operators": [
+      {
+        "name": "Optimum",
+        "passings": 186167
+      },
+      {
+        "name": "Spectrum",
+        "passings": 63235
+      },
+      {
+        "name": "Astound Broadband",
+        "passings": 383
+      }
+    ],
+    "cable_operator_count": 3,
+    "dsl_operators": [
+      {
+        "name": "Skywire Networks",
+        "passings": 17
+      },
+      {
+        "name": "AT&T",
+        "passings": 1
+      }
+    ],
+    "dsl_operator_count": 2
   },
   "36049": {
     "geoid": "36049",
@@ -2369,17 +3584,26 @@
       {
         "name": "Spectrum",
         "passings": 3145,
-        "served": 3145
+        "served": 3145,
+        "fiber_passings": 3145,
+        "cable_passings": 7019,
+        "dsl_passings": 0
       },
       {
         "name": "Frontier",
         "passings": 1961,
-        "served": 1961
+        "served": 1961,
+        "fiber_passings": 1961,
+        "cable_passings": 0,
+        "dsl_passings": 4281
       },
       {
         "name": "Verizon",
         "passings": 223,
-        "served": 223
+        "served": 223,
+        "fiber_passings": 223,
+        "cable_passings": 0,
+        "dsl_passings": 0
       }
     ],
     "population_2023": 26618,
@@ -2431,7 +3655,23 @@
     "build_difficulty": "Moderate",
     "rucc_code": 8,
     "rucc_description": "Nonmetro - Urban population of fewer than 5,000, adjacent to a metro area",
-    "rural_class": "Rural"
+    "rural_class": "Rural",
+    "cable_served": 7019,
+    "dsl_served": 4281,
+    "cable_operators": [
+      {
+        "name": "Spectrum",
+        "passings": 7019
+      }
+    ],
+    "cable_operator_count": 1,
+    "dsl_operators": [
+      {
+        "name": "Frontier",
+        "passings": 4281
+      }
+    ],
+    "dsl_operator_count": 1
   },
   "36051": {
     "geoid": "36051",
@@ -2445,22 +3685,34 @@
       {
         "name": "Frontier",
         "passings": 9640,
-        "served": 9640
+        "served": 9640,
+        "fiber_passings": 9640,
+        "cable_passings": 0,
+        "dsl_passings": 8152
       },
       {
         "name": "Empire Long Distance Corporation",
         "passings": 4583,
-        "served": 4583
+        "served": 4583,
+        "fiber_passings": 4583,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Armstrong Telecommunications Inc",
         "passings": 1520,
-        "served": 1520
+        "served": 1520,
+        "fiber_passings": 1520,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Spectrum",
         "passings": 1030,
-        "served": 1030
+        "served": 1030,
+        "fiber_passings": 1030,
+        "cable_passings": 18904,
+        "dsl_passings": 0
       }
     ],
     "population_2023": 61588,
@@ -2513,7 +3765,23 @@
     "build_difficulty": "Moderate-Hard",
     "rucc_code": 1,
     "rucc_description": "Metro - Counties in metro areas of 1 million population or more",
-    "rural_class": "Metro"
+    "rural_class": "Metro",
+    "cable_served": 18904,
+    "dsl_served": 8152,
+    "cable_operators": [
+      {
+        "name": "Spectrum",
+        "passings": 18904
+      }
+    ],
+    "cable_operator_count": 1,
+    "dsl_operators": [
+      {
+        "name": "Frontier",
+        "passings": 8152
+      }
+    ],
+    "dsl_operator_count": 1
   },
   "36053": {
     "geoid": "36053",
@@ -2527,32 +3795,64 @@
       {
         "name": "Spectrum",
         "passings": 3942,
-        "served": 3942
+        "served": 3942,
+        "fiber_passings": 3942,
+        "cable_passings": 21797,
+        "dsl_passings": 0
       },
       {
         "name": "Windstream New York, Inc.",
         "passings": 1761,
-        "served": 1761
+        "served": 1761,
+        "fiber_passings": 1761,
+        "cable_passings": 0,
+        "dsl_passings": 2469
       },
       {
         "name": "Verizon",
         "passings": 1579,
-        "served": 1579
+        "served": 1579,
+        "fiber_passings": 1579,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Frontier",
         "passings": 468,
-        "served": 468
+        "served": 468,
+        "fiber_passings": 468,
+        "cable_passings": 0,
+        "dsl_passings": 3953
       },
       {
         "name": "OEConnect",
         "passings": 242,
-        "served": 242
+        "served": 242,
+        "fiber_passings": 242,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Point Broadband Fiber Holding LLC",
         "passings": 5,
-        "served": 5
+        "served": 5,
+        "fiber_passings": 5,
+        "cable_passings": 0,
+        "dsl_passings": 0
+      },
+      {
+        "name": "TDS Telecom",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 0,
+        "dsl_passings": 56
+      },
+      {
+        "name": "Windstream Communications, LLC.",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 0,
+        "dsl_passings": 2
       }
     ],
     "population_2023": 67572,
@@ -2607,7 +3907,35 @@
     "build_difficulty": "Moderate-Hard",
     "rucc_code": 2,
     "rucc_description": "Metro - Counties in metro areas of 250,000 to 1 million population",
-    "rural_class": "Metro"
+    "rural_class": "Metro",
+    "cable_served": 21797,
+    "dsl_served": 6474,
+    "cable_operators": [
+      {
+        "name": "Spectrum",
+        "passings": 21797
+      }
+    ],
+    "cable_operator_count": 1,
+    "dsl_operators": [
+      {
+        "name": "Frontier",
+        "passings": 3953
+      },
+      {
+        "name": "Windstream New York, Inc.",
+        "passings": 2469
+      },
+      {
+        "name": "TDS Telecom",
+        "passings": 56
+      },
+      {
+        "name": "Windstream Communications, LLC.",
+        "passings": 2
+      }
+    ],
+    "dsl_operator_count": 4
   },
   "36055": {
     "geoid": "36055",
@@ -2621,27 +3949,42 @@
       {
         "name": "Greenlight Networks",
         "passings": 135667,
-        "served": 135667
+        "served": 135667,
+        "fiber_passings": 135667,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Frontier",
         "passings": 96071,
-        "served": 96071
+        "served": 96071,
+        "fiber_passings": 96071,
+        "cable_passings": 0,
+        "dsl_passings": 37842
       },
       {
         "name": "Empire Long Distance Corporation",
         "passings": 1420,
-        "served": 1420
+        "served": 1420,
+        "fiber_passings": 1420,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Spectrum",
         "passings": 369,
-        "served": 369
+        "served": 369,
+        "fiber_passings": 369,
+        "cable_passings": 238054,
+        "dsl_passings": 0
       },
       {
         "name": "FastBridge Fiber",
         "passings": 2,
-        "served": 2
+        "served": 2,
+        "fiber_passings": 2,
+        "cable_passings": 0,
+        "dsl_passings": 0
       }
     ],
     "population_2023": 754068,
@@ -2695,7 +4038,23 @@
     "build_difficulty": "Easy",
     "rucc_code": 1,
     "rucc_description": "Metro - Counties in metro areas of 1 million population or more",
-    "rural_class": "Metro"
+    "rural_class": "Metro",
+    "cable_served": 238054,
+    "dsl_served": 37842,
+    "cable_operators": [
+      {
+        "name": "Spectrum",
+        "passings": 238054
+      }
+    ],
+    "cable_operator_count": 1,
+    "dsl_operators": [
+      {
+        "name": "Frontier",
+        "passings": 37842
+      }
+    ],
+    "dsl_operator_count": 1
   },
   "36057": {
     "geoid": "36057",
@@ -2709,22 +4068,34 @@
       {
         "name": "Frontier",
         "passings": 3247,
-        "served": 3247
+        "served": 3247,
+        "fiber_passings": 3247,
+        "cable_passings": 0,
+        "dsl_passings": 3989
       },
       {
         "name": "Spectrum",
         "passings": 1058,
-        "served": 1058
+        "served": 1058,
+        "fiber_passings": 1058,
+        "cable_passings": 13690,
+        "dsl_passings": 0
       },
       {
         "name": "Verizon",
         "passings": 319,
-        "served": 319
+        "served": 319,
+        "fiber_passings": 319,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Pattersonville Telephone Company",
         "passings": 271,
-        "served": 271
+        "served": 271,
+        "fiber_passings": 271,
+        "cable_passings": 0,
+        "dsl_passings": 53
       }
     ],
     "population_2023": 49461,
@@ -2777,7 +4148,27 @@
     "build_difficulty": "Moderate-Hard",
     "rucc_code": 4,
     "rucc_description": "Nonmetro - Urban population of 20,000 or more, adjacent to a metro area",
-    "rural_class": "Micro"
+    "rural_class": "Micro",
+    "cable_served": 13690,
+    "dsl_served": 4042,
+    "cable_operators": [
+      {
+        "name": "Spectrum",
+        "passings": 13690
+      }
+    ],
+    "cable_operator_count": 1,
+    "dsl_operators": [
+      {
+        "name": "Frontier",
+        "passings": 3989
+      },
+      {
+        "name": "Pattersonville Telephone Company",
+        "passings": 53
+      }
+    ],
+    "dsl_operator_count": 2
   },
   "36059": {
     "geoid": "36059",
@@ -2791,22 +4182,55 @@
       {
         "name": "Verizon",
         "passings": 378103,
-        "served": 378103
+        "served": 378103,
+        "fiber_passings": 378103,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Optimum",
         "passings": 352223,
-        "served": 352223
+        "served": 352223,
+        "fiber_passings": 352223,
+        "cable_passings": 370868,
+        "dsl_passings": 0
       },
       {
         "name": "Frontier",
         "passings": 24,
-        "served": 24
+        "served": 24,
+        "fiber_passings": 24,
+        "cable_passings": 0,
+        "dsl_passings": 31
       },
       {
         "name": "Astound Broadband",
         "passings": 1,
-        "served": 1
+        "served": 1,
+        "fiber_passings": 1,
+        "cable_passings": 8,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Spectrum",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 2035,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Xfinity",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 1,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Skywire Networks",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 0,
+        "dsl_passings": 1
       }
     ],
     "population_2023": 1388138,
@@ -2859,7 +4283,39 @@
     "build_difficulty": "Easy",
     "rucc_code": 1,
     "rucc_description": "Metro - Counties in metro areas of 1 million population or more",
-    "rural_class": "Metro"
+    "rural_class": "Metro",
+    "cable_served": 370888,
+    "dsl_served": 32,
+    "cable_operators": [
+      {
+        "name": "Optimum",
+        "passings": 370868
+      },
+      {
+        "name": "Spectrum",
+        "passings": 2035
+      },
+      {
+        "name": "Astound Broadband",
+        "passings": 8
+      },
+      {
+        "name": "Xfinity",
+        "passings": 1
+      }
+    ],
+    "cable_operator_count": 4,
+    "dsl_operators": [
+      {
+        "name": "Frontier",
+        "passings": 31
+      },
+      {
+        "name": "Skywire Networks",
+        "passings": 1
+      }
+    ],
+    "dsl_operator_count": 2
   },
   "36061": {
     "geoid": "36061",
@@ -2873,27 +4329,63 @@
       {
         "name": "Verizon",
         "passings": 11856,
-        "served": 11856
+        "served": 11856,
+        "fiber_passings": 11856,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Astound Broadband",
         "passings": 903,
-        "served": 903
+        "served": 903,
+        "fiber_passings": 903,
+        "cable_passings": 15936,
+        "dsl_passings": 0
       },
       {
         "name": "Spectrum",
         "passings": 808,
-        "served": 808
+        "served": 808,
+        "fiber_passings": 808,
+        "cable_passings": 30242,
+        "dsl_passings": 0
       },
       {
         "name": "Starry Inc",
         "passings": 15,
-        "served": 15
+        "served": 15,
+        "fiber_passings": 15,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "ResiBridge LLC",
         "passings": 9,
-        "served": 9
+        "served": 9,
+        "fiber_passings": 9,
+        "cable_passings": 0,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Optimum",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 19,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Xfinity",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 10,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Nuvisions",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 0,
+        "dsl_passings": 18
       }
     ],
     "population_2023": 1627788,
@@ -2947,7 +4439,35 @@
     "build_difficulty": "Moderate",
     "rucc_code": 1,
     "rucc_description": "Metro - Counties in metro areas of 1 million population or more",
-    "rural_class": "Metro"
+    "rural_class": "Metro",
+    "cable_served": 33451,
+    "dsl_served": 18,
+    "cable_operators": [
+      {
+        "name": "Spectrum",
+        "passings": 30242
+      },
+      {
+        "name": "Astound Broadband",
+        "passings": 15936
+      },
+      {
+        "name": "Optimum",
+        "passings": 19
+      },
+      {
+        "name": "Xfinity",
+        "passings": 10
+      }
+    ],
+    "cable_operator_count": 4,
+    "dsl_operators": [
+      {
+        "name": "Nuvisions",
+        "passings": 18
+      }
+    ],
+    "dsl_operator_count": 1
   },
   "36063": {
     "geoid": "36063",
@@ -2961,22 +4481,41 @@
       {
         "name": "Greenlight Networks",
         "passings": 14828,
-        "served": 14828
+        "served": 14828,
+        "fiber_passings": 14828,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "GoNetspeed",
         "passings": 7285,
-        "served": 7285
+        "served": 7285,
+        "fiber_passings": 7285,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Verizon",
         "passings": 2045,
-        "served": 2045
+        "served": 2045,
+        "fiber_passings": 2045,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Spectrum",
         "passings": 1889,
-        "served": 1889
+        "served": 1889,
+        "fiber_passings": 1889,
+        "cable_passings": 77555,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Frontier",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 0,
+        "dsl_passings": 387
       }
     ],
     "population_2023": 211341,
@@ -3029,7 +4568,23 @@
     "build_difficulty": "Easy",
     "rucc_code": 1,
     "rucc_description": "Metro - Counties in metro areas of 1 million population or more",
-    "rural_class": "Metro"
+    "rural_class": "Metro",
+    "cable_served": 77555,
+    "dsl_served": 387,
+    "cable_operators": [
+      {
+        "name": "Spectrum",
+        "passings": 77555
+      }
+    ],
+    "cable_operator_count": 1,
+    "dsl_operators": [
+      {
+        "name": "Frontier",
+        "passings": 387
+      }
+    ],
+    "dsl_operator_count": 1
   },
   "36065": {
     "geoid": "36065",
@@ -3043,52 +4598,89 @@
       {
         "name": "GoNetspeed",
         "passings": 8360,
-        "served": 8360
+        "served": 8360,
+        "fiber_passings": 8360,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Oneida County Rural Telephone Co.",
         "passings": 3577,
-        "served": 3577
+        "served": 3577,
+        "fiber_passings": 3577,
+        "cable_passings": 0,
+        "dsl_passings": 173
       },
       {
         "name": "Verizon",
         "passings": 2410,
-        "served": 2410
+        "served": 2410,
+        "fiber_passings": 2410,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Spectrum",
         "passings": 1938,
-        "served": 1938
+        "served": 1938,
+        "fiber_passings": 1938,
+        "cable_passings": 73850,
+        "dsl_passings": 0
       },
       {
         "name": "SLICFiber",
         "passings": 1128,
-        "served": 1128
+        "served": 1128,
+        "fiber_passings": 1128,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Frontier",
         "passings": 1044,
-        "served": 1044
+        "served": 1044,
+        "fiber_passings": 1044,
+        "cable_passings": 0,
+        "dsl_passings": 4045
       },
       {
         "name": "Adirondack Broadband",
         "passings": 641,
-        "served": 641
+        "served": 641,
+        "fiber_passings": 641,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Windstream New York, Inc.",
         "passings": 245,
-        "served": 245
+        "served": 245,
+        "fiber_passings": 245,
+        "cable_passings": 0,
+        "dsl_passings": 311
       },
       {
         "name": "Newport Telephone Co - NTCNet",
         "passings": 120,
-        "served": 120
+        "served": 120,
+        "fiber_passings": 120,
+        "cable_passings": 0,
+        "dsl_passings": 54
       },
       {
         "name": "Northland Networks",
         "passings": 36,
-        "served": 36
+        "served": 36,
+        "fiber_passings": 36,
+        "cable_passings": 0,
+        "dsl_passings": 0
+      },
+      {
+        "name": "TDS Telecom",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 0,
+        "dsl_passings": 2775
       }
     ],
     "population_2023": 229645,
@@ -3147,7 +4739,39 @@
     "build_difficulty": "Moderate",
     "rucc_code": 2,
     "rucc_description": "Metro - Counties in metro areas of 250,000 to 1 million population",
-    "rural_class": "Metro"
+    "rural_class": "Metro",
+    "cable_served": 73850,
+    "dsl_served": 7348,
+    "cable_operators": [
+      {
+        "name": "Spectrum",
+        "passings": 73850
+      }
+    ],
+    "cable_operator_count": 1,
+    "dsl_operators": [
+      {
+        "name": "Frontier",
+        "passings": 4045
+      },
+      {
+        "name": "TDS Telecom",
+        "passings": 2775
+      },
+      {
+        "name": "Windstream New York, Inc.",
+        "passings": 311
+      },
+      {
+        "name": "Oneida County Rural Telephone Co.",
+        "passings": 173
+      },
+      {
+        "name": "Newport Telephone Co - NTCNet",
+        "passings": 54
+      }
+    ],
+    "dsl_operator_count": 5
   },
   "36067": {
     "geoid": "36067",
@@ -3161,32 +4785,64 @@
       {
         "name": "Verizon",
         "passings": 114720,
-        "served": 114720
+        "served": 114720,
+        "fiber_passings": 114720,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Windstream New York, Inc.",
         "passings": 5732,
-        "served": 5732
+        "served": 5732,
+        "fiber_passings": 5732,
+        "cable_passings": 0,
+        "dsl_passings": 4714
       },
       {
         "name": "Point Broadband Fiber Holding LLC",
         "passings": 977,
-        "served": 977
+        "served": 977,
+        "fiber_passings": 977,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Spectrum",
         "passings": 79,
-        "served": 79
+        "served": 79,
+        "fiber_passings": 79,
+        "cable_passings": 151796,
+        "dsl_passings": 0
       },
       {
         "name": "Northland Networks",
         "passings": 6,
-        "served": 6
+        "served": 6,
+        "fiber_passings": 6,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Windstream Communications, LLC.",
         "passings": 1,
-        "served": 1
+        "served": 1,
+        "fiber_passings": 1,
+        "cable_passings": 0,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Xfinity",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 1,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Frontier",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 0,
+        "dsl_passings": 405
       }
     ],
     "population_2023": 471611,
@@ -3241,7 +4897,31 @@
     "build_difficulty": "Moderate",
     "rucc_code": 2,
     "rucc_description": "Metro - Counties in metro areas of 250,000 to 1 million population",
-    "rural_class": "Metro"
+    "rural_class": "Metro",
+    "cable_served": 151796,
+    "dsl_served": 5119,
+    "cable_operators": [
+      {
+        "name": "Spectrum",
+        "passings": 151796
+      },
+      {
+        "name": "Xfinity",
+        "passings": 1
+      }
+    ],
+    "cable_operator_count": 2,
+    "dsl_operators": [
+      {
+        "name": "Windstream New York, Inc.",
+        "passings": 4714
+      },
+      {
+        "name": "Frontier",
+        "passings": 405
+      }
+    ],
+    "dsl_operator_count": 2
   },
   "36069": {
     "geoid": "36069",
@@ -3255,32 +4935,50 @@
       {
         "name": "GoNetspeed",
         "passings": 12487,
-        "served": 12487
+        "served": 12487,
+        "fiber_passings": 12487,
+        "cable_passings": 0,
+        "dsl_passings": 420
       },
       {
         "name": "Empire Long Distance Corporation",
         "passings": 10527,
-        "served": 10527
+        "served": 10527,
+        "fiber_passings": 10527,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Frontier",
         "passings": 8114,
-        "served": 8114
+        "served": 8114,
+        "fiber_passings": 8114,
+        "cable_passings": 0,
+        "dsl_passings": 9739
       },
       {
         "name": "Spectrum",
         "passings": 2472,
-        "served": 2472
+        "served": 2472,
+        "fiber_passings": 2472,
+        "cable_passings": 38199,
+        "dsl_passings": 0
       },
       {
         "name": "Windstream New York, Inc.",
         "passings": 1939,
-        "served": 1939
+        "served": 1939,
+        "fiber_passings": 1939,
+        "cable_passings": 0,
+        "dsl_passings": 1501
       },
       {
         "name": "Greenlight Networks",
         "passings": 583,
-        "served": 583
+        "served": 583,
+        "fiber_passings": 583,
+        "cable_passings": 0,
+        "dsl_passings": 0
       }
     ],
     "population_2023": 112405,
@@ -3335,7 +5033,31 @@
     "build_difficulty": "Moderate",
     "rucc_code": 1,
     "rucc_description": "Metro - Counties in metro areas of 1 million population or more",
-    "rural_class": "Metro"
+    "rural_class": "Metro",
+    "cable_served": 38199,
+    "dsl_served": 11658,
+    "cable_operators": [
+      {
+        "name": "Spectrum",
+        "passings": 38199
+      }
+    ],
+    "cable_operator_count": 1,
+    "dsl_operators": [
+      {
+        "name": "Frontier",
+        "passings": 9739
+      },
+      {
+        "name": "Windstream New York, Inc.",
+        "passings": 1501
+      },
+      {
+        "name": "GoNetspeed",
+        "passings": 420
+      }
+    ],
+    "dsl_operator_count": 3
   },
   "36071": {
     "geoid": "36071",
@@ -3349,42 +5071,80 @@
       {
         "name": "Verizon",
         "passings": 23252,
-        "served": 23252
+        "served": 23252,
+        "fiber_passings": 23252,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Frontier",
         "passings": 21395,
-        "served": 21395
+        "served": 21395,
+        "fiber_passings": 21395,
+        "cable_passings": 0,
+        "dsl_passings": 24756
       },
       {
         "name": "Optimum",
         "passings": 15580,
-        "served": 15580
+        "served": 15580,
+        "fiber_passings": 15580,
+        "cable_passings": 31221,
+        "dsl_passings": 0
       },
       {
         "name": "Alteva Of Warwick, LLC",
         "passings": 10252,
-        "served": 10252
+        "served": 10252,
+        "fiber_passings": 10252,
+        "cable_passings": 0,
+        "dsl_passings": 24499
       },
       {
         "name": "Greenlight Networks",
         "passings": 9215,
-        "served": 9215
+        "served": 9215,
+        "fiber_passings": 9215,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Spectrum",
         "passings": 13,
-        "served": 13
+        "served": 13,
+        "fiber_passings": 13,
+        "cable_passings": 73792,
+        "dsl_passings": 0
       },
       {
         "name": "TDS Telecom",
         "passings": 2,
-        "served": 2
+        "served": 2,
+        "fiber_passings": 2,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Planet Networks",
         "passings": 1,
-        "served": 1
+        "served": 1,
+        "fiber_passings": 1,
+        "cable_passings": 0,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Xfinity",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 1,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Skywire Networks",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 0,
+        "dsl_passings": 2
       }
     ],
     "population_2023": 403840,
@@ -3441,7 +5201,39 @@
     "build_difficulty": "Moderate-Hard",
     "rucc_code": 2,
     "rucc_description": "Metro - Counties in metro areas of 250,000 to 1 million population",
-    "rural_class": "Metro"
+    "rural_class": "Metro",
+    "cable_served": 104764,
+    "dsl_served": 44595,
+    "cable_operators": [
+      {
+        "name": "Spectrum",
+        "passings": 73792
+      },
+      {
+        "name": "Optimum",
+        "passings": 31221
+      },
+      {
+        "name": "Xfinity",
+        "passings": 1
+      }
+    ],
+    "cable_operator_count": 3,
+    "dsl_operators": [
+      {
+        "name": "Frontier",
+        "passings": 24756
+      },
+      {
+        "name": "Alteva Of Warwick, LLC",
+        "passings": 24499
+      },
+      {
+        "name": "Skywire Networks",
+        "passings": 2
+      }
+    ],
+    "dsl_operator_count": 3
   },
   "36073": {
     "geoid": "36073",
@@ -3455,7 +5247,17 @@
       {
         "name": "Spectrum",
         "passings": 742,
-        "served": 742
+        "served": 742,
+        "fiber_passings": 742,
+        "cable_passings": 14893,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Frontier",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 0,
+        "dsl_passings": 5
       }
     ],
     "population_2023": 39686,
@@ -3505,7 +5307,23 @@
     "build_difficulty": "Easy",
     "rucc_code": 1,
     "rucc_description": "Metro - Counties in metro areas of 1 million population or more",
-    "rural_class": "Metro"
+    "rural_class": "Metro",
+    "cable_served": 14893,
+    "dsl_served": 5,
+    "cable_operators": [
+      {
+        "name": "Spectrum",
+        "passings": 14893
+      }
+    ],
+    "cable_operator_count": 1,
+    "dsl_operators": [
+      {
+        "name": "Frontier",
+        "passings": 5
+      }
+    ],
+    "dsl_operator_count": 1
   },
   "36075": {
     "geoid": "36075",
@@ -3519,22 +5337,34 @@
       {
         "name": "Windstream New York, Inc.",
         "passings": 11401,
-        "served": 11401
+        "served": 11401,
+        "fiber_passings": 11401,
+        "cable_passings": 0,
+        "dsl_passings": 8165
       },
       {
         "name": "Verizon",
         "passings": 550,
-        "served": 550
+        "served": 550,
+        "fiber_passings": 550,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Frontier",
         "passings": 476,
-        "served": 476
+        "served": 476,
+        "fiber_passings": 476,
+        "cable_passings": 0,
+        "dsl_passings": 5651
       },
       {
         "name": "Spectrum",
         "passings": 188,
-        "served": 188
+        "served": 188,
+        "fiber_passings": 188,
+        "cable_passings": 45693,
+        "dsl_passings": 0
       }
     ],
     "population_2023": 117945,
@@ -3587,7 +5417,27 @@
     "build_difficulty": "Moderate",
     "rucc_code": 2,
     "rucc_description": "Metro - Counties in metro areas of 250,000 to 1 million population",
-    "rural_class": "Metro"
+    "rural_class": "Metro",
+    "cable_served": 45693,
+    "dsl_served": 13815,
+    "cable_operators": [
+      {
+        "name": "Spectrum",
+        "passings": 45693
+      }
+    ],
+    "cable_operator_count": 1,
+    "dsl_operators": [
+      {
+        "name": "Windstream New York, Inc.",
+        "passings": 8165
+      },
+      {
+        "name": "Frontier",
+        "passings": 5651
+      }
+    ],
+    "dsl_operator_count": 2
   },
   "36077": {
     "geoid": "36077",
@@ -3601,32 +5451,50 @@
       {
         "name": "OEConnect",
         "passings": 6488,
-        "served": 6488
+        "served": 6488,
+        "fiber_passings": 6488,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Spectrum",
         "passings": 1505,
-        "served": 1505
+        "served": 1505,
+        "fiber_passings": 1505,
+        "cable_passings": 16134,
+        "dsl_passings": 0
       },
       {
         "name": "Frontier",
         "passings": 524,
-        "served": 524
+        "served": 524,
+        "fiber_passings": 524,
+        "cable_passings": 0,
+        "dsl_passings": 2799
       },
       {
         "name": "Delhi Telephone Company",
         "passings": 453,
-        "served": 453
+        "served": 453,
+        "fiber_passings": 453,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Verizon",
         "passings": 129,
-        "served": 129
+        "served": 129,
+        "fiber_passings": 129,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Windstream New York, Inc.",
         "passings": 1,
-        "served": 1
+        "served": 1,
+        "fiber_passings": 1,
+        "cable_passings": 0,
+        "dsl_passings": 119
       }
     ],
     "population_2023": 59738,
@@ -3681,7 +5549,27 @@
     "build_difficulty": "Challenging",
     "rucc_code": 7,
     "rucc_description": "Nonmetro - Urban population of 5,000 to 20,000, not adjacent to a metro area",
-    "rural_class": "Rural"
+    "rural_class": "Rural",
+    "cable_served": 16134,
+    "dsl_served": 2918,
+    "cable_operators": [
+      {
+        "name": "Spectrum",
+        "passings": 16134
+      }
+    ],
+    "cable_operator_count": 1,
+    "dsl_operators": [
+      {
+        "name": "Frontier",
+        "passings": 2799
+      },
+      {
+        "name": "Windstream New York, Inc.",
+        "passings": 119
+      }
+    ],
+    "dsl_operator_count": 2
   },
   "36079": {
     "geoid": "36079",
@@ -3695,12 +5583,39 @@
       {
         "name": "Verizon",
         "passings": 24507,
-        "served": 24507
+        "served": 24507,
+        "fiber_passings": 24507,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Optimum",
         "passings": 4131,
-        "served": 4131
+        "served": 4131,
+        "fiber_passings": 4131,
+        "cable_passings": 7984,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Xfinity",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 23839,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Spectrum",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 209,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Frontier",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 0,
+        "dsl_passings": 2
       }
     ],
     "population_2023": 97988,
@@ -3751,7 +5666,31 @@
     "build_difficulty": "Challenging",
     "rucc_code": 1,
     "rucc_description": "Metro - Counties in metro areas of 1 million population or more",
-    "rural_class": "Metro"
+    "rural_class": "Metro",
+    "cable_served": 31432,
+    "dsl_served": 2,
+    "cable_operators": [
+      {
+        "name": "Xfinity",
+        "passings": 23839
+      },
+      {
+        "name": "Optimum",
+        "passings": 7984
+      },
+      {
+        "name": "Spectrum",
+        "passings": 209
+      }
+    ],
+    "cable_operator_count": 3,
+    "dsl_operators": [
+      {
+        "name": "Frontier",
+        "passings": 2
+      }
+    ],
+    "dsl_operator_count": 1
   },
   "36081": {
     "geoid": "36081",
@@ -3765,27 +5704,49 @@
       {
         "name": "Verizon",
         "passings": 285478,
-        "served": 285478
+        "served": 285478,
+        "fiber_passings": 285478,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Spectrum",
         "passings": 900,
-        "served": 900
+        "served": 900,
+        "fiber_passings": 900,
+        "cable_passings": 298582,
+        "dsl_passings": 0
       },
       {
         "name": "Optimum",
         "passings": 625,
-        "served": 625
+        "served": 625,
+        "fiber_passings": 625,
+        "cable_passings": 690,
+        "dsl_passings": 0
       },
       {
         "name": "Astound Broadband",
         "passings": 348,
-        "served": 348
+        "served": 348,
+        "fiber_passings": 348,
+        "cable_passings": 45854,
+        "dsl_passings": 0
       },
       {
         "name": "Starry Inc",
         "passings": 3,
-        "served": 3
+        "served": 3,
+        "fiber_passings": 3,
+        "cable_passings": 0,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Xfinity",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 1,
+        "dsl_passings": 0
       }
     ],
     "population_2023": 2330124,
@@ -3839,7 +5800,30 @@
     "build_difficulty": "Easy",
     "rucc_code": 1,
     "rucc_description": "Metro - Counties in metro areas of 1 million population or more",
-    "rural_class": "Metro"
+    "rural_class": "Metro",
+    "cable_served": 301561,
+    "dsl_served": 0,
+    "cable_operators": [
+      {
+        "name": "Spectrum",
+        "passings": 298582
+      },
+      {
+        "name": "Astound Broadband",
+        "passings": 45854
+      },
+      {
+        "name": "Optimum",
+        "passings": 690
+      },
+      {
+        "name": "Xfinity",
+        "passings": 1
+      }
+    ],
+    "cable_operator_count": 4,
+    "dsl_operators": [],
+    "dsl_operator_count": 0
   },
   "36083": {
     "geoid": "36083",
@@ -3853,27 +5837,49 @@
       {
         "name": "Fidium Fiber",
         "passings": 2651,
-        "served": 2651
+        "served": 2651,
+        "fiber_passings": 2651,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Verizon",
         "passings": 1370,
-        "served": 1370
+        "served": 1370,
+        "fiber_passings": 1370,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Spectrum",
         "passings": 116,
-        "served": 116
+        "served": 116,
+        "fiber_passings": 116,
+        "cable_passings": 50690,
+        "dsl_passings": 0
       },
       {
         "name": "Massivemesh Networks",
         "passings": 13,
-        "served": 13
+        "served": 13,
+        "fiber_passings": 13,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "SLICFiber",
         "passings": 10,
-        "served": 10
+        "served": 10,
+        "fiber_passings": 10,
+        "cable_passings": 0,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Consolidated Communications",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 0,
+        "dsl_passings": 1932
       }
     ],
     "population_2023": 160341,
@@ -3927,7 +5933,23 @@
     "build_difficulty": "Moderate-Hard",
     "rucc_code": 2,
     "rucc_description": "Metro - Counties in metro areas of 250,000 to 1 million population",
-    "rural_class": "Metro"
+    "rural_class": "Metro",
+    "cable_served": 50690,
+    "dsl_served": 1932,
+    "cable_operators": [
+      {
+        "name": "Spectrum",
+        "passings": 50690
+      }
+    ],
+    "cable_operator_count": 1,
+    "dsl_operators": [
+      {
+        "name": "Consolidated Communications",
+        "passings": 1932
+      }
+    ],
+    "dsl_operator_count": 1
   },
   "36085": {
     "geoid": "36085",
@@ -3941,12 +5963,18 @@
       {
         "name": "Verizon",
         "passings": 112080,
-        "served": 112080
+        "served": 112080,
+        "fiber_passings": 112080,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Spectrum",
         "passings": 23,
-        "served": 23
+        "served": 23,
+        "fiber_passings": 23,
+        "cable_passings": 112877,
+        "dsl_passings": 0
       }
     ],
     "population_2023": 492734,
@@ -3997,7 +6025,18 @@
     "build_difficulty": "Moderate",
     "rucc_code": 1,
     "rucc_description": "Metro - Counties in metro areas of 1 million population or more",
-    "rural_class": "Metro"
+    "rural_class": "Metro",
+    "cable_served": 112877,
+    "dsl_served": 0,
+    "cable_operators": [
+      {
+        "name": "Spectrum",
+        "passings": 112877
+      }
+    ],
+    "cable_operator_count": 1,
+    "dsl_operators": [],
+    "dsl_operator_count": 0
   },
   "36087": {
     "geoid": "36087",
@@ -4011,12 +6050,25 @@
       {
         "name": "Verizon",
         "passings": 70239,
-        "served": 70239
+        "served": 70239,
+        "fiber_passings": 70239,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Optimum",
         "passings": 56997,
-        "served": 56997
+        "served": 56997,
+        "fiber_passings": 56997,
+        "cable_passings": 70749,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Xfinity",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 5,
+        "dsl_passings": 0
       }
     ],
     "population_2023": 338936,
@@ -4067,7 +6119,22 @@
     "build_difficulty": "Moderate-Hard",
     "rucc_code": 1,
     "rucc_description": "Metro - Counties in metro areas of 1 million population or more",
-    "rural_class": "Metro"
+    "rural_class": "Metro",
+    "cable_served": 70753,
+    "dsl_served": 0,
+    "cable_operators": [
+      {
+        "name": "Optimum",
+        "passings": 70749
+      },
+      {
+        "name": "Xfinity",
+        "passings": 5
+      }
+    ],
+    "cable_operator_count": 2,
+    "dsl_operators": [],
+    "dsl_operator_count": 0
   },
   "36089": {
     "geoid": "36089",
@@ -4081,52 +6148,82 @@
       {
         "name": "SLICFiber",
         "passings": 17872,
-        "served": 17872
+        "served": 17872,
+        "fiber_passings": 17872,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Verizon",
         "passings": 2712,
-        "served": 2712
+        "served": 2712,
+        "fiber_passings": 2712,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Nicholville Telephone Company",
         "passings": 2244,
-        "served": 2244
+        "served": 2244,
+        "fiber_passings": 2244,
+        "cable_passings": 0,
+        "dsl_passings": 196
       },
       {
         "name": "Citizens Telephone Company of Hammond, NY",
         "passings": 2238,
-        "served": 2238
+        "served": 2238,
+        "fiber_passings": 2238,
+        "cable_passings": 0,
+        "dsl_passings": 16
       },
       {
         "name": "TDS Telecom",
         "passings": 2138,
-        "served": 2138
+        "served": 2138,
+        "fiber_passings": 2138,
+        "cable_passings": 0,
+        "dsl_passings": 379
       },
       {
         "name": "Castle Cable TV",
         "passings": 252,
-        "served": 252
+        "served": 252,
+        "fiber_passings": 252,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Adirondack Broadband",
         "passings": 197,
-        "served": 197
+        "served": 197,
+        "fiber_passings": 197,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Frontier",
         "passings": 27,
-        "served": 27
+        "served": 27,
+        "fiber_passings": 27,
+        "cable_passings": 0,
+        "dsl_passings": 3
       },
       {
         "name": "Spectrum",
         "passings": 25,
-        "served": 25
+        "served": 25,
+        "fiber_passings": 25,
+        "cable_passings": 28852,
+        "dsl_passings": 0
       },
       {
         "name": "Mohawk Networks LLC",
         "passings": 21,
-        "served": 21
+        "served": 21,
+        "fiber_passings": 21,
+        "cable_passings": 0,
+        "dsl_passings": 0
       }
     ],
     "population_2023": 107796,
@@ -4185,7 +6282,35 @@
     "build_difficulty": "Moderate",
     "rucc_code": 4,
     "rucc_description": "Nonmetro - Urban population of 20,000 or more, adjacent to a metro area",
-    "rural_class": "Micro"
+    "rural_class": "Micro",
+    "cable_served": 28852,
+    "dsl_served": 594,
+    "cable_operators": [
+      {
+        "name": "Spectrum",
+        "passings": 28852
+      }
+    ],
+    "cable_operator_count": 1,
+    "dsl_operators": [
+      {
+        "name": "TDS Telecom",
+        "passings": 379
+      },
+      {
+        "name": "Nicholville Telephone Company",
+        "passings": 196
+      },
+      {
+        "name": "Citizens Telephone Company of Hammond, NY",
+        "passings": 16
+      },
+      {
+        "name": "Frontier",
+        "passings": 3
+      }
+    ],
+    "dsl_operator_count": 4
   },
   "36091": {
     "geoid": "36091",
@@ -4199,27 +6324,42 @@
       {
         "name": "Verizon",
         "passings": 7578,
-        "served": 7578
+        "served": 7578,
+        "fiber_passings": 7578,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Greenlight Networks",
         "passings": 5702,
-        "served": 5702
+        "served": 5702,
+        "fiber_passings": 5702,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "SLICFiber",
         "passings": 4985,
-        "served": 4985
+        "served": 4985,
+        "fiber_passings": 4985,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Frontier",
         "passings": 1254,
-        "served": 1254
+        "served": 1254,
+        "fiber_passings": 1254,
+        "cable_passings": 0,
+        "dsl_passings": 2525
       },
       {
         "name": "Spectrum",
         "passings": 614,
-        "served": 614
+        "served": 614,
+        "fiber_passings": 614,
+        "cable_passings": 84791,
+        "dsl_passings": 0
       }
     ],
     "population_2023": 237075,
@@ -4273,7 +6413,23 @@
     "build_difficulty": "Moderate",
     "rucc_code": 2,
     "rucc_description": "Metro - Counties in metro areas of 250,000 to 1 million population",
-    "rural_class": "Metro"
+    "rural_class": "Metro",
+    "cable_served": 84791,
+    "dsl_served": 2525,
+    "cable_operators": [
+      {
+        "name": "Spectrum",
+        "passings": 84791
+      }
+    ],
+    "cable_operator_count": 1,
+    "dsl_operators": [
+      {
+        "name": "Frontier",
+        "passings": 2525
+      }
+    ],
+    "dsl_operator_count": 1
   },
   "36093": {
     "geoid": "36093",
@@ -4287,27 +6443,42 @@
       {
         "name": "Verizon",
         "passings": 35379,
-        "served": 35379
+        "served": 35379,
+        "fiber_passings": 35379,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Greenlight Networks",
         "passings": 7252,
-        "served": 7252
+        "served": 7252,
+        "fiber_passings": 7252,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Pattersonville Telephone Company",
         "passings": 289,
-        "served": 289
+        "served": 289,
+        "fiber_passings": 289,
+        "cable_passings": 0,
+        "dsl_passings": 599
       },
       {
         "name": "Spectrum",
         "passings": 197,
-        "served": 197
+        "served": 197,
+        "fiber_passings": 197,
+        "cable_passings": 50126,
+        "dsl_passings": 0
       },
       {
         "name": "Massivemesh Networks",
         "passings": 8,
-        "served": 8
+        "served": 8,
+        "fiber_passings": 8,
+        "cable_passings": 0,
+        "dsl_passings": 0
       }
     ],
     "population_2023": 159603,
@@ -4361,7 +6532,23 @@
     "build_difficulty": "Moderate",
     "rucc_code": 2,
     "rucc_description": "Metro - Counties in metro areas of 250,000 to 1 million population",
-    "rural_class": "Metro"
+    "rural_class": "Metro",
+    "cable_served": 50126,
+    "dsl_served": 599,
+    "cable_operators": [
+      {
+        "name": "Spectrum",
+        "passings": 50126
+      }
+    ],
+    "cable_operator_count": 1,
+    "dsl_operators": [
+      {
+        "name": "Pattersonville Telephone Company",
+        "passings": 599
+      }
+    ],
+    "dsl_operator_count": 1
   },
   "36095": {
     "geoid": "36095",
@@ -4375,22 +6562,34 @@
       {
         "name": "MIDTEL",
         "passings": 6523,
-        "served": 6523
+        "served": 6523,
+        "fiber_passings": 6523,
+        "cable_passings": 0,
+        "dsl_passings": 448
       },
       {
         "name": "MTC Cable",
         "passings": 1928,
-        "served": 1928
+        "served": 1928,
+        "fiber_passings": 1928,
+        "cable_passings": 1,
+        "dsl_passings": 0
       },
       {
         "name": "Spectrum",
         "passings": 1298,
-        "served": 1298
+        "served": 1298,
+        "fiber_passings": 1298,
+        "cable_passings": 8919,
+        "dsl_passings": 0
       },
       {
         "name": "Verizon",
         "passings": 534,
-        "served": 534
+        "served": 534,
+        "fiber_passings": 534,
+        "cable_passings": 0,
+        "dsl_passings": 0
       }
     ],
     "population_2023": 29979,
@@ -4443,7 +6642,27 @@
     "build_difficulty": "Challenging",
     "rucc_code": 2,
     "rucc_description": "Metro - Counties in metro areas of 250,000 to 1 million population",
-    "rural_class": "Metro"
+    "rural_class": "Metro",
+    "cable_served": 8920,
+    "dsl_served": 448,
+    "cable_operators": [
+      {
+        "name": "Spectrum",
+        "passings": 8919
+      },
+      {
+        "name": "MTC Cable",
+        "passings": 1
+      }
+    ],
+    "cable_operator_count": 2,
+    "dsl_operators": [
+      {
+        "name": "MIDTEL",
+        "passings": 448
+      }
+    ],
+    "dsl_operator_count": 1
   },
   "36097": {
     "geoid": "36097",
@@ -4457,32 +6676,50 @@
       {
         "name": "Empire Long Distance Corporation",
         "passings": 3380,
-        "served": 3380
+        "served": 3380,
+        "fiber_passings": 3380,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Empire Telephone Corp.",
         "passings": 1776,
-        "served": 1776
+        "served": 1776,
+        "fiber_passings": 1776,
+        "cable_passings": 0,
+        "dsl_passings": 13
       },
       {
         "name": "Haefele Connect",
         "passings": 1582,
-        "served": 1582
+        "served": 1582,
+        "fiber_passings": 1582,
+        "cable_passings": 1335,
+        "dsl_passings": 0
       },
       {
         "name": "GoNetspeed",
         "passings": 831,
-        "served": 831
+        "served": 831,
+        "fiber_passings": 831,
+        "cable_passings": 0,
+        "dsl_passings": 24
       },
       {
         "name": "Spectrum",
         "passings": 388,
-        "served": 388
+        "served": 388,
+        "fiber_passings": 388,
+        "cable_passings": 3468,
+        "dsl_passings": 0
       },
       {
         "name": "Frontier",
         "passings": 143,
-        "served": 143
+        "served": 143,
+        "fiber_passings": 143,
+        "cable_passings": 0,
+        "dsl_passings": 266
       }
     ],
     "population_2023": 17749,
@@ -4537,7 +6774,35 @@
     "build_difficulty": "Challenging",
     "rucc_code": 8,
     "rucc_description": "Nonmetro - Urban population of fewer than 5,000, adjacent to a metro area",
-    "rural_class": "Rural"
+    "rural_class": "Rural",
+    "cable_served": 4797,
+    "dsl_served": 303,
+    "cable_operators": [
+      {
+        "name": "Spectrum",
+        "passings": 3468
+      },
+      {
+        "name": "Haefele Connect",
+        "passings": 1335
+      }
+    ],
+    "cable_operator_count": 2,
+    "dsl_operators": [
+      {
+        "name": "Frontier",
+        "passings": 266
+      },
+      {
+        "name": "GoNetspeed",
+        "passings": 24
+      },
+      {
+        "name": "Empire Telephone Corp.",
+        "passings": 13
+      }
+    ],
+    "dsl_operator_count": 3
   },
   "36099": {
     "geoid": "36099",
@@ -4551,27 +6816,42 @@
       {
         "name": "GoNetspeed",
         "passings": 8220,
-        "served": 8220
+        "served": 8220,
+        "fiber_passings": 8220,
+        "cable_passings": 0,
+        "dsl_passings": 50
       },
       {
         "name": "Spectrum",
         "passings": 2142,
-        "served": 2142
+        "served": 2142,
+        "fiber_passings": 2142,
+        "cable_passings": 10399,
+        "dsl_passings": 0
       },
       {
         "name": "Empire Telephone Corp.",
         "passings": 804,
-        "served": 804
+        "served": 804,
+        "fiber_passings": 804,
+        "cable_passings": 0,
+        "dsl_passings": 60
       },
       {
         "name": "Empire Long Distance Corporation",
         "passings": 51,
-        "served": 51
+        "served": 51,
+        "fiber_passings": 51,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "TDS Telecom",
         "passings": 26,
-        "served": 26
+        "served": 26,
+        "fiber_passings": 26,
+        "cable_passings": 0,
+        "dsl_passings": 13
       }
     ],
     "population_2023": 33125,
@@ -4625,7 +6905,31 @@
     "build_difficulty": "Easy",
     "rucc_code": 6,
     "rucc_description": "Nonmetro - Urban population of 5,000 to 20,000, adjacent to a metro area",
-    "rural_class": "Rural"
+    "rural_class": "Rural",
+    "cable_served": 10399,
+    "dsl_served": 123,
+    "cable_operators": [
+      {
+        "name": "Spectrum",
+        "passings": 10399
+      }
+    ],
+    "cable_operator_count": 1,
+    "dsl_operators": [
+      {
+        "name": "Empire Telephone Corp.",
+        "passings": 60
+      },
+      {
+        "name": "GoNetspeed",
+        "passings": 50
+      },
+      {
+        "name": "TDS Telecom",
+        "passings": 13
+      }
+    ],
+    "dsl_operator_count": 3
   },
   "36101": {
     "geoid": "36101",
@@ -4639,42 +6943,66 @@
       {
         "name": "Empire Long Distance Corporation",
         "passings": 14637,
-        "served": 14637
+        "served": 14637,
+        "fiber_passings": 14637,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Armstrong Telecommunications Inc",
         "passings": 3857,
-        "served": 3857
+        "served": 3857,
+        "fiber_passings": 3857,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Armstrong Telephone Company",
         "passings": 3331,
-        "served": 3331
+        "served": 3331,
+        "fiber_passings": 3331,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Empire Telephone Corp.",
         "passings": 2625,
-        "served": 2625
+        "served": 2625,
+        "fiber_passings": 2625,
+        "cable_passings": 0,
+        "dsl_passings": 4
       },
       {
         "name": "Spectrum",
         "passings": 1978,
-        "served": 1978
+        "served": 1978,
+        "fiber_passings": 1978,
+        "cable_passings": 29415,
+        "dsl_passings": 0
       },
       {
         "name": "Haefele Connect",
         "passings": 308,
-        "served": 308
+        "served": 308,
+        "fiber_passings": 308,
+        "cable_passings": 93,
+        "dsl_passings": 0
       },
       {
         "name": "Frontier",
         "passings": 19,
-        "served": 19
+        "served": 19,
+        "fiber_passings": 19,
+        "cable_passings": 0,
+        "dsl_passings": 3847
       },
       {
         "name": "FirstLight Fiber",
         "passings": 1,
-        "served": 1
+        "served": 1,
+        "fiber_passings": 1,
+        "cable_passings": 0,
+        "dsl_passings": 0
       }
     ],
     "population_2023": 93034,
@@ -4731,7 +7059,31 @@
     "build_difficulty": "Challenging",
     "rucc_code": 4,
     "rucc_description": "Nonmetro - Urban population of 20,000 or more, adjacent to a metro area",
-    "rural_class": "Micro"
+    "rural_class": "Micro",
+    "cable_served": 29501,
+    "dsl_served": 3851,
+    "cable_operators": [
+      {
+        "name": "Spectrum",
+        "passings": 29415
+      },
+      {
+        "name": "Haefele Connect",
+        "passings": 93
+      }
+    ],
+    "cable_operator_count": 2,
+    "dsl_operators": [
+      {
+        "name": "Frontier",
+        "passings": 3847
+      },
+      {
+        "name": "Empire Telephone Corp.",
+        "passings": 4
+      }
+    ],
+    "dsl_operator_count": 2
   },
   "36103": {
     "geoid": "36103",
@@ -4745,27 +7097,49 @@
       {
         "name": "Optimum",
         "passings": 390903,
-        "served": 390903
+        "served": 390903,
+        "fiber_passings": 390903,
+        "cable_passings": 462942,
+        "dsl_passings": 0
       },
       {
         "name": "Verizon",
         "passings": 294518,
-        "served": 294518
+        "served": 294518,
+        "fiber_passings": 294518,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Fishers Island Telephone Corp",
         "passings": 296,
-        "served": 296
+        "served": 296,
+        "fiber_passings": 296,
+        "cable_passings": 0,
+        "dsl_passings": 528
       },
       {
         "name": "Frontier",
         "passings": 23,
-        "served": 23
+        "served": 23,
+        "fiber_passings": 23,
+        "cable_passings": 0,
+        "dsl_passings": 32
       },
       {
         "name": "Astound Broadband",
         "passings": 2,
-        "served": 2
+        "served": 2,
+        "fiber_passings": 2,
+        "cable_passings": 16,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Xfinity",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 5,
+        "dsl_passings": 0
       }
     ],
     "population_2023": 1525680,
@@ -4819,7 +7193,35 @@
     "build_difficulty": "Easy",
     "rucc_code": 1,
     "rucc_description": "Metro - Counties in metro areas of 1 million population or more",
-    "rural_class": "Metro"
+    "rural_class": "Metro",
+    "cable_served": 462954,
+    "dsl_served": 560,
+    "cable_operators": [
+      {
+        "name": "Optimum",
+        "passings": 462942
+      },
+      {
+        "name": "Astound Broadband",
+        "passings": 16
+      },
+      {
+        "name": "Xfinity",
+        "passings": 5
+      }
+    ],
+    "cable_operator_count": 3,
+    "dsl_operators": [
+      {
+        "name": "Fishers Island Telephone Corp",
+        "passings": 528
+      },
+      {
+        "name": "Frontier",
+        "passings": 32
+      }
+    ],
+    "dsl_operator_count": 2
   },
   "36105": {
     "geoid": "36105",
@@ -4833,17 +7235,26 @@
       {
         "name": "Frontier",
         "passings": 2321,
-        "served": 2321
+        "served": 2321,
+        "fiber_passings": 2321,
+        "cable_passings": 0,
+        "dsl_passings": 3811
       },
       {
         "name": "Spectrum",
         "passings": 155,
-        "served": 155
+        "served": 155,
+        "fiber_passings": 155,
+        "cable_passings": 43100,
+        "dsl_passings": 0
       },
       {
         "name": "MTC Cable",
         "passings": 57,
-        "served": 57
+        "served": 57,
+        "fiber_passings": 57,
+        "cable_passings": 0,
+        "dsl_passings": 0
       }
     ],
     "population_2023": 79147,
@@ -4895,7 +7306,23 @@
     "build_difficulty": "Challenging",
     "rucc_code": 6,
     "rucc_description": "Nonmetro - Urban population of 5,000 to 20,000, adjacent to a metro area",
-    "rural_class": "Rural"
+    "rural_class": "Rural",
+    "cable_served": 43100,
+    "dsl_served": 3811,
+    "cable_operators": [
+      {
+        "name": "Spectrum",
+        "passings": 43100
+      }
+    ],
+    "cable_operator_count": 1,
+    "dsl_operators": [
+      {
+        "name": "Frontier",
+        "passings": 3811
+      }
+    ],
+    "dsl_operator_count": 1
   },
   "36107": {
     "geoid": "36107",
@@ -4909,32 +7336,57 @@
       {
         "name": "Haefele Connect",
         "passings": 4696,
-        "served": 4696
+        "served": 4696,
+        "fiber_passings": 4696,
+        "cable_passings": 1366,
+        "dsl_passings": 0
       },
       {
         "name": "Empire Long Distance Corporation",
         "passings": 3170,
-        "served": 3170
+        "served": 3170,
+        "fiber_passings": 3170,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Greenlight Networks",
         "passings": 1436,
-        "served": 1436
+        "served": 1436,
+        "fiber_passings": 1436,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Fiberspark Inc",
         "passings": 960,
-        "served": 960
+        "served": 960,
+        "fiber_passings": 960,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Frontier",
         "passings": 130,
-        "served": 130
+        "served": 130,
+        "fiber_passings": 130,
+        "cable_passings": 0,
+        "dsl_passings": 4916
       },
       {
         "name": "Point Broadband Fiber Holding LLC",
         "passings": 93,
-        "served": 93
+        "served": 93,
+        "fiber_passings": 93,
+        "cable_passings": 0,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Spectrum",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 13405,
+        "dsl_passings": 0
       }
     ],
     "population_2023": 48106,
@@ -4989,7 +7441,27 @@
     "build_difficulty": "Challenging",
     "rucc_code": 3,
     "rucc_description": "Metro - Counties in metro areas of fewer than 250,000 population",
-    "rural_class": "Metro"
+    "rural_class": "Metro",
+    "cable_served": 14768,
+    "dsl_served": 4916,
+    "cable_operators": [
+      {
+        "name": "Spectrum",
+        "passings": 13405
+      },
+      {
+        "name": "Haefele Connect",
+        "passings": 1366
+      }
+    ],
+    "cable_operator_count": 2,
+    "dsl_operators": [
+      {
+        "name": "Frontier",
+        "passings": 4916
+      }
+    ],
+    "dsl_operator_count": 1
   },
   "36109": {
     "geoid": "36109",
@@ -5003,52 +7475,96 @@
       {
         "name": "Point Broadband Fiber Holding LLC",
         "passings": 2672,
-        "served": 2672
+        "served": 2672,
+        "fiber_passings": 2672,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "GoNetspeed",
         "passings": 1854,
-        "served": 1854
+        "served": 1854,
+        "fiber_passings": 1854,
+        "cable_passings": 0,
+        "dsl_passings": 166
       },
       {
         "name": "Haefele Connect",
         "passings": 1736,
-        "served": 1736
+        "served": 1736,
+        "fiber_passings": 1736,
+        "cable_passings": 211,
+        "dsl_passings": 0
       },
       {
         "name": "Verizon",
         "passings": 1659,
-        "served": 1659
+        "served": 1659,
+        "fiber_passings": 1659,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Dryden Fiber",
         "passings": 1598,
-        "served": 1598
+        "served": 1598,
+        "fiber_passings": 1598,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Empire Long Distance Corporation",
         "passings": 1395,
-        "served": 1395
+        "served": 1395,
+        "fiber_passings": 1395,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Fiberspark Inc",
         "passings": 1217,
-        "served": 1217
+        "served": 1217,
+        "fiber_passings": 1217,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Spectrum",
         "passings": 505,
-        "served": 505
+        "served": 505,
+        "fiber_passings": 505,
+        "cable_passings": 24713,
+        "dsl_passings": 0
       },
       {
         "name": "Empire Telephone Corp.",
         "passings": 27,
-        "served": 27
+        "served": 27,
+        "fiber_passings": 27,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "FirstLight Fiber",
         "passings": 1,
-        "served": 1
+        "served": 1,
+        "fiber_passings": 1,
+        "cable_passings": 0,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Zito Media",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 32,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Frontier",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 0,
+        "dsl_passings": 3130
       }
     ],
     "population_2023": 102879,
@@ -5107,7 +7623,35 @@
     "build_difficulty": "Challenging",
     "rucc_code": 3,
     "rucc_description": "Metro - Counties in metro areas of fewer than 250,000 population",
-    "rural_class": "Metro"
+    "rural_class": "Metro",
+    "cable_served": 24955,
+    "dsl_served": 3296,
+    "cable_operators": [
+      {
+        "name": "Spectrum",
+        "passings": 24713
+      },
+      {
+        "name": "Haefele Connect",
+        "passings": 211
+      },
+      {
+        "name": "Zito Media",
+        "passings": 32
+      }
+    ],
+    "cable_operator_count": 3,
+    "dsl_operators": [
+      {
+        "name": "Frontier",
+        "passings": 3130
+      },
+      {
+        "name": "GoNetspeed",
+        "passings": 166
+      }
+    ],
+    "dsl_operator_count": 2
   },
   "36111": {
     "geoid": "36111",
@@ -5121,47 +7665,74 @@
       {
         "name": "Archtop Fiber",
         "passings": 11929,
-        "served": 11929
+        "served": 11929,
+        "fiber_passings": 11929,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Planet Networks",
         "passings": 6748,
-        "served": 6748
+        "served": 6748,
+        "fiber_passings": 6748,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Verizon",
         "passings": 949,
-        "served": 949
+        "served": 949,
+        "fiber_passings": 949,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "MTC Cable",
         "passings": 879,
-        "served": 879
+        "served": 879,
+        "fiber_passings": 879,
+        "cable_passings": 8,
+        "dsl_passings": 0
       },
       {
         "name": "Margaretville Telephone Co",
         "passings": 207,
-        "served": 207
+        "served": 207,
+        "fiber_passings": 207,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Optimum",
         "passings": 36,
-        "served": 36
+        "served": 36,
+        "fiber_passings": 36,
+        "cable_passings": 7215,
+        "dsl_passings": 0
       },
       {
         "name": "Mid-Hudson Cablevision",
         "passings": 23,
-        "served": 23
+        "served": 23,
+        "fiber_passings": 23,
+        "cable_passings": 23,
+        "dsl_passings": 0
       },
       {
         "name": "Frontier",
         "passings": 14,
-        "served": 14
+        "served": 14,
+        "fiber_passings": 14,
+        "cable_passings": 0,
+        "dsl_passings": 1850
       },
       {
         "name": "Spectrum",
         "passings": 14,
-        "served": 14
+        "served": 14,
+        "fiber_passings": 14,
+        "cable_passings": 60732,
+        "dsl_passings": 0
       }
     ],
     "population_2023": 182109,
@@ -5219,7 +7790,35 @@
     "build_difficulty": "Challenging",
     "rucc_code": 3,
     "rucc_description": "Metro - Counties in metro areas of fewer than 250,000 population",
-    "rural_class": "Metro"
+    "rural_class": "Metro",
+    "cable_served": 67865,
+    "dsl_served": 1850,
+    "cable_operators": [
+      {
+        "name": "Spectrum",
+        "passings": 60732
+      },
+      {
+        "name": "Optimum",
+        "passings": 7215
+      },
+      {
+        "name": "Mid-Hudson Cablevision",
+        "passings": 23
+      },
+      {
+        "name": "MTC Cable",
+        "passings": 8
+      }
+    ],
+    "cable_operator_count": 4,
+    "dsl_operators": [
+      {
+        "name": "Frontier",
+        "passings": 1850
+      }
+    ],
+    "dsl_operator_count": 1
   },
   "36113": {
     "geoid": "36113",
@@ -5233,22 +7832,34 @@
       {
         "name": "SLICFiber",
         "passings": 4418,
-        "served": 4418
+        "served": 4418,
+        "fiber_passings": 4418,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Frontier",
         "passings": 1533,
-        "served": 1533
+        "served": 1533,
+        "fiber_passings": 1533,
+        "cable_passings": 0,
+        "dsl_passings": 2592
       },
       {
         "name": "Spectrum",
         "passings": 446,
-        "served": 446
+        "served": 446,
+        "fiber_passings": 446,
+        "cable_passings": 27832,
+        "dsl_passings": 0
       },
       {
         "name": "FirstLight Fiber",
         "passings": 1,
-        "served": 1
+        "served": 1,
+        "fiber_passings": 1,
+        "cable_passings": 0,
+        "dsl_passings": 0
       }
     ],
     "population_2023": 65560,
@@ -5301,7 +7912,23 @@
     "build_difficulty": "Challenging",
     "rucc_code": 3,
     "rucc_description": "Metro - Counties in metro areas of fewer than 250,000 population",
-    "rural_class": "Metro"
+    "rural_class": "Metro",
+    "cable_served": 27832,
+    "dsl_served": 2592,
+    "cable_operators": [
+      {
+        "name": "Spectrum",
+        "passings": 27832
+      }
+    ],
+    "cable_operator_count": 1,
+    "dsl_operators": [
+      {
+        "name": "Frontier",
+        "passings": 2592
+      }
+    ],
+    "dsl_operator_count": 1
   },
   "36115": {
     "geoid": "36115",
@@ -5315,27 +7942,42 @@
       {
         "name": "SLICFiber",
         "passings": 5164,
-        "served": 5164
+        "served": 5164,
+        "fiber_passings": 5164,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Verizon",
         "passings": 1509,
-        "served": 1509
+        "served": 1509,
+        "fiber_passings": 1509,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Spectrum",
         "passings": 1474,
-        "served": 1474
+        "served": 1474,
+        "fiber_passings": 1474,
+        "cable_passings": 18248,
+        "dsl_passings": 0
       },
       {
         "name": "FirstLight Fiber",
         "passings": 11,
-        "served": 11
+        "served": 11,
+        "fiber_passings": 11,
+        "cable_passings": 0,
+        "dsl_passings": 5
       },
       {
         "name": "TDS Telecom",
         "passings": 5,
-        "served": 5
+        "served": 5,
+        "fiber_passings": 5,
+        "cable_passings": 0,
+        "dsl_passings": 0
       }
     ],
     "population_2023": 60883,
@@ -5389,7 +8031,23 @@
     "build_difficulty": "Challenging",
     "rucc_code": 3,
     "rucc_description": "Metro - Counties in metro areas of fewer than 250,000 population",
-    "rural_class": "Metro"
+    "rural_class": "Metro",
+    "cable_served": 18248,
+    "dsl_served": 5,
+    "cable_operators": [
+      {
+        "name": "Spectrum",
+        "passings": 18248
+      }
+    ],
+    "cable_operator_count": 1,
+    "dsl_operators": [
+      {
+        "name": "FirstLight Fiber",
+        "passings": 5
+      }
+    ],
+    "dsl_operator_count": 1
   },
   "36117": {
     "geoid": "36117",
@@ -5403,27 +8061,42 @@
       {
         "name": "GoNetspeed",
         "passings": 4982,
-        "served": 4982
+        "served": 4982,
+        "fiber_passings": 4982,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Spectrum",
         "passings": 3776,
-        "served": 3776
+        "served": 3776,
+        "fiber_passings": 3776,
+        "cable_passings": 32224,
+        "dsl_passings": 0
       },
       {
         "name": "Empire Long Distance Corporation",
         "passings": 404,
-        "served": 404
+        "served": 404,
+        "fiber_passings": 404,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "TDS Telecom",
         "passings": 212,
-        "served": 212
+        "served": 212,
+        "fiber_passings": 212,
+        "cable_passings": 0,
+        "dsl_passings": 658
       },
       {
         "name": "Frontier",
         "passings": 77,
-        "served": 77
+        "served": 77,
+        "fiber_passings": 77,
+        "cable_passings": 0,
+        "dsl_passings": 247
       }
     ],
     "population_2023": 91128,
@@ -5477,7 +8150,27 @@
     "build_difficulty": "Moderate",
     "rucc_code": 1,
     "rucc_description": "Metro - Counties in metro areas of 1 million population or more",
-    "rural_class": "Metro"
+    "rural_class": "Metro",
+    "cable_served": 32224,
+    "dsl_served": 905,
+    "cable_operators": [
+      {
+        "name": "Spectrum",
+        "passings": 32224
+      }
+    ],
+    "cable_operator_count": 1,
+    "dsl_operators": [
+      {
+        "name": "TDS Telecom",
+        "passings": 658
+      },
+      {
+        "name": "Frontier",
+        "passings": 247
+      }
+    ],
+    "dsl_operator_count": 2
   },
   "36119": {
     "geoid": "36119",
@@ -5491,22 +8184,41 @@
       {
         "name": "Verizon",
         "passings": 180706,
-        "served": 180706
+        "served": 180706,
+        "fiber_passings": 180706,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Optimum",
         "passings": 142166,
-        "served": 142166
+        "served": 142166,
+        "fiber_passings": 142166,
+        "cable_passings": 188118,
+        "dsl_passings": 0
       },
       {
         "name": "Spectrum",
         "passings": 12,
-        "served": 12
+        "served": 12,
+        "fiber_passings": 12,
+        "cable_passings": 9593,
+        "dsl_passings": 0
       },
       {
         "name": "Frontier",
         "passings": 2,
-        "served": 2
+        "served": 2,
+        "fiber_passings": 2,
+        "cable_passings": 0,
+        "dsl_passings": 15
+      },
+      {
+        "name": "Xfinity",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 1201,
+        "dsl_passings": 0
       }
     ],
     "population_2023": 996888,
@@ -5559,7 +8271,31 @@
     "build_difficulty": "Moderate-Hard",
     "rucc_code": 1,
     "rucc_description": "Metro - Counties in metro areas of 1 million population or more",
-    "rural_class": "Metro"
+    "rural_class": "Metro",
+    "cable_served": 198083,
+    "dsl_served": 15,
+    "cable_operators": [
+      {
+        "name": "Optimum",
+        "passings": 188118
+      },
+      {
+        "name": "Spectrum",
+        "passings": 9593
+      },
+      {
+        "name": "Xfinity",
+        "passings": 1201
+      }
+    ],
+    "cable_operator_count": 3,
+    "dsl_operators": [
+      {
+        "name": "Frontier",
+        "passings": 15
+      }
+    ],
+    "dsl_operator_count": 1
   },
   "36121": {
     "geoid": "36121",
@@ -5573,22 +8309,34 @@
       {
         "name": "Empire Long Distance Corporation",
         "passings": 2833,
-        "served": 2833
+        "served": 2833,
+        "fiber_passings": 2833,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Spectrum",
         "passings": 2364,
-        "served": 2364
+        "served": 2364,
+        "fiber_passings": 2364,
+        "cable_passings": 11548,
+        "dsl_passings": 0
       },
       {
         "name": "Armstrong Telecommunications Inc",
         "passings": 741,
-        "served": 741
+        "served": 741,
+        "fiber_passings": 741,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Frontier",
         "passings": 313,
-        "served": 313
+        "served": 313,
+        "fiber_passings": 313,
+        "cable_passings": 0,
+        "dsl_passings": 4407
       }
     ],
     "population_2023": 39980,
@@ -5641,7 +8389,23 @@
     "build_difficulty": "Moderate",
     "rucc_code": 8,
     "rucc_description": "Nonmetro - Urban population of fewer than 5,000, adjacent to a metro area",
-    "rural_class": "Rural"
+    "rural_class": "Rural",
+    "cable_served": 11548,
+    "dsl_served": 4407,
+    "cable_operators": [
+      {
+        "name": "Spectrum",
+        "passings": 11548
+      }
+    ],
+    "cable_operator_count": 1,
+    "dsl_operators": [
+      {
+        "name": "Frontier",
+        "passings": 4407
+      }
+    ],
+    "dsl_operator_count": 1
   },
   "36123": {
     "geoid": "36123",
@@ -5655,22 +8419,41 @@
       {
         "name": "Spectrum",
         "passings": 2620,
-        "served": 2620
+        "served": 2620,
+        "fiber_passings": 2620,
+        "cable_passings": 7434,
+        "dsl_passings": 0
       },
       {
         "name": "Empire Long Distance Corporation",
         "passings": 2578,
-        "served": 2578
+        "served": 2578,
+        "fiber_passings": 2578,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Frontier",
         "passings": 592,
-        "served": 592
+        "served": 592,
+        "fiber_passings": 592,
+        "cable_passings": 0,
+        "dsl_passings": 1974
       },
       {
         "name": "Empire Telephone Corp.",
         "passings": 263,
-        "served": 263
+        "served": 263,
+        "fiber_passings": 263,
+        "cable_passings": 0,
+        "dsl_passings": 3
+      },
+      {
+        "name": "Haefele Connect",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 378,
+        "dsl_passings": 0
       }
     ],
     "population_2023": 24637,
@@ -5723,6 +8506,30 @@
     "build_difficulty": "Moderate-Hard",
     "rucc_code": 6,
     "rucc_description": "Nonmetro - Urban population of 5,000 to 20,000, adjacent to a metro area",
-    "rural_class": "Rural"
+    "rural_class": "Rural",
+    "cable_served": 7800,
+    "dsl_served": 1977,
+    "cable_operators": [
+      {
+        "name": "Spectrum",
+        "passings": 7434
+      },
+      {
+        "name": "Haefele Connect",
+        "passings": 378
+      }
+    ],
+    "cable_operator_count": 2,
+    "dsl_operators": [
+      {
+        "name": "Frontier",
+        "passings": 1974
+      },
+      {
+        "name": "Empire Telephone Corp.",
+        "passings": 3
+      }
+    ],
+    "dsl_operator_count": 2
   }
 }

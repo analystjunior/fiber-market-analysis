@@ -11,17 +11,26 @@
       {
         "name": "Brightspeed",
         "passings": 11029,
-        "served": 11029
+        "served": 11029,
+        "fiber_passings": 11029,
+        "cable_passings": 0,
+        "dsl_passings": 22198
       },
       {
         "name": "Xfinity",
         "passings": 1471,
-        "served": 1471
+        "served": 1471,
+        "fiber_passings": 1471,
+        "cable_passings": 36129,
+        "dsl_passings": 0
       },
       {
         "name": "Verizon",
         "passings": 2,
-        "served": 2
+        "served": 2,
+        "fiber_passings": 2,
+        "cable_passings": 0,
+        "dsl_passings": 0
       }
     ],
     "population_2023": 105183,
@@ -73,7 +82,23 @@
     "build_difficulty": "Moderate",
     "rucc_code": 3,
     "rucc_description": "Metro - Counties in metro areas of fewer than 250,000 population",
-    "rural_class": "Metro"
+    "rural_class": "Metro",
+    "cable_served": 36129,
+    "dsl_served": 22198,
+    "cable_operators": [
+      {
+        "name": "Xfinity",
+        "passings": 36129
+      }
+    ],
+    "cable_operator_count": 1,
+    "dsl_operators": [
+      {
+        "name": "Brightspeed",
+        "passings": 22198
+      }
+    ],
+    "dsl_operator_count": 1
   },
   "42003": {
     "geoid": "42003",
@@ -87,52 +112,103 @@
       {
         "name": "Verizon",
         "passings": 389825,
-        "served": 389825
+        "served": 389825,
+        "fiber_passings": 389825,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "ArmstrongUtilitiesInc",
         "passings": 11977,
-        "served": 11977
+        "served": 11977,
+        "fiber_passings": 11977,
+        "cable_passings": 1961,
+        "dsl_passings": 0
       },
       {
         "name": "Fidium Fiber",
         "passings": 11930,
-        "served": 11930
+        "served": 11930,
+        "fiber_passings": 11930,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Xfinity",
         "passings": 6052,
-        "served": 6052
+        "served": 6052,
+        "fiber_passings": 6052,
+        "cable_passings": 453110,
+        "dsl_passings": 0
       },
       {
         "name": "Salsgiver Inc",
         "passings": 3160,
-        "served": 3160
+        "served": 3160,
+        "fiber_passings": 3160,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Windstream Pennsylvania, LLC.",
         "passings": 2587,
-        "served": 2587
+        "served": 2587,
+        "fiber_passings": 2587,
+        "cable_passings": 0,
+        "dsl_passings": 3676
       },
       {
         "name": "Armstrong Telephone Company",
         "passings": 610,
-        "served": 610
+        "served": 610,
+        "fiber_passings": 610,
+        "cable_passings": 0,
+        "dsl_passings": 889
       },
       {
         "name": "NetSpeed LLC",
         "passings": 242,
-        "served": 242
+        "served": 242,
+        "fiber_passings": 242,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Dojo Networks",
         "passings": 5,
-        "served": 5
+        "served": 5,
+        "fiber_passings": 5,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Windstream Florida, Inc.",
         "passings": 5,
-        "served": 5
+        "served": 5,
+        "fiber_passings": 5,
+        "cable_passings": 0,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Breezeline",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 1,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Consolidated Communications",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 0,
+        "dsl_passings": 12977
+      },
+      {
+        "name": "Brightspeed",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 0,
+        "dsl_passings": 5
       }
     ],
     "population_2023": 1240476,
@@ -191,7 +267,43 @@
     "build_difficulty": "Challenging",
     "rucc_code": 1,
     "rucc_description": "Metro - Counties in metro areas of 1 million population or more",
-    "rural_class": "Metro"
+    "rural_class": "Metro",
+    "cable_served": 455068,
+    "dsl_served": 17542,
+    "cable_operators": [
+      {
+        "name": "Xfinity",
+        "passings": 453110
+      },
+      {
+        "name": "ArmstrongUtilitiesInc",
+        "passings": 1961
+      },
+      {
+        "name": "Breezeline",
+        "passings": 1
+      }
+    ],
+    "cable_operator_count": 3,
+    "dsl_operators": [
+      {
+        "name": "Consolidated Communications",
+        "passings": 12977
+      },
+      {
+        "name": "Windstream Pennsylvania, LLC.",
+        "passings": 3676
+      },
+      {
+        "name": "Armstrong Telephone Company",
+        "passings": 889
+      },
+      {
+        "name": "Brightspeed",
+        "passings": 5
+      }
+    ],
+    "dsl_operator_count": 4
   },
   "42005": {
     "geoid": "42005",
@@ -205,22 +317,55 @@
       {
         "name": "Windstream Pennsylvania, LLC.",
         "passings": 17404,
-        "served": 17404
+        "served": 17404,
+        "fiber_passings": 17404,
+        "cable_passings": 0,
+        "dsl_passings": 25759
       },
       {
         "name": "Salsgiver Inc",
         "passings": 7803,
-        "served": 7803
+        "served": 7803,
+        "fiber_passings": 7803,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Fidium Fiber",
         "passings": 598,
-        "served": 598
+        "served": 598,
+        "fiber_passings": 598,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "ArmstrongUtilitiesInc",
         "passings": 19,
-        "served": 19
+        "served": 19,
+        "fiber_passings": 19,
+        "cable_passings": 1169,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Xfinity",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 24858,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Consolidated Communications",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 0,
+        "dsl_passings": 1120
+      },
+      {
+        "name": "Brightspeed",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 0,
+        "dsl_passings": 581
       }
     ],
     "population_2023": 65069,
@@ -273,7 +418,35 @@
     "build_difficulty": "Challenging",
     "rucc_code": 1,
     "rucc_description": "Metro - Counties in metro areas of 1 million population or more",
-    "rural_class": "Metro"
+    "rural_class": "Metro",
+    "cable_served": 26019,
+    "dsl_served": 27451,
+    "cable_operators": [
+      {
+        "name": "Xfinity",
+        "passings": 24858
+      },
+      {
+        "name": "ArmstrongUtilitiesInc",
+        "passings": 1169
+      }
+    ],
+    "cable_operator_count": 2,
+    "dsl_operators": [
+      {
+        "name": "Windstream Pennsylvania, LLC.",
+        "passings": 25759
+      },
+      {
+        "name": "Consolidated Communications",
+        "passings": 1120
+      },
+      {
+        "name": "Brightspeed",
+        "passings": 581
+      }
+    ],
+    "dsl_operator_count": 3
   },
   "42007": {
     "geoid": "42007",
@@ -287,42 +460,73 @@
       {
         "name": "NetSpeed LLC",
         "passings": 15896,
-        "served": 15896
+        "served": 15896,
+        "fiber_passings": 15896,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Verizon",
         "passings": 3484,
-        "served": 3484
+        "served": 3484,
+        "fiber_passings": 3484,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Windstream Pennsylvania, LLC.",
         "passings": 1137,
-        "served": 1137
+        "served": 1137,
+        "fiber_passings": 1137,
+        "cable_passings": 0,
+        "dsl_passings": 1620
       },
       {
         "name": "ArmstrongUtilitiesInc",
         "passings": 788,
-        "served": 788
+        "served": 788,
+        "fiber_passings": 788,
+        "cable_passings": 4940,
+        "dsl_passings": 0
       },
       {
         "name": "Armstrong Telephone Company",
         "passings": 481,
-        "served": 481
+        "served": 481,
+        "fiber_passings": 481,
+        "cable_passings": 0,
+        "dsl_passings": 1058
       },
       {
         "name": "Xfinity",
         "passings": 180,
-        "served": 180
+        "served": 180,
+        "fiber_passings": 180,
+        "cable_passings": 64717,
+        "dsl_passings": 0
       },
       {
         "name": "Brightspeed",
         "passings": 2,
-        "served": 2
+        "served": 2,
+        "fiber_passings": 2,
+        "cable_passings": 0,
+        "dsl_passings": 47
       },
       {
         "name": "Frontier",
         "passings": 2,
-        "served": 2
+        "served": 2,
+        "fiber_passings": 2,
+        "cable_passings": 0,
+        "dsl_passings": 2
+      },
+      {
+        "name": "Consolidated Communications",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 0,
+        "dsl_passings": 26
       }
     ],
     "population_2023": 166993,
@@ -379,7 +583,43 @@
     "build_difficulty": "Challenging",
     "rucc_code": 1,
     "rucc_description": "Metro - Counties in metro areas of 1 million population or more",
-    "rural_class": "Metro"
+    "rural_class": "Metro",
+    "cable_served": 69565,
+    "dsl_served": 2751,
+    "cable_operators": [
+      {
+        "name": "Xfinity",
+        "passings": 64717
+      },
+      {
+        "name": "ArmstrongUtilitiesInc",
+        "passings": 4940
+      }
+    ],
+    "cable_operator_count": 2,
+    "dsl_operators": [
+      {
+        "name": "Windstream Pennsylvania, LLC.",
+        "passings": 1620
+      },
+      {
+        "name": "Armstrong Telephone Company",
+        "passings": 1058
+      },
+      {
+        "name": "Brightspeed",
+        "passings": 47
+      },
+      {
+        "name": "Consolidated Communications",
+        "passings": 26
+      },
+      {
+        "name": "Frontier",
+        "passings": 2
+      }
+    ],
+    "dsl_operator_count": 5
   },
   "42009": {
     "geoid": "42009",
@@ -393,12 +633,32 @@
       {
         "name": "Brightspeed",
         "passings": 681,
-        "served": 681
+        "served": 681,
+        "fiber_passings": 681,
+        "cable_passings": 0,
+        "dsl_passings": 15733
       },
       {
         "name": "Frontier",
         "passings": 515,
-        "served": 515
+        "served": 515,
+        "fiber_passings": 515,
+        "cable_passings": 0,
+        "dsl_passings": 587
+      },
+      {
+        "name": "Xfinity",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 12328,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Breezeline",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 5246,
+        "dsl_passings": 0
       }
     ],
     "population_2023": 47503,
@@ -449,7 +709,31 @@
     "build_difficulty": "Challenging",
     "rucc_code": 8,
     "rucc_description": "Nonmetro - Urban population of fewer than 5,000, adjacent to a metro area",
-    "rural_class": "Rural"
+    "rural_class": "Rural",
+    "cable_served": 15974,
+    "dsl_served": 16292,
+    "cable_operators": [
+      {
+        "name": "Xfinity",
+        "passings": 12328
+      },
+      {
+        "name": "Breezeline",
+        "passings": 5246
+      }
+    ],
+    "cable_operator_count": 2,
+    "dsl_operators": [
+      {
+        "name": "Brightspeed",
+        "passings": 15733
+      },
+      {
+        "name": "Frontier",
+        "passings": 587
+      }
+    ],
+    "dsl_operator_count": 2
   },
   "42011": {
     "geoid": "42011",
@@ -463,57 +747,104 @@
       {
         "name": "FastBridge Fiber",
         "passings": 27376,
-        "served": 27376
+        "served": 27376,
+        "fiber_passings": 27376,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Windstream Conestoga, Inc.",
         "passings": 16152,
-        "served": 16152
+        "served": 16152,
+        "fiber_passings": 16152,
+        "cable_passings": 0,
+        "dsl_passings": 30837
       },
       {
         "name": "Service Electric Cablevision,Inc.",
         "passings": 4310,
-        "served": 4310
+        "served": 4310,
+        "fiber_passings": 4310,
+        "cable_passings": 37473,
+        "dsl_passings": 0
       },
       {
         "name": "Frontier",
         "passings": 2499,
-        "served": 2499
+        "served": 2499,
+        "fiber_passings": 2499,
+        "cable_passings": 0,
+        "dsl_passings": 6939
       },
       {
         "name": "Xfinity",
         "passings": 2058,
-        "served": 2058
+        "served": 2058,
+        "fiber_passings": 2058,
+        "cable_passings": 114306,
+        "dsl_passings": 0
       },
       {
         "name": "Borough of Kutztown",
         "passings": 1654,
-        "served": 1654
+        "served": 1654,
+        "fiber_passings": 1654,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Blue Ridge Cable Technologies",
         "passings": 1010,
-        "served": 1010
+        "served": 1010,
+        "fiber_passings": 1010,
+        "cable_passings": 952,
+        "dsl_passings": 0
       },
       {
         "name": "Verizon",
         "passings": 754,
-        "served": 754
+        "served": 754,
+        "fiber_passings": 754,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Windstream D&E, Inc.",
         "passings": 209,
-        "served": 209
+        "served": 209,
+        "fiber_passings": 209,
+        "cable_passings": 0,
+        "dsl_passings": 188
       },
       {
         "name": "Astound Broadband",
         "passings": 17,
-        "served": 17
+        "served": 17,
+        "fiber_passings": 17,
+        "cable_passings": 51,
+        "dsl_passings": 0
       },
       {
         "name": "Windstream Pennsylvania, LLC.",
         "passings": 2,
-        "served": 2
+        "served": 2,
+        "fiber_passings": 2,
+        "cable_passings": 0,
+        "dsl_passings": 6
+      },
+      {
+        "name": "Service Electric Cable TV",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 2266,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Breezeline",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 7,
+        "dsl_passings": 0
       }
     ],
     "population_2023": 429989,
@@ -573,7 +904,55 @@
     "build_difficulty": "Moderate-Hard",
     "rucc_code": 2,
     "rucc_description": "Metro - Counties in metro areas of 250,000 to 1 million population",
-    "rural_class": "Metro"
+    "rural_class": "Metro",
+    "cable_served": 138461,
+    "dsl_served": 37936,
+    "cable_operators": [
+      {
+        "name": "Xfinity",
+        "passings": 114306
+      },
+      {
+        "name": "Service Electric Cablevision,Inc.",
+        "passings": 37473
+      },
+      {
+        "name": "Service Electric Cable TV",
+        "passings": 2266
+      },
+      {
+        "name": "Blue Ridge Cable Technologies",
+        "passings": 952
+      },
+      {
+        "name": "Astound Broadband",
+        "passings": 51
+      },
+      {
+        "name": "Breezeline",
+        "passings": 7
+      }
+    ],
+    "cable_operator_count": 6,
+    "dsl_operators": [
+      {
+        "name": "Windstream Conestoga, Inc.",
+        "passings": 30837
+      },
+      {
+        "name": "Frontier",
+        "passings": 6939
+      },
+      {
+        "name": "Windstream D&E, Inc.",
+        "passings": 188
+      },
+      {
+        "name": "Windstream Pennsylvania, LLC.",
+        "passings": 6
+      }
+    ],
+    "dsl_operator_count": 4
   },
   "42013": {
     "geoid": "42013",
@@ -587,32 +966,57 @@
       {
         "name": "Xfinity",
         "passings": 17088,
-        "served": 17088
+        "served": 17088,
+        "fiber_passings": 17088,
+        "cable_passings": 9388,
+        "dsl_passings": 0
       },
       {
         "name": "Salsgiver Inc",
         "passings": 3126,
-        "served": 3126
+        "served": 3126,
+        "fiber_passings": 3126,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Brightspeed",
         "passings": 1875,
-        "served": 1875
+        "served": 1875,
+        "fiber_passings": 1875,
+        "cable_passings": 0,
+        "dsl_passings": 4489
       },
       {
         "name": "Breezeline",
         "passings": 771,
-        "served": 771
+        "served": 771,
+        "fiber_passings": 771,
+        "cable_passings": 43224,
+        "dsl_passings": 0
       },
       {
         "name": "Verizon",
         "passings": 12,
-        "served": 12
+        "served": 12,
+        "fiber_passings": 12,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Dojo Networks",
         "passings": 1,
-        "served": 1
+        "served": 1,
+        "fiber_passings": 1,
+        "cable_passings": 0,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Windstream Pennsylvania, LLC.",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 0,
+        "dsl_passings": 4
       }
     ],
     "population_2023": 121854,
@@ -667,7 +1071,31 @@
     "build_difficulty": "Challenging",
     "rucc_code": 3,
     "rucc_description": "Metro - Counties in metro areas of fewer than 250,000 population",
-    "rural_class": "Metro"
+    "rural_class": "Metro",
+    "cable_served": 47663,
+    "dsl_served": 4493,
+    "cable_operators": [
+      {
+        "name": "Breezeline",
+        "passings": 43224
+      },
+      {
+        "name": "Xfinity",
+        "passings": 9388
+      }
+    ],
+    "cable_operator_count": 2,
+    "dsl_operators": [
+      {
+        "name": "Brightspeed",
+        "passings": 4489
+      },
+      {
+        "name": "Windstream Pennsylvania, LLC.",
+        "passings": 4
+      }
+    ],
+    "dsl_operator_count": 2
   },
   "42015": {
     "geoid": "42015",
@@ -681,52 +1109,89 @@
       {
         "name": "Revolution Broadband",
         "passings": 6378,
-        "served": 6378
+        "served": 6378,
+        "fiber_passings": 6378,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "North Penn Long Distance Corporation",
         "passings": 5418,
-        "served": 5418
+        "served": 5418,
+        "fiber_passings": 5418,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Frontier",
         "passings": 5246,
-        "served": 5246
+        "served": 5246,
+        "fiber_passings": 5246,
+        "cable_passings": 0,
+        "dsl_passings": 11713
       },
       {
         "name": "TRI-CO CONNECTIONS",
         "passings": 2941,
-        "served": 2941
+        "served": 2941,
+        "fiber_passings": 2941,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "North Penn Telephone Company",
         "passings": 2106,
-        "served": 2106
+        "served": 2106,
+        "fiber_passings": 2106,
+        "cable_passings": 0,
+        "dsl_passings": 1034
       },
       {
         "name": "Zito Media",
         "passings": 504,
-        "served": 504
+        "served": 504,
+        "fiber_passings": 504,
+        "cable_passings": 1270,
+        "dsl_passings": 0
       },
       {
         "name": "Beaver Valley Cable",
         "passings": 478,
-        "served": 478
+        "served": 478,
+        "fiber_passings": 478,
+        "cable_passings": 1403,
+        "dsl_passings": 0
       },
       {
         "name": "Blue Ridge Cable Technologies",
         "passings": 42,
-        "served": 42
+        "served": 42,
+        "fiber_passings": 42,
+        "cable_passings": 3143,
+        "dsl_passings": 0
       },
       {
         "name": "Verizon",
         "passings": 4,
-        "served": 4
+        "served": 4,
+        "fiber_passings": 4,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Spectrum",
         "passings": 2,
-        "served": 2
+        "served": 2,
+        "fiber_passings": 2,
+        "cable_passings": 5474,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Xfinity",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 2636,
+        "dsl_passings": 0
       }
     ],
     "population_2023": 59971,
@@ -785,7 +1250,43 @@
     "build_difficulty": "Challenging",
     "rucc_code": 6,
     "rucc_description": "Nonmetro - Urban population of 5,000 to 20,000, adjacent to a metro area",
-    "rural_class": "Rural"
+    "rural_class": "Rural",
+    "cable_served": 13921,
+    "dsl_served": 12725,
+    "cable_operators": [
+      {
+        "name": "Spectrum",
+        "passings": 5474
+      },
+      {
+        "name": "Blue Ridge Cable Technologies",
+        "passings": 3143
+      },
+      {
+        "name": "Xfinity",
+        "passings": 2636
+      },
+      {
+        "name": "Beaver Valley Cable",
+        "passings": 1403
+      },
+      {
+        "name": "Zito Media",
+        "passings": 1270
+      }
+    ],
+    "cable_operator_count": 5,
+    "dsl_operators": [
+      {
+        "name": "Frontier",
+        "passings": 11713
+      },
+      {
+        "name": "North Penn Telephone Company",
+        "passings": 1034
+      }
+    ],
+    "dsl_operator_count": 2
   },
   "42017": {
     "geoid": "42017",
@@ -799,22 +1300,48 @@
       {
         "name": "Verizon",
         "passings": 187224,
-        "served": 187224
+        "served": 187224,
+        "fiber_passings": 187224,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Xfinity",
         "passings": 560,
-        "served": 560
+        "served": 560,
+        "fiber_passings": 560,
+        "cable_passings": 197879,
+        "dsl_passings": 0
       },
       {
         "name": "Frontier",
         "passings": 253,
-        "served": 253
+        "served": 253,
+        "fiber_passings": 253,
+        "cable_passings": 0,
+        "dsl_passings": 2370
       },
       {
         "name": "Hotwire Communications",
         "passings": 3,
-        "served": 3
+        "served": 3,
+        "fiber_passings": 3,
+        "cable_passings": 33,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Service Electric Cable TV",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 7818,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Astound Broadband",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 380,
+        "dsl_passings": 0
       }
     ],
     "population_2023": 645993,
@@ -867,7 +1394,35 @@
     "build_difficulty": "Moderate",
     "rucc_code": 1,
     "rucc_description": "Metro - Counties in metro areas of 1 million population or more",
-    "rural_class": "Metro"
+    "rural_class": "Metro",
+    "cable_served": 205220,
+    "dsl_served": 2370,
+    "cable_operators": [
+      {
+        "name": "Xfinity",
+        "passings": 197879
+      },
+      {
+        "name": "Service Electric Cable TV",
+        "passings": 7818
+      },
+      {
+        "name": "Astound Broadband",
+        "passings": 380
+      },
+      {
+        "name": "Hotwire Communications",
+        "passings": 33
+      }
+    ],
+    "cable_operator_count": 4,
+    "dsl_operators": [
+      {
+        "name": "Frontier",
+        "passings": 2370
+      }
+    ],
+    "dsl_operator_count": 1
   },
   "42019": {
     "geoid": "42019",
@@ -881,32 +1436,64 @@
       {
         "name": "ArmstrongUtilitiesInc",
         "passings": 35645,
-        "served": 35645
+        "served": 35645,
+        "fiber_passings": 35645,
+        "cable_passings": 41375,
+        "dsl_passings": 0
       },
       {
         "name": "Brightspeed",
         "passings": 16581,
-        "served": 16581
+        "served": 16581,
+        "fiber_passings": 16581,
+        "cable_passings": 0,
+        "dsl_passings": 20706
       },
       {
         "name": "Fidium Fiber",
         "passings": 10939,
-        "served": 10939
+        "served": 10939,
+        "fiber_passings": 10939,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Xfinity",
         "passings": 9758,
-        "served": 9758
+        "served": 9758,
+        "fiber_passings": 9758,
+        "cable_passings": 589,
+        "dsl_passings": 0
       },
       {
         "name": "Salsgiver Inc",
         "passings": 279,
-        "served": 279
+        "served": 279,
+        "fiber_passings": 279,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Verizon",
         "passings": 2,
-        "served": 2
+        "served": 2,
+        "fiber_passings": 2,
+        "cable_passings": 0,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Consolidated Communications",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 0,
+        "dsl_passings": 13119
+      },
+      {
+        "name": "Windstream Pennsylvania, LLC.",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 0,
+        "dsl_passings": 2
       }
     ],
     "population_2023": 195870,
@@ -961,7 +1548,35 @@
     "build_difficulty": "Moderate-Hard",
     "rucc_code": 1,
     "rucc_description": "Metro - Counties in metro areas of 1 million population or more",
-    "rural_class": "Metro"
+    "rural_class": "Metro",
+    "cable_served": 41937,
+    "dsl_served": 33678,
+    "cable_operators": [
+      {
+        "name": "ArmstrongUtilitiesInc",
+        "passings": 41375
+      },
+      {
+        "name": "Xfinity",
+        "passings": 589
+      }
+    ],
+    "cable_operator_count": 2,
+    "dsl_operators": [
+      {
+        "name": "Brightspeed",
+        "passings": 20706
+      },
+      {
+        "name": "Consolidated Communications",
+        "passings": 13119
+      },
+      {
+        "name": "Windstream Pennsylvania, LLC.",
+        "passings": 2
+      }
+    ],
+    "dsl_operator_count": 3
   },
   "42021": {
     "geoid": "42021",
@@ -975,22 +1590,34 @@
       {
         "name": "Breezeline",
         "passings": 2432,
-        "served": 2432
+        "served": 2432,
+        "fiber_passings": 2432,
+        "cable_passings": 25975,
+        "dsl_passings": 0
       },
       {
         "name": "In The Stix Broadband| LLC",
         "passings": 583,
-        "served": 583
+        "served": 583,
+        "fiber_passings": 583,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Windstream Pennsylvania, LLC.",
         "passings": 495,
-        "served": 495
+        "served": 495,
+        "fiber_passings": 495,
+        "cable_passings": 0,
+        "dsl_passings": 2417
       },
       {
         "name": "Xfinity",
         "passings": 242,
-        "served": 242
+        "served": 242,
+        "fiber_passings": 242,
+        "cable_passings": 29433,
+        "dsl_passings": 0
       }
     ],
     "population_2023": 132355,
@@ -1043,7 +1670,27 @@
     "build_difficulty": "Challenging",
     "rucc_code": 3,
     "rucc_description": "Metro - Counties in metro areas of fewer than 250,000 population",
-    "rural_class": "Metro"
+    "rural_class": "Metro",
+    "cable_served": 54066,
+    "dsl_served": 2417,
+    "cable_operators": [
+      {
+        "name": "Xfinity",
+        "passings": 29433
+      },
+      {
+        "name": "Breezeline",
+        "passings": 25975
+      }
+    ],
+    "cable_operator_count": 2,
+    "dsl_operators": [
+      {
+        "name": "Windstream Pennsylvania, LLC.",
+        "passings": 2417
+      }
+    ],
+    "dsl_operator_count": 1
   },
   "42023": {
     "geoid": "42023",
@@ -1057,17 +1704,26 @@
       {
         "name": "Windstream Pennsylvania, LLC.",
         "passings": 2364,
-        "served": 2364
+        "served": 2364,
+        "fiber_passings": 2364,
+        "cable_passings": 0,
+        "dsl_passings": 3153
       },
       {
         "name": "Zito Media",
         "passings": 1352,
-        "served": 1352
+        "served": 1352,
+        "fiber_passings": 1352,
+        "cable_passings": 2070,
+        "dsl_passings": 0
       },
       {
         "name": "TRI-CO CONNECTIONS",
         "passings": 397,
-        "served": 397
+        "served": 397,
+        "fiber_passings": 397,
+        "cable_passings": 0,
+        "dsl_passings": 0
       }
     ],
     "population_2023": 4475,
@@ -1119,7 +1775,23 @@
     "build_difficulty": "Challenging",
     "rucc_code": 9,
     "rucc_description": "Nonmetro - Urban population of fewer than 5,000, not adjacent to a metro area",
-    "rural_class": "Rural"
+    "rural_class": "Rural",
+    "cable_served": 2070,
+    "dsl_served": 3153,
+    "cable_operators": [
+      {
+        "name": "Zito Media",
+        "passings": 2070
+      }
+    ],
+    "cable_operator_count": 1,
+    "dsl_operators": [
+      {
+        "name": "Windstream Pennsylvania, LLC.",
+        "passings": 3153
+      }
+    ],
+    "dsl_operator_count": 1
   },
   "42025": {
     "geoid": "42025",
@@ -1133,27 +1805,63 @@
       {
         "name": "Blue Ridge Cable Technologies",
         "passings": 3788,
-        "served": 3788
+        "served": 3788,
+        "fiber_passings": 3788,
+        "cable_passings": 24545,
+        "dsl_passings": 0
       },
       {
         "name": "Windstream Pennsylvania, LLC.",
         "passings": 3738,
-        "served": 3738
+        "served": 3738,
+        "fiber_passings": 3738,
+        "cable_passings": 0,
+        "dsl_passings": 4285
       },
       {
         "name": "Palmerton Telephone Company",
         "passings": 1851,
-        "served": 1851
+        "served": 1851,
+        "fiber_passings": 1851,
+        "cable_passings": 0,
+        "dsl_passings": 1805
       },
       {
         "name": "Frontier",
         "passings": 8,
-        "served": 8
+        "served": 8,
+        "fiber_passings": 8,
+        "cable_passings": 0,
+        "dsl_passings": 52
       },
       {
         "name": "Xfinity",
         "passings": 8,
-        "served": 8
+        "served": 8,
+        "fiber_passings": 8,
+        "cable_passings": 4,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Breezeline",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 3911,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Service Electric Cablevision,Inc.",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 1005,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Astound Broadband",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 33,
+        "dsl_passings": 0
       }
     ],
     "population_2023": 65191,
@@ -1207,7 +1915,47 @@
     "build_difficulty": "Challenging",
     "rucc_code": 2,
     "rucc_description": "Metro - Counties in metro areas of 250,000 to 1 million population",
-    "rural_class": "Metro"
+    "rural_class": "Metro",
+    "cable_served": 29376,
+    "dsl_served": 6142,
+    "cable_operators": [
+      {
+        "name": "Blue Ridge Cable Technologies",
+        "passings": 24545
+      },
+      {
+        "name": "Breezeline",
+        "passings": 3911
+      },
+      {
+        "name": "Service Electric Cablevision,Inc.",
+        "passings": 1005
+      },
+      {
+        "name": "Astound Broadband",
+        "passings": 33
+      },
+      {
+        "name": "Xfinity",
+        "passings": 4
+      }
+    ],
+    "cable_operator_count": 5,
+    "dsl_operators": [
+      {
+        "name": "Windstream Pennsylvania, LLC.",
+        "passings": 4285
+      },
+      {
+        "name": "Palmerton Telephone Company",
+        "passings": 1805
+      },
+      {
+        "name": "Frontier",
+        "passings": 52
+      }
+    ],
+    "dsl_operator_count": 3
   },
   "42027": {
     "geoid": "42027",
@@ -1221,47 +1969,88 @@
       {
         "name": "Black Bear Fiber",
         "passings": 2477,
-        "served": 2477
+        "served": 2477,
+        "fiber_passings": 2477,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Xfinity",
         "passings": 1759,
-        "served": 1759
+        "served": 1759,
+        "fiber_passings": 1759,
+        "cable_passings": 35918,
+        "dsl_passings": 0
       },
       {
         "name": "Breezeline",
         "passings": 1634,
-        "served": 1634
+        "served": 1634,
+        "fiber_passings": 1634,
+        "cable_passings": 311,
+        "dsl_passings": 0
       },
       {
         "name": "Zito Media",
         "passings": 1480,
-        "served": 1480
+        "served": 1480,
+        "fiber_passings": 1480,
+        "cable_passings": 4178,
+        "dsl_passings": 0
       },
       {
         "name": "Glo Fiber",
         "passings": 574,
-        "served": 574
+        "served": 574,
+        "fiber_passings": 574,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Windstream Pennsylvania, LLC.",
         "passings": 277,
-        "served": 277
+        "served": 277,
+        "fiber_passings": 277,
+        "cable_passings": 0,
+        "dsl_passings": 2570
       },
       {
         "name": "Dojo Networks",
         "passings": 65,
-        "served": 65
+        "served": 65,
+        "fiber_passings": 65,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "State College Internet",
         "passings": 5,
-        "served": 5
+        "served": 5,
+        "fiber_passings": 5,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Getwireless",
         "passings": 1,
-        "served": 1
+        "served": 1,
+        "fiber_passings": 1,
+        "cable_passings": 0,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Windstream Buffalo Valley, Inc.",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 3179,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Brightspeed",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 0,
+        "dsl_passings": 3395
       }
     ],
     "population_2023": 158041,
@@ -1319,7 +2108,39 @@
     "build_difficulty": "Challenging",
     "rucc_code": 3,
     "rucc_description": "Metro - Counties in metro areas of fewer than 250,000 population",
-    "rural_class": "Metro"
+    "rural_class": "Metro",
+    "cable_served": 40051,
+    "dsl_served": 5965,
+    "cable_operators": [
+      {
+        "name": "Xfinity",
+        "passings": 35918
+      },
+      {
+        "name": "Zito Media",
+        "passings": 4178
+      },
+      {
+        "name": "Windstream Buffalo Valley, Inc.",
+        "passings": 3179
+      },
+      {
+        "name": "Breezeline",
+        "passings": 311
+      }
+    ],
+    "cable_operator_count": 4,
+    "dsl_operators": [
+      {
+        "name": "Brightspeed",
+        "passings": 3395
+      },
+      {
+        "name": "Windstream Pennsylvania, LLC.",
+        "passings": 2570
+      }
+    ],
+    "dsl_operator_count": 2
   },
   "42029": {
     "geoid": "42029",
@@ -1333,42 +2154,66 @@
       {
         "name": "Verizon",
         "passings": 138747,
-        "served": 138747
+        "served": 138747,
+        "fiber_passings": 138747,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Xfinity",
         "passings": 5773,
-        "served": 5773
+        "served": 5773,
+        "fiber_passings": 5773,
+        "cable_passings": 149113,
+        "dsl_passings": 0
       },
       {
         "name": "ArmstrongUtilitiesInc",
         "passings": 4658,
-        "served": 4658
+        "served": 4658,
+        "fiber_passings": 4658,
+        "cable_passings": 4709,
+        "dsl_passings": 0
       },
       {
         "name": "Frontier",
         "passings": 1997,
-        "served": 1997
+        "served": 1997,
+        "fiber_passings": 1997,
+        "cable_passings": 0,
+        "dsl_passings": 1798
       },
       {
         "name": "Windstream Conestoga, Inc.",
         "passings": 531,
-        "served": 531
+        "served": 531,
+        "fiber_passings": 531,
+        "cable_passings": 0,
+        "dsl_passings": 2003
       },
       {
         "name": "Hotwire Communications",
         "passings": 4,
-        "served": 4
+        "served": 4,
+        "fiber_passings": 4,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Service Electric Cablevision,Inc.",
         "passings": 3,
-        "served": 3
+        "served": 3,
+        "fiber_passings": 3,
+        "cable_passings": 4256,
+        "dsl_passings": 0
       },
       {
         "name": "Windstream Pennsylvania, LLC.",
         "passings": 1,
-        "served": 1
+        "served": 1,
+        "fiber_passings": 1,
+        "cable_passings": 0,
+        "dsl_passings": 1
       }
     ],
     "population_2023": 540896,
@@ -1425,7 +2270,39 @@
     "build_difficulty": "Moderate-Hard",
     "rucc_code": 1,
     "rucc_description": "Metro - Counties in metro areas of 1 million population or more",
-    "rural_class": "Metro"
+    "rural_class": "Metro",
+    "cable_served": 155720,
+    "dsl_served": 3802,
+    "cable_operators": [
+      {
+        "name": "Xfinity",
+        "passings": 149113
+      },
+      {
+        "name": "ArmstrongUtilitiesInc",
+        "passings": 4709
+      },
+      {
+        "name": "Service Electric Cablevision,Inc.",
+        "passings": 4256
+      }
+    ],
+    "cable_operator_count": 3,
+    "dsl_operators": [
+      {
+        "name": "Windstream Conestoga, Inc.",
+        "passings": 2003
+      },
+      {
+        "name": "Frontier",
+        "passings": 1798
+      },
+      {
+        "name": "Windstream Pennsylvania, LLC.",
+        "passings": 1
+      }
+    ],
+    "dsl_operator_count": 3
   },
   "42031": {
     "geoid": "42031",
@@ -1439,27 +2316,70 @@
       {
         "name": "Windstream Pennsylvania, LLC.",
         "passings": 5502,
-        "served": 5502
+        "served": 5502,
+        "fiber_passings": 5502,
+        "cable_passings": 0,
+        "dsl_passings": 10904
       },
       {
         "name": "VenusTelephone",
         "passings": 677,
-        "served": 677
+        "served": 677,
+        "fiber_passings": 677,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Salsgiver Inc",
         "passings": 571,
-        "served": 571
+        "served": 571,
+        "fiber_passings": 571,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "ArmstrongUtilitiesInc",
         "passings": 42,
-        "served": 42
+        "served": 42,
+        "fiber_passings": 42,
+        "cable_passings": 2864,
+        "dsl_passings": 0
       },
       {
         "name": "Verizon",
         "passings": 1,
-        "served": 1
+        "served": 1,
+        "fiber_passings": 1,
+        "cable_passings": 0,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Xfinity",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 5815,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Breezeline",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 3998,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Brightspeed",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 0,
+        "dsl_passings": 555
+      },
+      {
+        "name": "Windstream Communications, LLC.",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 0,
+        "dsl_passings": 3
       }
     ],
     "population_2023": 37297,
@@ -1513,7 +2433,39 @@
     "build_difficulty": "Challenging",
     "rucc_code": 6,
     "rucc_description": "Nonmetro - Urban population of 5,000 to 20,000, adjacent to a metro area",
-    "rural_class": "Rural"
+    "rural_class": "Rural",
+    "cable_served": 12630,
+    "dsl_served": 11442,
+    "cable_operators": [
+      {
+        "name": "Xfinity",
+        "passings": 5815
+      },
+      {
+        "name": "Breezeline",
+        "passings": 3998
+      },
+      {
+        "name": "ArmstrongUtilitiesInc",
+        "passings": 2864
+      }
+    ],
+    "cable_operator_count": 3,
+    "dsl_operators": [
+      {
+        "name": "Windstream Pennsylvania, LLC.",
+        "passings": 10904
+      },
+      {
+        "name": "Brightspeed",
+        "passings": 555
+      },
+      {
+        "name": "Windstream Communications, LLC.",
+        "passings": 3
+      }
+    ],
+    "dsl_operator_count": 3
   },
   "42033": {
     "geoid": "42033",
@@ -1527,17 +2479,33 @@
       {
         "name": "Zito Media",
         "passings": 3099,
-        "served": 3099
+        "served": 3099,
+        "fiber_passings": 3099,
+        "cable_passings": 5632,
+        "dsl_passings": 0
       },
       {
         "name": "Breezeline",
         "passings": 611,
-        "served": 611
+        "served": 611,
+        "fiber_passings": 611,
+        "cable_passings": 8484,
+        "dsl_passings": 0
       },
       {
         "name": "Windstream Pennsylvania, LLC.",
         "passings": 427,
-        "served": 427
+        "served": 427,
+        "fiber_passings": 427,
+        "cable_passings": 0,
+        "dsl_passings": 4518
+      },
+      {
+        "name": "Xfinity",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 15467,
+        "dsl_passings": 0
       }
     ],
     "population_2023": 78902,
@@ -1589,7 +2557,31 @@
     "build_difficulty": "Challenging",
     "rucc_code": 4,
     "rucc_description": "Nonmetro - Urban population of 20,000 or more, adjacent to a metro area",
-    "rural_class": "Micro"
+    "rural_class": "Micro",
+    "cable_served": 29359,
+    "dsl_served": 4518,
+    "cable_operators": [
+      {
+        "name": "Xfinity",
+        "passings": 15467
+      },
+      {
+        "name": "Breezeline",
+        "passings": 8484
+      },
+      {
+        "name": "Zito Media",
+        "passings": 5632
+      }
+    ],
+    "cable_operator_count": 3,
+    "dsl_operators": [
+      {
+        "name": "Windstream Pennsylvania, LLC.",
+        "passings": 4518
+      }
+    ],
+    "dsl_operator_count": 1
   },
   "42035": {
     "geoid": "42035",
@@ -1603,17 +2595,40 @@
       {
         "name": "Brightspeed",
         "passings": 769,
-        "served": 769
+        "served": 769,
+        "fiber_passings": 769,
+        "cable_passings": 0,
+        "dsl_passings": 2421
       },
       {
         "name": "TRI-CO CONNECTIONS",
         "passings": 635,
-        "served": 635
+        "served": 635,
+        "fiber_passings": 635,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "PTC",
         "passings": 212,
-        "served": 212
+        "served": 212,
+        "fiber_passings": 212,
+        "cable_passings": 0,
+        "dsl_passings": 155
+      },
+      {
+        "name": "Xfinity",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 14066,
+        "dsl_passings": 0
+      },
+      {
+        "name": "TDS Telecom",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 0,
+        "dsl_passings": 1619
       }
     ],
     "population_2023": 37707,
@@ -1665,7 +2680,31 @@
     "build_difficulty": "Challenging",
     "rucc_code": 6,
     "rucc_description": "Nonmetro - Urban population of 5,000 to 20,000, adjacent to a metro area",
-    "rural_class": "Rural"
+    "rural_class": "Rural",
+    "cable_served": 14066,
+    "dsl_served": 4195,
+    "cable_operators": [
+      {
+        "name": "Xfinity",
+        "passings": 14066
+      }
+    ],
+    "cable_operator_count": 1,
+    "dsl_operators": [
+      {
+        "name": "Brightspeed",
+        "passings": 2421
+      },
+      {
+        "name": "TDS Telecom",
+        "passings": 1619
+      },
+      {
+        "name": "PTC",
+        "passings": 155
+      }
+    ],
+    "dsl_operator_count": 3
   },
   "42037": {
     "geoid": "42037",
@@ -1679,42 +2718,66 @@
       {
         "name": "Service Electric Cablevision,Inc.",
         "passings": 6648,
-        "served": 6648
+        "served": 6648,
+        "fiber_passings": 6648,
+        "cable_passings": 10407,
+        "dsl_passings": 0
       },
       {
         "name": "Xfinity",
         "passings": 6254,
-        "served": 6254
+        "served": 6254,
+        "fiber_passings": 6254,
+        "cable_passings": 121,
+        "dsl_passings": 0
       },
       {
         "name": "FastBridge Fiber",
         "passings": 2741,
-        "served": 2741
+        "served": 2741,
+        "fiber_passings": 2741,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "North Penn Long Distance Corporation",
         "passings": 2020,
-        "served": 2020
+        "served": 2020,
+        "fiber_passings": 2020,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Frontier",
         "passings": 1122,
-        "served": 1122
+        "served": 1122,
+        "fiber_passings": 1122,
+        "cable_passings": 0,
+        "dsl_passings": 2705
       },
       {
         "name": "Dojo Networks",
         "passings": 4,
-        "served": 4
+        "served": 4,
+        "fiber_passings": 4,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Windstream Pennsylvania, LLC.",
         "passings": 2,
-        "served": 2
+        "served": 2,
+        "fiber_passings": 2,
+        "cable_passings": 0,
+        "dsl_passings": 2
       },
       {
         "name": "Breezeline",
         "passings": 1,
-        "served": 1
+        "served": 1,
+        "fiber_passings": 1,
+        "cable_passings": 9826,
+        "dsl_passings": 0
       }
     ],
     "population_2023": 65055,
@@ -1771,7 +2834,35 @@
     "build_difficulty": "Challenging",
     "rucc_code": 4,
     "rucc_description": "Nonmetro - Urban population of 20,000 or more, adjacent to a metro area",
-    "rural_class": "Micro"
+    "rural_class": "Micro",
+    "cable_served": 20293,
+    "dsl_served": 2707,
+    "cable_operators": [
+      {
+        "name": "Service Electric Cablevision,Inc.",
+        "passings": 10407
+      },
+      {
+        "name": "Breezeline",
+        "passings": 9826
+      },
+      {
+        "name": "Xfinity",
+        "passings": 121
+      }
+    ],
+    "cable_operator_count": 3,
+    "dsl_operators": [
+      {
+        "name": "Frontier",
+        "passings": 2705
+      },
+      {
+        "name": "Windstream Pennsylvania, LLC.",
+        "passings": 2
+      }
+    ],
+    "dsl_operator_count": 2
   },
   "42039": {
     "geoid": "42039",
@@ -1785,27 +2876,56 @@
       {
         "name": "Windstream Pennsylvania, LLC.",
         "passings": 20721,
-        "served": 20721
+        "served": 20721,
+        "fiber_passings": 20721,
+        "cable_passings": 0,
+        "dsl_passings": 28871
       },
       {
         "name": "ArmstrongUtilitiesInc",
         "passings": 487,
-        "served": 487
+        "served": 487,
+        "fiber_passings": 487,
+        "cable_passings": 27953,
+        "dsl_passings": 0
       },
       {
         "name": "Blue Fiber",
         "passings": 54,
-        "served": 54
+        "served": 54,
+        "fiber_passings": 54,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Armstrong Telecommunications Inc",
         "passings": 40,
-        "served": 40
+        "served": 40,
+        "fiber_passings": 40,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Verizon",
         "passings": 1,
-        "served": 1
+        "served": 1,
+        "fiber_passings": 1,
+        "cable_passings": 0,
+        "dsl_passings": 0
+      },
+      {
+        "name": "S. Bryer Cable",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 1318,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Spectrum",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 638,
+        "dsl_passings": 0
       }
     ],
     "population_2023": 83189,
@@ -1859,7 +2979,31 @@
     "build_difficulty": "Moderate-Hard",
     "rucc_code": 4,
     "rucc_description": "Nonmetro - Urban population of 20,000 or more, adjacent to a metro area",
-    "rural_class": "Micro"
+    "rural_class": "Micro",
+    "cable_served": 29909,
+    "dsl_served": 28871,
+    "cable_operators": [
+      {
+        "name": "ArmstrongUtilitiesInc",
+        "passings": 27953
+      },
+      {
+        "name": "S. Bryer Cable",
+        "passings": 1318
+      },
+      {
+        "name": "Spectrum",
+        "passings": 638
+      }
+    ],
+    "cable_operator_count": 3,
+    "dsl_operators": [
+      {
+        "name": "Windstream Pennsylvania, LLC.",
+        "passings": 28871
+      }
+    ],
+    "dsl_operator_count": 1
   },
   "42041": {
     "geoid": "42041",
@@ -1873,27 +3017,49 @@
       {
         "name": "Verizon",
         "passings": 51671,
-        "served": 51671
+        "served": 51671,
+        "fiber_passings": 51671,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Brightspeed",
         "passings": 14922,
-        "served": 14922
+        "served": 14922,
+        "fiber_passings": 14922,
+        "cable_passings": 0,
+        "dsl_passings": 20519
       },
       {
         "name": "Glo Fiber",
         "passings": 5947,
-        "served": 5947
+        "served": 5947,
+        "fiber_passings": 5947,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Xfinity",
         "passings": 1407,
-        "served": 1407
+        "served": 1407,
+        "fiber_passings": 1407,
+        "cable_passings": 85008,
+        "dsl_passings": 0
       },
       {
         "name": "Frontier",
         "passings": 3,
-        "served": 3
+        "served": 3,
+        "fiber_passings": 3,
+        "cable_passings": 0,
+        "dsl_passings": 54
+      },
+      {
+        "name": "Zito Media",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 5308,
+        "dsl_passings": 0
       }
     ],
     "population_2023": 264422,
@@ -1947,7 +3113,31 @@
     "build_difficulty": "Moderate",
     "rucc_code": 2,
     "rucc_description": "Metro - Counties in metro areas of 250,000 to 1 million population",
-    "rural_class": "Metro"
+    "rural_class": "Metro",
+    "cable_served": 88392,
+    "dsl_served": 20573,
+    "cable_operators": [
+      {
+        "name": "Xfinity",
+        "passings": 85008
+      },
+      {
+        "name": "Zito Media",
+        "passings": 5308
+      }
+    ],
+    "cable_operator_count": 2,
+    "dsl_operators": [
+      {
+        "name": "Brightspeed",
+        "passings": 20519
+      },
+      {
+        "name": "Frontier",
+        "passings": 54
+      }
+    ],
+    "dsl_operator_count": 2
   },
   "42043": {
     "geoid": "42043",
@@ -1961,27 +3151,56 @@
       {
         "name": "Verizon",
         "passings": 78481,
-        "served": 78481
+        "served": 78481,
+        "fiber_passings": 78481,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Frontier",
         "passings": 6417,
-        "served": 6417
+        "served": 6417,
+        "fiber_passings": 6417,
+        "cable_passings": 0,
+        "dsl_passings": 5914
       },
       {
         "name": "Xfinity",
         "passings": 47,
-        "served": 47
+        "served": 47,
+        "fiber_passings": 47,
+        "cable_passings": 98965,
+        "dsl_passings": 0
       },
       {
         "name": "Brightspeed",
         "passings": 7,
-        "served": 7
+        "served": 7,
+        "fiber_passings": 7,
+        "cable_passings": 0,
+        "dsl_passings": 979
       },
       {
         "name": "Blue Ridge Cable Technologies",
         "passings": 1,
-        "served": 1
+        "served": 1,
+        "fiber_passings": 1,
+        "cable_passings": 21,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Patriot Cable System LLC",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 376,
+        "dsl_passings": 0
+      },
+      {
+        "name": "TDS Telecom",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 0,
+        "dsl_passings": 181
       }
     ],
     "population_2023": 287484,
@@ -2035,7 +3254,39 @@
     "build_difficulty": "Moderate-Hard",
     "rucc_code": 2,
     "rucc_description": "Metro - Counties in metro areas of 250,000 to 1 million population",
-    "rural_class": "Metro"
+    "rural_class": "Metro",
+    "cable_served": 99010,
+    "dsl_served": 7071,
+    "cable_operators": [
+      {
+        "name": "Xfinity",
+        "passings": 98965
+      },
+      {
+        "name": "Patriot Cable System LLC",
+        "passings": 376
+      },
+      {
+        "name": "Blue Ridge Cable Technologies",
+        "passings": 21
+      }
+    ],
+    "cable_operator_count": 3,
+    "dsl_operators": [
+      {
+        "name": "Frontier",
+        "passings": 5914
+      },
+      {
+        "name": "Brightspeed",
+        "passings": 979
+      },
+      {
+        "name": "TDS Telecom",
+        "passings": 181
+      }
+    ],
+    "dsl_operator_count": 3
   },
   "42045": {
     "geoid": "42045",
@@ -2049,22 +3300,41 @@
       {
         "name": "Verizon",
         "passings": 168339,
-        "served": 168339
+        "served": 168339,
+        "fiber_passings": 168339,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Xfinity",
         "passings": 192,
-        "served": 192
+        "served": 192,
+        "fiber_passings": 192,
+        "cable_passings": 181578,
+        "dsl_passings": 0
       },
       {
         "name": "Frontier",
         "passings": 11,
-        "served": 11
+        "served": 11,
+        "fiber_passings": 11,
+        "cable_passings": 0,
+        "dsl_passings": 18
       },
       {
         "name": "Hotwire Communications",
         "passings": 2,
-        "served": 2
+        "served": 2,
+        "fiber_passings": 2,
+        "cable_passings": 0,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Astound Broadband",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 74291,
+        "dsl_passings": 0
       }
     ],
     "population_2023": 576195,
@@ -2117,7 +3387,27 @@
     "build_difficulty": "Moderate",
     "rucc_code": 1,
     "rucc_description": "Metro - Counties in metro areas of 1 million population or more",
-    "rural_class": "Metro"
+    "rural_class": "Metro",
+    "cable_served": 181704,
+    "dsl_served": 18,
+    "cable_operators": [
+      {
+        "name": "Xfinity",
+        "passings": 181578
+      },
+      {
+        "name": "Astound Broadband",
+        "passings": 74291
+      }
+    ],
+    "cable_operator_count": 2,
+    "dsl_operators": [
+      {
+        "name": "Frontier",
+        "passings": 18
+      }
+    ],
+    "dsl_operator_count": 1
   },
   "42047": {
     "geoid": "42047",
@@ -2131,12 +3421,25 @@
       {
         "name": "Windstream Pennsylvania, LLC.",
         "passings": 10873,
-        "served": 10873
+        "served": 10873,
+        "fiber_passings": 10873,
+        "cable_passings": 0,
+        "dsl_passings": 16602
       },
       {
         "name": "Zito Media",
         "passings": 6787,
-        "served": 6787
+        "served": 6787,
+        "fiber_passings": 6787,
+        "cable_passings": 9191,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Xfinity",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 3473,
+        "dsl_passings": 0
       }
     ],
     "population_2023": 30703,
@@ -2187,7 +3490,27 @@
     "build_difficulty": "Challenging",
     "rucc_code": 7,
     "rucc_description": "Nonmetro - Urban population of 5,000 to 20,000, not adjacent to a metro area",
-    "rural_class": "Rural"
+    "rural_class": "Rural",
+    "cable_served": 12658,
+    "dsl_served": 16602,
+    "cable_operators": [
+      {
+        "name": "Zito Media",
+        "passings": 9191
+      },
+      {
+        "name": "Xfinity",
+        "passings": 3473
+      }
+    ],
+    "cable_operator_count": 2,
+    "dsl_operators": [
+      {
+        "name": "Windstream Pennsylvania, LLC.",
+        "passings": 16602
+      }
+    ],
+    "dsl_operator_count": 1
   },
   "42049": {
     "geoid": "42049",
@@ -2201,37 +3524,72 @@
       {
         "name": "Velocity.Net Communications Inc",
         "passings": 21130,
-        "served": 21130
+        "served": 21130,
+        "fiber_passings": 21130,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "North Penn Long Distance Corporation",
         "passings": 4816,
-        "served": 4816
+        "served": 4816,
+        "fiber_passings": 4816,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "ArmstrongUtilitiesInc",
         "passings": 3742,
-        "served": 3742
+        "served": 3742,
+        "fiber_passings": 3742,
+        "cable_passings": 3515,
+        "dsl_passings": 0
       },
       {
         "name": "Armstrong Telecommunications Inc",
         "passings": 1775,
-        "served": 1775
+        "served": 1775,
+        "fiber_passings": 1775,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Windstream Pennsylvania, LLC.",
         "passings": 1465,
-        "served": 1465
+        "served": 1465,
+        "fiber_passings": 1465,
+        "cable_passings": 0,
+        "dsl_passings": 3905
       },
       {
         "name": "Spectrum",
         "passings": 805,
-        "served": 805
+        "served": 805,
+        "fiber_passings": 805,
+        "cable_passings": 83913,
+        "dsl_passings": 0
       },
       {
         "name": "Blue Fiber",
         "passings": 44,
-        "served": 44
+        "served": 44,
+        "fiber_passings": 44,
+        "cable_passings": 0,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Xfinity",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 5,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Brightspeed",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 0,
+        "dsl_passings": 1
       }
     ],
     "population_2023": 269544,
@@ -2287,7 +3645,35 @@
     "build_difficulty": "Moderate",
     "rucc_code": 2,
     "rucc_description": "Metro - Counties in metro areas of 250,000 to 1 million population",
-    "rural_class": "Metro"
+    "rural_class": "Metro",
+    "cable_served": 87428,
+    "dsl_served": 3906,
+    "cable_operators": [
+      {
+        "name": "Spectrum",
+        "passings": 83913
+      },
+      {
+        "name": "ArmstrongUtilitiesInc",
+        "passings": 3515
+      },
+      {
+        "name": "Xfinity",
+        "passings": 5
+      }
+    ],
+    "cable_operator_count": 3,
+    "dsl_operators": [
+      {
+        "name": "Windstream Pennsylvania, LLC.",
+        "passings": 3905
+      },
+      {
+        "name": "Brightspeed",
+        "passings": 1
+      }
+    ],
+    "dsl_operator_count": 2
   },
   "42051": {
     "geoid": "42051",
@@ -2301,52 +3687,96 @@
       {
         "name": "QCOL",
         "passings": 9639,
-        "served": 9639
+        "served": 9639,
+        "fiber_passings": 9639,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Omni Fiber",
         "passings": 6976,
-        "served": 6976
+        "served": 6976,
+        "fiber_passings": 6976,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "VITALink LLC",
         "passings": 6568,
-        "served": 6568
+        "served": 6568,
+        "fiber_passings": 6568,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "LHTC Broadband",
         "passings": 2963,
-        "served": 2963
+        "served": 2963,
+        "fiber_passings": 2963,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Breezeline",
         "passings": 1471,
-        "served": 1471
+        "served": 1471,
+        "fiber_passings": 1471,
+        "cable_passings": 33584,
+        "dsl_passings": 0
       },
       {
         "name": "ArmstrongUtilitiesInc",
         "passings": 85,
-        "served": 85
+        "served": 85,
+        "fiber_passings": 85,
+        "cable_passings": 13815,
+        "dsl_passings": 0
       },
       {
         "name": "Citizens Telephone Company of Kecksburg",
         "passings": 14,
-        "served": 14
+        "served": 14,
+        "fiber_passings": 14,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Windstream Pennsylvania, LLC.",
         "passings": 13,
-        "served": 13
+        "served": 13,
+        "fiber_passings": 13,
+        "cable_passings": 0,
+        "dsl_passings": 20
       },
       {
         "name": "Prodigi",
         "passings": 2,
-        "served": 2
+        "served": 2,
+        "fiber_passings": 2,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Konvergence Technologies",
         "passings": 1,
-        "served": 1
+        "served": 1,
+        "fiber_passings": 1,
+        "cable_passings": 0,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Xfinity",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 4282,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Consolidated Communications",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 0,
+        "dsl_passings": 4
       }
     ],
     "population_2023": 126967,
@@ -2405,7 +3835,35 @@
     "build_difficulty": "Challenging",
     "rucc_code": 1,
     "rucc_description": "Metro - Counties in metro areas of 1 million population or more",
-    "rural_class": "Metro"
+    "rural_class": "Metro",
+    "cable_served": 51368,
+    "dsl_served": 24,
+    "cable_operators": [
+      {
+        "name": "Breezeline",
+        "passings": 33584
+      },
+      {
+        "name": "ArmstrongUtilitiesInc",
+        "passings": 13815
+      },
+      {
+        "name": "Xfinity",
+        "passings": 4282
+      }
+    ],
+    "cable_operator_count": 3,
+    "dsl_operators": [
+      {
+        "name": "Windstream Pennsylvania, LLC.",
+        "passings": 20
+      },
+      {
+        "name": "Consolidated Communications",
+        "passings": 4
+      }
+    ],
+    "dsl_operator_count": 2
   },
   "42053": {
     "geoid": "42053",
@@ -2419,17 +3877,26 @@
       {
         "name": "ArmstrongUtilitiesInc",
         "passings": 161,
-        "served": 161
+        "served": 161,
+        "fiber_passings": 161,
+        "cable_passings": 2125,
+        "dsl_passings": 0
       },
       {
         "name": "VenusTelephone",
         "passings": 57,
-        "served": 57
+        "served": 57,
+        "fiber_passings": 57,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Windstream Pennsylvania, LLC.",
         "passings": 1,
-        "served": 1
+        "served": 1,
+        "fiber_passings": 1,
+        "cable_passings": 0,
+        "dsl_passings": 458
       }
     ],
     "population_2023": 6785,
@@ -2481,7 +3948,23 @@
     "build_difficulty": "Challenging",
     "rucc_code": 9,
     "rucc_description": "Nonmetro - Urban population of fewer than 5,000, not adjacent to a metro area",
-    "rural_class": "Rural"
+    "rural_class": "Rural",
+    "cable_served": 2125,
+    "dsl_served": 458,
+    "cable_operators": [
+      {
+        "name": "ArmstrongUtilitiesInc",
+        "passings": 2125
+      }
+    ],
+    "cable_operator_count": 1,
+    "dsl_operators": [
+      {
+        "name": "Windstream Pennsylvania, LLC.",
+        "passings": 458
+      }
+    ],
+    "dsl_operator_count": 1
   },
   "42055": {
     "geoid": "42055",
@@ -2495,22 +3978,48 @@
       {
         "name": "Brightspeed",
         "passings": 24643,
-        "served": 24643
+        "served": 24643,
+        "fiber_passings": 24643,
+        "cable_passings": 0,
+        "dsl_passings": 29559
       },
       {
         "name": "Glo Fiber",
         "passings": 5312,
-        "served": 5312
+        "served": 5312,
+        "fiber_passings": 5312,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Xfinity",
         "passings": 3,
-        "served": 3
+        "served": 3,
+        "fiber_passings": 3,
+        "cable_passings": 54530,
+        "dsl_passings": 0
       },
       {
         "name": "Verizon",
         "passings": 2,
-        "served": 2
+        "served": 2,
+        "fiber_passings": 2,
+        "cable_passings": 0,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Zito Media",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 2150,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Frontier",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 0,
+        "dsl_passings": 356
       }
     ],
     "population_2023": 156626,
@@ -2563,7 +4072,31 @@
     "build_difficulty": "Moderate-Hard",
     "rucc_code": 3,
     "rucc_description": "Metro - Counties in metro areas of fewer than 250,000 population",
-    "rural_class": "Metro"
+    "rural_class": "Metro",
+    "cable_served": 55918,
+    "dsl_served": 29574,
+    "cable_operators": [
+      {
+        "name": "Xfinity",
+        "passings": 54530
+      },
+      {
+        "name": "Zito Media",
+        "passings": 2150
+      }
+    ],
+    "cable_operator_count": 2,
+    "dsl_operators": [
+      {
+        "name": "Brightspeed",
+        "passings": 29559
+      },
+      {
+        "name": "Frontier",
+        "passings": 356
+      }
+    ],
+    "dsl_operator_count": 2
   },
   "42057": {
     "geoid": "42057",
@@ -2577,17 +4110,40 @@
       {
         "name": "Frontier",
         "passings": 1205,
-        "served": 1205
+        "served": 1205,
+        "fiber_passings": 1205,
+        "cable_passings": 0,
+        "dsl_passings": 2074
       },
       {
         "name": "Brightspeed",
         "passings": 2,
-        "served": 2
+        "served": 2,
+        "fiber_passings": 2,
+        "cable_passings": 0,
+        "dsl_passings": 3438
       },
       {
         "name": "Verizon",
         "passings": 2,
-        "served": 2
+        "served": 2,
+        "fiber_passings": 2,
+        "cable_passings": 0,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Xfinity",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 1988,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Breezeline",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 279,
+        "dsl_passings": 0
       }
     ],
     "population_2023": 14545,
@@ -2639,7 +4195,31 @@
     "build_difficulty": "Challenging",
     "rucc_code": 8,
     "rucc_description": "Nonmetro - Urban population of fewer than 5,000, adjacent to a metro area",
-    "rural_class": "Rural"
+    "rural_class": "Rural",
+    "cable_served": 2267,
+    "dsl_served": 5411,
+    "cable_operators": [
+      {
+        "name": "Xfinity",
+        "passings": 1988
+      },
+      {
+        "name": "Breezeline",
+        "passings": 279
+      }
+    ],
+    "cable_operator_count": 2,
+    "dsl_operators": [
+      {
+        "name": "Brightspeed",
+        "passings": 3438
+      },
+      {
+        "name": "Frontier",
+        "passings": 2074
+      }
+    ],
+    "dsl_operator_count": 2
   },
   "42059": {
     "geoid": "42059",
@@ -2653,22 +4233,55 @@
       {
         "name": "Windstream Pennsylvania, LLC.",
         "passings": 10657,
-        "served": 10657
+        "served": 10657,
+        "fiber_passings": 10657,
+        "cable_passings": 0,
+        "dsl_passings": 15193
       },
       {
         "name": "West Side Telecommunications",
         "passings": 51,
-        "served": 51
+        "served": 51,
+        "fiber_passings": 51,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Breezeline",
         "passings": 1,
-        "served": 1
+        "served": 1,
+        "fiber_passings": 1,
+        "cable_passings": 6703,
+        "dsl_passings": 0
       },
       {
         "name": "Verizon",
         "passings": 1,
-        "served": 1
+        "served": 1,
+        "fiber_passings": 1,
+        "cable_passings": 0,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Xfinity",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 3631,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Consolidated Communications",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 9,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Zito Media",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 1,
+        "dsl_passings": 0
       }
     ],
     "population_2023": 35265,
@@ -2721,7 +4334,39 @@
     "build_difficulty": "Challenging",
     "rucc_code": 6,
     "rucc_description": "Nonmetro - Urban population of 5,000 to 20,000, adjacent to a metro area",
-    "rural_class": "Rural"
+    "rural_class": "Rural",
+    "cable_served": 10140,
+    "dsl_served": 15197,
+    "cable_operators": [
+      {
+        "name": "Breezeline",
+        "passings": 6703
+      },
+      {
+        "name": "Xfinity",
+        "passings": 3631
+      },
+      {
+        "name": "Consolidated Communications",
+        "passings": 9
+      },
+      {
+        "name": "Zito Media",
+        "passings": 1
+      }
+    ],
+    "cable_operator_count": 4,
+    "dsl_operators": [
+      {
+        "name": "Windstream Pennsylvania, LLC.",
+        "passings": 15193
+      },
+      {
+        "name": "Consolidated Communications",
+        "passings": 13
+      }
+    ],
+    "dsl_operator_count": 2
   },
   "42061": {
     "geoid": "42061",
@@ -2735,17 +4380,47 @@
       {
         "name": "Brightspeed",
         "passings": 429,
-        "served": 429
+        "served": 429,
+        "fiber_passings": 429,
+        "cable_passings": 0,
+        "dsl_passings": 5289
       },
       {
         "name": "Nmax",
         "passings": 275,
-        "served": 275
+        "served": 275,
+        "fiber_passings": 275,
+        "cable_passings": 613,
+        "dsl_passings": 0
       },
       {
         "name": "Frontier",
         "passings": 2,
-        "served": 2
+        "served": 2,
+        "fiber_passings": 2,
+        "cable_passings": 0,
+        "dsl_passings": 9
+      },
+      {
+        "name": "Xfinity",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 10470,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Breezeline",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 3930,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Windstream Pennsylvania, LLC.",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 0,
+        "dsl_passings": 1068
       }
     ],
     "population_2023": 43844,
@@ -2797,7 +4472,39 @@
     "build_difficulty": "Challenging",
     "rucc_code": 6,
     "rucc_description": "Nonmetro - Urban population of 5,000 to 20,000, adjacent to a metro area",
-    "rural_class": "Rural"
+    "rural_class": "Rural",
+    "cable_served": 14910,
+    "dsl_served": 6366,
+    "cable_operators": [
+      {
+        "name": "Xfinity",
+        "passings": 10470
+      },
+      {
+        "name": "Breezeline",
+        "passings": 3930
+      },
+      {
+        "name": "Nmax",
+        "passings": 613
+      }
+    ],
+    "cable_operator_count": 3,
+    "dsl_operators": [
+      {
+        "name": "Brightspeed",
+        "passings": 5289
+      },
+      {
+        "name": "Windstream Pennsylvania, LLC.",
+        "passings": 1068
+      },
+      {
+        "name": "Frontier",
+        "passings": 9
+      }
+    ],
+    "dsl_operator_count": 3
   },
   "42063": {
     "geoid": "42063",
@@ -2811,27 +4518,49 @@
       {
         "name": "Salsgiver Inc",
         "passings": 5510,
-        "served": 5510
+        "served": 5510,
+        "fiber_passings": 5510,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Windstream Pennsylvania, LLC.",
         "passings": 404,
-        "served": 404
+        "served": 404,
+        "fiber_passings": 404,
+        "cable_passings": 0,
+        "dsl_passings": 946
       },
       {
         "name": "Xfinity",
         "passings": 94,
-        "served": 94
+        "served": 94,
+        "fiber_passings": 94,
+        "cable_passings": 23683,
+        "dsl_passings": 0
       },
       {
         "name": "Verizon",
         "passings": 22,
-        "served": 22
+        "served": 22,
+        "fiber_passings": 22,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Dojo Networks",
         "passings": 1,
-        "served": 1
+        "served": 1,
+        "fiber_passings": 1,
+        "cable_passings": 0,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Windstream Communications, LLC.",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 0,
+        "dsl_passings": 1
       }
     ],
     "population_2023": 83213,
@@ -2885,7 +4614,27 @@
     "build_difficulty": "Challenging",
     "rucc_code": 4,
     "rucc_description": "Nonmetro - Urban population of 20,000 or more, adjacent to a metro area",
-    "rural_class": "Micro"
+    "rural_class": "Micro",
+    "cable_served": 23683,
+    "dsl_served": 947,
+    "cable_operators": [
+      {
+        "name": "Xfinity",
+        "passings": 23683
+      }
+    ],
+    "cable_operator_count": 1,
+    "dsl_operators": [
+      {
+        "name": "Windstream Pennsylvania, LLC.",
+        "passings": 946
+      },
+      {
+        "name": "Windstream Communications, LLC.",
+        "passings": 1
+      }
+    ],
+    "dsl_operator_count": 2
   },
   "42065": {
     "geoid": "42065",
@@ -2899,7 +4648,24 @@
       {
         "name": "Windstream Pennsylvania, LLC.",
         "passings": 5837,
-        "served": 5837
+        "served": 5837,
+        "fiber_passings": 5837,
+        "cable_passings": 0,
+        "dsl_passings": 10022
+      },
+      {
+        "name": "Xfinity",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 14462,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Zito Media",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 692,
+        "dsl_passings": 0
       }
     ],
     "population_2023": 44099,
@@ -2949,7 +4715,27 @@
     "build_difficulty": "Challenging",
     "rucc_code": 7,
     "rucc_description": "Nonmetro - Urban population of 5,000 to 20,000, not adjacent to a metro area",
-    "rural_class": "Rural"
+    "rural_class": "Rural",
+    "cable_served": 15146,
+    "dsl_served": 10022,
+    "cable_operators": [
+      {
+        "name": "Xfinity",
+        "passings": 14462
+      },
+      {
+        "name": "Zito Media",
+        "passings": 692
+      }
+    ],
+    "cable_operator_count": 2,
+    "dsl_operators": [
+      {
+        "name": "Windstream Pennsylvania, LLC.",
+        "passings": 10022
+      }
+    ],
+    "dsl_operator_count": 1
   },
   "42067": {
     "geoid": "42067",
@@ -2963,12 +4749,25 @@
       {
         "name": "Zito Media",
         "passings": 2365,
-        "served": 2365
+        "served": 2365,
+        "fiber_passings": 2365,
+        "cable_passings": 5442,
+        "dsl_passings": 0
       },
       {
         "name": "Brightspeed",
         "passings": 618,
-        "served": 618
+        "served": 618,
+        "fiber_passings": 618,
+        "cable_passings": 0,
+        "dsl_passings": 8515
+      },
+      {
+        "name": "Xfinity",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 54,
+        "dsl_passings": 0
       }
     ],
     "population_2023": 23419,
@@ -3019,7 +4818,27 @@
     "build_difficulty": "Challenging",
     "rucc_code": 8,
     "rucc_description": "Nonmetro - Urban population of fewer than 5,000, adjacent to a metro area",
-    "rural_class": "Rural"
+    "rural_class": "Rural",
+    "cable_served": 5496,
+    "dsl_served": 8515,
+    "cable_operators": [
+      {
+        "name": "Zito Media",
+        "passings": 5442
+      },
+      {
+        "name": "Xfinity",
+        "passings": 54
+      }
+    ],
+    "cable_operator_count": 2,
+    "dsl_operators": [
+      {
+        "name": "Brightspeed",
+        "passings": 8515
+      }
+    ],
+    "dsl_operator_count": 1
   },
   "42069": {
     "geoid": "42069",
@@ -3033,67 +4852,113 @@
       {
         "name": "North Penn Long Distance Corporation",
         "passings": 17412,
-        "served": 17412
+        "served": 17412,
+        "fiber_passings": 17412,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Frontier",
         "passings": 12606,
-        "served": 12606
+        "served": 12606,
+        "fiber_passings": 12606,
+        "cable_passings": 0,
+        "dsl_passings": 11320
       },
       {
         "name": "Astound Broadband",
         "passings": 10725,
-        "served": 10725
+        "served": 10725,
+        "fiber_passings": 10725,
+        "cable_passings": 68,
+        "dsl_passings": 0
       },
       {
         "name": "Verizon",
         "passings": 9553,
-        "served": 9553
+        "served": 9553,
+        "fiber_passings": 9553,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "AT&T",
         "passings": 5904,
-        "served": 5904
+        "served": 5904,
+        "fiber_passings": 5904,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Loop Internet",
         "passings": 4830,
-        "served": 4830
+        "served": 4830,
+        "fiber_passings": 4830,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Adams CATV Inc",
         "passings": 4070,
-        "served": 4070
+        "served": 4070,
+        "fiber_passings": 4070,
+        "cable_passings": 7981,
+        "dsl_passings": 0
       },
       {
         "name": "Greenlight Networks",
         "passings": 2110,
-        "served": 2110
+        "served": 2110,
+        "fiber_passings": 2110,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Xfinity",
         "passings": 1397,
-        "served": 1397
+        "served": 1397,
+        "fiber_passings": 1397,
+        "cable_passings": 73054,
+        "dsl_passings": 0
       },
       {
         "name": "The North-Eastern Pennsylvania Telephone Company",
         "passings": 1364,
-        "served": 1364
+        "served": 1364,
+        "fiber_passings": 1364,
+        "cable_passings": 0,
+        "dsl_passings": 7
       },
       {
         "name": "LHTC Broadband",
         "passings": 59,
-        "served": 59
+        "served": 59,
+        "fiber_passings": 59,
+        "cable_passings": 0,
+        "dsl_passings": 3
       },
       {
         "name": "NEP Telcom Inc",
         "passings": 19,
-        "served": 19
+        "served": 19,
+        "fiber_passings": 19,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Blue Ridge Cable Technologies",
         "passings": 10,
-        "served": 10
+        "served": 10,
+        "fiber_passings": 10,
+        "cable_passings": 2049,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Brightspeed",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 0,
+        "dsl_passings": 5
       }
     ],
     "population_2023": 215834,
@@ -3155,7 +5020,47 @@
     "build_difficulty": "Challenging",
     "rucc_code": 2,
     "rucc_description": "Metro - Counties in metro areas of 250,000 to 1 million population",
-    "rural_class": "Metro"
+    "rural_class": "Metro",
+    "cable_served": 79348,
+    "dsl_served": 11334,
+    "cable_operators": [
+      {
+        "name": "Xfinity",
+        "passings": 73054
+      },
+      {
+        "name": "Adams CATV Inc",
+        "passings": 7981
+      },
+      {
+        "name": "Blue Ridge Cable Technologies",
+        "passings": 2049
+      },
+      {
+        "name": "Astound Broadband",
+        "passings": 68
+      }
+    ],
+    "cable_operator_count": 4,
+    "dsl_operators": [
+      {
+        "name": "Frontier",
+        "passings": 11320
+      },
+      {
+        "name": "The North-Eastern Pennsylvania Telephone Company",
+        "passings": 7
+      },
+      {
+        "name": "Brightspeed",
+        "passings": 5
+      },
+      {
+        "name": "LHTC Broadband",
+        "passings": 3
+      }
+    ],
+    "dsl_operator_count": 4
   },
   "42071": {
     "geoid": "42071",
@@ -3169,62 +5074,105 @@
       {
         "name": "Glo Fiber",
         "passings": 31203,
-        "served": 31203
+        "served": 31203,
+        "fiber_passings": 31203,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Blue Ridge Cable Technologies",
         "passings": 27488,
-        "served": 27488
+        "served": 27488,
+        "fiber_passings": 27488,
+        "cable_passings": 16890,
+        "dsl_passings": 0
       },
       {
         "name": "Frontier",
         "passings": 23671,
-        "served": 23671
+        "served": 23671,
+        "fiber_passings": 23671,
+        "cable_passings": 0,
+        "dsl_passings": 22603
       },
       {
         "name": "Windstream D&E, Inc.",
         "passings": 22825,
-        "served": 22825
+        "served": 22825,
+        "fiber_passings": 22825,
+        "cable_passings": 0,
+        "dsl_passings": 41556
       },
       {
         "name": "Brightspeed",
         "passings": 21841,
-        "served": 21841
+        "served": 21841,
+        "fiber_passings": 21841,
+        "cable_passings": 0,
+        "dsl_passings": 5460
       },
       {
         "name": "Xfinity",
         "passings": 594,
-        "served": 594
+        "served": 594,
+        "fiber_passings": 594,
+        "cable_passings": 144585,
+        "dsl_passings": 0
       },
       {
         "name": "Windstream Conestoga, Inc.",
         "passings": 419,
-        "served": 419
+        "served": 419,
+        "fiber_passings": 419,
+        "cable_passings": 0,
+        "dsl_passings": 513
       },
       {
         "name": "Service Electric Cablevision,Inc.",
         "passings": 43,
-        "served": 43
+        "served": 43,
+        "fiber_passings": 43,
+        "cable_passings": 327,
+        "dsl_passings": 0
       },
       {
         "name": "Windstream Pennsylvania, LLC.",
         "passings": 2,
-        "served": 2
+        "served": 2,
+        "fiber_passings": 2,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Dojo Networks",
         "passings": 1,
-        "served": 1
+        "served": 1,
+        "fiber_passings": 1,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Verizon",
         "passings": 1,
-        "served": 1
+        "served": 1,
+        "fiber_passings": 1,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Windstream Communications, LLC.",
         "passings": 1,
-        "served": 1
+        "served": 1,
+        "fiber_passings": 1,
+        "cable_passings": 0,
+        "dsl_passings": 1
+      },
+      {
+        "name": "ArmstrongUtilitiesInc",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 4,
+        "dsl_passings": 0
       }
     ],
     "population_2023": 555151,
@@ -3285,7 +5233,51 @@
     "build_difficulty": "Moderate",
     "rucc_code": 2,
     "rucc_description": "Metro - Counties in metro areas of 250,000 to 1 million population",
-    "rural_class": "Metro"
+    "rural_class": "Metro",
+    "cable_served": 155197,
+    "dsl_served": 69751,
+    "cable_operators": [
+      {
+        "name": "Xfinity",
+        "passings": 144585
+      },
+      {
+        "name": "Blue Ridge Cable Technologies",
+        "passings": 16890
+      },
+      {
+        "name": "Service Electric Cablevision,Inc.",
+        "passings": 327
+      },
+      {
+        "name": "ArmstrongUtilitiesInc",
+        "passings": 4
+      }
+    ],
+    "cable_operator_count": 4,
+    "dsl_operators": [
+      {
+        "name": "Windstream D&E, Inc.",
+        "passings": 41556
+      },
+      {
+        "name": "Frontier",
+        "passings": 22603
+      },
+      {
+        "name": "Brightspeed",
+        "passings": 5460
+      },
+      {
+        "name": "Windstream Conestoga, Inc.",
+        "passings": 513
+      },
+      {
+        "name": "Windstream Communications, LLC.",
+        "passings": 1
+      }
+    ],
+    "dsl_operator_count": 5
   },
   "42073": {
     "geoid": "42073",
@@ -3299,17 +5291,47 @@
       {
         "name": "Omni Fiber",
         "passings": 2503,
-        "served": 2503
+        "served": 2503,
+        "fiber_passings": 2503,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Windstream Pennsylvania, LLC.",
         "passings": 92,
-        "served": 92
+        "served": 92,
+        "fiber_passings": 92,
+        "cable_passings": 0,
+        "dsl_passings": 1274
       },
       {
         "name": "ArmstrongUtilitiesInc",
         "passings": 51,
-        "served": 51
+        "served": 51,
+        "fiber_passings": 51,
+        "cable_passings": 8915,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Xfinity",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 27911,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Spectrum",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 16,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Brightspeed",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 0,
+        "dsl_passings": 1069
       }
     ],
     "population_2023": 85423,
@@ -3361,7 +5383,35 @@
     "build_difficulty": "Moderate-Hard",
     "rucc_code": 1,
     "rucc_description": "Metro - Counties in metro areas of 1 million population or more",
-    "rural_class": "Metro"
+    "rural_class": "Metro",
+    "cable_served": 36697,
+    "dsl_served": 2343,
+    "cable_operators": [
+      {
+        "name": "Xfinity",
+        "passings": 27911
+      },
+      {
+        "name": "ArmstrongUtilitiesInc",
+        "passings": 8915
+      },
+      {
+        "name": "Spectrum",
+        "passings": 16
+      }
+    ],
+    "cable_operator_count": 3,
+    "dsl_operators": [
+      {
+        "name": "Windstream Pennsylvania, LLC.",
+        "passings": 1274
+      },
+      {
+        "name": "Brightspeed",
+        "passings": 1069
+      }
+    ],
+    "dsl_operator_count": 2
   },
   "42075": {
     "geoid": "42075",
@@ -3375,32 +5425,57 @@
       {
         "name": "Verizon",
         "passings": 28257,
-        "served": 28257
+        "served": 28257,
+        "fiber_passings": 28257,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Windstream D&E, Inc.",
         "passings": 9,
-        "served": 9
+        "served": 9,
+        "fiber_passings": 9,
+        "cable_passings": 0,
+        "dsl_passings": 71
       },
       {
         "name": "Patriot Cable System LLC",
         "passings": 6,
-        "served": 6
+        "served": 6,
+        "fiber_passings": 6,
+        "cable_passings": 449,
+        "dsl_passings": 0
       },
       {
         "name": "Frontier",
         "passings": 5,
-        "served": 5
+        "served": 5,
+        "fiber_passings": 5,
+        "cable_passings": 0,
+        "dsl_passings": 82
       },
       {
         "name": "Blue Ridge Cable Technologies",
         "passings": 3,
-        "served": 3
+        "served": 3,
+        "fiber_passings": 3,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Xfinity",
         "passings": 3,
-        "served": 3
+        "served": 3,
+        "fiber_passings": 3,
+        "cable_passings": 51265,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Brightspeed",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 0,
+        "dsl_passings": 5
       }
     ],
     "population_2023": 143592,
@@ -3455,7 +5530,35 @@
     "build_difficulty": "Moderate",
     "rucc_code": 3,
     "rucc_description": "Metro - Counties in metro areas of fewer than 250,000 population",
-    "rural_class": "Metro"
+    "rural_class": "Metro",
+    "cable_served": 51633,
+    "dsl_served": 158,
+    "cable_operators": [
+      {
+        "name": "Xfinity",
+        "passings": 51265
+      },
+      {
+        "name": "Patriot Cable System LLC",
+        "passings": 449
+      }
+    ],
+    "cable_operator_count": 2,
+    "dsl_operators": [
+      {
+        "name": "Frontier",
+        "passings": 82
+      },
+      {
+        "name": "Windstream D&E, Inc.",
+        "passings": 71
+      },
+      {
+        "name": "Brightspeed",
+        "passings": 5
+      }
+    ],
+    "dsl_operator_count": 3
   },
   "42077": {
     "geoid": "42077",
@@ -3469,32 +5572,71 @@
       {
         "name": "Verizon",
         "passings": 39827,
-        "served": 39827
+        "served": 39827,
+        "fiber_passings": 39827,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Frontier",
         "passings": 2002,
-        "served": 2002
+        "served": 2002,
+        "fiber_passings": 2002,
+        "cable_passings": 0,
+        "dsl_passings": 2417
       },
       {
         "name": "Ironton Telephone Company",
         "passings": 1887,
-        "served": 1887
+        "served": 1887,
+        "fiber_passings": 1887,
+        "cable_passings": 0,
+        "dsl_passings": 1576
       },
       {
         "name": "Xfinity",
         "passings": 411,
-        "served": 411
+        "served": 411,
+        "fiber_passings": 411,
+        "cable_passings": 3953,
+        "dsl_passings": 0
       },
       {
         "name": "Astound Broadband",
         "passings": 70,
-        "served": 70
+        "served": 70,
+        "fiber_passings": 70,
+        "cable_passings": 95968,
+        "dsl_passings": 0
       },
       {
         "name": "Windstream Conestoga, Inc.",
         "passings": 10,
-        "served": 10
+        "served": 10,
+        "fiber_passings": 10,
+        "cable_passings": 0,
+        "dsl_passings": 28
+      },
+      {
+        "name": "Service Electric Cable TV",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 105078,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Blue Ridge Cable Technologies",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 6967,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Service Electric Cablevision,Inc.",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 42,
+        "dsl_passings": 0
       }
     ],
     "population_2023": 375408,
@@ -3549,7 +5691,47 @@
     "build_difficulty": "Moderate-Hard",
     "rucc_code": 2,
     "rucc_description": "Metro - Counties in metro areas of 250,000 to 1 million population",
-    "rural_class": "Metro"
+    "rural_class": "Metro",
+    "cable_served": 117822,
+    "dsl_served": 4021,
+    "cable_operators": [
+      {
+        "name": "Service Electric Cable TV",
+        "passings": 105078
+      },
+      {
+        "name": "Astound Broadband",
+        "passings": 95968
+      },
+      {
+        "name": "Blue Ridge Cable Technologies",
+        "passings": 6967
+      },
+      {
+        "name": "Xfinity",
+        "passings": 3953
+      },
+      {
+        "name": "Service Electric Cablevision,Inc.",
+        "passings": 42
+      }
+    ],
+    "cable_operator_count": 5,
+    "dsl_operators": [
+      {
+        "name": "Frontier",
+        "passings": 2417
+      },
+      {
+        "name": "Ironton Telephone Company",
+        "passings": 1576
+      },
+      {
+        "name": "Windstream Conestoga, Inc.",
+        "passings": 28
+      }
+    ],
+    "dsl_operator_count": 3
   },
   "42079": {
     "geoid": "42079",
@@ -3563,52 +5745,96 @@
       {
         "name": "Frontier",
         "passings": 25535,
-        "served": 25535
+        "served": 25535,
+        "fiber_passings": 25535,
+        "cable_passings": 0,
+        "dsl_passings": 38848
       },
       {
         "name": "Astound Broadband",
         "passings": 23718,
-        "served": 23718
+        "served": 23718,
+        "fiber_passings": 23718,
+        "cable_passings": 297,
+        "dsl_passings": 0
       },
       {
         "name": "Loop Internet",
         "passings": 17431,
-        "served": 17431
+        "served": 17431,
+        "fiber_passings": 17431,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Verizon",
         "passings": 10445,
-        "served": 10445
+        "served": 10445,
+        "fiber_passings": 10445,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "North Penn Long Distance Corporation",
         "passings": 3987,
-        "served": 3987
+        "served": 3987,
+        "fiber_passings": 3987,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Xfinity",
         "passings": 2143,
-        "served": 2143
+        "served": 2143,
+        "fiber_passings": 2143,
+        "cable_passings": 77818,
+        "dsl_passings": 0
       },
       {
         "name": "AT&T",
         "passings": 1777,
-        "served": 1777
+        "served": 1777,
+        "fiber_passings": 1777,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Breezeline",
         "passings": 263,
-        "served": 263
+        "served": 263,
+        "fiber_passings": 263,
+        "cable_passings": 18899,
+        "dsl_passings": 0
       },
       {
         "name": "Service Electric Cablevision,Inc.",
         "passings": 203,
-        "served": 203
+        "served": 203,
+        "fiber_passings": 203,
+        "cable_passings": 23650,
+        "dsl_passings": 0
       },
       {
         "name": "Blue Ridge Cable Technologies",
         "passings": 48,
-        "served": 48
+        "served": 48,
+        "fiber_passings": 48,
+        "cable_passings": 4541,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Service Electric Cable TV",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 29946,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Brightspeed",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 0,
+        "dsl_passings": 9
       }
     ],
     "population_2023": 325978,
@@ -3667,7 +5893,47 @@
     "build_difficulty": "Challenging",
     "rucc_code": 2,
     "rucc_description": "Metro - Counties in metro areas of 250,000 to 1 million population",
-    "rural_class": "Metro"
+    "rural_class": "Metro",
+    "cable_served": 123423,
+    "dsl_served": 38851,
+    "cable_operators": [
+      {
+        "name": "Xfinity",
+        "passings": 77818
+      },
+      {
+        "name": "Service Electric Cable TV",
+        "passings": 29946
+      },
+      {
+        "name": "Service Electric Cablevision,Inc.",
+        "passings": 23650
+      },
+      {
+        "name": "Breezeline",
+        "passings": 18899
+      },
+      {
+        "name": "Blue Ridge Cable Technologies",
+        "passings": 4541
+      },
+      {
+        "name": "Astound Broadband",
+        "passings": 297
+      }
+    ],
+    "cable_operator_count": 6,
+    "dsl_operators": [
+      {
+        "name": "Frontier",
+        "passings": 38848
+      },
+      {
+        "name": "Brightspeed",
+        "passings": 9
+      }
+    ],
+    "dsl_operator_count": 2
   },
   "42081": {
     "geoid": "42081",
@@ -3681,52 +5947,96 @@
       {
         "name": "North Penn Long Distance Corporation",
         "passings": 7736,
-        "served": 7736
+        "served": 7736,
+        "fiber_passings": 7736,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "FastBridge Fiber",
         "passings": 6513,
-        "served": 6513
+        "served": 6513,
+        "fiber_passings": 6513,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Windstream Pennsylvania, LLC.",
         "passings": 5556,
-        "served": 5556
+        "served": 5556,
+        "fiber_passings": 5556,
+        "cable_passings": 0,
+        "dsl_passings": 9945
       },
       {
         "name": "TRI-CO CONNECTIONS",
         "passings": 2005,
-        "served": 2005
+        "served": 2005,
+        "fiber_passings": 2005,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "PTC",
         "passings": 622,
-        "served": 622
+        "served": 622,
+        "fiber_passings": 622,
+        "cable_passings": 0,
+        "dsl_passings": 169
       },
       {
         "name": "Zito Media",
         "passings": 94,
-        "served": 94
+        "served": 94,
+        "fiber_passings": 94,
+        "cable_passings": 3169,
+        "dsl_passings": 0
       },
       {
         "name": "Frontier",
         "passings": 46,
-        "served": 46
+        "served": 46,
+        "fiber_passings": 46,
+        "cable_passings": 0,
+        "dsl_passings": 499
       },
       {
         "name": "Revolution Broadband",
         "passings": 12,
-        "served": 12
+        "served": 12,
+        "fiber_passings": 12,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Verizon",
         "passings": 3,
-        "served": 3
+        "served": 3,
+        "fiber_passings": 3,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Windstream Communications, LLC.",
         "passings": 2,
-        "served": 2
+        "served": 2,
+        "fiber_passings": 2,
+        "cable_passings": 0,
+        "dsl_passings": 1
+      },
+      {
+        "name": "Xfinity",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 34564,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Brightspeed",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 0,
+        "dsl_passings": 4
       }
     ],
     "population_2023": 113570,
@@ -3785,7 +6095,43 @@
     "build_difficulty": "Challenging",
     "rucc_code": 3,
     "rucc_description": "Metro - Counties in metro areas of fewer than 250,000 population",
-    "rural_class": "Metro"
+    "rural_class": "Metro",
+    "cable_served": 37556,
+    "dsl_served": 10607,
+    "cable_operators": [
+      {
+        "name": "Xfinity",
+        "passings": 34564
+      },
+      {
+        "name": "Zito Media",
+        "passings": 3169
+      }
+    ],
+    "cable_operator_count": 2,
+    "dsl_operators": [
+      {
+        "name": "Windstream Pennsylvania, LLC.",
+        "passings": 9945
+      },
+      {
+        "name": "Frontier",
+        "passings": 499
+      },
+      {
+        "name": "PTC",
+        "passings": 169
+      },
+      {
+        "name": "Brightspeed",
+        "passings": 4
+      },
+      {
+        "name": "Windstream Communications, LLC.",
+        "passings": 1
+      }
+    ],
+    "dsl_operator_count": 5
   },
   "42083": {
     "geoid": "42083",
@@ -3799,22 +6145,76 @@
       {
         "name": "Zito Media",
         "passings": 1056,
-        "served": 1056
+        "served": 1056,
+        "fiber_passings": 1056,
+        "cable_passings": 1594,
+        "dsl_passings": 0
       },
       {
         "name": "Armstrong Telephone Company",
         "passings": 520,
-        "served": 520
+        "served": 520,
+        "fiber_passings": 520,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "TRI-CO CONNECTIONS",
         "passings": 63,
-        "served": 63
+        "served": 63,
+        "fiber_passings": 63,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Armstrong Telecommunications Inc",
         "passings": 10,
-        "served": 10
+        "served": 10,
+        "fiber_passings": 10,
+        "cable_passings": 0,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Breezeline",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 7139,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Xfinity",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 5671,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Spectrum",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 840,
+        "dsl_passings": 0
+      },
+      {
+        "name": "WestPAnet",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 226,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Frontier",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 0,
+        "dsl_passings": 133
+      },
+      {
+        "name": "Windstream Pennsylvania, LLC.",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 0,
+        "dsl_passings": 29
       }
     ],
     "population_2023": 40149,
@@ -3867,7 +6267,43 @@
     "build_difficulty": "Challenging",
     "rucc_code": 7,
     "rucc_description": "Nonmetro - Urban population of 5,000 to 20,000, not adjacent to a metro area",
-    "rural_class": "Rural"
+    "rural_class": "Rural",
+    "cable_served": 15384,
+    "dsl_served": 162,
+    "cable_operators": [
+      {
+        "name": "Breezeline",
+        "passings": 7139
+      },
+      {
+        "name": "Xfinity",
+        "passings": 5671
+      },
+      {
+        "name": "Zito Media",
+        "passings": 1594
+      },
+      {
+        "name": "Spectrum",
+        "passings": 840
+      },
+      {
+        "name": "WestPAnet",
+        "passings": 226
+      }
+    ],
+    "cable_operator_count": 5,
+    "dsl_operators": [
+      {
+        "name": "Frontier",
+        "passings": 133
+      },
+      {
+        "name": "Windstream Pennsylvania, LLC.",
+        "passings": 29
+      }
+    ],
+    "dsl_operator_count": 2
   },
   "42085": {
     "geoid": "42085",
@@ -3881,32 +6317,78 @@
       {
         "name": "Omni Fiber",
         "passings": 5657,
-        "served": 5657
+        "served": 5657,
+        "fiber_passings": 5657,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Windstream Pennsylvania, LLC.",
         "passings": 2333,
-        "served": 2333
+        "served": 2333,
+        "fiber_passings": 2333,
+        "cable_passings": 0,
+        "dsl_passings": 6897
       },
       {
         "name": "ArmstrongUtilitiesInc",
         "passings": 606,
-        "served": 606
+        "served": 606,
+        "fiber_passings": 606,
+        "cable_passings": 13450,
+        "dsl_passings": 0
       },
       {
         "name": "Pymatuning Independent Telephone Company",
         "passings": 27,
-        "served": 27
+        "served": 27,
+        "fiber_passings": 27,
+        "cable_passings": 0,
+        "dsl_passings": 2273
       },
       {
         "name": "Armstrong Telecommunications Inc",
         "passings": 9,
-        "served": 9
+        "served": 9,
+        "fiber_passings": 9,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Verizon",
         "passings": 1,
-        "served": 1
+        "served": 1,
+        "fiber_passings": 1,
+        "cable_passings": 0,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Spectrum",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 27330,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Xfinity",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 21,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Brightspeed",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 0,
+        "dsl_passings": 1935
+      },
+      {
+        "name": "Windstream Communications, LLC.",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 0,
+        "dsl_passings": 8
       }
     ],
     "population_2023": 109852,
@@ -3961,7 +6443,43 @@
     "build_difficulty": "Moderate",
     "rucc_code": 4,
     "rucc_description": "Nonmetro - Urban population of 20,000 or more, adjacent to a metro area",
-    "rural_class": "Micro"
+    "rural_class": "Micro",
+    "cable_served": 40778,
+    "dsl_served": 11108,
+    "cable_operators": [
+      {
+        "name": "Spectrum",
+        "passings": 27330
+      },
+      {
+        "name": "ArmstrongUtilitiesInc",
+        "passings": 13450
+      },
+      {
+        "name": "Xfinity",
+        "passings": 21
+      }
+    ],
+    "cable_operator_count": 3,
+    "dsl_operators": [
+      {
+        "name": "Windstream Pennsylvania, LLC.",
+        "passings": 6897
+      },
+      {
+        "name": "Pymatuning Independent Telephone Company",
+        "passings": 2273
+      },
+      {
+        "name": "Brightspeed",
+        "passings": 1935
+      },
+      {
+        "name": "Windstream Communications, LLC.",
+        "passings": 8
+      }
+    ],
+    "dsl_operator_count": 4
   },
   "42087": {
     "geoid": "42087",
@@ -3975,27 +6493,56 @@
       {
         "name": "Brightspeed",
         "passings": 1401,
-        "served": 1401
+        "served": 1401,
+        "fiber_passings": 1401,
+        "cable_passings": 0,
+        "dsl_passings": 3220
       },
       {
         "name": "Black Bear Fiber",
         "passings": 1095,
-        "served": 1095
+        "served": 1095,
+        "fiber_passings": 1095,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Zito Media",
         "passings": 826,
-        "served": 826
+        "served": 826,
+        "fiber_passings": 826,
+        "cable_passings": 3728,
+        "dsl_passings": 0
       },
       {
         "name": "Mifflin County Wireless",
         "passings": 361,
-        "served": 361
+        "served": 361,
+        "fiber_passings": 361,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Nmax",
         "passings": 5,
-        "served": 5
+        "served": 5,
+        "fiber_passings": 5,
+        "cable_passings": 0,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Xfinity",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 11418,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Breezeline",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 1488,
+        "dsl_passings": 0
       }
     ],
     "population_2023": 46074,
@@ -4049,7 +6596,31 @@
     "build_difficulty": "Challenging",
     "rucc_code": 4,
     "rucc_description": "Nonmetro - Urban population of 20,000 or more, adjacent to a metro area",
-    "rural_class": "Micro"
+    "rural_class": "Micro",
+    "cable_served": 16378,
+    "dsl_served": 3220,
+    "cable_operators": [
+      {
+        "name": "Xfinity",
+        "passings": 11418
+      },
+      {
+        "name": "Zito Media",
+        "passings": 3728
+      },
+      {
+        "name": "Breezeline",
+        "passings": 1488
+      }
+    ],
+    "cable_operator_count": 3,
+    "dsl_operators": [
+      {
+        "name": "Brightspeed",
+        "passings": 3220
+      }
+    ],
+    "dsl_operator_count": 1
   },
   "42089": {
     "geoid": "42089",
@@ -4063,32 +6634,64 @@
       {
         "name": "Frontier",
         "passings": 13569,
-        "served": 13569
+        "served": 13569,
+        "fiber_passings": 13569,
+        "cable_passings": 0,
+        "dsl_passings": 11935
       },
       {
         "name": "Blue Ridge Cable Technologies",
         "passings": 5537,
-        "served": 5537
+        "served": 5537,
+        "fiber_passings": 5537,
+        "cable_passings": 67322,
+        "dsl_passings": 0
       },
       {
         "name": "Planet Networks",
         "passings": 1795,
-        "served": 1795
+        "served": 1795,
+        "fiber_passings": 1795,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Astound Broadband",
         "passings": 6,
-        "served": 6
+        "served": 6,
+        "fiber_passings": 6,
+        "cable_passings": 13,
+        "dsl_passings": 0
       },
       {
         "name": "Verizon",
         "passings": 3,
-        "served": 3
+        "served": 3,
+        "fiber_passings": 3,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Xfinity",
         "passings": 1,
-        "served": 1
+        "served": 1,
+        "fiber_passings": 1,
+        "cable_passings": 6,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Breezeline",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 1992,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Palmerton Telephone Company",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 0,
+        "dsl_passings": 2033
       }
     ],
     "population_2023": 167784,
@@ -4143,7 +6746,39 @@
     "build_difficulty": "Challenging",
     "rucc_code": 4,
     "rucc_description": "Nonmetro - Urban population of 20,000 or more, adjacent to a metro area",
-    "rural_class": "Micro"
+    "rural_class": "Micro",
+    "cable_served": 68961,
+    "dsl_served": 13941,
+    "cable_operators": [
+      {
+        "name": "Blue Ridge Cable Technologies",
+        "passings": 67322
+      },
+      {
+        "name": "Breezeline",
+        "passings": 1992
+      },
+      {
+        "name": "Astound Broadband",
+        "passings": 13
+      },
+      {
+        "name": "Xfinity",
+        "passings": 6
+      }
+    ],
+    "cable_operator_count": 4,
+    "dsl_operators": [
+      {
+        "name": "Frontier",
+        "passings": 11935
+      },
+      {
+        "name": "Palmerton Telephone Company",
+        "passings": 2033
+      }
+    ],
+    "dsl_operator_count": 2
   },
   "42091": {
     "geoid": "42091",
@@ -4157,37 +6792,72 @@
       {
         "name": "Verizon",
         "passings": 235868,
-        "served": 235868
+        "served": 235868,
+        "fiber_passings": 235868,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Windstream Conestoga, Inc.",
         "passings": 2922,
-        "served": 2922
+        "served": 2922,
+        "fiber_passings": 2922,
+        "cable_passings": 0,
+        "dsl_passings": 6325
       },
       {
         "name": "Xfinity",
         "passings": 1355,
-        "served": 1355
+        "served": 1355,
+        "fiber_passings": 1355,
+        "cable_passings": 259400,
+        "dsl_passings": 0
       },
       {
         "name": "Astound Broadband",
         "passings": 6,
-        "served": 6
+        "served": 6,
+        "fiber_passings": 6,
+        "cable_passings": 86,
+        "dsl_passings": 0
       },
       {
         "name": "Windstream Sugar Land, Inc.",
         "passings": 4,
-        "served": 4
+        "served": 4,
+        "fiber_passings": 4,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Hotwire Communications",
         "passings": 2,
-        "served": 2
+        "served": 2,
+        "fiber_passings": 2,
+        "cable_passings": 4,
+        "dsl_passings": 0
       },
       {
         "name": "Windstream Pennsylvania, LLC.",
         "passings": 2,
-        "served": 2
+        "served": 2,
+        "fiber_passings": 2,
+        "cable_passings": 0,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Frontier",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 0,
+        "dsl_passings": 41
+      },
+      {
+        "name": "Brightspeed",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 0,
+        "dsl_passings": 3
       }
     ],
     "population_2023": 861225,
@@ -4243,7 +6913,39 @@
     "build_difficulty": "Moderate",
     "rucc_code": 1,
     "rucc_description": "Metro - Counties in metro areas of 1 million population or more",
-    "rural_class": "Metro"
+    "rural_class": "Metro",
+    "cable_served": 259400,
+    "dsl_served": 6369,
+    "cable_operators": [
+      {
+        "name": "Xfinity",
+        "passings": 259400
+      },
+      {
+        "name": "Astound Broadband",
+        "passings": 86
+      },
+      {
+        "name": "Hotwire Communications",
+        "passings": 4
+      }
+    ],
+    "cable_operator_count": 3,
+    "dsl_operators": [
+      {
+        "name": "Windstream Conestoga, Inc.",
+        "passings": 6325
+      },
+      {
+        "name": "Frontier",
+        "passings": 41
+      },
+      {
+        "name": "Brightspeed",
+        "passings": 3
+      }
+    ],
+    "dsl_operator_count": 3
   },
   "42093": {
     "geoid": "42093",
@@ -4257,32 +6959,57 @@
       {
         "name": "FastBridge Fiber",
         "passings": 1844,
-        "served": 1844
+        "served": 1844,
+        "fiber_passings": 1844,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Xfinity",
         "passings": 124,
-        "served": 124
+        "served": 124,
+        "fiber_passings": 124,
+        "cable_passings": 593,
+        "dsl_passings": 0
       },
       {
         "name": "Service Electric Cablevision,Inc.",
         "passings": 42,
-        "served": 42
+        "served": 42,
+        "fiber_passings": 42,
+        "cable_passings": 5316,
+        "dsl_passings": 0
       },
       {
         "name": "Verizon",
         "passings": 37,
-        "served": 37
+        "served": 37,
+        "fiber_passings": 37,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Windstream Pennsylvania, LLC.",
         "passings": 35,
-        "served": 35
+        "served": 35,
+        "fiber_passings": 35,
+        "cable_passings": 0,
+        "dsl_passings": 67
       },
       {
         "name": "Windstream Conestoga, Inc.",
         "passings": 1,
-        "served": 1
+        "served": 1,
+        "fiber_passings": 1,
+        "cable_passings": 0,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Frontier",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 0,
+        "dsl_passings": 4
       }
     ],
     "population_2023": 18079,
@@ -4337,7 +7064,31 @@
     "build_difficulty": "Challenging",
     "rucc_code": 6,
     "rucc_description": "Nonmetro - Urban population of 5,000 to 20,000, adjacent to a metro area",
-    "rural_class": "Rural"
+    "rural_class": "Rural",
+    "cable_served": 5909,
+    "dsl_served": 71,
+    "cable_operators": [
+      {
+        "name": "Service Electric Cablevision,Inc.",
+        "passings": 5316
+      },
+      {
+        "name": "Xfinity",
+        "passings": 593
+      }
+    ],
+    "cable_operator_count": 2,
+    "dsl_operators": [
+      {
+        "name": "Windstream Pennsylvania, LLC.",
+        "passings": 67
+      },
+      {
+        "name": "Frontier",
+        "passings": 4
+      }
+    ],
+    "dsl_operator_count": 2
   },
   "42095": {
     "geoid": "42095",
@@ -4351,27 +7102,56 @@
       {
         "name": "Frontier",
         "passings": 6688,
-        "served": 6688
+        "served": 6688,
+        "fiber_passings": 6688,
+        "cable_passings": 0,
+        "dsl_passings": 8540
       },
       {
         "name": "Verizon",
         "passings": 5425,
-        "served": 5425
+        "served": 5425,
+        "fiber_passings": 5425,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Xfinity",
         "passings": 3450,
-        "served": 3450
+        "served": 3450,
+        "fiber_passings": 3450,
+        "cable_passings": 22,
+        "dsl_passings": 0
       },
       {
         "name": "Astound Broadband",
         "passings": 232,
-        "served": 232
+        "served": 232,
+        "fiber_passings": 232,
+        "cable_passings": 95536,
+        "dsl_passings": 0
       },
       {
         "name": "Blue Ridge Cable Technologies",
         "passings": 91,
-        "served": 91
+        "served": 91,
+        "fiber_passings": 91,
+        "cable_passings": 5165,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Service Electric Cable TV",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 97527,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Palmerton Telephone Company",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 0,
+        "dsl_passings": 1
       }
     ],
     "population_2023": 315927,
@@ -4425,7 +7205,39 @@
     "build_difficulty": "Moderate-Hard",
     "rucc_code": 2,
     "rucc_description": "Metro - Counties in metro areas of 250,000 to 1 million population",
-    "rural_class": "Metro"
+    "rural_class": "Metro",
+    "cable_served": 107903,
+    "dsl_served": 8541,
+    "cable_operators": [
+      {
+        "name": "Service Electric Cable TV",
+        "passings": 97527
+      },
+      {
+        "name": "Astound Broadband",
+        "passings": 95536
+      },
+      {
+        "name": "Blue Ridge Cable Technologies",
+        "passings": 5165
+      },
+      {
+        "name": "Xfinity",
+        "passings": 22
+      }
+    ],
+    "cable_operator_count": 4,
+    "dsl_operators": [
+      {
+        "name": "Frontier",
+        "passings": 8540
+      },
+      {
+        "name": "Palmerton Telephone Company",
+        "passings": 1
+      }
+    ],
+    "dsl_operator_count": 2
   },
   "42097": {
     "geoid": "42097",
@@ -4439,32 +7251,64 @@
       {
         "name": "Service Electric Cablevision,Inc.",
         "passings": 3237,
-        "served": 3237
+        "served": 3237,
+        "fiber_passings": 3237,
+        "cable_passings": 33990,
+        "dsl_passings": 0
       },
       {
         "name": "Windstream Pennsylvania, LLC.",
         "passings": 2282,
-        "served": 2282
+        "served": 2282,
+        "fiber_passings": 2282,
+        "cable_passings": 0,
+        "dsl_passings": 3715
       },
       {
         "name": "Xfinity",
         "passings": 1643,
-        "served": 1643
+        "served": 1643,
+        "fiber_passings": 1643,
+        "cable_passings": 3573,
+        "dsl_passings": 0
       },
       {
         "name": "Windstream Buffalo Valley, Inc.",
         "passings": 689,
-        "served": 689
+        "served": 689,
+        "fiber_passings": 689,
+        "cable_passings": 0,
+        "dsl_passings": 805
       },
       {
         "name": "Frontier",
         "passings": 1,
-        "served": 1
+        "served": 1,
+        "fiber_passings": 1,
+        "cable_passings": 0,
+        "dsl_passings": 4
       },
       {
         "name": "Windstream Communications, LLC.",
         "passings": 1,
-        "served": 1
+        "served": 1,
+        "fiber_passings": 1,
+        "cable_passings": 0,
+        "dsl_passings": 8
+      },
+      {
+        "name": "TDS Telecom",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 0,
+        "dsl_passings": 3620
+      },
+      {
+        "name": "Brightspeed",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 0,
+        "dsl_passings": 4
       }
     ],
     "population_2023": 90925,
@@ -4519,7 +7363,47 @@
     "build_difficulty": "Challenging",
     "rucc_code": 4,
     "rucc_description": "Nonmetro - Urban population of 20,000 or more, adjacent to a metro area",
-    "rural_class": "Micro"
+    "rural_class": "Micro",
+    "cable_served": 35670,
+    "dsl_served": 8156,
+    "cable_operators": [
+      {
+        "name": "Service Electric Cablevision,Inc.",
+        "passings": 33990
+      },
+      {
+        "name": "Xfinity",
+        "passings": 3573
+      }
+    ],
+    "cable_operator_count": 2,
+    "dsl_operators": [
+      {
+        "name": "Windstream Pennsylvania, LLC.",
+        "passings": 3715
+      },
+      {
+        "name": "TDS Telecom",
+        "passings": 3620
+      },
+      {
+        "name": "Windstream Buffalo Valley, Inc.",
+        "passings": 805
+      },
+      {
+        "name": "Windstream Communications, LLC.",
+        "passings": 8
+      },
+      {
+        "name": "Brightspeed",
+        "passings": 4
+      },
+      {
+        "name": "Frontier",
+        "passings": 4
+      }
+    ],
+    "dsl_operator_count": 6
   },
   "42099": {
     "geoid": "42099",
@@ -4533,22 +7417,34 @@
       {
         "name": "Brightspeed",
         "passings": 2881,
-        "served": 2881
+        "served": 2881,
+        "fiber_passings": 2881,
+        "cable_passings": 0,
+        "dsl_passings": 12096
       },
       {
         "name": "Blue Ridge Cable Technologies",
         "passings": 2631,
-        "served": 2631
+        "served": 2631,
+        "fiber_passings": 2631,
+        "cable_passings": 2634,
+        "dsl_passings": 0
       },
       {
         "name": "Zito Media",
         "passings": 1027,
-        "served": 1027
+        "served": 1027,
+        "fiber_passings": 1027,
+        "cable_passings": 3051,
+        "dsl_passings": 0
       },
       {
         "name": "Xfinity",
         "passings": 395,
-        "served": 395
+        "served": 395,
+        "fiber_passings": 395,
+        "cable_passings": 6343,
+        "dsl_passings": 0
       }
     ],
     "population_2023": 45988,
@@ -4601,7 +7497,31 @@
     "build_difficulty": "Challenging",
     "rucc_code": 2,
     "rucc_description": "Metro - Counties in metro areas of 250,000 to 1 million population",
-    "rural_class": "Metro"
+    "rural_class": "Metro",
+    "cable_served": 11558,
+    "dsl_served": 12096,
+    "cable_operators": [
+      {
+        "name": "Xfinity",
+        "passings": 6343
+      },
+      {
+        "name": "Zito Media",
+        "passings": 3051
+      },
+      {
+        "name": "Blue Ridge Cable Technologies",
+        "passings": 2634
+      }
+    ],
+    "cable_operator_count": 3,
+    "dsl_operators": [
+      {
+        "name": "Brightspeed",
+        "passings": 12096
+      }
+    ],
+    "dsl_operator_count": 1
   },
   "42101": {
     "geoid": "42101",
@@ -4615,27 +7535,42 @@
       {
         "name": "Verizon",
         "passings": 479046,
-        "served": 479046
+        "served": 479046,
+        "fiber_passings": 479046,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Xfinity",
         "passings": 63,
-        "served": 63
+        "served": 63,
+        "fiber_passings": 63,
+        "cable_passings": 502138,
+        "dsl_passings": 0
       },
       {
         "name": "Hotwire Communications",
         "passings": 21,
-        "served": 21
+        "served": 21,
+        "fiber_passings": 21,
+        "cable_passings": 85,
+        "dsl_passings": 0
       },
       {
         "name": "Frontier",
         "passings": 14,
-        "served": 14
+        "served": 14,
+        "fiber_passings": 14,
+        "cable_passings": 0,
+        "dsl_passings": 14
       },
       {
         "name": "Astound Broadband",
         "passings": 2,
-        "served": 2
+        "served": 2,
+        "fiber_passings": 2,
+        "cable_passings": 54,
+        "dsl_passings": 0
       }
     ],
     "population_2023": 1582432,
@@ -4689,7 +7624,31 @@
     "build_difficulty": "Moderate",
     "rucc_code": 1,
     "rucc_description": "Metro - Counties in metro areas of 1 million population or more",
-    "rural_class": "Metro"
+    "rural_class": "Metro",
+    "cable_served": 502139,
+    "dsl_served": 14,
+    "cable_operators": [
+      {
+        "name": "Xfinity",
+        "passings": 502138
+      },
+      {
+        "name": "Hotwire Communications",
+        "passings": 85
+      },
+      {
+        "name": "Astound Broadband",
+        "passings": 54
+      }
+    ],
+    "cable_operator_count": 3,
+    "dsl_operators": [
+      {
+        "name": "Frontier",
+        "passings": 14
+      }
+    ],
+    "dsl_operator_count": 1
   },
   "42103": {
     "geoid": "42103",
@@ -4703,22 +7662,41 @@
       {
         "name": "LHTC Broadband",
         "passings": 3191,
-        "served": 3191
+        "served": 3191,
+        "fiber_passings": 3191,
+        "cable_passings": 0,
+        "dsl_passings": 97
       },
       {
         "name": "Optimum",
         "passings": 1288,
-        "served": 1288
+        "served": 1288,
+        "fiber_passings": 1288,
+        "cable_passings": 1860,
+        "dsl_passings": 0
       },
       {
         "name": "Blue Ridge Cable Technologies",
         "passings": 89,
-        "served": 89
+        "served": 89,
+        "fiber_passings": 89,
+        "cable_passings": 36610,
+        "dsl_passings": 0
       },
       {
         "name": "Verizon",
         "passings": 7,
-        "served": 7
+        "served": 7,
+        "fiber_passings": 7,
+        "cable_passings": 0,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Xfinity",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 10,
+        "dsl_passings": 0
       }
     ],
     "population_2023": 59691,
@@ -4771,7 +7749,31 @@
     "build_difficulty": "Challenging",
     "rucc_code": 6,
     "rucc_description": "Nonmetro - Urban population of 5,000 to 20,000, adjacent to a metro area",
-    "rural_class": "Rural"
+    "rural_class": "Rural",
+    "cable_served": 38460,
+    "dsl_served": 97,
+    "cable_operators": [
+      {
+        "name": "Blue Ridge Cable Technologies",
+        "passings": 36610
+      },
+      {
+        "name": "Optimum",
+        "passings": 1860
+      },
+      {
+        "name": "Xfinity",
+        "passings": 10
+      }
+    ],
+    "cable_operator_count": 3,
+    "dsl_operators": [
+      {
+        "name": "LHTC Broadband",
+        "passings": 97
+      }
+    ],
+    "dsl_operator_count": 1
   },
   "42105": {
     "geoid": "42105",
@@ -4785,17 +7787,47 @@
       {
         "name": "TRI-CO CONNECTIONS",
         "passings": 7659,
-        "served": 7659
+        "served": 7659,
+        "fiber_passings": 7659,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Zito Media",
         "passings": 2064,
-        "served": 2064
+        "served": 2064,
+        "fiber_passings": 2064,
+        "cable_passings": 4666,
+        "dsl_passings": 0
       },
       {
         "name": "Blue Ridge Cable Technologies",
         "passings": 23,
-        "served": 23
+        "served": 23,
+        "fiber_passings": 23,
+        "cable_passings": 679,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Spectrum",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 742,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Xfinity",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 1,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Frontier",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 0,
+        "dsl_passings": 1106
       }
     ],
     "population_2023": 16276,
@@ -4847,7 +7879,35 @@
     "build_difficulty": "Challenging",
     "rucc_code": 9,
     "rucc_description": "Nonmetro - Urban population of fewer than 5,000, not adjacent to a metro area",
-    "rural_class": "Rural"
+    "rural_class": "Rural",
+    "cable_served": 5863,
+    "dsl_served": 1106,
+    "cable_operators": [
+      {
+        "name": "Zito Media",
+        "passings": 4666
+      },
+      {
+        "name": "Spectrum",
+        "passings": 742
+      },
+      {
+        "name": "Blue Ridge Cable Technologies",
+        "passings": 679
+      },
+      {
+        "name": "Xfinity",
+        "passings": 1
+      }
+    ],
+    "cable_operator_count": 4,
+    "dsl_operators": [
+      {
+        "name": "Frontier",
+        "passings": 1106
+      }
+    ],
+    "dsl_operator_count": 1
   },
   "42107": {
     "geoid": "42107",
@@ -4861,27 +7921,70 @@
       {
         "name": "Frontier",
         "passings": 5055,
-        "served": 5055
+        "served": 5055,
+        "fiber_passings": 5055,
+        "cable_passings": 0,
+        "dsl_passings": 5269
       },
       {
         "name": "Xfinity",
         "passings": 3686,
-        "served": 3686
+        "served": 3686,
+        "fiber_passings": 3686,
+        "cable_passings": 31825,
+        "dsl_passings": 0
       },
       {
         "name": "Blue Ridge Cable Technologies",
         "passings": 2075,
-        "served": 2075
+        "served": 2075,
+        "fiber_passings": 2075,
+        "cable_passings": 1612,
+        "dsl_passings": 0
       },
       {
         "name": "Windstream Pennsylvania, LLC.",
         "passings": 1391,
-        "served": 1391
+        "served": 1391,
+        "fiber_passings": 1391,
+        "cable_passings": 0,
+        "dsl_passings": 1531
       },
       {
         "name": "Service Electric Cablevision,Inc.",
         "passings": 929,
-        "served": 929
+        "served": 929,
+        "fiber_passings": 929,
+        "cable_passings": 24673,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Zito Media",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 3140,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Breezeline",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 2178,
+        "dsl_passings": 0
+      },
+      {
+        "name": "TDS Telecom",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 0,
+        "dsl_passings": 226
+      },
+      {
+        "name": "Brightspeed",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 0,
+        "dsl_passings": 1
       }
     ],
     "population_2023": 143259,
@@ -4935,7 +8038,51 @@
     "build_difficulty": "Challenging",
     "rucc_code": 4,
     "rucc_description": "Nonmetro - Urban population of 20,000 or more, adjacent to a metro area",
-    "rural_class": "Micro"
+    "rural_class": "Micro",
+    "cable_served": 59341,
+    "dsl_served": 7027,
+    "cable_operators": [
+      {
+        "name": "Xfinity",
+        "passings": 31825
+      },
+      {
+        "name": "Service Electric Cablevision,Inc.",
+        "passings": 24673
+      },
+      {
+        "name": "Zito Media",
+        "passings": 3140
+      },
+      {
+        "name": "Breezeline",
+        "passings": 2178
+      },
+      {
+        "name": "Blue Ridge Cable Technologies",
+        "passings": 1612
+      }
+    ],
+    "cable_operator_count": 5,
+    "dsl_operators": [
+      {
+        "name": "Frontier",
+        "passings": 5269
+      },
+      {
+        "name": "Windstream Pennsylvania, LLC.",
+        "passings": 1531
+      },
+      {
+        "name": "TDS Telecom",
+        "passings": 226
+      },
+      {
+        "name": "Brightspeed",
+        "passings": 1
+      }
+    ],
+    "dsl_operator_count": 4
   },
   "42109": {
     "geoid": "42109",
@@ -4949,22 +8096,55 @@
       {
         "name": "Zito Media",
         "passings": 902,
-        "served": 902
+        "served": 902,
+        "fiber_passings": 902,
+        "cable_passings": 1960,
+        "dsl_passings": 0
       },
       {
         "name": "Service Electric Cablevision,Inc.",
         "passings": 566,
-        "served": 566
+        "served": 566,
+        "fiber_passings": 566,
+        "cable_passings": 9151,
+        "dsl_passings": 0
       },
       {
         "name": "Susquehanna Broadband",
         "passings": 61,
-        "served": 61
+        "served": 61,
+        "fiber_passings": 61,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Windstream Buffalo Valley, Inc.",
         "passings": 15,
-        "served": 15
+        "served": 15,
+        "fiber_passings": 15,
+        "cable_passings": 0,
+        "dsl_passings": 74
+      },
+      {
+        "name": "Breezeline",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 228,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Xfinity",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 3,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Brightspeed",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 0,
+        "dsl_passings": 286
       }
     ],
     "population_2023": 39711,
@@ -5017,7 +8197,39 @@
     "build_difficulty": "Challenging",
     "rucc_code": 7,
     "rucc_description": "Nonmetro - Urban population of 5,000 to 20,000, not adjacent to a metro area",
-    "rural_class": "Rural"
+    "rural_class": "Rural",
+    "cable_served": 11342,
+    "dsl_served": 360,
+    "cable_operators": [
+      {
+        "name": "Service Electric Cablevision,Inc.",
+        "passings": 9151
+      },
+      {
+        "name": "Zito Media",
+        "passings": 1960
+      },
+      {
+        "name": "Breezeline",
+        "passings": 228
+      },
+      {
+        "name": "Xfinity",
+        "passings": 3
+      }
+    ],
+    "cable_operator_count": 4,
+    "dsl_operators": [
+      {
+        "name": "Brightspeed",
+        "passings": 286
+      },
+      {
+        "name": "Windstream Buffalo Valley, Inc.",
+        "passings": 74
+      }
+    ],
+    "dsl_operator_count": 2
   },
   "42111": {
     "geoid": "42111",
@@ -5031,22 +8243,62 @@
       {
         "name": "QCOL",
         "passings": 405,
-        "served": 405
+        "served": 405,
+        "fiber_passings": 405,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "LHTC Broadband",
         "passings": 157,
-        "served": 157
+        "served": 157,
+        "fiber_passings": 157,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Brightspeed",
         "passings": 1,
-        "served": 1
+        "served": 1,
+        "fiber_passings": 1,
+        "cable_passings": 0,
+        "dsl_passings": 120
       },
       {
         "name": "Verizon",
         "passings": 1,
-        "served": 1
+        "served": 1,
+        "fiber_passings": 1,
+        "cable_passings": 0,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Xfinity",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 22130,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Breezeline",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 3586,
+        "dsl_passings": 0
+      },
+      {
+        "name": "ArmstrongUtilitiesInc",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 3169,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Somerfield Cable TV",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 658,
+        "dsl_passings": 0
       }
     ],
     "population_2023": 73255,
@@ -5099,7 +8351,35 @@
     "build_difficulty": "Challenging",
     "rucc_code": 6,
     "rucc_description": "Nonmetro - Urban population of 5,000 to 20,000, adjacent to a metro area",
-    "rural_class": "Rural"
+    "rural_class": "Rural",
+    "cable_served": 29458,
+    "dsl_served": 120,
+    "cable_operators": [
+      {
+        "name": "Xfinity",
+        "passings": 22130
+      },
+      {
+        "name": "Breezeline",
+        "passings": 3586
+      },
+      {
+        "name": "ArmstrongUtilitiesInc",
+        "passings": 3169
+      },
+      {
+        "name": "Somerfield Cable TV",
+        "passings": 658
+      }
+    ],
+    "cable_operator_count": 4,
+    "dsl_operators": [
+      {
+        "name": "Brightspeed",
+        "passings": 120
+      }
+    ],
+    "dsl_operator_count": 1
   },
   "42113": {
     "geoid": "42113",
@@ -5113,17 +8393,61 @@
       {
         "name": "Frontier",
         "passings": 872,
-        "served": 872
+        "served": 872,
+        "fiber_passings": 872,
+        "cable_passings": 0,
+        "dsl_passings": 3904
       },
       {
         "name": "Zito Media",
         "passings": 163,
-        "served": 163
+        "served": 163,
+        "fiber_passings": 163,
+        "cable_passings": 369,
+        "dsl_passings": 0
       },
       {
         "name": "Revolution Broadband",
         "passings": 100,
-        "served": 100
+        "served": 100,
+        "fiber_passings": 100,
+        "cable_passings": 0,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Xfinity",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 1298,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Blue Ridge Cable Technologies",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 899,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Breezeline",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 94,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Windstream Communications, LLC.",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 0,
+        "dsl_passings": 2
+      },
+      {
+        "name": "Windstream Pennsylvania, LLC.",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 0,
+        "dsl_passings": 1
       }
     ],
     "population_2023": 5849,
@@ -5175,7 +8499,43 @@
     "build_difficulty": "Challenging",
     "rucc_code": 8,
     "rucc_description": "Nonmetro - Urban population of fewer than 5,000, adjacent to a metro area",
-    "rural_class": "Rural"
+    "rural_class": "Rural",
+    "cable_served": 2660,
+    "dsl_served": 3906,
+    "cable_operators": [
+      {
+        "name": "Xfinity",
+        "passings": 1298
+      },
+      {
+        "name": "Blue Ridge Cable Technologies",
+        "passings": 899
+      },
+      {
+        "name": "Zito Media",
+        "passings": 369
+      },
+      {
+        "name": "Breezeline",
+        "passings": 94
+      }
+    ],
+    "cable_operator_count": 4,
+    "dsl_operators": [
+      {
+        "name": "Frontier",
+        "passings": 3904
+      },
+      {
+        "name": "Windstream Communications, LLC.",
+        "passings": 2
+      },
+      {
+        "name": "Windstream Pennsylvania, LLC.",
+        "passings": 1
+      }
+    ],
+    "dsl_operator_count": 3
   },
   "42115": {
     "geoid": "42115",
@@ -5189,32 +8549,78 @@
       {
         "name": "The North-Eastern Pennsylvania Telephone Company",
         "passings": 8341,
-        "served": 8341
+        "served": 8341,
+        "fiber_passings": 8341,
+        "cable_passings": 0,
+        "dsl_passings": 26
       },
       {
         "name": "Frontier",
         "passings": 4248,
-        "served": 4248
+        "served": 4248,
+        "fiber_passings": 4248,
+        "cable_passings": 0,
+        "dsl_passings": 8711
       },
       {
         "name": "Revolution Broadband",
         "passings": 4209,
-        "served": 4209
+        "served": 4209,
+        "fiber_passings": 4209,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Adams CATV Inc",
         "passings": 3301,
-        "served": 3301
+        "served": 3301,
+        "fiber_passings": 3301,
+        "cable_passings": 5184,
+        "dsl_passings": 0
       },
       {
         "name": "NEP Telcom Inc",
         "passings": 2519,
-        "served": 2519
+        "served": 2519,
+        "fiber_passings": 2519,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Verizon",
         "passings": 2,
-        "served": 2
+        "served": 2,
+        "fiber_passings": 2,
+        "cable_passings": 0,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Spectrum",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 2826,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Beaver Valley Cable",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 236,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Blue Ridge Cable Technologies",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 53,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Xfinity",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 6,
+        "dsl_passings": 0
       }
     ],
     "population_2023": 38349,
@@ -5269,7 +8675,43 @@
     "build_difficulty": "Challenging",
     "rucc_code": 8,
     "rucc_description": "Nonmetro - Urban population of fewer than 5,000, adjacent to a metro area",
-    "rural_class": "Rural"
+    "rural_class": "Rural",
+    "cable_served": 8300,
+    "dsl_served": 8737,
+    "cable_operators": [
+      {
+        "name": "Adams CATV Inc",
+        "passings": 5184
+      },
+      {
+        "name": "Spectrum",
+        "passings": 2826
+      },
+      {
+        "name": "Beaver Valley Cable",
+        "passings": 236
+      },
+      {
+        "name": "Blue Ridge Cable Technologies",
+        "passings": 53
+      },
+      {
+        "name": "Xfinity",
+        "passings": 6
+      }
+    ],
+    "cable_operator_count": 5,
+    "dsl_operators": [
+      {
+        "name": "Frontier",
+        "passings": 8711
+      },
+      {
+        "name": "The North-Eastern Pennsylvania Telephone Company",
+        "passings": 26
+      }
+    ],
+    "dsl_operator_count": 2
   },
   "42117": {
     "geoid": "42117",
@@ -5283,47 +8725,81 @@
       {
         "name": "TRI-CO CONNECTIONS",
         "passings": 5424,
-        "served": 5424
+        "served": 5424,
+        "fiber_passings": 5424,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Frontier",
         "passings": 3808,
-        "served": 3808
+        "served": 3808,
+        "fiber_passings": 3808,
+        "cable_passings": 0,
+        "dsl_passings": 9053
       },
       {
         "name": "Blue Ridge Cable Technologies",
         "passings": 1583,
-        "served": 1583
+        "served": 1583,
+        "fiber_passings": 1583,
+        "cable_passings": 8615,
+        "dsl_passings": 0
       },
       {
         "name": "North Penn Telephone Company",
         "passings": 1467,
-        "served": 1467
+        "served": 1467,
+        "fiber_passings": 1467,
+        "cable_passings": 0,
+        "dsl_passings": 732
       },
       {
         "name": "North Penn Long Distance Corporation",
         "passings": 328,
-        "served": 328
+        "served": 328,
+        "fiber_passings": 328,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Spectrum",
         "passings": 170,
-        "served": 170
+        "served": 170,
+        "fiber_passings": 170,
+        "cable_passings": 2677,
+        "dsl_passings": 0
       },
       {
         "name": "Verizon",
         "passings": 35,
-        "served": 35
+        "served": 35,
+        "fiber_passings": 35,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Armstrong Telecommunications Inc",
         "passings": 2,
-        "served": 2
+        "served": 2,
+        "fiber_passings": 2,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Armstrong Telephone Company",
         "passings": 2,
-        "served": 2
+        "served": 2,
+        "fiber_passings": 2,
+        "cable_passings": 0,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Zito Media",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 119,
+        "dsl_passings": 0
       }
     ],
     "population_2023": 41078,
@@ -5381,7 +8857,35 @@
     "build_difficulty": "Challenging",
     "rucc_code": 8,
     "rucc_description": "Nonmetro - Urban population of fewer than 5,000, adjacent to a metro area",
-    "rural_class": "Rural"
+    "rural_class": "Rural",
+    "cable_served": 11411,
+    "dsl_served": 9773,
+    "cable_operators": [
+      {
+        "name": "Blue Ridge Cable Technologies",
+        "passings": 8615
+      },
+      {
+        "name": "Spectrum",
+        "passings": 2677
+      },
+      {
+        "name": "Zito Media",
+        "passings": 119
+      }
+    ],
+    "cable_operator_count": 3,
+    "dsl_operators": [
+      {
+        "name": "Frontier",
+        "passings": 9053
+      },
+      {
+        "name": "North Penn Telephone Company",
+        "passings": 732
+      }
+    ],
+    "dsl_operator_count": 2
   },
   "42119": {
     "geoid": "42119",
@@ -5395,27 +8899,56 @@
       {
         "name": "Windstream Buffalo Valley, Inc.",
         "passings": 5793,
-        "served": 5793
+        "served": 5793,
+        "fiber_passings": 5793,
+        "cable_passings": 0,
+        "dsl_passings": 13817
       },
       {
         "name": "Windstream Pennsylvania, LLC.",
         "passings": 989,
-        "served": 989
+        "served": 989,
+        "fiber_passings": 989,
+        "cable_passings": 0,
+        "dsl_passings": 1122
       },
       {
         "name": "Xfinity",
         "passings": 141,
-        "served": 141
+        "served": 141,
+        "fiber_passings": 141,
+        "cable_passings": 294,
+        "dsl_passings": 0
       },
       {
         "name": "Susquehanna Broadband",
         "passings": 47,
-        "served": 47
+        "served": 47,
+        "fiber_passings": 47,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Service Electric Cablevision,Inc.",
         "passings": 1,
-        "served": 1
+        "served": 1,
+        "fiber_passings": 1,
+        "cable_passings": 8056,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Breezeline",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 2882,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Brightspeed",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 0,
+        "dsl_passings": 3
       }
     ],
     "population_2023": 42570,
@@ -5469,7 +9002,39 @@
     "build_difficulty": "Challenging",
     "rucc_code": 6,
     "rucc_description": "Nonmetro - Urban population of 5,000 to 20,000, adjacent to a metro area",
-    "rural_class": "Rural"
+    "rural_class": "Rural",
+    "cable_served": 11221,
+    "dsl_served": 14939,
+    "cable_operators": [
+      {
+        "name": "Service Electric Cablevision,Inc.",
+        "passings": 8056
+      },
+      {
+        "name": "Breezeline",
+        "passings": 2882
+      },
+      {
+        "name": "Xfinity",
+        "passings": 294
+      }
+    ],
+    "cable_operator_count": 3,
+    "dsl_operators": [
+      {
+        "name": "Windstream Buffalo Valley, Inc.",
+        "passings": 13817
+      },
+      {
+        "name": "Windstream Pennsylvania, LLC.",
+        "passings": 1122
+      },
+      {
+        "name": "Brightspeed",
+        "passings": 3
+      }
+    ],
+    "dsl_operator_count": 3
   },
   "42121": {
     "geoid": "42121",
@@ -5483,27 +9048,63 @@
       {
         "name": "Windstream Pennsylvania, LLC.",
         "passings": 560,
-        "served": 560
+        "served": 560,
+        "fiber_passings": 560,
+        "cable_passings": 0,
+        "dsl_passings": 1758
       },
       {
         "name": "VenusTelephone",
         "passings": 484,
-        "served": 484
+        "served": 484,
+        "fiber_passings": 484,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Xfinity",
         "passings": 110,
-        "served": 110
+        "served": 110,
+        "fiber_passings": 110,
+        "cable_passings": 7777,
+        "dsl_passings": 0
       },
       {
         "name": "Windstream Communications, LLC.",
         "passings": 35,
-        "served": 35
+        "served": 35,
+        "fiber_passings": 35,
+        "cable_passings": 0,
+        "dsl_passings": 3
       },
       {
         "name": "ArmstrongUtilitiesInc",
         "passings": 2,
-        "served": 2
+        "served": 2,
+        "fiber_passings": 2,
+        "cable_passings": 5297,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Spectrum",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 6523,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Breezeline",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 126,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Brightspeed",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 0,
+        "dsl_passings": 833
       }
     ],
     "population_2023": 50096,
@@ -5557,7 +9158,43 @@
     "build_difficulty": "Challenging",
     "rucc_code": 4,
     "rucc_description": "Nonmetro - Urban population of 20,000 or more, adjacent to a metro area",
-    "rural_class": "Micro"
+    "rural_class": "Micro",
+    "cable_served": 19618,
+    "dsl_served": 2591,
+    "cable_operators": [
+      {
+        "name": "Xfinity",
+        "passings": 7777
+      },
+      {
+        "name": "Spectrum",
+        "passings": 6523
+      },
+      {
+        "name": "ArmstrongUtilitiesInc",
+        "passings": 5297
+      },
+      {
+        "name": "Breezeline",
+        "passings": 126
+      }
+    ],
+    "cable_operator_count": 4,
+    "dsl_operators": [
+      {
+        "name": "Windstream Pennsylvania, LLC.",
+        "passings": 1758
+      },
+      {
+        "name": "Brightspeed",
+        "passings": 833
+      },
+      {
+        "name": "Windstream Communications, LLC.",
+        "passings": 3
+      }
+    ],
+    "dsl_operator_count": 3
   },
   "42123": {
     "geoid": "42123",
@@ -5571,27 +9208,70 @@
       {
         "name": "WestPAnet",
         "passings": 2830,
-        "served": 2830
+        "served": 2830,
+        "fiber_passings": 2830,
+        "cable_passings": 2343,
+        "dsl_passings": 0
       },
       {
         "name": "Windstream Pennsylvania, LLC.",
         "passings": 776,
-        "served": 776
+        "served": 776,
+        "fiber_passings": 776,
+        "cable_passings": 0,
+        "dsl_passings": 1065
       },
       {
         "name": "Blue Fiber",
         "passings": 448,
-        "served": 448
+        "served": 448,
+        "fiber_passings": 448,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Spectrum",
         "passings": 432,
-        "served": 432
+        "served": 432,
+        "fiber_passings": 432,
+        "cable_passings": 327,
+        "dsl_passings": 0
       },
       {
         "name": "Breezeline",
         "passings": 1,
-        "served": 1
+        "served": 1,
+        "fiber_passings": 1,
+        "cable_passings": 4185,
+        "dsl_passings": 0
+      },
+      {
+        "name": "EagleZip.com",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 1472,
+        "dsl_passings": 0
+      },
+      {
+        "name": "ArmstrongUtilitiesInc",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 1438,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Xfinity",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 1,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Windstream New York, Inc.",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 0,
+        "dsl_passings": 1
       }
     ],
     "population_2023": 38174,
@@ -5645,7 +9325,47 @@
     "build_difficulty": "Challenging",
     "rucc_code": 6,
     "rucc_description": "Nonmetro - Urban population of 5,000 to 20,000, adjacent to a metro area",
-    "rural_class": "Rural"
+    "rural_class": "Rural",
+    "cable_served": 9219,
+    "dsl_served": 1066,
+    "cable_operators": [
+      {
+        "name": "Breezeline",
+        "passings": 4185
+      },
+      {
+        "name": "WestPAnet",
+        "passings": 2343
+      },
+      {
+        "name": "EagleZip.com",
+        "passings": 1472
+      },
+      {
+        "name": "ArmstrongUtilitiesInc",
+        "passings": 1438
+      },
+      {
+        "name": "Spectrum",
+        "passings": 327
+      },
+      {
+        "name": "Xfinity",
+        "passings": 1
+      }
+    ],
+    "cable_operator_count": 6,
+    "dsl_operators": [
+      {
+        "name": "Windstream Pennsylvania, LLC.",
+        "passings": 1065
+      },
+      {
+        "name": "Windstream New York, Inc.",
+        "passings": 1
+      }
+    ],
+    "dsl_operator_count": 2
   },
   "42125": {
     "geoid": "42125",
@@ -5659,37 +9379,93 @@
       {
         "name": "Verizon",
         "passings": 33796,
-        "served": 33796
+        "served": 33796,
+        "fiber_passings": 33796,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Hickory Telephone Company",
         "passings": 7377,
-        "served": 7377
+        "served": 7377,
+        "fiber_passings": 7377,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Windstream Pennsylvania, LLC.",
         "passings": 3371,
-        "served": 3371
+        "served": 3371,
+        "fiber_passings": 3371,
+        "cable_passings": 0,
+        "dsl_passings": 4086
       },
       {
         "name": "Xfinity",
         "passings": 792,
-        "served": 792
+        "served": 792,
+        "fiber_passings": 792,
+        "cable_passings": 69159,
+        "dsl_passings": 0
       },
       {
         "name": "Armstrong Telephone Company",
         "passings": 122,
-        "served": 122
+        "served": 122,
+        "fiber_passings": 122,
+        "cable_passings": 0,
+        "dsl_passings": 370
       },
       {
         "name": "Windstream Communications, LLC.",
         "passings": 74,
-        "served": 74
+        "served": 74,
+        "fiber_passings": 74,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Frontier",
         "passings": 1,
-        "served": 1
+        "served": 1,
+        "fiber_passings": 1,
+        "cable_passings": 0,
+        "dsl_passings": 7
+      },
+      {
+        "name": "Breezeline",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 6473,
+        "dsl_passings": 0
+      },
+      {
+        "name": "ArmstrongUtilitiesInc",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 4759,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Blue Devil Cable",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 3572,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Consolidated Communications",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 2319,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Brightspeed",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 0,
+        "dsl_passings": 6
       }
     ],
     "population_2023": 209778,
@@ -5745,7 +9521,55 @@
     "build_difficulty": "Challenging",
     "rucc_code": 1,
     "rucc_description": "Metro - Counties in metro areas of 1 million population or more",
-    "rural_class": "Metro"
+    "rural_class": "Metro",
+    "cable_served": 84221,
+    "dsl_served": 6536,
+    "cable_operators": [
+      {
+        "name": "Xfinity",
+        "passings": 69159
+      },
+      {
+        "name": "Breezeline",
+        "passings": 6473
+      },
+      {
+        "name": "ArmstrongUtilitiesInc",
+        "passings": 4759
+      },
+      {
+        "name": "Blue Devil Cable",
+        "passings": 3572
+      },
+      {
+        "name": "Consolidated Communications",
+        "passings": 2319
+      }
+    ],
+    "cable_operator_count": 5,
+    "dsl_operators": [
+      {
+        "name": "Windstream Pennsylvania, LLC.",
+        "passings": 4086
+      },
+      {
+        "name": "Consolidated Communications",
+        "passings": 2130
+      },
+      {
+        "name": "Armstrong Telephone Company",
+        "passings": 370
+      },
+      {
+        "name": "Frontier",
+        "passings": 7
+      },
+      {
+        "name": "Brightspeed",
+        "passings": 6
+      }
+    ],
+    "dsl_operator_count": 5
   },
   "42127": {
     "geoid": "42127",
@@ -5759,57 +9583,90 @@
       {
         "name": "Adams CATV Inc",
         "passings": 3878,
-        "served": 3878
+        "served": 3878,
+        "fiber_passings": 3878,
+        "cable_passings": 9637,
+        "dsl_passings": 0
       },
       {
         "name": "The North-Eastern Pennsylvania Telephone Company",
         "passings": 2727,
-        "served": 2727
+        "served": 2727,
+        "fiber_passings": 2727,
+        "cable_passings": 0,
+        "dsl_passings": 4
       },
       {
         "name": "LHTC Broadband",
         "passings": 2349,
-        "served": 2349
+        "served": 2349,
+        "fiber_passings": 2349,
+        "cable_passings": 0,
+        "dsl_passings": 72
       },
       {
         "name": "Spectrum",
         "passings": 766,
-        "served": 766
+        "served": 766,
+        "fiber_passings": 766,
+        "cable_passings": 88,
+        "dsl_passings": 0
       },
       {
         "name": "NEP Telcom Inc",
         "passings": 586,
-        "served": 586
+        "served": 586,
+        "fiber_passings": 586,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Xfinity",
         "passings": 407,
-        "served": 407
+        "served": 407,
+        "fiber_passings": 407,
+        "cable_passings": 45,
+        "dsl_passings": 0
       },
       {
         "name": "Hancock Telephone Co",
         "passings": 365,
-        "served": 365
+        "served": 365,
+        "fiber_passings": 365,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "The Hancock Telephone Co",
         "passings": 145,
-        "served": 145
+        "served": 145,
+        "fiber_passings": 145,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Blue Ridge Cable Technologies",
         "passings": 41,
-        "served": 41
+        "served": 41,
+        "fiber_passings": 41,
+        "cable_passings": 11653,
+        "dsl_passings": 0
       },
       {
         "name": "TDS Telecom",
         "passings": 28,
-        "served": 28
+        "served": 28,
+        "fiber_passings": 28,
+        "cable_passings": 0,
+        "dsl_passings": 155
       },
       {
         "name": "Verizon",
         "passings": 2,
-        "served": 2
+        "served": 2,
+        "fiber_passings": 2,
+        "cable_passings": 0,
+        "dsl_passings": 0
       }
     ],
     "population_2023": 51189,
@@ -5869,7 +9726,43 @@
     "build_difficulty": "Challenging",
     "rucc_code": 6,
     "rucc_description": "Nonmetro - Urban population of 5,000 to 20,000, adjacent to a metro area",
-    "rural_class": "Rural"
+    "rural_class": "Rural",
+    "cable_served": 21349,
+    "dsl_served": 231,
+    "cable_operators": [
+      {
+        "name": "Blue Ridge Cable Technologies",
+        "passings": 11653
+      },
+      {
+        "name": "Adams CATV Inc",
+        "passings": 9637
+      },
+      {
+        "name": "Spectrum",
+        "passings": 88
+      },
+      {
+        "name": "Xfinity",
+        "passings": 45
+      }
+    ],
+    "cable_operator_count": 4,
+    "dsl_operators": [
+      {
+        "name": "TDS Telecom",
+        "passings": 155
+      },
+      {
+        "name": "LHTC Broadband",
+        "passings": 72
+      },
+      {
+        "name": "The North-Eastern Pennsylvania Telephone Company",
+        "passings": 4
+      }
+    ],
+    "dsl_operator_count": 3
   },
   "42129": {
     "geoid": "42129",
@@ -5883,47 +9776,88 @@
       {
         "name": "Windstream Pennsylvania, LLC.",
         "passings": 10917,
-        "served": 10917
+        "served": 10917,
+        "fiber_passings": 10917,
+        "cable_passings": 0,
+        "dsl_passings": 21799
       },
       {
         "name": "Citizens Telecom Solutions LLC",
         "passings": 7130,
-        "served": 7130
+        "served": 7130,
+        "fiber_passings": 7130,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Citizens Telephone Company of Kecksburg",
         "passings": 5004,
-        "served": 5004
+        "served": 5004,
+        "fiber_passings": 5004,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "LHTC Broadband",
         "passings": 4904,
-        "served": 4904
+        "served": 4904,
+        "fiber_passings": 4904,
+        "cable_passings": 0,
+        "dsl_passings": 3
       },
       {
         "name": "Verizon",
         "passings": 4058,
-        "served": 4058
+        "served": 4058,
+        "fiber_passings": 4058,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Salsgiver Inc",
         "passings": 710,
-        "served": 710
+        "served": 710,
+        "fiber_passings": 710,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Xfinity",
         "passings": 226,
-        "served": 226
+        "served": 226,
+        "fiber_passings": 226,
+        "cable_passings": 137963,
+        "dsl_passings": 0
       },
       {
         "name": "ArmstrongUtilitiesInc",
         "passings": 210,
-        "served": 210
+        "served": 210,
+        "fiber_passings": 210,
+        "cable_passings": 12743,
+        "dsl_passings": 0
       },
       {
         "name": "Fidium Fiber",
         "passings": 2,
-        "served": 2
+        "served": 2,
+        "fiber_passings": 2,
+        "cable_passings": 0,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Breezeline",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 1101,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Consolidated Communications",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 0,
+        "dsl_passings": 244
       }
     ],
     "population_2023": 353345,
@@ -5981,7 +9915,39 @@
     "build_difficulty": "Challenging",
     "rucc_code": 1,
     "rucc_description": "Metro - Counties in metro areas of 1 million population or more",
-    "rural_class": "Metro"
+    "rural_class": "Metro",
+    "cable_served": 151404,
+    "dsl_served": 22019,
+    "cable_operators": [
+      {
+        "name": "Xfinity",
+        "passings": 137963
+      },
+      {
+        "name": "ArmstrongUtilitiesInc",
+        "passings": 12743
+      },
+      {
+        "name": "Breezeline",
+        "passings": 1101
+      }
+    ],
+    "cable_operator_count": 3,
+    "dsl_operators": [
+      {
+        "name": "Windstream Pennsylvania, LLC.",
+        "passings": 21799
+      },
+      {
+        "name": "Consolidated Communications",
+        "passings": 244
+      },
+      {
+        "name": "LHTC Broadband",
+        "passings": 3
+      }
+    ],
+    "dsl_operator_count": 3
   },
   "42131": {
     "geoid": "42131",
@@ -5995,22 +9961,41 @@
       {
         "name": "Frontier",
         "passings": 6627,
-        "served": 6627
+        "served": 6627,
+        "fiber_passings": 6627,
+        "cable_passings": 0,
+        "dsl_passings": 8392
       },
       {
         "name": "Revolution Broadband",
         "passings": 1139,
-        "served": 1139
+        "served": 1139,
+        "fiber_passings": 1139,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Xfinity",
         "passings": 403,
-        "served": 403
+        "served": 403,
+        "fiber_passings": 403,
+        "cable_passings": 2153,
+        "dsl_passings": 0
       },
       {
         "name": "Verizon",
         "passings": 2,
-        "served": 2
+        "served": 2,
+        "fiber_passings": 2,
+        "cable_passings": 0,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Blue Ridge Cable Technologies",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 7698,
+        "dsl_passings": 0
       }
     ],
     "population_2023": 26075,
@@ -6063,7 +10048,27 @@
     "build_difficulty": "Challenging",
     "rucc_code": 2,
     "rucc_description": "Metro - Counties in metro areas of 250,000 to 1 million population",
-    "rural_class": "Metro"
+    "rural_class": "Metro",
+    "cable_served": 9832,
+    "dsl_served": 8392,
+    "cable_operators": [
+      {
+        "name": "Blue Ridge Cable Technologies",
+        "passings": 7698
+      },
+      {
+        "name": "Xfinity",
+        "passings": 2153
+      }
+    ],
+    "cable_operator_count": 2,
+    "dsl_operators": [
+      {
+        "name": "Frontier",
+        "passings": 8392
+      }
+    ],
+    "dsl_operator_count": 1
   },
   "42133": {
     "geoid": "42133",
@@ -6077,42 +10082,73 @@
       {
         "name": "Glo Fiber",
         "passings": 30937,
-        "served": 30937
+        "served": 30937,
+        "fiber_passings": 30937,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Brightspeed",
         "passings": 11016,
-        "served": 11016
+        "served": 11016,
+        "fiber_passings": 11016,
+        "cable_passings": 0,
+        "dsl_passings": 5246
       },
       {
         "name": "Verizon",
         "passings": 7087,
-        "served": 7087
+        "served": 7087,
+        "fiber_passings": 7087,
+        "cable_passings": 0,
+        "dsl_passings": 0
       },
       {
         "name": "Frontier",
         "passings": 4130,
-        "served": 4130
+        "served": 4130,
+        "fiber_passings": 4130,
+        "cable_passings": 0,
+        "dsl_passings": 6760
       },
       {
         "name": "Blue Ridge Cable Technologies",
         "passings": 3929,
-        "served": 3929
+        "served": 3929,
+        "fiber_passings": 3929,
+        "cable_passings": 4539,
+        "dsl_passings": 0
       },
       {
         "name": "Xfinity",
         "passings": 1840,
-        "served": 1840
+        "served": 1840,
+        "fiber_passings": 1840,
+        "cable_passings": 142215,
+        "dsl_passings": 0
       },
       {
         "name": "ArmstrongUtilitiesInc",
         "passings": 420,
-        "served": 420
+        "served": 420,
+        "fiber_passings": 420,
+        "cable_passings": 8586,
+        "dsl_passings": 0
       },
       {
         "name": "DandBBroadband",
         "passings": 9,
-        "served": 9
+        "served": 9,
+        "fiber_passings": 9,
+        "cable_passings": 0,
+        "dsl_passings": 0
+      },
+      {
+        "name": "Breezeline",
+        "passings": 0,
+        "fiber_passings": 0,
+        "cable_passings": 144,
+        "dsl_passings": 0
       }
     ],
     "population_2023": 459312,
@@ -6169,6 +10205,38 @@
     "build_difficulty": "Moderate-Hard",
     "rucc_code": 2,
     "rucc_description": "Metro - Counties in metro areas of 250,000 to 1 million population",
-    "rural_class": "Metro"
+    "rural_class": "Metro",
+    "cable_served": 153140,
+    "dsl_served": 12006,
+    "cable_operators": [
+      {
+        "name": "Xfinity",
+        "passings": 142215
+      },
+      {
+        "name": "ArmstrongUtilitiesInc",
+        "passings": 8586
+      },
+      {
+        "name": "Blue Ridge Cable Technologies",
+        "passings": 4539
+      },
+      {
+        "name": "Breezeline",
+        "passings": 144
+      }
+    ],
+    "cable_operator_count": 4,
+    "dsl_operators": [
+      {
+        "name": "Frontier",
+        "passings": 6760
+      },
+      {
+        "name": "Brightspeed",
+        "passings": 5246
+      }
+    ],
+    "dsl_operator_count": 2
   }
 }
