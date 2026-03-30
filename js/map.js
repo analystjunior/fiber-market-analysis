@@ -8,6 +8,14 @@
     // HELPER FUNCTIONS
     // ============================================
 
+    function formatPassings(n) {
+        if (!n || n <= 0) return '—';
+        if (n >= 1000000) return (n / 1000000).toFixed(1).replace(/\.0$/, '') + 'M';
+        if (n >= 10000)   return Math.round(n / 1000) + 'k';
+        if (n >= 1000)    return (n / 1000).toFixed(1).replace(/\.0$/, '') + 'k';
+        return n.toLocaleString();
+    }
+
     function setTextContent(selector, text) {
         var el = document.querySelector(selector);
         if (el) {
@@ -846,19 +854,25 @@
                 operatorsList.textContent = '';
                 if (data.operators && data.operators.length > 0) {
                     var topOperators = data.operators.slice().sort(function(a, b) {
-                        return (b.passings || 0) - (a.passings || 0);
+                        var aTotal = (a.fiber_passings || a.passings || 0) + (a.cable_passings || 0) + (a.dsl_passings || 0);
+                        var bTotal = (b.fiber_passings || b.passings || 0) + (b.cable_passings || 0) + (b.dsl_passings || 0);
+                        return bTotal - aTotal;
                     }).slice(0, 5);
                     topOperators.forEach(function(op) {
+                        var fiberP = op.fiber_passings || op.passings || 0;
+                        var cableP = op.cable_passings || 0;
+                        var dslP   = op.dsl_passings   || 0;
+                        var totalP = fiberP + cableP + dslP;
                         var li = createElement('li');
-                        var nameSpan = createElement('span', { className: 'operator-name' }, op.name);
-                        var passingsSpan = createElement('span', { className: 'operator-passings' },
-                            DataHandler.formatNumber(op.passings) + ' passings');
-                        li.appendChild(nameSpan);
-                        li.appendChild(passingsSpan);
+                        li.appendChild(createElement('span', { className: 'operator-name' }, op.name));
+                        li.appendChild(createElement('span', { className: 'op-stat' }, formatPassings(fiberP)));
+                        li.appendChild(createElement('span', { className: 'op-stat' }, formatPassings(cableP)));
+                        li.appendChild(createElement('span', { className: 'op-stat' }, formatPassings(dslP)));
+                        li.appendChild(createElement('span', { className: 'op-stat op-stat-total' }, formatPassings(totalP)));
                         operatorsList.appendChild(li);
                     });
                 } else {
-                    var noOp = createElement('li', { style: 'color: #64748b;' }, 'No fiber operators reported');
+                    var noOp = createElement('li', { style: 'color: #64748b;' }, 'No operators reported');
                     operatorsList.appendChild(noOp);
                 }
             }
