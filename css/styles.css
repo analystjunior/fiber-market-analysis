@@ -1406,10 +1406,32 @@ input:focus-visible {
     padding: 8px 4px 3px;
 }
 
+.provider-list-col-headers {
+    display: grid;
+    grid-template-columns: 1fr 36px 36px 32px 40px;
+    gap: 0 4px;
+    padding: 0 16px 4px;
+    align-items: baseline;
+}
+
+.provider-list-col-headers span {
+    font-size: 10px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.25);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    text-align: right;
+}
+
+.provider-list-col-headers span:first-child {
+    text-align: left;
+}
+
 .provider-item {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 36px 36px 32px 40px;
+    gap: 0 4px;
     align-items: center;
-    justify-content: space-between;
     width: 100%;
     text-align: left;
     background: transparent;
@@ -1421,7 +1443,6 @@ input:focus-visible {
     padding: 5px 8px;
     cursor: pointer;
     transition: background 0.1s, color 0.1s;
-    gap: 6px;
 }
 
 .provider-item:hover {
@@ -1436,24 +1457,32 @@ input:focus-visible {
 }
 
 .provider-item-name {
-    flex: 1;
     min-width: 0;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
 
-.provider-item-passings {
-    font-size: 11px;
+.provider-item-stat {
+    font-size: 10.5px;
     font-weight: 500;
     color: rgba(255,255,255,0.3);
     white-space: nowrap;
     font-variant-numeric: tabular-nums;
-    flex-shrink: 0;
+    text-align: right;
 }
 
-.provider-item.active .provider-item-passings {
-    color: rgba(245, 158, 11, 0.6);
+.provider-item-stat-total {
+    color: rgba(255,255,255,0.55);
+    font-weight: 600;
+}
+
+.provider-item.active .provider-item-stat {
+    color: rgba(245, 158, 11, 0.5);
+}
+
+.provider-item.active .provider-item-stat-total {
+    color: rgba(245, 158, 11, 0.8);
 }
 
 /* Tech filter row */

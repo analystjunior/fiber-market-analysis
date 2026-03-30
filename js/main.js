@@ -186,15 +186,20 @@
                 nameSpan.textContent = name;
                 btn.appendChild(nameSpan);
 
-                // National passings badge — show fiber passings for now
-                var provTotals = totals[name];
-                var formatted = ProviderIndex.formatPassings(provTotals ? provTotals.fiber : 0);
-                if (formatted) {
-                    var badge = document.createElement('span');
-                    badge.className = 'provider-item-passings';
-                    badge.textContent = formatted;
-                    btn.appendChild(badge);
-                }
+                // Fiber / Cable / DSL / Total passings columns
+                var provTotals = totals[name] || { fiber: 0, cable: 0, dsl: 0, all: 0 };
+                var cols = [
+                    { val: provTotals.fiber, cls: 'provider-item-stat' },
+                    { val: provTotals.cable, cls: 'provider-item-stat' },
+                    { val: provTotals.dsl,   cls: 'provider-item-stat' },
+                    { val: provTotals.all,   cls: 'provider-item-stat provider-item-stat-total' },
+                ];
+                cols.forEach(function(col) {
+                    var span = document.createElement('span');
+                    span.className = col.cls;
+                    span.textContent = ProviderIndex.formatPassings(col.val) || '—';
+                    btn.appendChild(span);
+                });
 
                 btn.addEventListener('click', function() {
                     if (_activeProviderBtn) {
