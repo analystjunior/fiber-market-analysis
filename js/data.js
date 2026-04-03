@@ -102,6 +102,15 @@
     // DATA HANDLER
     // ============================================
 
+    // ── Supabase ──────────────────────────────────────────────
+    var SUPABASE_URL     = 'https://sveqgyhncdrjemohpwho.supabase.co';
+    var SUPABASE_PUB_KEY = 'sb_publishable_mym2Y0fppNJKDXD8gaQ2kQ_tmCSG3fv';
+    var _sb = null;
+    function getSupabase() {
+        if (!_sb) _sb = supabase.createClient(SUPABASE_URL, SUPABASE_PUB_KEY);
+        return _sb;
+    }
+
     var DataHandler = {
         // Multi-state county data keyed by state code
         _stateCountyData: {},
@@ -124,23 +133,40 @@
 
         async loadData() {
             try {
-                // Load base files only — state county data is lazy-loaded on demand
-                var responses = await Promise.all([
+                var sb = getSupabase();
+
+                // Fetch state summary from Supabase + GeoJSON files concurrently
+                var results = await Promise.all([
+                    sb.from('state_summary').select('*'),
                     fetch('data/ny_counties_tiger.geojson'),
-                    fetch('data/fiber-data.json'),
                     fetch('data/us-states.json'),
                     fetch('data/us-counties.json'),
                 ]);
 
-                if (!responses[0].ok) throw new Error('Failed to load NY GeoJSON: ' + responses[0].status);
-                if (!responses[1].ok) throw new Error('Failed to load state fiber data: ' + responses[1].status);
-                if (!responses[2].ok) throw new Error('Failed to load US states: ' + responses[2].status);
-                if (!responses[3].ok) throw new Error('Failed to load US counties TopoJSON: ' + responses[3].status);
+                var summaryResult = results[0];
+                var geoResponses  = results.slice(1);
 
-                this.tigerGeoJSON   = await responses[0].json();
-                this.stateData      = await responses[1].json();
-                this.usGeoJSON      = await responses[2].json();
-                this.usCountiesTopo = await responses[3].json();
+                if (summaryResult.error) throw new Error('Supabase state_summary: ' + summaryResult.error.message);
+                if (!geoResponses[0].ok) throw new Error('Failed to load NY GeoJSON: ' + geoResponses[0].status);
+                if (!geoResponses[1].ok) throw new Error('Failed to load US states: '  + geoResponses[1].status);
+                if (!geoResponses[2].ok) throw new Error('Failed to load US counties TopoJSON: ' + geoResponses[2].status);
+
+                // Rebuild stateData in the same shape as the old fiber-data.json
+                this.stateData = {};
+                for (var i = 0; i < summaryResult.data.length; i++) {
+                    var s = summaryResult.data[i];
+                    this.stateData[s.state_code] = {
+                        state:              s.state_name,
+                        totalHousingUnits:  s.total_housing_units,
+                        totalFiberPassings: s.total_fiber_passings,
+                        fiberPenetration:   s.fiber_penetration,
+                        operators:          s.operators || [],
+                    };
+                }
+
+                this.tigerGeoJSON   = await geoResponses[0].json();
+                this.usGeoJSON      = await geoResponses[1].json();
+                this.usCountiesTopo = await geoResponses[2].json();
 
                 this._activeState = 'MO';
                 this._isLoaded = true;
@@ -154,24 +180,38 @@
             }
         },
 
-        // Lazy-load a single state's county data. Safe to call multiple times (cached).
+        // Lazy-load a single state's county data from Supabase. Safe to call multiple times (cached).
         async loadStateData(stateCode) {
             if (this._stateCountyData[stateCode]) return true;
             if (this._stateLoadPromises[stateCode]) return this._stateLoadPromises[stateCode];
 
             var self = this;
-            var filename = stateCode.toLowerCase() + '-unified-data.json';
-            this._stateLoadPromises[stateCode] = fetch('data/' + filename)
-                .then(function(r) {
-                    if (!r.ok) throw new Error('HTTP ' + r.status);
-                    return r.json();
-                })
-                .then(function(data) {
-                    self._stateCountyData[stateCode] = data;
+            var sb = getSupabase();
+
+            this._stateLoadPromises[stateCode] = sb
+                .from('counties')
+                .select('*')
+                .eq('state_code', stateCode)
+                .then(function(result) {
+                    if (result.error) {
+                        console.warn('Supabase error loading ' + stateCode + ':', result.error.message);
+                        return false;
+                    }
+                    if (!result.data || result.data.length === 0) {
+                        console.warn('No county data returned for state:', stateCode);
+                        return false;
+                    }
+                    // Rebuild the same FIPS-keyed dict the rest of the app expects
+                    var byFips = {};
+                    for (var i = 0; i < result.data.length; i++) {
+                        var county = result.data[i];
+                        byFips[county.geoid] = county;
+                    }
+                    self._stateCountyData[stateCode] = byFips;
                     return true;
                 })
                 .catch(function(e) {
-                    console.warn('Could not load ' + filename + ':', e.message);
+                    console.warn('Could not load county data for ' + stateCode + ':', e.message);
                     return false;
                 });
 
