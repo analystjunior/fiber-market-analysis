@@ -214,6 +214,52 @@
         'Omni Fiber': 'Omni Fiber',
     };
 
+    // Public-reported national totals for the picker summary display.
+    // Source: Q4 2025 earnings releases. null = no public figure for that tech.
+    // County-level map data still comes from FCC filings.
+    var PUBLIC_REPORTED = {
+        // AT&T Q4 2025 (prnewswire.com/302672564)
+        'AT&T':          { fiber: 32000000,  cable: null,     dsl: null     },
+        // Verizon Q4 2025 (verizon.com)
+        'Verizon Fios':  { fiber: 21500000,  cable: null,     dsl: null     },
+        // Frontier via Verizon Q4 2025 call
+        'Frontier':      { fiber: 9000000,   cable: null,     dsl: null     },
+        // Comcast Q4 2025 (cmcsa.com)
+        'Xfinity':       { fiber: null,      cable: 65000000, dsl: null     },
+        // Charter Q4 2025 (prnewswire.com/302674771)
+        'Spectrum':      { fiber: null,      cable: 58400000, dsl: null     },
+        // Cox: Charter-Cox merger filing May 2025
+        'Cox':           { fiber: null,      cable: 12300000, dsl: null     },
+        // Lumen Q4 2025 (ir.lumen.com)
+        'Quantum Fiber': { fiber: 4000000,   cable: null,     dsl: 6000000  },
+        // Brightspeed press release Apr 2 2026 (prnewswire.com/302732416)
+        'Brightspeed':   { fiber: 3000000,   cable: null,     dsl: 4300000  },
+        // Altice USA Q3 2025 (investors.optimum.com)
+        'Optimum':       { fiber: 3050000,   cable: 9940000,  dsl: null     },
+        // Metronet press release Nov 2025 (businesswire.com)
+        'Metronet':      { fiber: 3000000,   cable: null,     dsl: null     },
+        // Windstream/Kinetic via Uniti Q4 2025 (lightwaveonline.com)
+        'Windstream':    { fiber: 1900000,   cable: null,     dsl: null     },
+        // TDS Q4 2025 (prnewswire.com/302693316)
+        'TDS Telecom':   { fiber: 1060000,   cable: null,     dsl: null     },
+        // WOW Q3 2025 (taken private Jan 2026)
+        'WOW!':          { fiber: 107000,    cable: 2020000,  dsl: null     },
+        // Midco 2025 company materials
+        'Midco':         { fiber: 130000,    cable: 870000,   dsl: null     },
+        // Mediacom 2025 company materials
+        'Mediacom':      { fiber: null,      cable: 3000000,  dsl: null     },
+    };
+
+    // Returns public-reported totals for a canonical provider, or null if not available.
+    function getPublicTotals(canonicalName) {
+        return PUBLIC_REPORTED[canonicalName] || null;
+    }
+
+    // Returns all canonical provider names that have public-reported figures.
+    function publicProviderNames() {
+        return Object.keys(PUBLIC_REPORTED);
+    }
+
     // Canonical provider list, grouped for the picker UI.
     // Only providers that appear in enough counties to be meaningful.
     var PROVIDER_GROUPS = [
@@ -336,6 +382,8 @@
         computeNationalTotals: computeNationalTotals,
         getFiberTotal: getFiberTotal,
         formatPassings: formatPassings,
+        getPublicTotals: getPublicTotals,
+        publicProviderNames: publicProviderNames,
     };
 
 })(window);

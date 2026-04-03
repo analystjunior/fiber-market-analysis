@@ -162,75 +162,96 @@
         if (!container) return;
         container.textContent = '';
 
-        var totals = ProviderIndex.computeNationalTotals();
+        var computed = ProviderIndex.computeNationalTotals();
 
-        ProviderIndex.GROUPS.forEach(function(group) {
-            var groupEl = document.createElement('div');
-            groupEl.className = 'provider-group';
+        // Resolve display values for a provider:
+        // - If in PUBLIC_REPORTED: use those figures (null tech → 0 for total, "—" for display)
+        // - If not in PUBLIC_REPORTED: fall back to county-computed totals
+        function resolveDisplay(name) {
+            var pub = ProviderIndex.getPublicTotals(name);
+            if (pub) {
+                var fiber = pub.fiber != null ? pub.fiber : 0;
+                var cable = pub.cable != null ? pub.cable : 0;
+                var dsl   = pub.dsl   != null ? pub.dsl   : 0;
+                return {
+                    fiber: pub.fiber,  // null preserved for "—" display
+                    cable: pub.cable,
+                    dsl:   pub.dsl,
+                    all:   fiber + cable + dsl,
+                    sortFiber: fiber,
+                };
+            }
+            var c = computed[name] || { fiber: 0, cable: 0, dsl: 0, all: 0 };
+            return {
+                fiber: c.fiber || null,
+                cable: c.cable || null,
+                dsl:   c.dsl   || null,
+                all:   c.all,
+                sortFiber: c.fiber,
+            };
+        }
 
-            var label = document.createElement('div');
-            label.className = 'provider-group-label';
-            label.textContent = group.group;
-            groupEl.appendChild(label);
+        // Union of public-reported providers + computed providers with 100K+ fiber
+        var nameSet = {};
+        ProviderIndex.publicProviderNames().forEach(function(n) { nameSet[n] = true; });
+        Object.keys(computed).forEach(function(n) {
+            if (computed[n].fiber >= 100000) nameSet[n] = true;
+        });
 
-            group.providers.forEach(function(name) {
-                var btn = document.createElement('button');
-                btn.className = 'provider-item';
-                btn.setAttribute('role', 'option');
-                btn.setAttribute('aria-selected', 'false');
-                btn.dataset.provider = name;
+        var providers = Object.keys(nameSet)
+            .map(function(name) { return { name: name, d: resolveDisplay(name) }; })
+            .filter(function(p) { return p.d.sortFiber >= 100000; })
+            .sort(function(a, b) { return b.d.sortFiber - a.d.sortFiber; });
 
-                // Provider name
-                var nameSpan = document.createElement('span');
-                nameSpan.className = 'provider-item-name';
-                nameSpan.textContent = name;
-                btn.appendChild(nameSpan);
+        providers.forEach(function(p) {
+            var name = p.name;
+            var d    = p.d;
 
-                // Fiber / Cable / DSL / Total passings columns
-                var provTotals = totals[name] || { fiber: 0, cable: 0, dsl: 0, all: 0 };
-                var cols = [
-                    { val: provTotals.fiber, cls: 'provider-item-stat' },
-                    { val: provTotals.cable, cls: 'provider-item-stat' },
-                    { val: provTotals.dsl,   cls: 'provider-item-stat' },
-                    { val: provTotals.all,   cls: 'provider-item-stat provider-item-stat-total' },
-                ];
-                cols.forEach(function(col) {
-                    var span = document.createElement('span');
-                    span.className = col.cls;
-                    span.textContent = ProviderIndex.formatPassings(col.val) || '—';
-                    btn.appendChild(span);
-                });
+            var btn = document.createElement('button');
+            btn.className = 'provider-item';
+            btn.setAttribute('role', 'option');
+            btn.setAttribute('aria-selected', 'false');
+            btn.dataset.provider = name;
 
-                btn.addEventListener('click', function() {
-                    if (_activeProviderBtn) {
-                        _activeProviderBtn.classList.remove('active');
-                        _activeProviderBtn.setAttribute('aria-selected', 'false');
-                    }
-                    btn.classList.add('active');
-                    btn.setAttribute('aria-selected', 'true');
-                    _activeProviderBtn = btn;
-                    MapRenderer.setProvider(name);
-                });
-                groupEl.appendChild(btn);
+            var nameSpan = document.createElement('span');
+            nameSpan.className = 'provider-item-name';
+            nameSpan.textContent = name;
+            btn.appendChild(nameSpan);
+
+            var cols = [
+                { val: d.fiber, cls: 'provider-item-stat' },
+                { val: d.cable, cls: 'provider-item-stat' },
+                { val: d.dsl,   cls: 'provider-item-stat' },
+                { val: d.all,   cls: 'provider-item-stat provider-item-stat-total' },
+            ];
+            cols.forEach(function(col) {
+                var span = document.createElement('span');
+                span.className = col.cls;
+                span.textContent = ProviderIndex.formatPassings(col.val) || '—';
+                btn.appendChild(span);
             });
 
-            container.appendChild(groupEl);
+            btn.addEventListener('click', function() {
+                if (_activeProviderBtn) {
+                    _activeProviderBtn.classList.remove('active');
+                    _activeProviderBtn.setAttribute('aria-selected', 'false');
+                }
+                btn.classList.add('active');
+                btn.setAttribute('aria-selected', 'true');
+                _activeProviderBtn = btn;
+                MapRenderer.setProvider(name);
+            });
+            container.appendChild(btn);
         });
     }
 
     function filterProviderList(query) {
         var container = document.getElementById('provider-list');
         if (!container) return;
-        var groups = container.querySelectorAll('.provider-group');
-        groups.forEach(function(group) {
-            var items = group.querySelectorAll('.provider-item');
-            var anyVisible = false;
-            items.forEach(function(item) {
-                var match = !query || item.textContent.toLowerCase().indexOf(query) !== -1;
-                item.style.display = match ? '' : 'none';
-                if (match) anyVisible = true;
-            });
-            group.style.display = anyVisible ? '' : 'none';
+        var items = container.querySelectorAll('.provider-item');
+        items.forEach(function(item) {
+            var match = !query || item.textContent.toLowerCase().indexOf(query) !== -1;
+            item.style.display = match ? '' : 'none';
         });
     }
 
