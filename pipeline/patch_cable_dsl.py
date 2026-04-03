@@ -16,11 +16,11 @@ Usage:
     # Specific states
     python3 pipeline/patch_cable_dsl.py --states FL CA IL
 
-Environment:
-    FCC_USERNAME          guitarjam98@gmail.com
-    FCC_API_TOKEN         Y0RXzXWWFmF1coCg7uqr+dLLD6Rn/yrG53ro91Lbg6A=
+Environment (copy .env.example → .env and fill in values):
+    FCC_USERNAME          your FCC account email
+    FCC_API_TOKEN         your 44-char FCC API token
     SUPABASE_URL          https://sveqgyhncdrjemohpwho.supabase.co
-    SUPABASE_SERVICE_KEY  sb_secret_...
+    SUPABASE_SERVICE_KEY  your Supabase service role key (sb_secret_...)
 """
 
 import argparse

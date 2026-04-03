@@ -1,15 +1,34 @@
+# ── OS / Editor ───────────────────────────────────────────────
 .DS_Store
 *.zip
+.vscode/
+.idea/
 
-# Raw FCC/Census source files — large CSVs, not for version control
-data/raw/
+# ── Environment / Secrets — NEVER commit these ────────────────
+.env
+.env.local
+.env.*.local
 
-# FCC downloader — credentials and downloaded data
-scripts/credentials.json
-scripts/token.json
+# Google OAuth credentials and tokens
 credentials.json
 token.json
+scripts/credentials.json
+scripts/token.json
+pipeline/credentials.json
+pipeline/token.json
+
+# ── Raw data — large files, not for version control ───────────
+data/raw/
 fcc_data_downloads/
 
-# Python cache
-scripts/__pycache__/
+# ── Python ────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+dist/
+build/
+
+# ── Claude Code local settings ────────────────────────────────
+.claude/settings.local.json
