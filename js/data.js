@@ -9,10 +9,47 @@
     // ============================================
 
     /**
+     * Recompute attractiveness scores on a county object (mutates in place).
+     * Called after every county load so formula changes take effect without a pipeline re-run.
+     *
+     * Demo score (0-1):
+     *   income 35% | density 25% | pop growth 25% | WFH 15%
+     *
+     * Opportunity score (0-1):
+     *   availability (1 - penetration) 50% | unserved homes normalized to 25k 50%
+     *   → Fully-penetrated markets score near 0 regardless of demo quality.
+     *   → Large unserved markets score higher than tiny markets at the same penetration.
+     *
+     * Attractiveness = demo 50% + opportunity 50%
+     */
+    function recomputeAttractiveness(county) {
+        var hhi      = county.median_hhi      || 30000;
+        var density  = county.housing_density  || 1;
+        var growth   = county.pop_growth_pct   || 0;
+        var wfh      = county.wfh_pct          || 0;
+
+        var income_score  = Math.min(1, Math.max(0, (hhi - 30000) / 60000));
+        var density_score = Math.min(1, Math.max(0, Math.log10(Math.max(1, density)) / 3));
+        var growth_score  = Math.min(1, Math.max(0, (growth + 5) / 15));
+        var wfh_score     = Math.min(1, Math.max(0, wfh / 25));
+        var demo = income_score * 0.35 + density_score * 0.25 + growth_score * 0.25 + wfh_score * 0.15;
+
+        var penetration    = county.fiber_penetration != null ? county.fiber_penetration : 0;
+        var unserved       = county.fiber_unserved    != null ? county.fiber_unserved    : 0;
+        var availability   = 1 - penetration;
+        var unserved_scale = Math.min(1, unserved / 25000);
+        var opportunity    = availability * 0.5 + unserved_scale * 0.5;
+
+        county.demo_score           = Math.round(demo        * 1000) / 1000;
+        county.opportunity_score    = Math.round(opportunity * 1000) / 1000;
+        county.attractiveness_index = Math.round((demo * 0.50 + opportunity * 0.50) * 1000) / 1000;
+    }
+
+    /**
      * Safely formats a number with locale string
      * @param {number|null|undefined} num
      * @returns {string}
-     * 
+     *
      */
     function formatNumber(num) {
         if (num === null || num === undefined || !Number.isFinite(num)) {
@@ -205,6 +242,7 @@
                     var byFips = {};
                     for (var i = 0; i < result.data.length; i++) {
                         var county = result.data[i];
+                        recomputeAttractiveness(county);
                         byFips[county.geoid] = county;
                     }
                     self._stateCountyData[stateCode] = byFips;
@@ -254,6 +292,7 @@
                     var county = rows[i];
                     var sc = county.state_code;
                     if (!sc) continue;
+                    recomputeAttractiveness(county);
                     if (!self._stateCountyData[sc]) self._stateCountyData[sc] = {};
                     self._stateCountyData[sc][county.geoid] = county;
                 }
