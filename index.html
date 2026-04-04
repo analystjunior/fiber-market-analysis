@@ -648,7 +648,8 @@
     <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
     <!-- BEAD Tracker Panel -->
-    <div id="bead-tracker-panel" class="bead-tracker-panel" role="dialog" aria-modal="true" aria-label="BEAD State Tracker" style="display:none;">
+    <div id="bead-tracker-backdrop" class="bead-tracker-backdrop">
+    <div id="bead-tracker-panel" role="dialog" aria-modal="true" aria-label="BEAD State Tracker">
         <div class="bead-tracker-header">
             <h2>BEAD State Funding Tracker</h2>
             <button id="bead-tracker-close" class="panel-close-btn" aria-label="Close BEAD tracker">&times;</button>
@@ -674,6 +675,7 @@
             </table>
         </div>
     </div>
+    </div><!-- end bead-tracker-backdrop -->
 
     <!-- External dependencies -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>

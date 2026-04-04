@@ -1906,32 +1906,21 @@ header { position: relative; display: flex; align-items: flex-start; justify-con
 .momentum-surging  { color: #15803d; }
 .momentum-pending  { color: rgba(255,255,255,0.3); }
 
-/* BEAD Tracker Panel */
-.bead-tracker-panel {
+/* BEAD Tracker Panel — backdrop + inner box */
+.bead-tracker-backdrop {
+    display: none;
     position: fixed;
     inset: 0;
     background: rgba(0,0,0,0.6);
     z-index: 2000;
-    display: flex;
     align-items: center;
     justify-content: center;
     padding: 20px;
 }
-.bead-tracker-panel > div,
-.bead-tracker-panel:not(.bead-tracker-header) {
-    /* inner wrapper not needed — let children lay out */
-}
-.bead-tracker-header {
+.bead-tracker-backdrop.open {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 8px;
 }
-.bead-tracker-header h2 { font-size: 16px; margin: 0; }
-
-/* Override: the panel itself IS the container */
 #bead-tracker-panel {
-    flex-direction: column;
     background: #131518;
     border: 1px solid rgba(255,255,255,0.1);
     border-radius: 12px;
@@ -1940,9 +1929,16 @@ header { position: relative; display: flex; align-items: flex-start; justify-con
     max-height: 80vh;
     padding: 20px;
     overflow: hidden;
-    display: none; /* overridden inline via JS */
+    display: flex;
+    flex-direction: column;
 }
-#bead-tracker-panel[style*="flex"] { display: flex !important; flex-direction: column; }
+.bead-tracker-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+.bead-tracker-header h2 { font-size: 16px; margin: 0; }
 
 .bead-tracker-note {
     font-size: 11px;

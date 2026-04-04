@@ -681,28 +681,28 @@
         InfoPanel.unpinCounty = function()      { _origUnpin();     UrlState.push(); };
 
         // BEAD Tracker panel
-        var beadTrackerBtn   = document.getElementById('bead-tracker-btn');
-        var beadTrackerPanel = document.getElementById('bead-tracker-panel');
-        var beadTrackerClose = document.getElementById('bead-tracker-close');
-        var _beadTrackerBuilt = false;
+        var beadTrackerBtn      = document.getElementById('bead-tracker-btn');
+        var beadTrackerBackdrop = document.getElementById('bead-tracker-backdrop');
+        var beadTrackerClose    = document.getElementById('bead-tracker-close');
+        var _beadTrackerBuilt   = false;
 
         function openBeadTracker() {
-            if (!beadTrackerPanel) return;
+            if (!beadTrackerBackdrop) return;
             if (!_beadTrackerBuilt) { buildBeadTracker(); _beadTrackerBuilt = true; }
-            beadTrackerPanel.style.display = 'flex';
+            beadTrackerBackdrop.classList.add('open');
         }
         function closeBeadTracker() {
-            if (beadTrackerPanel) beadTrackerPanel.style.display = 'none';
+            if (beadTrackerBackdrop) beadTrackerBackdrop.classList.remove('open');
         }
-        if (beadTrackerBtn)   beadTrackerBtn.addEventListener('click',   openBeadTracker);
-        if (beadTrackerClose) beadTrackerClose.addEventListener('click', closeBeadTracker);
-        if (beadTrackerPanel) {
-            beadTrackerPanel.addEventListener('click', function(e) {
-                if (e.target === beadTrackerPanel) closeBeadTracker();
+        if (beadTrackerBtn)      beadTrackerBtn.addEventListener('click',   openBeadTracker);
+        if (beadTrackerClose)    beadTrackerClose.addEventListener('click', closeBeadTracker);
+        if (beadTrackerBackdrop) {
+            beadTrackerBackdrop.addEventListener('click', function(e) {
+                if (e.target === beadTrackerBackdrop) closeBeadTracker();
             });
         }
 
-        // Share View button
+        // Share View button — encodes current map state into URL, copies to clipboard
         var shareBtn = document.getElementById('share-view-btn');
         if (shareBtn) {
             shareBtn.addEventListener('click', function() {
@@ -710,10 +710,10 @@
                 var url = window.location.href;
                 if (navigator.clipboard && navigator.clipboard.writeText) {
                     navigator.clipboard.writeText(url).then(function() {
-                        showToast('Link copied to clipboard');
+                        showToast('Shareable URL copied — paste it anywhere to share this exact view');
                     });
                 } else {
-                    showToast('Copy URL from address bar');
+                    showToast('URL updated in address bar — copy it to share this view');
                 }
             });
         }
