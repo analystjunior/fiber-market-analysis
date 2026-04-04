@@ -1142,6 +1142,26 @@
                     setTextById('cost-tier', data.construction_cost_tier || 'N/A');
                     setTextById('rucc-class', data.rural_class || 'N/A');
                     setTextById('rucc-code', data.rucc_code != null ? 'RUCC ' + data.rucc_code : 'N/A');
+
+                    // Seasonal construction window (from NOAA climate normals)
+                    var bmItem = document.getElementById('buildable-months-item');
+                    var wsItem = document.getElementById('winter-severity-item');
+                    var cmItem = document.getElementById('coldest-month-item');
+                    if (data.buildable_months != null) {
+                        if (bmItem) bmItem.style.display = '';
+                        if (wsItem) wsItem.style.display = '';
+                        if (cmItem) cmItem.style.display = '';
+                        var restricted = data.buildable_months < 12;
+                        setTextById('buildable-months',
+                            data.buildable_months + ' / 12' + (restricted ? '  (' + (12 - data.buildable_months) + ' frozen)' : ' — year-round'));
+                        setTextById('winter-severity', data.winter_severity || 'N/A');
+                        setTextById('coldest-month-f',
+                            data.coldest_month_f != null ? data.coldest_month_f.toFixed(1) + '°F avg' : 'N/A');
+                    } else {
+                        if (bmItem) bmItem.style.display = 'none';
+                        if (wsItem) wsItem.style.display = 'none';
+                        if (cmItem) cmItem.style.display = 'none';
+                    }
                 } else {
                     buildSection.style.display = 'none';
                 }
