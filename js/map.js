@@ -1307,15 +1307,20 @@
         },
 
         _attachRowListeners: function(tbody) {
+            var hoverTimer = null;
             tbody.querySelectorAll('tr').forEach(function(row) {
                 row.addEventListener('mouseenter', function() {
+                    if (hoverTimer) { clearTimeout(hoverTimer); hoverTimer = null; }
                     var fips = row.dataset.fips;
-                    if (!InfoPanel.pinnedCounty) {
-                        InfoPanel.showCountyInfo(fips);
-                        MapRenderer.highlightCounty(fips);
-                    }
+                    hoverTimer = setTimeout(function() {
+                        if (!InfoPanel.pinnedCounty) {
+                            InfoPanel.showCountyInfo(fips);
+                            MapRenderer.highlightCounty(fips);
+                        }
+                    }, 60);
                 });
                 row.addEventListener('mouseleave', function() {
+                    if (hoverTimer) { clearTimeout(hoverTimer); hoverTimer = null; }
                     if (!InfoPanel.pinnedCounty) {
                         InfoPanel.hideInfo();
                         MapRenderer.clearHighlight();
