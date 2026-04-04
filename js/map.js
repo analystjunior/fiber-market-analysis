@@ -1260,7 +1260,7 @@
             var tbody = document.getElementById('county-table-body');
             if (!tbody) return;
 
-            var counties = DataHandler.getAllCounties();
+            var counties = DataHandler.getAllLoadedCounties();
 
             var self = this;
             counties.sort(function(a, b) {
@@ -1482,7 +1482,7 @@
         },
 
         exportCSV: function() {
-            var counties = DataHandler.getAllCounties();
+            var counties = DataHandler.getAllLoadedCounties();
             if (!counties || !counties.length) return;
             var self = this;
             var activeState = DataHandler.getActiveState() || '';

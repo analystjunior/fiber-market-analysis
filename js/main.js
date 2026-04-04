@@ -32,7 +32,7 @@
         TableManager.init();
         NPVCalculator.init();
 
-        // Render table for default active state (MO)
+        // Render table for default active state (MO) immediately
         TableManager.renderTable();
 
         // Setup UI controls (buildProviderList runs after all county data is loaded)
@@ -45,6 +45,15 @@
         UrlState.restore();
 
         console.log('Application initialized');
+
+        // Load all states in the background — re-render table and state dropdown when done
+        DataHandler.loadAllCounties(function(loaded, total) {
+            console.log('Loading all counties: ' + loaded + ' / ' + total);
+        }).then(function() {
+            console.log('All counties loaded — refreshing table');
+            TableManager._populateStateDropdown();
+            TableManager.renderTable();
+        });
     });
 
     // ── URL State ─────────────────────────────────────────────────────────────

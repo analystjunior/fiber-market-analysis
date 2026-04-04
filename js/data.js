@@ -225,6 +225,57 @@
             }));
         },
 
+        // Load every county from Supabase (all states) via paginated queries.
+        // Stores results into _stateCountyData keyed by state_code.
+        // Calls onProgress(loadedCount, totalCount) after each page if provided.
+        async loadAllCounties(onProgress) {
+            var self = this;
+            var sb = getSupabase();
+            var pageSize = 1000;
+            var offset = 0;
+            var total = null;
+
+            while (true) {
+                var query = sb
+                    .from('counties')
+                    .select('*', { count: 'exact' })
+                    .range(offset, offset + pageSize - 1);
+
+                var result = await query;
+                if (result.error) {
+                    console.warn('loadAllCounties error:', result.error.message);
+                    break;
+                }
+
+                if (total === null) total = result.count || 0;
+
+                var rows = result.data || [];
+                for (var i = 0; i < rows.length; i++) {
+                    var county = rows[i];
+                    var sc = county.state_code;
+                    if (!sc) continue;
+                    if (!self._stateCountyData[sc]) self._stateCountyData[sc] = {};
+                    self._stateCountyData[sc][county.geoid] = county;
+                }
+
+                offset += rows.length;
+                if (onProgress) onProgress(offset, total);
+                if (rows.length < pageSize) break;
+            }
+        },
+
+        // All counties across every loaded state as a flat array.
+        getAllLoadedCounties: function() {
+            var all = [];
+            for (var sc in this._stateCountyData) {
+                var stateData = this._stateCountyData[sc];
+                for (var fips in stateData) {
+                    all.push(stateData[fips]);
+                }
+            }
+            return all;
+        },
+
         _validateData() {
             // Validate each state's county data has required fields
             var requiredFields = ['geoid', 'name', 'fiber_penetration', 'demo_score', 'attractiveness_index'];
