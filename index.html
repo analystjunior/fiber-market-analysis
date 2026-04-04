@@ -97,24 +97,46 @@
                             <span class="provider-picker-title">Select Provider</span>
                             <input type="text" id="provider-search" class="provider-search-input" placeholder="Search…" autocomplete="off" spellcheck="false">
                         </div>
-                        <div class="provider-list-col-headers">
-                            <span></span>
-                            <span>Fiber</span>
-                            <span>Cable</span>
-                            <span>DSL</span>
-                            <span>Total</span>
+                        <div class="provider-subview-tabs">
+                            <button class="subview-tab active" id="subview-individual" aria-pressed="true">Individual</button>
+                            <button class="subview-tab" id="subview-competition" aria-pressed="false">Competition</button>
                         </div>
-                        <div class="provider-list-wrap">
-                            <div id="provider-list" class="provider-list" role="listbox" aria-label="Provider list"></div>
-                        </div>
-                        <div class="tech-filter-row">
-                            <span class="tech-filter-label">Show:</span>
-                            <div class="tech-filter-btns" id="tech-filter">
-                                <button class="tech-btn active" data-tech="fiber" aria-pressed="true">Fiber</button>
-                                <button class="tech-btn" data-tech="cable" aria-pressed="false">Cable</button>
-                                <button class="tech-btn" data-tech="dsl" aria-pressed="false">DSL/Copper</button>
-                                <button class="tech-btn" data-tech="all" aria-pressed="false">All</button>
+
+                        <!-- Individual provider view -->
+                        <div id="individual-panel">
+                            <div class="provider-list-col-headers">
+                                <span></span>
+                                <span>Fiber</span>
+                                <span>Cable</span>
+                                <span>DSL</span>
+                                <span>Total</span>
                             </div>
+                            <div class="provider-list-wrap">
+                                <div id="provider-list" class="provider-list" role="listbox" aria-label="Provider list"></div>
+                            </div>
+                            <div class="tech-filter-row">
+                                <span class="tech-filter-label">Show:</span>
+                                <div class="tech-filter-btns" id="tech-filter">
+                                    <button class="tech-btn active" data-tech="fiber" aria-pressed="true">Fiber</button>
+                                    <button class="tech-btn" data-tech="cable" aria-pressed="false">Cable</button>
+                                    <button class="tech-btn" data-tech="dsl" aria-pressed="false">DSL/Copper</button>
+                                    <button class="tech-btn" data-tech="all" aria-pressed="false">All</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Competition overlap view -->
+                        <div id="competition-panel" style="display:none;">
+                            <div id="competition-legend" class="competition-legend"></div>
+                            <div class="provider-list-col-headers competition-col-headers">
+                                <span></span>
+                                <span></span>
+                                <span>Fiber</span>
+                            </div>
+                            <div class="provider-list-wrap">
+                                <div id="competition-list" class="provider-list" role="listbox" aria-label="Select providers to compare" aria-multiselectable="true"></div>
+                            </div>
+                            <div class="competition-hint">Select up to 5 providers to compare overlap</div>
                         </div>
                     </div>
 

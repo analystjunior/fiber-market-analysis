@@ -137,9 +137,11 @@
         _inCountyView: false,
         currentState: 'MO',
         currentLayer: 'penetration',
-        currentMode: 'market',     // 'market' | 'provider'
+        currentMode: 'market',       // 'market' | 'provider'
+        currentSubview: 'individual', // 'individual' | 'competition'
         currentProvider: null,     // canonical provider name when in provider mode
         currentTech: 'fiber',      // 'fiber' | 'cable' | 'dsl' | 'all'
+        competitionProviders: [],  // up to 5 canonical names for competition view
         filters: {
             minPop: 0,
             minDensity: 0,
@@ -366,16 +368,37 @@
             };
         },
 
+        // Fixed palette for competition view — up to 5 providers
+        COMPETITION_PALETTE: ['#60a5fa', '#fb923c', '#34d399', '#f472b6', '#a78bfa'],
+        COMPETITION_OVERLAP_COLOR: '#facc15',  // bright yellow = overlap
+
+        _competitionColor: function(data) {
+            var selected = this.competitionProviders;
+            if (!selected.length || !data) return '#1e293b';
+            var present = [];
+            for (var i = 0; i < selected.length; i++) {
+                if (ProviderIndex.hasPresence(data, selected[i], 'fiber')) {
+                    present.push(i);
+                }
+            }
+            if (present.length === 0) return '#1e293b';
+            if (present.length === 1) return this.COMPETITION_PALETTE[present[0]];
+            return this.COMPETITION_OVERLAP_COLOR;
+        },
+
         _countyColor: function(data) {
             if (!data) return '#1e293b';
 
-            // Provider mode — color by selected provider's footprint depth
+            // Provider mode
             if (this.currentMode === 'provider') {
+                if (this.currentSubview === 'competition') {
+                    return this._competitionColor(data);
+                }
+                // Individual provider view — color by depth
                 if (!this.currentProvider) return '#1e293b';
                 var passings = ProviderIndex.getPassings(data, this.currentProvider, this.currentTech);
                 var bsls = data.total_bsls || 1;
                 var ratio = passings > 0 ? Math.min(1, passings / bsls) : 0;
-                // Use threshold 0.001 to distinguish "present but tiny" from "absent"
                 var colorValue = passings > 0 ? Math.max(0.002, ratio) : 0;
                 return ColorScales.getColor('provider', colorValue);
             }
@@ -479,6 +502,8 @@
 
         setMode: function(mode) {
             this.currentMode = mode;
+            this.currentSubview = 'individual';
+            this.competitionProviders = [];
             this.stopDeepDive();
 
             // Force county layer on when entering provider mode
@@ -502,6 +527,75 @@
             } else {
                 this.updateLegend();
             }
+        },
+
+        setSubview: function(subview) {
+            this.currentSubview = subview;
+            ColorScales.clearCache();
+            var self = this;
+            if (this._countyLayer) {
+                this._countyLayer.eachLayer(function(l) {
+                    l.setStyle(self._countyStyle(l.feature, false, InfoPanel.pinnedCounty === self._getFips(l.feature)));
+                });
+            }
+            if (subview === 'competition') {
+                this._buildCompetitionLegend();
+            } else {
+                this._buildLegend('provider');
+            }
+            this._updateProviderTitle();
+        },
+
+        setCompetitionProviders: function(providers) {
+            this.competitionProviders = providers.slice(0, 5);
+            ColorScales.clearCache();
+            var self = this;
+            if (this._countyLayer) {
+                this._countyLayer.eachLayer(function(l) {
+                    l.setStyle(self._countyStyle(l.feature, false, InfoPanel.pinnedCounty === self._getFips(l.feature)));
+                });
+            }
+            this._buildCompetitionLegend();
+            this._updateProviderTitle();
+        },
+
+        _buildCompetitionLegend: function() {
+            var container = document.getElementById('legend-container');
+            if (!container) return;
+            container.textContent = '';
+            var legend = createElement('div', { className: 'legend' });
+            var selected = this.competitionProviders;
+
+            if (!selected.length) {
+                var hint = createElement('div', { className: 'legend-item' }, 'Select providers above');
+                legend.appendChild(hint);
+            } else {
+                var self = this;
+                selected.forEach(function(name, i) {
+                    var el = createElement('div', { className: 'legend-item' });
+                    var swatch = createElement('div', { className: 'legend-color' });
+                    swatch.style.background = self.COMPETITION_PALETTE[i];
+                    el.appendChild(swatch);
+                    el.appendChild(createElement('span', {}, name + ' only'));
+                    legend.appendChild(el);
+                });
+                if (selected.length > 1) {
+                    var overlapEl = createElement('div', { className: 'legend-item' });
+                    var overlapSwatch = createElement('div', { className: 'legend-color' });
+                    overlapSwatch.style.background = this.COMPETITION_OVERLAP_COLOR;
+                    overlapEl.appendChild(overlapSwatch);
+                    overlapEl.appendChild(createElement('span', {}, selected.length === 2 ? 'Both overlap' : 'Any overlap'));
+                    legend.appendChild(overlapEl);
+                }
+                var noneEl = createElement('div', { className: 'legend-item' });
+                var noneSwatch = createElement('div', { className: 'legend-color' });
+                noneSwatch.style.background = '#1e293b';
+                noneSwatch.style.border = '1px solid rgba(255,255,255,0.15)';
+                noneEl.appendChild(noneSwatch);
+                noneEl.appendChild(createElement('span', {}, 'Not present'));
+                legend.appendChild(noneEl);
+            }
+            container.appendChild(legend);
         },
 
         setProvider: function(canonicalName) {
@@ -534,10 +628,20 @@
         },
 
         _updateProviderTitle: function() {
-            var techLabel = { fiber: 'Fiber', cable: 'Cable', dsl: 'DSL/Copper', all: 'All Tech' };
-            var label = this.currentProvider
-                ? this.currentProvider + ' — ' + (techLabel[this.currentTech] || 'Fiber') + ' Footprint'
-                : 'Select a provider';
+            var label;
+            if (this.currentSubview === 'competition') {
+                var sel = this.competitionProviders;
+                label = sel.length > 1
+                    ? sel.join(' vs ') + ' — Overlap'
+                    : sel.length === 1
+                        ? sel[0] + ' — select another to compare'
+                        : 'Select providers to compare';
+            } else {
+                var techLabel = { fiber: 'Fiber', cable: 'Cable', dsl: 'DSL/Copper', all: 'All Tech' };
+                label = this.currentProvider
+                    ? this.currentProvider + ' — ' + (techLabel[this.currentTech] || 'Fiber') + ' Footprint'
+                    : 'Select a provider';
+            }
             setTextById('map-title', label);
         },
 
@@ -594,7 +698,11 @@
         },
 
         updateLegend: function() {
-            this._buildLegend(this.currentMode === 'provider' ? 'provider' : this.currentLayer);
+            if (this.currentMode === 'provider' && this.currentSubview === 'competition') {
+                this._buildCompetitionLegend();
+            } else {
+                this._buildLegend(this.currentMode === 'provider' ? 'provider' : this.currentLayer);
+            }
         },
 
         highlightCounty: function(fips) {

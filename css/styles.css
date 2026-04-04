@@ -1485,6 +1485,96 @@ input:focus-visible {
     color: rgba(245, 158, 11, 0.8);
 }
 
+/* ── Provider sub-view tabs (Individual / Competition) ────────────── */
+.provider-subview-tabs {
+    display: flex;
+    gap: 4px;
+    padding: 6px 8px 4px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+
+.subview-tab {
+    flex: 1;
+    padding: 5px 0;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 5px;
+    color: rgba(255,255,255,0.5);
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.subview-tab:hover {
+    background: rgba(255,255,255,0.06);
+    color: rgba(255,255,255,0.8);
+}
+
+.subview-tab.active {
+    background: rgba(245, 158, 11, 0.15);
+    border-color: rgba(245, 158, 11, 0.4);
+    color: #f59e0b;
+}
+
+/* ── Competition view ──────────────────────────────────────────────── */
+.provider-list-col-headers.competition-col-headers {
+    grid-template-columns: 18px 1fr 40px;
+}
+
+.provider-item.competition-item {
+    grid-template-columns: 18px 1fr 40px;
+    gap: 6px;
+}
+
+.competition-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    border: 1.5px solid rgba(255,255,255,0.2);
+    background: transparent;
+    transition: background 0.15s, border-color 0.15s;
+}
+
+.competition-dot-sm {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    display: inline-block;
+    flex-shrink: 0;
+    margin-right: 6px;
+    vertical-align: middle;
+}
+
+.competition-item.active .competition-dot {
+    border-color: transparent;
+}
+
+.competition-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 12px;
+    padding: 6px 8px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    min-height: 22px;
+}
+
+.competition-legend-item {
+    display: flex;
+    align-items: center;
+    font-size: 10.5px;
+    color: rgba(255,255,255,0.7);
+    white-space: nowrap;
+}
+
+.competition-hint {
+    padding: 4px 8px 6px;
+    font-size: 10px;
+    color: rgba(255,255,255,0.3);
+    text-align: center;
+}
+
 /* Tech filter row */
 .tech-filter-row {
     display: flex;
