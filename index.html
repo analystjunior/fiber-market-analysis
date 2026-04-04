@@ -570,6 +570,16 @@
                 <h2>County Rankings</h2>
                 <div class="table-controls">
                     <button id="export-csv-btn" class="table-action-btn">Export CSV</button>
+                    <select id="table-state-filter" class="table-filter-select">
+                        <option value="">All States</option>
+                    </select>
+                    <select id="table-momentum-filter" class="table-filter-select">
+                        <option value="">All Momentum</option>
+                        <option value="Surging">Surging</option>
+                        <option value="Growing">Growing</option>
+                        <option value="Steady">Steady</option>
+                        <option value="Stalled">Stalled</option>
+                    </select>
                     <label for="table-search" class="sr-only">Search counties</label>
                     <input type="text" id="table-search" placeholder="Search counties...">
                 </div>
@@ -579,6 +589,7 @@
                     <thead>
                         <tr>
                             <th class="select-col"><input type="checkbox" id="select-all-cb" title="Select all visible"></th>
+                            <th data-sort="state_code">State</th>
                             <th data-sort="name">County</th>
                             <th data-sort="attractiveness_index" class="sort-desc">Attractiveness</th>
                             <th data-sort="demo_score">Demographics</th>

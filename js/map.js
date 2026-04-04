@@ -1246,11 +1246,14 @@
         sortColumn: 'attractiveness_index',
         sortDirection: 'desc',
         searchTerm: '',
+        stateFilter: '',
+        momentumFilter: '',
         _searchDebounceTimer: null,
         _selectedFips: new Set(),
 
         init: function() {
             this.setupEventListeners();
+            this._populateStateDropdown();
         },
 
         renderTable: function() {
@@ -1307,6 +1310,7 @@
                 cbTd.appendChild(cb);
                 tr.appendChild(cbTd);
 
+                tr.appendChild(createElement('td', { className: 'state-cell' }, c.state_code || ''));
                 tr.appendChild(createElement('td', {}, c.name));
 
                 var attrVal = Number.isFinite(c.attractiveness_index) ? c.attractiveness_index.toFixed(2) : 'N/A';
@@ -1332,31 +1336,37 @@
         },
 
         _attachRowListeners: function(tbody) {
-            var hoverTimer = null;
-            var hideTimer  = null;
+            var lastFips = null;
+            var showTimer = null;
+
+            // Use delegation on tbody so the panel only hides when leaving
+            // the entire table — not on every row-to-row transition.
+            tbody.addEventListener('mouseover', function(e) {
+                var row = e.target.closest('tr');
+                if (!row) return;
+                var fips = row.dataset.fips;
+                if (!fips || fips === lastFips) return;
+                lastFips = fips;
+                if (showTimer) { clearTimeout(showTimer); showTimer = null; }
+                showTimer = setTimeout(function() {
+                    if (!InfoPanel.pinnedCounty) {
+                        InfoPanel.showCountyInfo(fips);
+                        MapRenderer.highlightCounty(fips);
+                    }
+                }, 50);
+            });
+
+            tbody.addEventListener('mouseleave', function() {
+                lastFips = null;
+                if (showTimer) { clearTimeout(showTimer); showTimer = null; }
+                if (!InfoPanel.pinnedCounty) {
+                    InfoPanel.hideInfo();
+                    MapRenderer.clearHighlight();
+                }
+            });
+
+            // Keep per-row click and keyboard handlers
             tbody.querySelectorAll('tr').forEach(function(row) {
-                row.addEventListener('mouseenter', function() {
-                    // Cancel any pending hide — keep panel visible between rows
-                    if (hideTimer)  { clearTimeout(hideTimer);  hideTimer  = null; }
-                    if (hoverTimer) { clearTimeout(hoverTimer); hoverTimer = null; }
-                    var fips = row.dataset.fips;
-                    hoverTimer = setTimeout(function() {
-                        if (!InfoPanel.pinnedCounty) {
-                            InfoPanel.showCountyInfo(fips);
-                            MapRenderer.highlightCounty(fips);
-                        }
-                    }, 60);
-                });
-                row.addEventListener('mouseleave', function() {
-                    if (hoverTimer) { clearTimeout(hoverTimer); hoverTimer = null; }
-                    // Delay hide so entering the next row cancels it before it fires
-                    hideTimer = setTimeout(function() {
-                        if (!InfoPanel.pinnedCounty) {
-                            InfoPanel.hideInfo();
-                            MapRenderer.clearHighlight();
-                        }
-                    }, 80);
-                });
                 row.addEventListener('click', function() {
                     var fips = row.dataset.fips;
                     if (InfoPanel.pinnedCounty === fips) {
@@ -1409,6 +1419,22 @@
                     }, 200);
                 });
             }
+
+            var stateFilter = document.getElementById('table-state-filter');
+            if (stateFilter) {
+                stateFilter.addEventListener('change', function(e) {
+                    self.stateFilter = e.target.value;
+                    self.applyFilters();
+                });
+            }
+
+            var momentumFilter = document.getElementById('table-momentum-filter');
+            if (momentumFilter) {
+                momentumFilter.addEventListener('change', function(e) {
+                    self.momentumFilter = e.target.value;
+                    self.applyFilters();
+                });
+            }
         },
 
         applyFilters: function() {
@@ -1419,8 +1445,26 @@
                 var county = DataHandler.getCountyData(fips);
                 if (!county) { row.classList.add('filtered-out'); return; }
                 var matchesSearch = !self.searchTerm || county.name.toLowerCase().indexOf(self.searchTerm) !== -1;
-                var filtered = MapRenderer.isFiltered(county) || !matchesSearch;
+                var matchesState = !self.stateFilter || (county.state_code || '') === self.stateFilter;
+                var momLabel = self._momentumLabel(county).replace('*', '');
+                var matchesMomentum = !self.momentumFilter || momLabel === self.momentumFilter;
+                var filtered = MapRenderer.isFiltered(county) || !matchesSearch || !matchesState || !matchesMomentum;
                 row.classList.toggle('filtered-out', filtered);
+            });
+        },
+
+        _populateStateDropdown: function() {
+            var sel = document.getElementById('table-state-filter');
+            if (!sel) return;
+            var counties = DataHandler.getAllCounties();
+            var states = {};
+            counties.forEach(function(c) { if (c.state_code) states[c.state_code] = true; });
+            var sorted = Object.keys(states).sort();
+            sorted.forEach(function(code) {
+                var opt = document.createElement('option');
+                opt.value = code;
+                opt.textContent = code;
+                sel.appendChild(opt);
             });
         },
 

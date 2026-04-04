@@ -1871,6 +1871,21 @@ header { position: relative; display: flex; align-items: flex-start; justify-con
 }
 .table-action-btn:hover { background: rgba(255,255,255,0.1); color: #fff; }
 
+/* Table filter dropdowns */
+.table-filter-select {
+    padding: 4px 8px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 5px;
+    color: rgba(255,255,255,0.75);
+    font-size: 12px;
+    cursor: pointer;
+}
+.table-filter-select:focus { outline: none; border-color: rgba(255,255,255,0.35); }
+
+/* State column */
+.state-cell { font-size: 11px; font-weight: 600; color: rgba(255,255,255,0.55); letter-spacing: 0.03em; }
+
 /* Row selection checkboxes */
 .select-col, .row-select-cell { width: 28px; padding: 0 4px; text-align: center; }
 .row-select-cb, #select-all-cb { cursor: pointer; accent-color: #38bdf8; width: 14px; height: 14px; }
