@@ -149,7 +149,7 @@
         // Deep Dive mode
         _deepDiveActive: false,
         _deepDiveTimer: null,
-        _deepDiveLayers: ['penetration', 'cable', 'fwa', 'broadband_gap', 'demographic', 'attractiveness', 'competitive', 'terrain'],
+        _deepDiveLayers: ['penetration', 'cable', 'fwa', 'demographic', 'attractiveness', 'competitive', 'momentum', 'terrain'],
         _deepDiveIndex: 0,
 
         async init(containerId) {
@@ -372,12 +372,20 @@
         COMPETITION_PALETTE: ['#60a5fa', '#fb923c', '#34d399', '#f472b6', '#a78bfa'],
         COMPETITION_OVERLAP_COLOR: '#facc15',  // bright yellow = overlap
 
+        // Minimum share of county fiber passings for a provider to count as "present"
+        COMPETITION_MIN_SHARE: 0.10,
+
         _competitionColor: function(data) {
             var selected = this.competitionProviders;
             if (!selected.length || !data) return '#1e293b';
+            var totalFiber = data.fiber_served || 0;
+            var minPassings = totalFiber > 0
+                ? Math.max(1, Math.round(totalFiber * this.COMPETITION_MIN_SHARE))
+                : 1;
             var present = [];
             for (var i = 0; i < selected.length; i++) {
-                if (ProviderIndex.hasPresence(data, selected[i], 'fiber')) {
+                var passings = ProviderIndex.getPassings(data, selected[i], 'fiber');
+                if (passings >= minPassings) {
                     present.push(i);
                 }
             }
@@ -1214,6 +1222,7 @@
         sortDirection: 'desc',
         searchTerm: '',
         _searchDebounceTimer: null,
+        _selectedFips: new Set(),
 
         init: function() {
             this.setupEventListeners();
@@ -1249,12 +1258,29 @@
             });
 
             tbody.textContent = '';
+            var self2 = self;
 
             counties.forEach(function(c) {
                 var tr = createElement('tr', { 'data-fips': c.geoid });
                 if (MapRenderer.isFiltered(c)) {
                     tr.classList.add('filtered-out');
                 }
+
+                // Checkbox cell
+                var cbTd = createElement('td', { className: 'row-select-cell' });
+                var cb = createElement('input', { type: 'checkbox', className: 'row-select-cb', 'data-fips': c.geoid });
+                if (self2._selectedFips.has(c.geoid)) cb.checked = true;
+                cb.addEventListener('change', function(e) {
+                    if (e.target.checked) {
+                        self2._selectedFips.add(c.geoid);
+                    } else {
+                        self2._selectedFips.delete(c.geoid);
+                    }
+                    self2._updateExportBtn();
+                });
+                cb.addEventListener('click', function(e) { e.stopPropagation(); });
+                cbTd.appendChild(cb);
+                tr.appendChild(cbTd);
 
                 tr.appendChild(createElement('td', {}, c.name));
 
@@ -1362,6 +1388,13 @@
             });
         },
 
+        _updateExportBtn: function() {
+            var btn = document.getElementById('export-csv-btn');
+            if (!btn) return;
+            var n = this._selectedFips.size;
+            btn.textContent = n > 0 ? 'Export Selected (' + n + ')' : 'Export CSV';
+        },
+
         _momentumLabel: function(c) {
             if (c.momentum_class) return c.momentum_class;
             var ci = c.competitive_intensity != null ? c.competitive_intensity : 0;
@@ -1374,7 +1407,9 @@
             var self = this;
             var activeState = DataHandler.getActiveState() || '';
 
+            var hasSelection = this._selectedFips.size > 0;
             var visible = counties.filter(function(c) {
+                if (hasSelection) return self._selectedFips.has(c.geoid);
                 if (MapRenderer.isFiltered(c)) return false;
                 if (self.searchTerm && c.name.toLowerCase().indexOf(self.searchTerm) === -1) return false;
                 return true;

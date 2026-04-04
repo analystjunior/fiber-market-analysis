@@ -665,6 +665,26 @@
             });
         }
 
+        // Select-all checkbox
+        var selectAllCb = document.getElementById('select-all-cb');
+        if (selectAllCb) {
+            selectAllCb.addEventListener('change', function() {
+                var cbs = document.querySelectorAll('#county-table-body .row-select-cb');
+                cbs.forEach(function(cb) {
+                    var row = cb.closest('tr');
+                    if (row && row.classList.contains('filtered-out')) return;
+                    cb.checked = selectAllCb.checked;
+                    var fips = cb.dataset.fips;
+                    if (selectAllCb.checked) {
+                        TableManager._selectedFips.add(fips);
+                    } else {
+                        TableManager._selectedFips.delete(fips);
+                    }
+                });
+                TableManager._updateExportBtn();
+            });
+        }
+
         // Copy county data button
         var copyBtn = document.getElementById('copy-county-btn');
         if (copyBtn) {
