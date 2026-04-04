@@ -543,10 +543,10 @@
         ],
         // Build Momentum: red = stalled, green = surging
         momentum: [
-            { threshold: 0.10, color: '#dc2626', label: 'Stalled' },
-            { threshold: 0.27, color: '#ca8a04', label: 'Steady' },
-            { threshold: 0.50, color: '#16a34a', label: 'Growing' },
-            { threshold: 1.0,  color: '#15803d', label: 'Surging' }
+            { threshold: 0.25, color: '#dc2626', label: 'Stalled  (<0%)' },
+            { threshold: 0.50, color: '#ca8a04', label: 'Steady   (0–5%)' },
+            { threshold: 0.75, color: '#16a34a', label: 'Growing  (5–15%)' },
+            { threshold: 1.0,  color: '#15803d', label: 'Surging  (15%+)' }
         ],
         // Terrain/Build Difficulty: green = easy, red = challenging
         terrain: [

@@ -8,6 +8,14 @@
     // HELPER FUNCTIONS
     // ============================================
 
+    // Class-based colors for the Build Momentum layer
+    var MOMENTUM_COLORS = {
+        'Stalled':  '#dc2626',  // red    — negative growth
+        'Steady':   '#ca8a04',  // amber  — 0–5%
+        'Growing':  '#16a34a',  // green  — 5–15%
+        'Surging':  '#15803d',  // dark green — 15%+
+    };
+
     // Return operators with fiber_passings >= 10% of county total — the "real" competitors
     function qualifiedFiberProviders(data) {
         if (!data || !data.operators) return [];
@@ -457,14 +465,21 @@
                     value = qc > 0 ? Math.min(1, qc / 3) : (data.operators && data.operators.length ? 0.01 : null);
                     break;
                 case 'momentum':
-                    if (data.fiber_growth_pct != null) {
-                        value = Math.min(1, Math.max(0, data.fiber_growth_pct / 30));
-                    } else {
-                        // Estimated proxy using qualified fiber count (≥10% share)
-                        var qci = qualifiedFiberCount(data);
-                        value = qci === 0 ? 0.05 : qci === 1 ? 0.22 : qci === 2 ? 0.38 : 0.65;
+                    // Use class-based coloring so the 4 bands map 1:1 to color stops,
+                    // giving a visually balanced map regardless of growth% distribution.
+                    var mc = data.momentum_class;
+                    if (!mc && data.fiber_growth_pct != null) {
+                        // Derive class from growth pct if stored class is missing
+                        var gp = data.fiber_growth_pct;
+                        mc = gp < 0 ? 'Stalled' : gp < 5 ? 'Steady' : gp < 15 ? 'Growing' : 'Surging';
                     }
-                    break;
+                    if (!mc) {
+                        // Proxy via qualified fiber count
+                        var qci = qualifiedFiberCount(data);
+                        mc = qci === 0 ? 'Stalled' : qci === 1 ? 'Steady' : qci === 2 ? 'Growing' : 'Surging';
+                    }
+                    return MOMENTUM_COLORS[mc] || '#1e293b';
+
                 case 'terrain':       value = data.terrain_roughness; break;
                 default:              value = data.fiber_penetration;
             }
@@ -740,11 +755,6 @@
                     el.appendChild(createElement('span', {}, item.label));
                     legend.appendChild(el);
                 });
-            }
-            // Momentum disclaimer when real BDC delta data is unavailable
-            if (layerName === 'momentum') {
-                var note = createElement('div', { className: 'legend-note' }, '* Estimated from fiber provider count — BDC delta pending');
-                container.appendChild(note);
             }
             container.appendChild(legend);
         },
