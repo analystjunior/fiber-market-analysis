@@ -1926,6 +1926,139 @@ header { position: relative; display: flex; align-items: flex-start; justify-con
 .momentum-pending  { color: rgba(255,255,255,0.3); }
 
 /* BEAD Tracker Panel — backdrop + inner box */
+/* ── About Modal ──────────────────────────────────────────────────── */
+.about-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.65);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+}
+.about-backdrop.open { display: flex; }
+
+.about-panel {
+    background: #0f172a;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 12px;
+    width: 100%;
+    max-width: 720px;
+    max-height: 88vh;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 24px 64px rgba(0,0,0,0.6);
+}
+
+.about-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 24px 24px 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    flex-shrink: 0;
+}
+.about-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #f1f5f9;
+    margin: 0 0 4px;
+}
+.about-tagline {
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    margin: 0;
+    font-style: italic;
+}
+
+.about-body {
+    overflow-y: auto;
+    padding: 24px;
+    flex: 1;
+}
+.about-body::-webkit-scrollbar { width: 5px; }
+.about-body::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 3px; }
+
+.about-section {
+    margin-bottom: 28px;
+}
+.about-section h3 {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #38bdf8;
+    margin: 0 0 10px;
+}
+.about-section p, .about-section li {
+    font-size: 13.5px;
+    line-height: 1.65;
+    color: rgba(255,255,255,0.78);
+    margin: 0 0 8px;
+}
+.about-section ul {
+    margin: 0 0 8px;
+    padding-left: 18px;
+}
+.about-section li { margin-bottom: 5px; }
+.about-section strong { color: #f1f5f9; font-weight: 600; }
+
+.about-feature {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 8px;
+    padding: 12px 14px;
+    margin-bottom: 10px;
+}
+.about-feature h4 {
+    font-size: 13px;
+    font-weight: 600;
+    color: #e2e8f0;
+    margin: 0 0 5px;
+}
+.about-feature p { margin: 0; font-size: 13px; }
+
+.about-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+.about-table th {
+    text-align: left;
+    color: rgba(255,255,255,0.45);
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 6px 8px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.about-table td {
+    padding: 7px 8px;
+    color: rgba(255,255,255,0.75);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.about-table tr:last-child td { border-bottom: none; }
+.about-data-note {
+    font-size: 12px !important;
+    color: rgba(255,255,255,0.4) !important;
+    font-style: italic;
+}
+
+.about-pricing p {
+    font-size: 14px !important;
+}
+.about-footer-section p {
+    font-size: 12px !important;
+    color: rgba(255,255,255,0.4) !important;
+    text-align: center;
+    margin: 0;
+}
+
+/* ── BEAD Tracker ─────────────────────────────────────────────────── */
 .bead-tracker-backdrop {
     display: none;
     position: fixed;

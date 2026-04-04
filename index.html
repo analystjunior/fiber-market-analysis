@@ -21,6 +21,7 @@
             <p class="subtitle">State and county-level fiber penetration, demographics, and market opportunity</p>
         </div>
         <div class="header-actions">
+            <button id="about-btn" class="header-action-btn">About</button>
             <button id="share-view-btn" class="header-action-btn">Share View</button>
         </div>
     </header>
@@ -686,6 +687,111 @@
         </div>
     </div>
     </div><!-- end bead-tracker-backdrop -->
+
+    <!-- ── About Modal ── -->
+    <div id="about-backdrop" class="about-backdrop" role="dialog" aria-modal="true" aria-label="About FiberMap USA">
+        <div id="about-panel" class="about-panel">
+            <div class="about-header">
+                <div>
+                    <h2 class="about-title">FiberMap USA</h2>
+                    <p class="about-tagline">Institutional-Grade Fiber Market Intelligence. Built for Operators and Investors.</p>
+                </div>
+                <button id="about-close" class="panel-close-btn" aria-label="Close">&times;</button>
+            </div>
+            <div class="about-body">
+
+                <section class="about-section">
+                    <h3>What It Is</h3>
+                    <p>FiberMap USA is an interactive market intelligence platform that maps every fiber, cable, and fixed wireless broadband market in the United States at the county level. It aggregates data from the FCC, Census Bureau, USDA, and USGS into a single decision-ready tool — built specifically for the people deploying capital into fiber infrastructure.</p>
+                </section>
+
+                <section class="about-section">
+                    <h3>Why It Was Built</h3>
+                    <p>The US fiber buildout is entering its most competitive phase. Operators and investors are making multi-million dollar decisions about where to build, where to overbuild, and where to avoid — often with fragmented, hard-to-use public data or expensive research subscriptions that weren't designed for the field.</p>
+                    <p>FiberMap USA was built to close that gap: real FCC broadband data, real demographics, real terrain intelligence — in one place, at a fraction of the cost of legacy research products.</p>
+                </section>
+
+                <section class="about-section">
+                    <h3>Who It's For</h3>
+                    <ul>
+                        <li><strong>Fiber overbuilders and regional ISPs</strong> evaluating new build markets</li>
+                        <li><strong>Private equity and infrastructure investors</strong> assessing acquisition targets and competitive dynamics</li>
+                        <li><strong>Strategy and BD teams</strong> at larger carriers benchmarking their footprint against competitors</li>
+                    </ul>
+                </section>
+
+                <section class="about-section">
+                    <h3>Key Features</h3>
+
+                    <div class="about-feature">
+                        <h4>Interactive County Map — All 50 States</h4>
+                        <p>Switch between 8 map layers: Fiber Penetration, Cable Coverage, Fixed Wireless, Market Attractiveness, Demographics, Competition Intensity, Build Momentum, and Build Difficulty.</p>
+                    </div>
+
+                    <div class="about-feature">
+                        <h4>Provider Footprint View</h4>
+                        <p>Select any major fiber operator — AT&amp;T, Verizon Fios, Frontier, Lumen, Brightspeed, Metronet, and 20+ others — and instantly see their county-level footprint across the entire US. Counties are shaded by depth of coverage, showing where a provider has dense penetration vs. a thin presence. National passing totals are reconciled to Q4 2025 public earnings for every operator.</p>
+                    </div>
+
+                    <div class="about-feature">
+                        <h4>Competitive Overlap Screen</h4>
+                        <p>Select up to 5 providers simultaneously in Competition View. Each operator is assigned a distinct color, and counties where two or more providers overlap are highlighted in yellow — making overbuild exposure immediately visible. A configurable minimum share threshold ensures only meaningful competitive presence is flagged, not nominal FCC filings.</p>
+                    </div>
+
+                    <div class="about-feature">
+                        <h4>Market Attractiveness Score</h4>
+                        <p>A proprietary composite score weighing household income, housing density, population growth, work-from-home rates, and remaining buildable opportunity. Counties already saturated with fiber rank lower — reflecting real build economics, not just demographics.</p>
+                    </div>
+
+                    <div class="about-feature">
+                        <h4>Build Momentum Layer</h4>
+                        <p>Powered by FCC Broadband Data Collection filings. Shows actual 6-month fiber location growth (Dec 2024 → Jun 2025) at the county level — so you can see where operators are actively building vs. where buildout has stalled.</p>
+                    </div>
+
+                    <div class="about-feature">
+                        <h4>County Deep Dive</h4>
+                        <p>Click any county for a full data panel: fiber penetration, unserved locations, demographics, terrain difficulty, competitive intensity, build momentum, and BEAD eligibility context.</p>
+                    </div>
+
+                    <div class="about-feature">
+                        <h4>County Rankings Table</h4>
+                        <p>Every county in America, sortable and filterable by state, momentum class, or any metric. Select individual counties and export to CSV for offline analysis.</p>
+                    </div>
+
+                    <div class="about-feature">
+                        <h4>Shareable Views</h4>
+                        <p>Every map state — layer, provider, county selection, competitive screen — is encoded in the URL. Send a link and your counterpart sees exactly what you're looking at.</p>
+                    </div>
+                </section>
+
+                <section class="about-section">
+                    <h3>Data Sources</h3>
+                    <table class="about-table">
+                        <thead><tr><th>Layer</th><th>Source</th></tr></thead>
+                        <tbody>
+                            <tr><td>Fiber / Cable / FWA Coverage</td><td>FCC Broadband Data Collection (Jun 2025)</td></tr>
+                            <tr><td>Build Momentum</td><td>FCC BDC Delta (Dec 2024 → Jun 2025)</td></tr>
+                            <tr><td>Demographics</td><td>US Census ACS 2023</td></tr>
+                            <tr><td>Rural Classification</td><td>USDA Rural-Urban Continuum Codes 2023</td></tr>
+                            <tr><td>Terrain &amp; Build Difficulty</td><td>USGS Terrain Ruggedness Index</td></tr>
+                            <tr><td>Provider National Totals</td><td>Q4 2025 Public Earnings Filings</td></tr>
+                        </tbody>
+                    </table>
+                    <p class="about-data-note">All data is sourced from official government filings or public earnings disclosures. Nothing synthetic.</p>
+                </section>
+
+                <section class="about-section about-pricing">
+                    <h3>Pricing</h3>
+                    <p><strong>~$2,500/year</strong> — a fraction of legacy telecom research subscriptions (New Street Research, MoffettNathanson) that run $10,000–$30,000/year and weren't built for operational decision-making.</p>
+                </section>
+
+                <section class="about-section about-footer-section">
+                    <p><em>Built by operators, for operators. Updated continuously as FCC data is released.</em></p>
+                </section>
+
+            </div>
+        </div>
+    </div><!-- end about-backdrop -->
 
     <!-- External dependencies -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>

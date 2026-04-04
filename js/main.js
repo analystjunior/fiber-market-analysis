@@ -732,6 +732,25 @@
         }
 
         // Share View button — encodes current map state into URL, copies to clipboard
+        // About modal
+        var aboutBtn      = document.getElementById('about-btn');
+        var aboutBackdrop = document.getElementById('about-backdrop');
+        var aboutClose    = document.getElementById('about-close');
+        if (aboutBtn && aboutBackdrop) {
+            aboutBtn.addEventListener('click', function() {
+                aboutBackdrop.classList.add('open');
+            });
+            aboutClose.addEventListener('click', function() {
+                aboutBackdrop.classList.remove('open');
+            });
+            aboutBackdrop.addEventListener('click', function(e) {
+                if (e.target === aboutBackdrop) aboutBackdrop.classList.remove('open');
+            });
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') aboutBackdrop.classList.remove('open');
+            });
+        }
+
         var shareBtn = document.getElementById('share-view-btn');
         if (shareBtn) {
             shareBtn.addEventListener('click', function() {
