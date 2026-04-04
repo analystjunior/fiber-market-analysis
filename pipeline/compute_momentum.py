@@ -200,11 +200,15 @@ def fetch_current_fiber(client, state_code):
 
 
 def upsert_momentum(client, rows):
-    for i in range(0, len(rows), BATCH_SIZE):
-        client.table('counties').upsert(
-            rows[i:i + BATCH_SIZE], on_conflict='geoid'
-        ).execute()
-    print(f"    Upserted {len(rows)} momentum rows")
+    # Use update (not upsert) — rows already exist, just patching two fields
+    updated = 0
+    for row in rows:
+        client.table('counties').update({
+            'fiber_growth_pct': row['fiber_growth_pct'],
+            'momentum_class':   row['momentum_class'],
+        }).eq('geoid', row['geoid']).execute()
+        updated += 1
+    print(f"    Updated {updated} momentum rows")
 
 
 # ── Per-state pipeline ────────────────────────────────────────────────────────
@@ -237,7 +241,8 @@ def process_state(client, state_code, fips_prefix, prev_date):
 
     # 3. Compute growth and build upsert rows
     rows = []
-    all_fips = set(prev_counts) | set(curr_counts)
+    # Only update counties already in Supabase — don't insert new rows (missing state_code etc.)
+    all_fips = set(curr_counts)
     stats = {'stalled': 0, 'steady': 0, 'growing': 0, 'surging': 0, 'no_prev': 0}
 
     for geoid in sorted(all_fips):
