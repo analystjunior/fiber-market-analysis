@@ -128,9 +128,8 @@ def fetch_county_normals(county_fips):
                 month = int(rec['date'][5:7])
                 val   = rec.get('value')
                 if val is not None:
-                    # NOAA CDO standard units = tenths of °F for normals
-                    # Divide by 10 to get °F
-                    month_vals[month].append(float(val) / 10.0)
+                    # NOAA CDO with units=standard returns °F directly
+                    month_vals[month].append(float(val))
 
             if not month_vals:
                 return None
