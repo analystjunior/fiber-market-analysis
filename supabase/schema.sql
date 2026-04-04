@@ -78,6 +78,11 @@ CREATE TABLE IF NOT EXISTS counties (
   construction_cost_tier       text,
   build_difficulty             text,
 
+  -- Seasonal construction window (NOAA Climate Normals 1991-2020, threshold 32°F)
+  buildable_months             smallint,     -- months/year avg temp > 32°F (0–12)
+  winter_severity              text,         -- 'None' / 'Mild' / 'Moderate' / 'Severe'
+  coldest_month_f              real,         -- average temp of coldest month (°F)
+
   -- Classification
   rucc_code                    smallint,
   rucc_description             text,
