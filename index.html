@@ -16,8 +16,13 @@
 <body>
     <a href="#map" class="skip-link">Skip to main content</a>
     <header>
-        <h1>US Fiber Market Analysis</h1>
-        <p class="subtitle">State and county-level fiber penetration, demographics, and market opportunity</p>
+        <div class="header-main">
+            <h1>US Fiber Market Analysis</h1>
+            <p class="subtitle">State and county-level fiber penetration, demographics, and market opportunity</p>
+        </div>
+        <div class="header-actions">
+            <button id="share-view-btn" class="header-action-btn">Share View</button>
+        </div>
     </header>
 
     <main>
@@ -39,9 +44,9 @@
                     <button class="toggle-btn" data-layer="broadband_gap" aria-pressed="false">Broadband Gap</button>
                     <button class="toggle-btn" data-layer="demographic" aria-pressed="false">Demographics</button>
                     <button class="toggle-btn" data-layer="attractiveness" aria-pressed="false">Market Attractiveness</button>
-                    <button class="toggle-btn layer-pending" data-layer="bead" aria-pressed="false" title="County-level BEAD data not yet available">BEAD Funding *</button>
+                    <button class="toggle-btn" data-layer="bead" aria-pressed="false">BEAD Funding</button>
                     <button class="toggle-btn" data-layer="competitive" aria-pressed="false">Competition</button>
-                    <button class="toggle-btn layer-pending" data-layer="momentum" aria-pressed="false" title="Requires Dec 2024 FCC filing">Build Momentum *</button>
+                    <button class="toggle-btn" data-layer="momentum" aria-pressed="false">Build Momentum</button>
                     <button class="toggle-btn" data-layer="terrain" aria-pressed="false">Build Difficulty</button>
                 </div>
             </div>
@@ -49,6 +54,7 @@
                 <label>Tools</label>
                 <div class="toggle-group">
                     <button class="toggle-btn deep-dive-btn" id="deep-dive-btn">Deep Dive</button>
+                    <button class="toggle-btn" id="bead-tracker-btn">BEAD Tracker</button>
                 </div>
             </div>
             <div class="control-group">
@@ -393,9 +399,10 @@
                             <ul class="operators-list" id="operators-list"></ul>
                         </div>
 
-                        <button class="npv-trigger-btn" id="open-npv-btn" style="display: none;">
-                            Open NPV Calculator
-                        </button>
+                        <div class="county-action-btns">
+                            <button class="secondary-action-btn" id="copy-county-btn">Copy Data</button>
+                            <button class="npv-trigger-btn" id="open-npv-btn" style="display: none;">Open NPV Calculator</button>
+                        </div>
                     </div>
                 </div>
 
@@ -564,6 +571,7 @@
             <div class="table-header">
                 <h2>County Rankings</h2>
                 <div class="table-controls">
+                    <button id="export-csv-btn" class="table-action-btn">Export CSV</button>
                     <label for="table-search" class="sr-only">Search counties</label>
                     <input type="text" id="table-search" placeholder="Search counties...">
                 </div>
@@ -579,6 +587,7 @@
                             <th data-sort="fiber_unserved">Unserved</th>
                             <th data-sort="median_hhi">Median HHI</th>
                             <th data-sort="housing_density">Density</th>
+                            <th data-sort="competitive_intensity" title="* = estimated from fiber provider count (actual BDC delta pending)">Momentum</th>
                         </tr>
                     </thead>
                     <tbody id="county-table-body">
@@ -634,6 +643,37 @@
         <a href="https://www.usgs.gov/3d-elevation-program" target="_blank" rel="noopener noreferrer">USGS 3DEP</a> |
         <a href="https://www.ers.usda.gov/data-products/rural-urban-continuum-codes/" target="_blank" rel="noopener noreferrer">USDA RUCC</a></p>
     </footer>
+
+    <!-- Toast notification -->
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+    <!-- BEAD Tracker Panel -->
+    <div id="bead-tracker-panel" class="bead-tracker-panel" role="dialog" aria-modal="true" aria-label="BEAD State Tracker" style="display:none;">
+        <div class="bead-tracker-header">
+            <h2>BEAD State Funding Tracker</h2>
+            <button id="bead-tracker-close" class="panel-close-btn" aria-label="Close BEAD tracker">&times;</button>
+        </div>
+        <p class="bead-tracker-note">
+            <!-- HARDCODED: replace with live NTIA API when available -->
+            Estimated allocations from NTIA BEAD program (broadbandusa.ntia.doc.gov).
+            $/Location = state allocation ÷ total eligible locations. County-level awards are implied estimates only.
+        </p>
+        <div class="bead-tracker-table-wrap">
+            <table id="bead-tracker-table">
+                <thead>
+                    <tr>
+                        <th data-sort="state">State</th>
+                        <th data-sort="allocation">Allocation ($)</th>
+                        <th data-sort="eligible">Eligible Locations</th>
+                        <th data-sort="per_loc">$/Location</th>
+                        <th data-sort="fiber_pct">Fiber Share %</th>
+                        <th data-sort="status">Status</th>
+                    </tr>
+                </thead>
+                <tbody id="bead-tracker-body"></tbody>
+            </table>
+        </div>
+    </div>
 
     <!-- External dependencies -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>

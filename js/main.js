@@ -41,7 +41,108 @@
         // Setup global event handlers
         setupGlobalHandlers();
 
+        // Restore URL state last (after all controls wired up)
+        UrlState.restore();
+
         console.log('Application initialized');
+    });
+
+    // ── URL State ─────────────────────────────────────────────────────────────
+    var UrlState = {
+        push: function() {
+            var p = new URLSearchParams();
+            if (MapRenderer.currentMode === 'provider') {
+                p.set('tab', 'provider');
+                if (MapRenderer.currentSubview === 'competition') {
+                    p.set('subview', 'competition');
+                    if (MapRenderer.competitionProviders.length)
+                        p.set('providers', MapRenderer.competitionProviders.join(','));
+                } else {
+                    if (MapRenderer.currentProvider)
+                        p.set('provider', MapRenderer.currentProvider);
+                }
+                if (MapRenderer.currentTech && MapRenderer.currentTech !== 'fiber')
+                    p.set('tech', MapRenderer.currentTech);
+            } else {
+                if (MapRenderer.currentLayer && MapRenderer.currentLayer !== 'penetration')
+                    p.set('layer', MapRenderer.currentLayer);
+            }
+            if (InfoPanel.pinnedCounty) p.set('county', InfoPanel.pinnedCounty);
+            if (MapRenderer.filters.minPop > 0) p.set('minpop', MapRenderer.filters.minPop);
+            if (MapRenderer.filters.minDensity > 0) p.set('mindensity', MapRenderer.filters.minDensity);
+            var qs = p.toString();
+            history.pushState(null, '', qs ? '?' + qs : location.pathname);
+        },
+
+        restore: function() {
+            var p = new URLSearchParams(location.search);
+            if (!p.toString()) return;
+
+            var tab        = p.get('tab')       || 'market';
+            var layer      = p.get('layer')     || 'penetration';
+            var county     = p.get('county')    || null;
+            var provider   = p.get('provider')  || null;
+            var providers  = p.get('providers') ? p.get('providers').split(',') : [];
+            var subview    = p.get('subview')   || 'individual';
+            var tech       = p.get('tech')      || 'fiber';
+            var minpop     = parseInt(p.get('minpop')     || '0', 10);
+            var mindensity = parseInt(p.get('mindensity') || '0', 10);
+
+            // Restore filters
+            if (minpop > 0 || mindensity > 0) {
+                var minPopSel = document.getElementById('min-pop');
+                var minDenSel = document.getElementById('min-density');
+                if (minPopSel) minPopSel.value = minpop;
+                if (minDenSel) minDenSel.value = mindensity;
+                MapRenderer.setFilters({ minPop: minpop, minDensity: mindensity });
+            }
+
+            if (tab === 'provider') {
+                // Switch to provider mode
+                var modeProviderBtn = document.getElementById('mode-provider');
+                if (modeProviderBtn) modeProviderBtn.click();
+
+                // Restore tech
+                if (tech !== 'fiber') {
+                    var techBtn = document.querySelector('#tech-filter .tech-btn[data-tech="' + tech + '"]');
+                    if (techBtn) techBtn.click();
+                }
+
+                // Restore subview
+                if (subview === 'competition') {
+                    var compTab = document.getElementById('subview-competition');
+                    if (compTab) compTab.click();
+                    // Select providers
+                    if (providers.length) {
+                        providers.forEach(function(name) {
+                            var btn = document.querySelector('#competition-list .competition-item[data-provider="' + CSS.escape(name) + '"]');
+                            if (btn) btn.click();
+                        });
+                    }
+                } else if (provider) {
+                    var provBtn = document.querySelector('#provider-list .provider-item[data-provider="' + CSS.escape(provider) + '"]');
+                    if (provBtn) provBtn.click();
+                }
+            } else {
+                // Restore layer
+                if (layer !== 'penetration') {
+                    var layerBtn = document.querySelector('#layer-toggle .toggle-btn[data-layer="' + layer + '"]');
+                    if (layerBtn) layerBtn.click();
+                }
+            }
+
+            // Restore pinned county (after a tick so map is fully rendered)
+            if (county) {
+                setTimeout(function() {
+                    InfoPanel.pinCounty(county);
+                }, 300);
+            }
+        }
+    };
+
+    // Handle browser back/forward
+    window.addEventListener('popstate', function() {
+        UrlState.restore();
     });
 
     function setupControls() {
@@ -63,8 +164,8 @@
             InfoPanel.setMode(mode);
         }
 
-        if (modeMarketBtn) modeMarketBtn.addEventListener('click', function() { switchMode('market'); });
-        if (modeProviderBtn) modeProviderBtn.addEventListener('click', function() { switchMode('provider'); });
+        if (modeMarketBtn) modeMarketBtn.addEventListener('click', function() { switchMode('market'); UrlState.push(); });
+        if (modeProviderBtn) modeProviderBtn.addEventListener('click', function() { switchMode('provider'); UrlState.push(); });
 
         // ── Provider sub-view toggle (Individual / Competition) ──
         var subviewIndividualBtn  = document.getElementById('subview-individual');
@@ -120,6 +221,7 @@
                 btn.classList.add('active');
                 btn.setAttribute('aria-pressed', 'true');
                 MapRenderer.setLayer(btn.dataset.layer);
+                UrlState.push();
             });
 
             btn.addEventListener('keydown', function(e) {
@@ -165,6 +267,7 @@
                 btn.classList.add('active');
                 btn.setAttribute('aria-pressed', 'true');
                 MapRenderer.setTech(btn.dataset.tech);
+                UrlState.push();
             });
         });
 
@@ -270,6 +373,7 @@
                 btn.setAttribute('aria-selected', 'true');
                 _activeProviderBtn = btn;
                 MapRenderer.setProvider(name);
+                UrlState.push();
             });
             container.appendChild(btn);
         });
@@ -353,6 +457,7 @@
                 _syncCompetitionDots();
                 MapRenderer.setCompetitionProviders(_competitionSelected);
                 _updateCompetitionLegendPanel();
+                UrlState.push();
             });
 
             container.appendChild(btn);
@@ -417,17 +522,198 @@
         });
     }
 
+    // ── BEAD Tracker ─────────────────────────────────────────────────────────
+    // HARDCODED: NTIA submission/approval statuses as of early 2026.
+    // Update from broadbandusa.ntia.doc.gov when state statuses change.
+    var BEAD_STATUS_OVERRIDE = {
+        'CA':'Initial Proposal Approved', 'TX':'Initial Proposal Approved',
+        'FL':'Initial Proposal Approved', 'NY':'Initial Proposal Approved',
+        'OH':'Initial Proposal Approved', 'PA':'Initial Proposal Approved',
+        'IL':'Initial Proposal Approved', 'GA':'Initial Proposal Approved',
+        'NC':'Initial Proposal Approved', 'MI':'Initial Proposal Approved',
+        'VA':'Initial Proposal Approved', 'WA':'Initial Proposal Approved',
+        'AZ':'Initial Proposal Approved', 'CO':'Initial Proposal Approved',
+        'MN':'Initial Proposal Approved', 'WI':'Initial Proposal Approved',
+        'MO':'Initial Proposal Approved', 'IN':'Initial Proposal Approved',
+        'TN':'Initial Proposal Approved', 'MD':'Initial Proposal Approved',
+        'MA':'Initial Proposal Approved', 'SC':'Subgrantee Selection',
+        'AL':'Subgrantee Selection',      'KY':'Subgrantee Selection',
+        'LA':'Subgrantee Selection',      'OK':'Subgrantee Selection',
+        'AR':'Subgrantee Selection',      'MS':'Subgrantee Selection',
+        'IA':'Subgrantee Selection',      'KS':'Subgrantee Selection',
+        'NE':'Subgrantee Selection',      'SD':'Subgrantee Selection',
+        'ND':'Subgrantee Selection',      'MT':'Subgrantee Selection',
+        'WY':'Subgrantee Selection',      'ID':'Subgrantee Selection',
+        'NM':'Initial Proposal Approved', 'NV':'Initial Proposal Approved',
+        'UT':'Initial Proposal Approved', 'OR':'Initial Proposal Approved',
+        'WV':'Subgrantee Selection',      'ME':'Subgrantee Selection',
+        'NH':'Initial Proposal Approved', 'VT':'Initial Proposal Approved',
+        'CT':'Initial Proposal Approved', 'RI':'Initial Proposal Approved',
+        'DE':'Initial Proposal Approved', 'NJ':'Initial Proposal Approved',
+        'HI':'Initial Proposal Approved', 'AK':'Subgrantee Selection',
+        'DC':'Initial Proposal Approved',
+    };
+
+    function buildBeadTracker() {
+        var tbody = document.getElementById('bead-tracker-body');
+        if (!tbody) return;
+        tbody.textContent = '';
+
+        // Aggregate BEAD data per state from loaded county data
+        var stateMap = {};
+        DataHandler.iterateAllCounties(function(c) {
+            var sc = c.state_code;
+            if (!sc) return;
+            if (!stateMap[sc]) {
+                stateMap[sc] = {
+                    state: sc,
+                    allocation: c.bead_state_allocation || 0,
+                    eligible: 0,
+                    fiberServed: 0,
+                    totalBsls: 0,
+                };
+            }
+            stateMap[sc].eligible   += (c.bead_eligible_locations || 0);
+            stateMap[sc].fiberServed += (c.fiber_served || 0);
+            stateMap[sc].totalBsls   += (c.total_bsls   || 0);
+        });
+
+        var rows = Object.values(stateMap).sort(function(a, b) {
+            return (b.allocation || 0) - (a.allocation || 0);
+        });
+
+        rows.forEach(function(s) {
+            var perLoc = (s.allocation > 0 && s.eligible > 0)
+                ? Math.round(s.allocation / s.eligible) : null;
+            var fiberPct = s.totalBsls > 0
+                ? (s.fiberServed / s.totalBsls * 100).toFixed(1) + '%' : '—';
+            var status = BEAD_STATUS_OVERRIDE[s.state] || 'Planning';
+
+            var tr = document.createElement('tr');
+            var cells = [
+                s.state,
+                s.allocation > 0 ? '$' + (s.allocation / 1e6).toFixed(0) + 'M' : '—',
+                s.eligible > 0 ? s.eligible.toLocaleString() : '—',
+                perLoc ? '$' + perLoc.toLocaleString() : '—',
+                fiberPct,
+                status,
+            ];
+            cells.forEach(function(v) {
+                var td = document.createElement('td');
+                td.textContent = v;
+                tr.appendChild(td);
+            });
+            tbody.appendChild(tr);
+        });
+
+        // Sortable headers
+        document.querySelectorAll('#bead-tracker-table th[data-sort]').forEach(function(th) {
+            th.style.cursor = 'pointer';
+            th.addEventListener('click', function() {
+                var col = th.dataset.sort;
+                var asc = th.classList.toggle('sort-asc');
+                th.classList.toggle('sort-desc', !asc);
+                var trs = Array.from(tbody.querySelectorAll('tr'));
+                trs.sort(function(a, b) {
+                    var av = a.cells[['state','allocation','eligible','per_loc','fiber_pct','status'].indexOf(col)].textContent;
+                    var bv = b.cells[['state','allocation','eligible','per_loc','fiber_pct','status'].indexOf(col)].textContent;
+                    var an = parseFloat(av.replace(/[^0-9.]/g,''));
+                    var bn = parseFloat(bv.replace(/[^0-9.]/g,''));
+                    if (!isNaN(an) && !isNaN(bn)) return asc ? an - bn : bn - an;
+                    return asc ? av.localeCompare(bv) : bv.localeCompare(av);
+                });
+                trs.forEach(function(tr) { tbody.appendChild(tr); });
+            });
+        });
+    }
+
+    // ── Toast notification ────────────────────────────────────────────────────
+    var _toastTimer = null;
+    function showToast(msg) {
+        var el = document.getElementById('toast');
+        if (!el) return;
+        el.textContent = msg;
+        el.classList.add('toast-visible');
+        if (_toastTimer) clearTimeout(_toastTimer);
+        _toastTimer = setTimeout(function() {
+            el.classList.remove('toast-visible');
+        }, 2200);
+    }
+
     function setupGlobalHandlers() {
         // Close pin button
         var closePinBtn = document.getElementById('close-pin-btn');
         if (closePinBtn) {
             closePinBtn.addEventListener('click', function() {
                 InfoPanel.unpinCounty();
+                UrlState.push();
             });
             closePinBtn.addEventListener('keydown', function(e) {
                 if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
                     InfoPanel.unpinCounty();
+                    UrlState.push();
+                }
+            });
+        }
+
+        // Export CSV button
+        var exportBtn = document.getElementById('export-csv-btn');
+        if (exportBtn) {
+            exportBtn.addEventListener('click', function() {
+                TableManager.exportCSV();
+            });
+        }
+
+        // Copy county data button
+        var copyBtn = document.getElementById('copy-county-btn');
+        if (copyBtn) {
+            copyBtn.addEventListener('click', function() {
+                var ok = InfoPanel.copyCountyData();
+                if (ok) showToast('County data copied to clipboard');
+            });
+        }
+
+        // Patch InfoPanel to push URL state on pin/unpin
+        var _origPin   = InfoPanel.pinCounty.bind(InfoPanel);
+        var _origUnpin = InfoPanel.unpinCounty.bind(InfoPanel);
+        InfoPanel.pinCounty   = function(fips) { _origPin(fips);   UrlState.push(); };
+        InfoPanel.unpinCounty = function()      { _origUnpin();     UrlState.push(); };
+
+        // BEAD Tracker panel
+        var beadTrackerBtn   = document.getElementById('bead-tracker-btn');
+        var beadTrackerPanel = document.getElementById('bead-tracker-panel');
+        var beadTrackerClose = document.getElementById('bead-tracker-close');
+        var _beadTrackerBuilt = false;
+
+        function openBeadTracker() {
+            if (!beadTrackerPanel) return;
+            if (!_beadTrackerBuilt) { buildBeadTracker(); _beadTrackerBuilt = true; }
+            beadTrackerPanel.style.display = 'flex';
+        }
+        function closeBeadTracker() {
+            if (beadTrackerPanel) beadTrackerPanel.style.display = 'none';
+        }
+        if (beadTrackerBtn)   beadTrackerBtn.addEventListener('click',   openBeadTracker);
+        if (beadTrackerClose) beadTrackerClose.addEventListener('click', closeBeadTracker);
+        if (beadTrackerPanel) {
+            beadTrackerPanel.addEventListener('click', function(e) {
+                if (e.target === beadTrackerPanel) closeBeadTracker();
+            });
+        }
+
+        // Share View button
+        var shareBtn = document.getElementById('share-view-btn');
+        if (shareBtn) {
+            shareBtn.addEventListener('click', function() {
+                UrlState.push();
+                var url = window.location.href;
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(url).then(function() {
+                        showToast('Link copied to clipboard');
+                    });
+                } else {
+                    showToast('Copy URL from address bar');
                 }
             });
         }

@@ -844,6 +844,12 @@ main {
     letter-spacing: -0.01em;
 }
 
+.table-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
 .table-controls input {
     padding: 5px 10px;
     border: 1px solid var(--border-muted);
@@ -1804,3 +1810,181 @@ input:focus-visible {
         max-height: 400px;
     }
 }
+
+/* ══════════════════════════════════════════════════════════════════
+   NEW FEATURES: Export, URL Share, Momentum, BEAD Tracker
+   ══════════════════════════════════════════════════════════════════ */
+
+/* Header layout for Share button */
+header { position: relative; display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+.header-main { flex: 1; }
+.header-actions { flex-shrink: 0; padding-top: 4px; }
+.header-action-btn {
+    padding: 6px 14px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 6px;
+    color: rgba(255,255,255,0.7);
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+    white-space: nowrap;
+}
+.header-action-btn:hover { background: rgba(255,255,255,0.12); color: #fff; }
+
+/* Toast notification */
+.toast {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%) translateY(12px);
+    background: #1e293b;
+    border: 1px solid rgba(255,255,255,0.18);
+    color: #f3f4f6;
+    font-size: 13px;
+    padding: 8px 18px;
+    border-radius: 8px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s, transform 0.2s;
+    z-index: 9999;
+    white-space: nowrap;
+}
+.toast.toast-visible {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Table action buttons (Export CSV) */
+.table-action-btn {
+    padding: 5px 12px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 5px;
+    color: rgba(255,255,255,0.65);
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+    white-space: nowrap;
+}
+.table-action-btn:hover { background: rgba(255,255,255,0.1); color: #fff; }
+
+/* County action button row */
+.county-action-btns {
+    display: flex;
+    gap: 8px;
+    padding: 0 4px 4px;
+    flex-wrap: wrap;
+}
+.secondary-action-btn {
+    padding: 5px 12px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 5px;
+    color: rgba(255,255,255,0.55);
+    font-size: 11px;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+}
+.secondary-action-btn:hover { background: rgba(255,255,255,0.1); color: #fff; }
+
+/* Legend note (momentum disclaimer) */
+.legend-note {
+    font-size: 10px;
+    color: rgba(255,255,255,0.35);
+    padding: 4px 2px 0;
+    line-height: 1.4;
+}
+
+/* Momentum column in table */
+.momentum-cell { font-size: 11px; font-weight: 500; }
+.momentum-stalled  { color: #dc2626; }
+.momentum-steady   { color: #ca8a04; }
+.momentum-growing  { color: #16a34a; }
+.momentum-surging  { color: #15803d; }
+.momentum-pending  { color: rgba(255,255,255,0.3); }
+
+/* BEAD Tracker Panel */
+.bead-tracker-panel {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+.bead-tracker-panel > div,
+.bead-tracker-panel:not(.bead-tracker-header) {
+    /* inner wrapper not needed — let children lay out */
+}
+.bead-tracker-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+.bead-tracker-header h2 { font-size: 16px; margin: 0; }
+
+/* Override: the panel itself IS the container */
+#bead-tracker-panel {
+    flex-direction: column;
+    background: #131518;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    max-width: 860px;
+    width: 100%;
+    max-height: 80vh;
+    padding: 20px;
+    overflow: hidden;
+    display: none; /* overridden inline via JS */
+}
+#bead-tracker-panel[style*="flex"] { display: flex !important; flex-direction: column; }
+
+.bead-tracker-note {
+    font-size: 11px;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+.bead-tracker-table-wrap {
+    overflow-y: auto;
+    flex: 1;
+}
+#bead-tracker-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12.5px;
+}
+#bead-tracker-table th {
+    text-align: left;
+    padding: 6px 10px;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+    color: rgba(255,255,255,0.5);
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    position: sticky;
+    top: 0;
+    background: #131518;
+}
+#bead-tracker-table td {
+    padding: 6px 10px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    color: rgba(255,255,255,0.8);
+}
+#bead-tracker-table tr:hover td { background: rgba(255,255,255,0.03); }
+.panel-close-btn {
+    background: none;
+    border: none;
+    color: rgba(255,255,255,0.5);
+    font-size: 22px;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0 4px;
+}
+.panel-close-btn:hover { color: #fff; }

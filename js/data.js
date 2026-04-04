@@ -435,14 +435,14 @@
             { threshold: 0.5, color: '#16a34a', label: 'Good' },
             { threshold: 1.0, color: '#15803d', label: 'Most Attractive' }
         ],
-        // BEAD Funding: implied county award ($) — light → deep teal
-        // Normalized: 1.0 = $50M+ implied award
+        // BEAD Funding: $/eligible location — light → deep teal
+        // Normalized: 1.0 = $40K+/location (very rural). HARDCODED: replace with live NTIA API when available.
         bead: [
-            { threshold: 0.02, color: '#1e293b', label: 'Not Eligible' },
-            { threshold: 0.10, color: '#164e63', label: '<$5M' },
-            { threshold: 0.30, color: '#0e7490', label: '$5M–$15M' },
-            { threshold: 0.60, color: '#06b6d4', label: '$15M–$30M' },
-            { threshold: 1.0,  color: '#38b292', label: '$30M+' }
+            { threshold: 0.02,  color: '#1e293b', label: 'Not Eligible' },
+            { threshold: 0.125, color: '#164e63', label: '<$5K/loc' },
+            { threshold: 0.375, color: '#0e7490', label: '$5K–$15K/loc' },
+            { threshold: 0.625, color: '#06b6d4', label: '$15K–$25K/loc' },
+            { threshold: 1.0,   color: '#38b292', label: '$25K+/loc' }
         ],
         // Competitive Intensity: green = monopoly (good — open market), red = high competition (bad)
         competitive: [

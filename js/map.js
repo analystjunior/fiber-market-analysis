@@ -411,9 +411,28 @@
                 case 'broadband_gap': value = data.broadband_gap_pct; break;
                 case 'demographic':   value = data.demo_score; break;
                 case 'attractiveness':value = data.attractiveness_index; break;
-                case 'bead':          value = data.bead_implied_county_award != null ? Math.min(1, data.bead_implied_county_award / 50000000) : null; break;
+                case 'bead':
+                    // Color by $/eligible location — comparable cross-county metric
+                    // Typical range: $3K (dense/urban) to $40K+ (very rural)
+                    if (data.bead_dollars_per_eligible_loc != null && data.bead_dollars_per_eligible_loc > 0) {
+                        value = Math.min(1, data.bead_dollars_per_eligible_loc / 40000);
+                    } else if (data.bead_eligible_locations === 0) {
+                        value = 0; // fully served — not eligible
+                    } else {
+                        value = null;
+                    }
+                    break;
                 case 'competitive':   value = data.competitive_intensity != null ? data.competitive_intensity / 3 : null; break;
-                case 'momentum':      value = data.fiber_growth_pct != null ? Math.min(1, Math.max(0, data.fiber_growth_pct / 30)) : null; break;
+                case 'momentum':
+                    if (data.fiber_growth_pct != null) {
+                        value = Math.min(1, Math.max(0, data.fiber_growth_pct / 30));
+                    } else {
+                        // Estimated proxy: fiber provider count as build-activity stand-in
+                        // (0=Stalled, 1=Steady, 2=Growing, 3+=Surging). BDC delta pending.
+                        var ci = data.competitive_intensity != null ? data.competitive_intensity : 0;
+                        value = ci === 0 ? 0.05 : ci === 1 ? 0.22 : ci === 2 ? 0.38 : 0.65;
+                    }
+                    break;
                 case 'terrain':       value = data.terrain_roughness; break;
                 default:              value = data.fiber_penetration;
             }
@@ -689,6 +708,11 @@
                     el.appendChild(createElement('span', {}, item.label));
                     legend.appendChild(el);
                 });
+            }
+            // Momentum disclaimer when real BDC delta data is unavailable
+            if (layerName === 'momentum') {
+                var note = createElement('div', { className: 'legend-note' }, '* Estimated from fiber provider count — BDC delta pending');
+                container.appendChild(note);
             }
             container.appendChild(legend);
         },
@@ -1050,11 +1074,14 @@
                     setTextById('cable-present', data.cable_present ? 'Yes' : 'No');
                     setTextById('fwa-present', data.fwa_present ? 'Yes' : 'No');
                     setTextById('total-bb-providers', data.total_broadband_providers != null ? data.total_broadband_providers.toString() : 'N/A');
-                    setTextById('momentum-class', data.momentum_class || 'Pending');
+                    var momLabel = TableManager._momentumLabel(data);
+                    var isEstimated = data.momentum_class == null;
+                    setTextById('momentum-class', momLabel + (isEstimated ? ' *' : ''));
                     var momEl = document.getElementById('momentum-class');
                     if (momEl) {
-                        var momClass = data.momentum_class ? data.momentum_class.toLowerCase() : 'pending';
+                        var momClass = momLabel.replace('*', '').trim().toLowerCase();
                         momEl.className = 'stat-value momentum-' + momClass;
+                        momEl.title = isEstimated ? 'Estimated from fiber provider count — actual BDC delta pending' : '';
                     }
                 } else {
                     compSection.style.display = 'none';
@@ -1139,6 +1166,42 @@
             if (this.countyInfoEl) this.countyInfoEl.style.display = 'none';
             if (this.stateInfoEl) this.stateInfoEl.style.display = 'none';
             if (this.providerInfoEl) this.providerInfoEl.style.display = 'none';
+        },
+
+        copyCountyData: function() {
+            var fips = this.pinnedCounty;
+            if (!fips) return false;
+            var c = DataHandler.getCountyData(fips);
+            if (!c) return false;
+            var row = {
+                geoid: c.geoid,
+                name: c.name,
+                state: c.state_code,
+                attractiveness_index: c.attractiveness_index,
+                demo_score: c.demo_score,
+                fiber_penetration_pct: c.fiber_penetration != null ? +(c.fiber_penetration * 100).toFixed(1) : null,
+                fiber_served: c.fiber_served,
+                fiber_unserved: c.fiber_unserved,
+                total_bsls: c.total_bsls,
+                population_2023: c.population_2023,
+                median_hhi: c.median_hhi,
+                housing_density: c.housing_density,
+                cable_present: c.cable_present,
+                fwa_present: c.fwa_present,
+                competitive_intensity: c.competitive_intensity,
+                build_difficulty: c.build_difficulty,
+                terrain_roughness: c.terrain_roughness,
+                rucc_code: c.rucc_code,
+                bead_eligible_locations: c.bead_eligible_locations,
+                bead_implied_county_award: c.bead_implied_county_award,
+                momentum: TableManager._momentumLabel(c),
+            };
+            var text = JSON.stringify(row, null, 2);
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(text);
+                return true;
+            }
+            return false;
         }
     };
 
@@ -1207,6 +1270,9 @@
                 tr.appendChild(createElement('td', {}, DataHandler.formatNumber(c.fiber_unserved)));
                 tr.appendChild(createElement('td', {}, c.median_hhi ? DataHandler.formatCurrency(c.median_hhi) : 'N/A'));
                 tr.appendChild(createElement('td', {}, DataHandler.formatNumber(c.housing_density)));
+                var momLabel = self._momentumLabel(c);
+                var momTd = createElement('td', { className: 'momentum-cell momentum-' + momLabel.replace('*','').toLowerCase() }, momLabel);
+                tr.appendChild(momTd);
 
                 tbody.appendChild(tr);
             });
@@ -1294,6 +1360,84 @@
                 var filtered = MapRenderer.isFiltered(county) || !matchesSearch;
                 row.classList.toggle('filtered-out', filtered);
             });
+        },
+
+        _momentumLabel: function(c) {
+            if (c.momentum_class) return c.momentum_class;
+            var ci = c.competitive_intensity != null ? c.competitive_intensity : 0;
+            return ci === 0 ? 'Stalled*' : ci === 1 ? 'Steady*' : ci === 2 ? 'Growing*' : 'Surging*';
+        },
+
+        exportCSV: function() {
+            var counties = DataHandler.getAllCounties();
+            if (!counties || !counties.length) return;
+            var self = this;
+            var activeState = DataHandler.getActiveState() || '';
+
+            var visible = counties.filter(function(c) {
+                if (MapRenderer.isFiltered(c)) return false;
+                if (self.searchTerm && c.name.toLowerCase().indexOf(self.searchTerm) === -1) return false;
+                return true;
+            });
+
+            // Sort same as current table
+            visible.sort(function(a, b) {
+                var aVal = a[self.sortColumn], bVal = b[self.sortColumn];
+                if (aVal == null) aVal = -Infinity;
+                if (bVal == null) bVal = -Infinity;
+                if (typeof aVal === 'string') aVal = aVal.toLowerCase();
+                if (typeof bVal === 'string') bVal = bVal.toLowerCase();
+                if (aVal === bVal) return 0;
+                return self.sortDirection === 'asc' ? (aVal > bVal ? 1 : -1) : (aVal < bVal ? 1 : -1);
+            });
+
+            var headers = [
+                'County', 'State', 'Attractiveness Score', 'Demographics Score',
+                'Penetration %', 'Unserved Locations', 'Median HHI', 'Housing Density',
+                'Population', 'Fiber Providers', 'Cable Present', 'FWA Present',
+                'Build Difficulty', 'Terrain Score', 'RUCC Code',
+                'BEAD Eligible Locations', 'BEAD Implied Award', 'Momentum'
+            ];
+
+            function esc(v) {
+                var s = v == null ? '' : String(v);
+                return /[,"\n\r]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s;
+            }
+
+            var rows = visible.map(function(c) {
+                return [
+                    c.name,
+                    c.state_code || activeState,
+                    c.attractiveness_index != null ? c.attractiveness_index.toFixed(3) : '',
+                    c.demo_score != null ? c.demo_score.toFixed(3) : '',
+                    c.fiber_penetration != null ? (c.fiber_penetration * 100).toFixed(1) : '',
+                    c.fiber_unserved != null ? c.fiber_unserved : '',
+                    c.median_hhi != null ? c.median_hhi : '',
+                    c.housing_density != null ? c.housing_density.toFixed(1) : '',
+                    c.population_2023 != null ? c.population_2023 : '',
+                    c.competitive_intensity != null ? c.competitive_intensity : '',
+                    c.cable_present ? 'Y' : 'N',
+                    c.fwa_present ? 'Y' : 'N',
+                    c.build_difficulty || '',
+                    c.terrain_roughness != null ? c.terrain_roughness.toFixed(3) : '',
+                    c.rucc_code != null ? c.rucc_code : '',
+                    c.bead_eligible_locations != null ? c.bead_eligible_locations : '',
+                    c.bead_implied_county_award != null ? Math.round(c.bead_implied_county_award) : '',
+                    self._momentumLabel(c)
+                ].map(esc).join(',');
+            });
+
+            var csv = headers.map(esc).join(',') + '\n' + rows.join('\n');
+            var date = new Date().toISOString().slice(0, 10);
+            var blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+            var url = URL.createObjectURL(blob);
+            var a = document.createElement('a');
+            a.href = url;
+            a.download = 'fiber-market-analysis-' + date + '.csv';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
         }
     };
 
