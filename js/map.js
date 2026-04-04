@@ -8,6 +8,28 @@
     // HELPER FUNCTIONS
     // ============================================
 
+    // Return operators with fiber_passings >= 10% of county total — the "real" competitors
+    function qualifiedFiberProviders(data) {
+        if (!data || !data.operators) return [];
+        var total = data.fiber_served || 0;
+        var minPassings = total > 0 ? Math.max(1, Math.round(total * 0.10)) : 1;
+        return data.operators.filter(function(op) {
+            return (op.fiber_passings || 0) >= minPassings;
+        });
+    }
+
+    function qualifiedFiberCount(data) {
+        return qualifiedFiberProviders(data).length;
+    }
+
+    function qualifiedCompLabel(count) {
+        if (count >= 4) return 'High';
+        if (count >= 3) return 'Moderate';
+        if (count >= 2) return 'Low';
+        if (count === 1) return 'Monopoly';
+        return 'None';
+    }
+
     function formatPassings(n) {
         if (!n || n <= 0) return '—';
         if (n >= 1000000) return (n / 1000000).toFixed(1).replace(/\.0$/, '') + 'M';
@@ -430,15 +452,17 @@
                         value = null;
                     }
                     break;
-                case 'competitive':   value = data.competitive_intensity != null ? data.competitive_intensity / 3 : null; break;
+                case 'competitive':
+                    var qc = qualifiedFiberCount(data);
+                    value = qc > 0 ? Math.min(1, qc / 3) : (data.operators && data.operators.length ? 0.01 : null);
+                    break;
                 case 'momentum':
                     if (data.fiber_growth_pct != null) {
                         value = Math.min(1, Math.max(0, data.fiber_growth_pct / 30));
                     } else {
-                        // Estimated proxy: fiber provider count as build-activity stand-in
-                        // (0=Stalled, 1=Steady, 2=Growing, 3+=Surging). BDC delta pending.
-                        var ci = data.competitive_intensity != null ? data.competitive_intensity : 0;
-                        value = ci === 0 ? 0.05 : ci === 1 ? 0.22 : ci === 2 ? 0.38 : 0.65;
+                        // Estimated proxy using qualified fiber count (≥10% share)
+                        var qci = qualifiedFiberCount(data);
+                        value = qci === 0 ? 0.05 : qci === 1 ? 0.22 : qci === 2 ? 0.38 : 0.65;
                     }
                     break;
                 case 'terrain':       value = data.terrain_roughness; break;
@@ -1077,8 +1101,9 @@
             if (compSection) {
                 if (data.competitive_intensity != null) {
                     compSection.style.display = '';
-                    setTextById('comp-label', data.competitive_label || 'N/A');
-                    setTextById('comp-providers', data.wireline_providers ? data.wireline_providers.length.toString() : 'N/A');
+                    var qFiberCount = qualifiedFiberCount(data);
+                    setTextById('comp-label', qualifiedCompLabel(qFiberCount));
+                    setTextById('comp-providers', qFiberCount.toString());
                     setTextById('cable-present', data.cable_present ? 'Yes' : 'No');
                     setTextById('fwa-present', data.fwa_present ? 'Yes' : 'No');
                     setTextById('total-bb-providers', data.total_broadband_providers != null ? data.total_broadband_providers.toString() : 'N/A');
@@ -1308,8 +1333,11 @@
 
         _attachRowListeners: function(tbody) {
             var hoverTimer = null;
+            var hideTimer  = null;
             tbody.querySelectorAll('tr').forEach(function(row) {
                 row.addEventListener('mouseenter', function() {
+                    // Cancel any pending hide — keep panel visible between rows
+                    if (hideTimer)  { clearTimeout(hideTimer);  hideTimer  = null; }
                     if (hoverTimer) { clearTimeout(hoverTimer); hoverTimer = null; }
                     var fips = row.dataset.fips;
                     hoverTimer = setTimeout(function() {
@@ -1321,10 +1349,13 @@
                 });
                 row.addEventListener('mouseleave', function() {
                     if (hoverTimer) { clearTimeout(hoverTimer); hoverTimer = null; }
-                    if (!InfoPanel.pinnedCounty) {
-                        InfoPanel.hideInfo();
-                        MapRenderer.clearHighlight();
-                    }
+                    // Delay hide so entering the next row cancels it before it fires
+                    hideTimer = setTimeout(function() {
+                        if (!InfoPanel.pinnedCounty) {
+                            InfoPanel.hideInfo();
+                            MapRenderer.clearHighlight();
+                        }
+                    }, 80);
                 });
                 row.addEventListener('click', function() {
                     var fips = row.dataset.fips;
@@ -1402,8 +1433,8 @@
 
         _momentumLabel: function(c) {
             if (c.momentum_class) return c.momentum_class;
-            var ci = c.competitive_intensity != null ? c.competitive_intensity : 0;
-            return ci === 0 ? 'Stalled*' : ci === 1 ? 'Steady*' : ci === 2 ? 'Growing*' : 'Surging*';
+            var qci = qualifiedFiberCount(c);
+            return qci === 0 ? 'Stalled*' : qci === 1 ? 'Steady*' : qci === 2 ? 'Growing*' : 'Surging*';
         },
 
         exportCSV: function() {
