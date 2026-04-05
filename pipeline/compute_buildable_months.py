@@ -151,9 +151,15 @@ def fetch_county_normals(county_fips):
 def classify(monthly_temps_f):
     """
     Given {month: avg_temp_f}, return (buildable_months, winter_severity, coldest_month_f).
+
+    Any month missing from NOAA data is assumed buildable (above 32°F).
+    No US location averages below freezing in summer — NOAA gaps are always
+    warm-month station omissions, not cold months being suppressed.
     """
-    buildable = sum(1 for t in monthly_temps_f.values() if t > BUILD_THRESHOLD_F)
-    cold_months = 12 - buildable
+    # Months with data
+    cold_months = sum(1 for t in monthly_temps_f.values() if t <= BUILD_THRESHOLD_F)
+    # Months missing from NOAA assumed warm → buildable
+    buildable = 12 - cold_months
     coldest = min(monthly_temps_f.values())
 
     if cold_months == 0:
