@@ -424,6 +424,22 @@
             return this.COMPETITION_OVERLAP_COLOR;
         },
 
+        // Pre-computed geoid→passings map for the active provider+tech.
+        // Rebuilt in _rebuildProviderFootprint() to avoid per-county operator iteration.
+        _providerFootprint: null,
+
+        _rebuildProviderFootprint: function() {
+            var provider = this.currentProvider;
+            var tech     = this.currentTech || 'fiber';
+            if (!provider) { this._providerFootprint = null; return; }
+            var map = {};
+            DataHandler.getAllLoadedCounties().forEach(function(c) {
+                var p = ProviderIndex.getPassings(c, provider, tech);
+                if (p > 0) map[c.geoid] = p;
+            });
+            this._providerFootprint = map;
+        },
+
         _countyColor: function(data) {
             if (!data) return '#1e293b';
 
@@ -432,9 +448,10 @@
                 if (this.currentSubview === 'competition') {
                     return this._competitionColor(data);
                 }
-                // Individual provider view — color by depth
+                // Individual provider view — color by depth (use pre-computed footprint)
                 if (!this.currentProvider) return '#1e293b';
-                var passings = ProviderIndex.getPassings(data, this.currentProvider, this.currentTech);
+                var passings = this._providerFootprint ? (this._providerFootprint[data.geoid] || 0)
+                                                       : ProviderIndex.getPassings(data, this.currentProvider, this.currentTech);
                 var bsls = data.total_bsls || 1;
                 var ratio = passings > 0 ? Math.min(1, passings / bsls) : 0;
                 var colorValue = passings > 0 ? Math.max(0.002, ratio) : 0;
@@ -570,6 +587,7 @@
             this.currentMode = mode;
             this.currentSubview = 'individual';
             this.competitionProviders = [];
+            this._providerFootprint = null;
             this.stopDeepDive();
 
             // Force county layer on when entering provider mode
@@ -666,11 +684,12 @@
 
         setProvider: function(canonicalName) {
             this.currentProvider = canonicalName;
-            ColorScales.clearCache();
+            this._rebuildProviderFootprint();
             var self = this;
             if (this._countyLayer) {
+                var pinnedFips = InfoPanel.pinnedCounty;
                 this._countyLayer.eachLayer(function(l) {
-                    l.setStyle(self._countyStyle(l.feature, false, InfoPanel.pinnedCounty === self._getFips(l.feature)));
+                    l.setStyle(self._countyStyle(l.feature, false, pinnedFips === self._getFips(l.feature)));
                 });
             }
             this._buildLegend('provider');
@@ -679,14 +698,14 @@
 
         setTech: function(techType) {
             this.currentTech = techType || 'fiber';
-            ColorScales.clearCache();
+            this._rebuildProviderFootprint();
             var self = this;
             if (this._countyLayer) {
+                var pinnedFips = InfoPanel.pinnedCounty;
                 this._countyLayer.eachLayer(function(l) {
-                    l.setStyle(self._countyStyle(l.feature, false, InfoPanel.pinnedCounty === self._getFips(l.feature)));
+                    l.setStyle(self._countyStyle(l.feature, false, pinnedFips === self._getFips(l.feature)));
                 });
             }
-            // Refresh pinned panel if open
             if (InfoPanel.pinnedCounty) {
                 InfoPanel.showProviderInfo(InfoPanel.pinnedCounty);
             }
