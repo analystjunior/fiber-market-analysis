@@ -3,7 +3,12 @@ name: Fetch FBA News
 on:
   schedule:
     - cron: '0 9 * * *'   # 9 AM UTC daily (5 AM ET)
-  workflow_dispatch:        # allow manual trigger from GitHub Actions UI
+  workflow_dispatch:
+    inputs:
+      pages:
+        description: 'Listing pages to scrape (0 = all, blank = RSS only)'
+        required: false
+        default: ''
 
 jobs:
   fetch:
@@ -22,7 +27,12 @@ jobs:
         run: pip install requests supabase
 
       - name: Fetch and tag news articles
-        run: python3 pipeline/fetch_news.py
+        run: |
+          if [ -n "${{ github.event.inputs.pages }}" ]; then
+            python3 pipeline/fetch_news.py --pages ${{ github.event.inputs.pages }}
+          else
+            python3 pipeline/fetch_news.py
+          fi
         env:
           SUPABASE_URL:         ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
