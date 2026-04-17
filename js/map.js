@@ -1031,7 +1031,7 @@
                         var aTotal = (a.fiber_passings || a.passings || 0) + (a.cable_passings || 0) + (a.dsl_passings || 0);
                         var bTotal = (b.fiber_passings || b.passings || 0) + (b.cable_passings || 0) + (b.dsl_passings || 0);
                         return bTotal - aTotal;
-                    }).slice(0, 5);
+                    });
                     topOperators.forEach(function(op) {
                         var fiberP = op.fiber_passings || op.passings || 0;
                         var cableP = op.cable_passings || 0;
