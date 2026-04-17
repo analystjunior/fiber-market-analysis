@@ -41,6 +41,9 @@
         // Setup global event handlers
         setupGlobalHandlers();
 
+        // Init auth gating before URL restore so layer/provider checks work on load
+        if (typeof AuthManager !== 'undefined') await AuthManager.init();
+
         // Restore URL state last (after all controls wired up)
         UrlState.restore();
 
@@ -219,6 +222,12 @@
         var toggleBtns = document.querySelectorAll('#layer-toggle .toggle-btn');
         toggleBtns.forEach(function(btn) {
             btn.addEventListener('click', function() {
+                var layer = btn.dataset.layer;
+                if (typeof AuthManager !== 'undefined' && !AuthManager.canUseLayer(layer)) {
+                    AuthManager.showUpgradeModal('layer');
+                    return;
+                }
+
                 // Stop deep dive when manually selecting a layer
                 MapRenderer.stopDeepDive();
 
@@ -229,7 +238,7 @@
                 });
                 btn.classList.add('active');
                 btn.setAttribute('aria-pressed', 'true');
-                MapRenderer.setLayer(btn.dataset.layer);
+                MapRenderer.setLayer(layer);
                 UrlState.push();
             });
 
@@ -374,6 +383,10 @@
             });
 
             btn.addEventListener('click', function() {
+                if (typeof AuthManager !== 'undefined' && !AuthManager.canUseProvider(name)) {
+                    AuthManager.showUpgradeModal('provider');
+                    return;
+                }
                 if (_activeProviderBtn) {
                     _activeProviderBtn.classList.remove('active');
                     _activeProviderBtn.setAttribute('aria-selected', 'false');
@@ -386,6 +399,9 @@
             });
             container.appendChild(btn);
         });
+
+        // Apply lock icons/state for guest users
+        if (typeof AuthManager !== 'undefined') AuthManager.applyProviderLocks();
     }
 
     function filterProviderList(query) {
@@ -711,10 +727,15 @@
             });
         }
 
-        // Patch InfoPanel to push URL state on pin/unpin and trigger news
+        // Patch InfoPanel to push URL state on pin/unpin and trigger news + auth gating
         var _origPin   = InfoPanel.pinCounty.bind(InfoPanel);
         var _origUnpin = InfoPanel.unpinCounty.bind(InfoPanel);
         InfoPanel.pinCounty   = function(fips) {
+            if (typeof AuthManager !== 'undefined' && !AuthManager.canPinCounty()) {
+                AuthManager.showUpgradeModal('county');
+                return;
+            }
+            if (typeof AuthManager !== 'undefined') AuthManager.recordCountyPin();
             _origPin(fips);
             UrlState.push();
             if (typeof NewsPanel !== 'undefined') NewsPanel.showForCounty(fips);

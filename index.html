@@ -23,6 +23,11 @@
         <div class="header-actions">
             <button id="about-btn" class="header-action-btn">About</button>
             <button id="share-view-btn" class="header-action-btn">Share View</button>
+            <button id="auth-signin-btn" class="header-action-btn header-signin-btn">Sign In</button>
+            <div id="auth-user-badge" class="auth-user-badge" style="display:none;">
+                <span id="auth-user-email" class="auth-user-email"></span>
+                <button id="auth-signout-btn" class="auth-signout-btn">Sign Out</button>
+            </div>
         </div>
     </header>
 
@@ -832,6 +837,51 @@
         </div>
     </div><!-- end about-backdrop -->
 
+    <!-- Auth backdrop + modals -->
+    <div id="auth-backdrop" class="auth-backdrop" style="display:none;"></div>
+
+    <!-- Sign In / Create Account modal -->
+    <div id="auth-modal" class="auth-modal" style="display:none;" role="dialog" aria-modal="true" aria-labelledby="auth-modal-title">
+        <div class="auth-modal-header">
+            <h2 id="auth-modal-title" class="auth-modal-title">Sign In</h2>
+            <button id="auth-modal-close" class="panel-close-btn" aria-label="Close">&times;</button>
+        </div>
+        <div class="auth-tabs">
+            <button id="auth-tab-signin" class="auth-tab active">Sign In</button>
+            <button id="auth-tab-signup" class="auth-tab">Create Account</button>
+        </div>
+        <form id="auth-form" class="auth-form" novalidate>
+            <div class="auth-field">
+                <label for="auth-email">Email</label>
+                <input type="email" id="auth-email" class="auth-input" placeholder="you@example.com" autocomplete="email" required>
+            </div>
+            <div class="auth-field">
+                <label for="auth-password">Password</label>
+                <input type="password" id="auth-password" class="auth-input" placeholder="Password" autocomplete="current-password" required>
+            </div>
+            <div id="auth-error" class="auth-error" style="display:none;"></div>
+            <button type="submit" id="auth-submit-btn" class="auth-submit-btn">Sign In</button>
+        </form>
+        <div id="auth-switch-text" class="auth-switch-text"></div>
+    </div>
+
+    <!-- Upgrade / gate modal -->
+    <div id="upgrade-modal" class="auth-modal upgrade-modal" style="display:none;" role="dialog" aria-modal="true" aria-label="Full access required">
+        <div class="auth-modal-header">
+            <h2 class="auth-modal-title">Full Access Required</h2>
+            <button id="upgrade-modal-close" class="panel-close-btn" aria-label="Close">&times;</button>
+        </div>
+        <div class="upgrade-modal-body">
+            <p class="upgrade-icon">&#128274;</p>
+            <p id="upgrade-modal-msg" class="upgrade-modal-msg">Sign in for full access to all features.</p>
+            <div class="upgrade-modal-actions">
+                <button id="upgrade-signin-btn" class="auth-submit-btn">Sign In</button>
+                <button id="upgrade-signup-btn" class="auth-submit-btn auth-submit-btn--outline">Create Free Account</button>
+            </div>
+            <p class="upgrade-modal-note">Free account &mdash; no credit card required</p>
+        </div>
+    </div>
+
     <!-- External dependencies -->
     <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
@@ -843,6 +893,7 @@
     <script src="js/map.js"></script>
     <script src="js/npv.js"></script>
     <script src="js/news.js"></script>
+    <script src="js/auth.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
