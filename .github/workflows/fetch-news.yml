@@ -9,6 +9,10 @@ on:
         description: 'Listing pages to scrape (0 = all, blank = RSS only)'
         required: false
         default: ''
+      retag:
+        description: 'Re-tag N untagged articles by fetching their body (e.g. 500)'
+        required: false
+        default: ''
 
 jobs:
   fetch:
@@ -28,7 +32,9 @@ jobs:
 
       - name: Fetch and tag news articles
         run: |
-          if [ -n "${{ github.event.inputs.pages }}" ]; then
+          if [ -n "${{ github.event.inputs.retag }}" ]; then
+            python3 pipeline/fetch_news.py --retag ${{ github.event.inputs.retag }}
+          elif [ -n "${{ github.event.inputs.pages }}" ]; then
             python3 pipeline/fetch_news.py --pages ${{ github.event.inputs.pages }}
           else
             python3 pipeline/fetch_news.py

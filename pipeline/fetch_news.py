@@ -61,12 +61,24 @@ STATE_NAMES = {
 }
 STATE_ABBREVS = set(STATE_NAMES.values())
 
-_state_name_re  = re.compile(
+_ABBREV_PAT = '|'.join(sorted(STATE_ABBREVS, key=len, reverse=True))
+
+# Full state name: "Illinois", "North Carolina", etc.
+_state_name_re = re.compile(
     r'\b(' + '|'.join(re.escape(n) for n in sorted(STATE_NAMES, key=len, reverse=True)) + r')\b'
 )
-_state_abbrev_re = re.compile(
-    r'(?:,\s*|(?<=\bin\s)|(?<=\s))(' + '|'.join(STATE_ABBREVS) + r')(?=\b)'
+# Press-release dateline: "CITY, MO—" or "CITY, MO " or "CITY, MO."
+# Anchored to start of text or after a newline to avoid false positives
+_dateline_re = re.compile(
+    r'(?:^|\n)[A-Z][A-Z\s.,()\-]{0,40},\s*(' + _ABBREV_PAT + r')\b',
+    re.MULTILINE
 )
+# ", MO" anywhere in text (city, state inline)
+_comma_abbrev_re = re.compile(r',\s*(' + _ABBREV_PAT + r')\b')
+# "in MO" or "in Missouri"
+_in_abbrev_re = re.compile(r'\bin\s+(' + _ABBREV_PAT + r')\b')
+# "(MO)" parenthetical
+_paren_abbrev_re = re.compile(r'\((' + _ABBREV_PAT + r')\)')
 
 # ── County matching ───────────────────────────────────────────────────────────
 
@@ -82,8 +94,9 @@ def extract_state_codes(text):
     codes = set()
     for m in _state_name_re.finditer(text):
         codes.add(STATE_NAMES[m.group(1)])
-    for m in _state_abbrev_re.finditer(text):
-        codes.add(m.group(1))
+    for pattern in (_dateline_re, _comma_abbrev_re, _in_abbrev_re, _paren_abbrev_re):
+        for m in pattern.finditer(text):
+            codes.add(m.group(1))
     return codes
 
 
@@ -222,6 +235,75 @@ def fetch_scraped(session, max_pages, existing_links):
 
     return all_articles
 
+# ── Article body fetcher (for retagging) ─────────────────────────────────────
+
+# Grabs body text from an article page — just the first ~600 chars is enough
+# to capture the press-release dateline ("CITY, ST—...").
+_BODY_RE = re.compile(
+    r'<(?:p|div)[^>]*class="[^"]*(?:entry|post|article|content)[^"]*"[^>]*>(.*?)</(?:p|div)>',
+    re.DOTALL | re.IGNORECASE
+)
+
+def fetch_article_text(link, session):
+    """Return first 600 chars of article body text, or empty string on failure."""
+    try:
+        resp = session.get(link, timeout=20)
+        if not resp.ok:
+            return ''
+        # Try to find main body paragraph
+        m = _BODY_RE.search(resp.text)
+        if m:
+            return _strip_html(m.group(1))[:600]
+        # Fallback: grab all text from <p> tags near top
+        paras = re.findall(r'<p[^>]*>(.*?)</p>', resp.text[:8000], re.DOTALL | re.IGNORECASE)
+        return ' '.join(_strip_html(p) for p in paras[:3])[:600]
+    except Exception:
+        return ''
+
+
+def retag_untagged(sb, session, county_lookup, batch_size):
+    """
+    Fetch articles with no state_tags from Supabase, pull their article body
+    to get the press-release dateline, re-tag, and update.
+    """
+    print(f'Loading untagged articles from Supabase…')
+    result = sb.table('news_articles') \
+        .select('id,title,link,excerpt') \
+        .eq('state_tags', '{}') \
+        .order('published_at', desc=True) \
+        .limit(batch_size) \
+        .execute()
+    rows = result.data or []
+    print(f'  Found {len(rows)} untagged articles. Fetching bodies…\n')
+
+    updated = 0
+    for row in rows:
+        body = fetch_article_text(row['link'], session)
+        match_text = row['title'] + ' ' + (row['excerpt'] or '') + ' ' + body
+        geoids, state_codes = extract_tags(match_text, county_lookup)
+
+        if not state_codes and not geoids:
+            print(f'  [still untagged]  {row["title"][:65]}')
+            time.sleep(0.3)
+            continue
+
+        try:
+            sb.table('news_articles').update({
+                'county_tags': geoids,
+                'state_tags':  state_codes,
+                'excerpt':     (row['excerpt'] or body[:500] or ''),
+            }).eq('id', row['id']).execute()
+            updated += 1
+            tag = f'[{", ".join(state_codes)}]' if state_codes else '[counties only]'
+            print(f'  {tag:20s}  {row["title"][:65]}')
+        except Exception as e:
+            print(f'  ERROR: {e}')
+
+        time.sleep(0.4)   # polite crawl rate
+
+    print(f'\nRetagged {updated} / {len(rows)} articles.')
+
+
 # ── Upsert ────────────────────────────────────────────────────────────────────
 
 def upsert_articles(sb, articles, county_lookup):
@@ -259,6 +341,10 @@ def main():
         '--pages', type=int, default=None,
         help='Number of listing pages to scrape (0 = all). Omit for RSS-only mode.'
     )
+    parser.add_argument(
+        '--retag', type=int, default=None, metavar='N',
+        help='Fetch article bodies for up to N untagged articles and re-tag them.'
+    )
     args = parser.parse_args()
 
     if not SUPABASE_URL or not SUPABASE_SERVICE_KEY:
@@ -275,6 +361,11 @@ def main():
     counties = result.data or []
     county_lookup = build_county_lookup(counties)
     print(f'  {len(counties)} counties across {len(set(c["state_code"] for c in counties))} states.\n')
+
+    # Retag mode — independent of normal fetch
+    if args.retag is not None:
+        retag_untagged(sb, session, county_lookup, batch_size=args.retag)
+        return
 
     articles = []
 
