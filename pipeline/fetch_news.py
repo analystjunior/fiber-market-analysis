@@ -237,26 +237,20 @@ def fetch_scraped(session, max_pages, existing_links):
 
 # ── Article body fetcher (for retagging) ─────────────────────────────────────
 
-# Grabs body text from an article page — just the first ~600 chars is enough
-# to capture the press-release dateline ("CITY, ST—...").
-_BODY_RE = re.compile(
-    r'<(?:p|div)[^>]*class="[^"]*(?:entry|post|article|content)[^"]*"[^>]*>(.*?)</(?:p|div)>',
-    re.DOTALL | re.IGNORECASE
-)
-
 def fetch_article_text(link, session):
-    """Return first 600 chars of article body text, or empty string on failure."""
+    """Return first 800 chars of article body text, or empty string on failure."""
     try:
         resp = session.get(link, timeout=20)
         if not resp.ok:
             return ''
-        # Try to find main body paragraph
-        m = _BODY_RE.search(resp.text)
+        html = resp.text
+        # FBA uses WordPress with class="entry-content" or "entry-content-wrap"
+        m = re.search(r'class="[^"]*entry-content[^"]*"[^>]*>(.*)', html, re.DOTALL | re.IGNORECASE)
         if m:
-            return _strip_html(m.group(1))[:600]
-        # Fallback: grab all text from <p> tags near top
-        paras = re.findall(r'<p[^>]*>(.*?)</p>', resp.text[:8000], re.DOTALL | re.IGNORECASE)
-        return ' '.join(_strip_html(p) for p in paras[:3])[:600]
+            return _strip_html(m.group(1)[:4000])[:800]
+        # Fallback: first 5 <p> tags
+        paras = re.findall(r'<p[^>]*>(.*?)</p>', html[:15000], re.DOTALL | re.IGNORECASE)
+        return ' '.join(_strip_html(p) for p in paras[:5])[:800]
     except Exception:
         return ''
 
