@@ -1,0 +1,18 @@
+# Cloudflare Pages cache rules
+# HTML — always revalidate so deploys propagate immediately
+/
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/*.html
+  Cache-Control: no-cache, no-store, must-revalidate
+
+# JS/CSS — 1 hour max so updates appear within the hour
+/js/*
+  Cache-Control: public, max-age=3600, must-revalidate
+
+/css/*
+  Cache-Control: public, max-age=3600, must-revalidate
+
+# Data files — 1 hour
+/data/*
+  Cache-Control: public, max-age=3600, must-revalidate
