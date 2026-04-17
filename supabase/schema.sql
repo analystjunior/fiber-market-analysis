@@ -124,6 +124,32 @@ CREATE TABLE IF NOT EXISTS state_summary (
 );
 
 
+-- ── News Articles ────────────────────────────────────────────
+-- Populated daily by pipeline/fetch_news.py via GitHub Action
+CREATE TABLE IF NOT EXISTS news_articles (
+  id             uuid         PRIMARY KEY DEFAULT gen_random_uuid(),
+  title          text         NOT NULL,
+  link           text         UNIQUE NOT NULL,   -- prevents duplicate upserts
+  published_at   timestamptz,
+  excerpt        text,
+  county_tags    text[]       NOT NULL DEFAULT '{}',  -- GEOIDs matching article text
+  state_tags     text[]       NOT NULL DEFAULT '{}',  -- state codes e.g. ['MO', 'AR']
+  fetched_at     timestamptz  NOT NULL DEFAULT now()
+);
+
+-- Most recent first (primary read pattern)
+CREATE INDEX IF NOT EXISTS idx_news_published_at
+  ON news_articles (published_at DESC);
+
+-- County-level lookup: WHERE county_tags @> ARRAY['29189']
+CREATE INDEX IF NOT EXISTS idx_news_county_tags
+  ON news_articles USING gin (county_tags);
+
+-- State-level lookup: WHERE state_tags @> ARRAY['MO']
+CREATE INDEX IF NOT EXISTS idx_news_state_tags
+  ON news_articles USING gin (state_tags);
+
+
 -- ── Row Level Security ────────────────────────────────────────
 -- Public read-only. Service role key (used only in pipeline) bypasses RLS.
 
@@ -138,3 +164,8 @@ CREATE POLICY "public_read_counties"
 
 CREATE POLICY "public_read_state_summary"
   ON state_summary FOR SELECT TO anon USING (true);
+
+ALTER TABLE news_articles ENABLE ROW LEVEL SECURITY;
+DROP POLICY IF EXISTS "public_read_news" ON news_articles;
+CREATE POLICY "public_read_news"
+  ON news_articles FOR SELECT TO anon USING (true);

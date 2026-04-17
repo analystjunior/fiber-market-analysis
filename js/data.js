@@ -624,6 +624,9 @@
     // EXPORTS
     // ============================================
 
+    // Expose Supabase client for other modules (news, etc.)
+    DataHandler.getSupabaseClient = function() { return getSupabase(); };
+
     // Export to global scope (required for current architecture)
     global.DataHandler = DataHandler;
     global.ColorScales = ColorScales;

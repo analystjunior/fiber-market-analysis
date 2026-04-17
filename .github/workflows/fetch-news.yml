@@ -1,0 +1,28 @@
+name: Fetch FBA News
+
+on:
+  schedule:
+    - cron: '0 9 * * *'   # 9 AM UTC daily (5 AM ET)
+  workflow_dispatch:        # allow manual trigger from GitHub Actions UI
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install requests supabase
+
+      - name: Fetch and tag news articles
+        run: python3 pipeline/fetch_news.py
+        env:
+          SUPABASE_URL:         ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}

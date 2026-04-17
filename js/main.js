@@ -711,11 +711,22 @@
             });
         }
 
-        // Patch InfoPanel to push URL state on pin/unpin
+        // Patch InfoPanel to push URL state on pin/unpin and trigger news
         var _origPin   = InfoPanel.pinCounty.bind(InfoPanel);
         var _origUnpin = InfoPanel.unpinCounty.bind(InfoPanel);
-        InfoPanel.pinCounty   = function(fips) { _origPin(fips);   UrlState.push(); };
-        InfoPanel.unpinCounty = function()      { _origUnpin();     UrlState.push(); };
+        InfoPanel.pinCounty   = function(fips) {
+            _origPin(fips);
+            UrlState.push();
+            if (typeof NewsPanel !== 'undefined') NewsPanel.showForCounty(fips);
+        };
+        InfoPanel.unpinCounty = function() {
+            _origUnpin();
+            UrlState.push();
+            if (typeof NewsPanel !== 'undefined') NewsPanel.hideCountyNews();
+        };
+
+        // Init news panel
+        if (typeof NewsPanel !== 'undefined') NewsPanel.init();
 
         // BEAD Tracker panel
         var beadTrackerBtn      = document.getElementById('bead-tracker-btn');
