@@ -674,6 +674,14 @@
             });
         }
 
+        // Export Excel button
+        var exportExcelBtn = document.getElementById('export-excel-btn');
+        if (exportExcelBtn) {
+            exportExcelBtn.addEventListener('click', function() {
+                TableManager.exportExcel();
+            });
+        }
+
         // Select-all checkbox
         var selectAllCb = document.getElementById('select-all-cb');
         if (selectAllCb) {

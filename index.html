@@ -583,6 +583,7 @@
                 <h2>County Rankings</h2>
                 <div class="table-controls">
                     <button id="export-csv-btn" class="table-action-btn">Export CSV</button>
+                    <button id="export-excel-btn" class="table-action-btn table-action-btn--excel">Export Excel</button>
                     <select id="table-state-filter" class="table-filter-select">
                         <option value="">All States</option>
                     </select>
@@ -802,6 +803,7 @@
     </div><!-- end about-backdrop -->
 
     <!-- External dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
     <script src="https://unpkg.com/topojson-client@3.1.0/dist/topojson-client.min.js" integrity="sha384-Ukv1p/xTma6P4/2bY5KzWBw+ydSpXmhCMtyciIQVDJ1RmOxtCYNMF1uXT9T63H67" crossorigin="anonymous"></script>

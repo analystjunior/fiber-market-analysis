@@ -1583,6 +1583,190 @@
             a.click();
             document.body.removeChild(a);
             URL.revokeObjectURL(url);
+        },
+
+        exportExcel: function() {
+            if (typeof XLSX === 'undefined') {
+                alert('Excel library not loaded. Please refresh the page and try again.');
+                return;
+            }
+            var counties = DataHandler.getAllLoadedCounties();
+            if (!counties || !counties.length) return;
+            var self = this;
+            var activeState = DataHandler.getActiveState() || '';
+
+            var hasSelection = this._selectedFips.size > 0;
+            var visible = counties.filter(function(c) {
+                if (hasSelection) return self._selectedFips.has(c.geoid);
+                if (MapRenderer.isFiltered(c)) return false;
+                if (self.searchTerm && c.name.toLowerCase().indexOf(self.searchTerm) === -1) return false;
+                return true;
+            });
+
+            visible.sort(function(a, b) {
+                var aVal = a[self.sortColumn], bVal = b[self.sortColumn];
+                if (aVal == null) aVal = -Infinity;
+                if (bVal == null) bVal = -Infinity;
+                if (typeof aVal === 'string') aVal = aVal.toLowerCase();
+                if (typeof bVal === 'string') bVal = bVal.toLowerCase();
+                if (aVal === bVal) return 0;
+                return self.sortDirection === 'asc' ? (aVal > bVal ? 1 : -1) : (aVal < bVal ? 1 : -1);
+            });
+
+            function pct(v) { return v != null ? parseFloat((v * 100).toFixed(2)) : null; }
+            function num(v) { return v != null ? Number(v) : null; }
+            function round2(v) { return v != null ? parseFloat(Number(v).toFixed(2)) : null; }
+            function round3(v) { return v != null ? parseFloat(Number(v).toFixed(3)) : null; }
+
+            // ── Sheet 1: County Summary ──────────────────────────────────
+            var summaryHeaders = [
+                'County', 'State', 'GEOID',
+                // Scores
+                'Attractiveness Score', 'Demographics Score',
+                // Fiber
+                'Total BSLs', 'Fiber Served', 'Fiber Unserved', 'Fiber Penetration %',
+                // Demographics
+                'Population (2023)', 'Pop Growth % (2018-23)', 'Housing Units',
+                'Housing Density (per sq mi)', 'Median HHI ($)', 'Median Rent ($)',
+                'Median Home Value ($)', 'Owner Occupied %', 'Work From Home %',
+                // Technology Coverage
+                'Cable Coverage %', 'FWA Coverage %', 'Broadband Coverage %', 'Broadband Gap %',
+                // Competition
+                'Total Broadband Providers', 'Competitive Intensity', 'Cable Present', 'FWA Present',
+                'Momentum',
+                // Build Environment
+                'Build Difficulty', 'Terrain Roughness', 'Elevation Mean (ft)',
+                'Construction Cost Tier', 'RUCC Code', 'Rural Class',
+                'Buildable Months/Year', 'Winter Severity', 'Coldest Month (°F)',
+                // BEAD
+                'BEAD Status', 'BEAD Eligible Locations', 'BEAD Implied Award ($)',
+                'BEAD $/Eligible Location', 'BEAD State Allocation ($)'
+            ];
+
+            var summaryRows = visible.map(function(c) {
+                return [
+                    c.name,
+                    c.state_code || activeState,
+                    c.geoid,
+                    // Scores
+                    round3(c.attractiveness_index),
+                    round3(c.demo_score),
+                    // Fiber
+                    num(c.total_bsls),
+                    num(c.fiber_served),
+                    num(c.fiber_unserved),
+                    pct(c.fiber_penetration),
+                    // Demographics
+                    num(c.population_2023),
+                    round2(c.pop_growth_pct),
+                    num(c.housing_units),
+                    round2(c.housing_density),
+                    num(c.median_hhi),
+                    num(c.median_rent),
+                    num(c.median_home_value),
+                    round2(c.owner_occupied_pct),
+                    round2(c.wfh_pct),
+                    // Technology Coverage
+                    round2(c.cable_coverage_pct),
+                    round2(c.fwa_coverage_pct),
+                    round2(c.broadband_coverage_pct),
+                    round2(c.broadband_gap_pct),
+                    // Competition
+                    num(c.total_broadband_providers),
+                    num(c.competitive_intensity),
+                    c.cable_present ? 'Y' : 'N',
+                    c.fwa_present ? 'Y' : 'N',
+                    self._momentumLabel(c),
+                    // Build
+                    c.build_difficulty || '',
+                    round3(c.terrain_roughness),
+                    round2(c.elevation_mean_ft),
+                    c.construction_cost_tier || '',
+                    num(c.rucc_code),
+                    c.rural_class || '',
+                    num(c.buildable_months),
+                    c.winter_severity || '',
+                    round2(c.coldest_month_f),
+                    // BEAD
+                    c.bead_status || '',
+                    num(c.bead_eligible_locations),
+                    c.bead_implied_county_award != null ? Math.round(c.bead_implied_county_award) : null,
+                    c.bead_dollars_per_eligible_loc != null ? Math.round(c.bead_dollars_per_eligible_loc) : null,
+                    c.bead_state_allocation != null ? Math.round(c.bead_state_allocation) : null
+                ];
+            });
+
+            var summaryData = [summaryHeaders].concat(summaryRows);
+
+            // ── Sheet 2: Providers ───────────────────────────────────────
+            var providerHeaders = [
+                'County', 'State', 'GEOID',
+                'Provider Name', 'Fiber Passings', 'Cable Passings', 'DSL Passings', 'Total Passings'
+            ];
+
+            var providerRows = [];
+            visible.forEach(function(c) {
+                if (!c.operators || !c.operators.length) return;
+                var sorted = c.operators.slice().sort(function(a, b) {
+                    var aT = (a.fiber_passings || a.passings || 0) + (a.cable_passings || 0) + (a.dsl_passings || 0);
+                    var bT = (b.fiber_passings || b.passings || 0) + (b.cable_passings || 0) + (b.dsl_passings || 0);
+                    return bT - aT;
+                }).slice(0, 10);
+
+                sorted.forEach(function(op) {
+                    var fiber = op.fiber_passings || op.passings || 0;
+                    var cable = op.cable_passings || 0;
+                    var dsl   = op.dsl_passings   || 0;
+                    providerRows.push([
+                        c.name,
+                        c.state_code || activeState,
+                        c.geoid,
+                        op.name,
+                        fiber,
+                        cable,
+                        dsl,
+                        fiber + cable + dsl
+                    ]);
+                });
+            });
+
+            var providerData = [providerHeaders].concat(providerRows);
+
+            // ── Build workbook ───────────────────────────────────────────
+            var wb = XLSX.utils.book_new();
+
+            var wsSummary = XLSX.utils.aoa_to_sheet(summaryData);
+            // Set column widths for readability
+            wsSummary['!cols'] = [
+                { wch: 22 }, { wch: 6 }, { wch: 8 },
+                { wch: 18 }, { wch: 18 },
+                { wch: 12 }, { wch: 12 }, { wch: 14 }, { wch: 16 },
+                { wch: 16 }, { wch: 18 }, { wch: 14 },
+                { wch: 20 }, { wch: 14 }, { wch: 14 },
+                { wch: 18 }, { wch: 16 }, { wch: 16 },
+                { wch: 16 }, { wch: 14 }, { wch: 18 }, { wch: 16 },
+                { wch: 20 }, { wch: 20 }, { wch: 14 }, { wch: 12 },
+                { wch: 12 },
+                { wch: 16 }, { wch: 18 }, { wch: 18 },
+                { wch: 22 }, { wch: 10 }, { wch: 16 },
+                { wch: 18 }, { wch: 16 }, { wch: 18 },
+                { wch: 16 }, { wch: 20 }, { wch: 20 },
+                { wch: 22 }, { wch: 24 }
+            ];
+            XLSX.utils.book_append_sheet(wb, wsSummary, 'County Summary');
+
+            var wsProviders = XLSX.utils.aoa_to_sheet(providerData);
+            wsProviders['!cols'] = [
+                { wch: 22 }, { wch: 6 }, { wch: 8 },
+                { wch: 30 }, { wch: 15 }, { wch: 15 }, { wch: 14 }, { wch: 15 }
+            ];
+            XLSX.utils.book_append_sheet(wb, wsProviders, 'Providers');
+
+            var date = new Date().toISOString().slice(0, 10);
+            var label = hasSelection
+                ? (this._selectedFips.size + '-counties')
+                : (activeState || 'all-states');
+            XLSX.writeFile(wb, 'fiber-market-' + label + '-' + date + '.xlsx');
         }
     };
 

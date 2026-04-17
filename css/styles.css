@@ -1870,6 +1870,12 @@ header { position: relative; display: flex; align-items: flex-start; justify-con
     white-space: nowrap;
 }
 .table-action-btn:hover { background: rgba(255,255,255,0.1); color: #fff; }
+.table-action-btn--excel {
+    background: rgba(21, 128, 61, 0.2);
+    border-color: rgba(21, 128, 61, 0.5);
+    color: #4ade80;
+}
+.table-action-btn--excel:hover { background: rgba(21, 128, 61, 0.35); color: #86efac; }
 
 /* Table filter dropdowns */
 .table-filter-select {
