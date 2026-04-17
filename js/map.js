@@ -1366,36 +1366,7 @@
         },
 
         _attachRowListeners: function(tbody) {
-            var lastFips = null;
-            var showTimer = null;
-
-            // Use delegation on tbody so the panel only hides when leaving
-            // the entire table — not on every row-to-row transition.
-            tbody.addEventListener('mouseover', function(e) {
-                var row = e.target.closest('tr');
-                if (!row) return;
-                var fips = row.dataset.fips;
-                if (!fips || fips === lastFips) return;
-                lastFips = fips;
-                if (showTimer) { clearTimeout(showTimer); showTimer = null; }
-                showTimer = setTimeout(function() {
-                    if (!InfoPanel.pinnedCounty) {
-                        InfoPanel.showCountyInfo(fips);
-                        MapRenderer.highlightCounty(fips);
-                    }
-                }, 50);
-            });
-
-            tbody.addEventListener('mouseleave', function() {
-                lastFips = null;
-                if (showTimer) { clearTimeout(showTimer); showTimer = null; }
-                if (!InfoPanel.pinnedCounty) {
-                    InfoPanel.hideInfo();
-                    MapRenderer.clearHighlight();
-                }
-            });
-
-            // Keep per-row click and keyboard handlers
+            // Per-row click and keyboard handlers
             tbody.querySelectorAll('tr').forEach(function(row) {
                 row.addEventListener('click', function() {
                     var fips = row.dataset.fips;
