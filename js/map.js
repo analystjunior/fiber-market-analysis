@@ -1486,7 +1486,7 @@
         _populateStateDropdown: function() {
             var sel = document.getElementById('table-state-filter');
             if (!sel) return;
-            var counties = DataHandler.getAllCounties();
+            var counties = DataHandler.getAllLoadedCounties();
             var states = {};
             counties.forEach(function(c) { if (c.state_code) states[c.state_code] = true; });
             var sorted = Object.keys(states).sort();
@@ -1499,10 +1499,11 @@
         },
 
         _updateExportBtn: function() {
-            var btn = document.getElementById('export-csv-btn');
-            if (!btn) return;
             var n = this._selectedFips.size;
-            btn.textContent = n > 0 ? 'Export Selected (' + n + ')' : 'Export CSV';
+            var csvBtn = document.getElementById('export-csv-btn');
+            if (csvBtn) csvBtn.textContent = n > 0 ? 'Export Selected (' + n + ')' : 'Export CSV';
+            var xlBtn = document.getElementById('export-excel-btn');
+            if (xlBtn) xlBtn.textContent = n > 0 ? 'Export Excel (' + n + ')' : 'Export Excel';
         },
 
         _momentumLabel: function(c) {
