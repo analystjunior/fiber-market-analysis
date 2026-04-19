@@ -160,12 +160,12 @@ DROP POLICY IF EXISTS "public_read_counties"    ON counties;
 DROP POLICY IF EXISTS "public_read_state_summary" ON state_summary;
 
 CREATE POLICY "public_read_counties"
-  ON counties FOR SELECT TO anon USING (true);
+  ON counties FOR SELECT TO anon, authenticated USING (true);
 
 CREATE POLICY "public_read_state_summary"
-  ON state_summary FOR SELECT TO anon USING (true);
+  ON state_summary FOR SELECT TO anon, authenticated USING (true);
 
 ALTER TABLE news_articles ENABLE ROW LEVEL SECURITY;
 DROP POLICY IF EXISTS "public_read_news" ON news_articles;
 CREATE POLICY "public_read_news"
-  ON news_articles FOR SELECT TO anon USING (true);
+  ON news_articles FOR SELECT TO anon, authenticated USING (true);
