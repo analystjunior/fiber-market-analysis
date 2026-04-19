@@ -25,10 +25,10 @@
         'Comcast': 'Xfinity',
         'Comcast Cable': 'Xfinity',
 
-        // Frontier
-        'Frontier': 'Frontier',
-        'Frontier Communications': 'Frontier',
-        'Citizens Telephone Company': 'Frontier',
+        // Frontier is now shown as part of Verizon after the Jan 2026 acquisition.
+        'Frontier': 'Verizon Fios',
+        'Frontier Communications': 'Verizon Fios',
+        'Citizens Telephone Company': 'Verizon Fios',
 
         // Lumen / CenturyLink / Quantum Fiber
         'Quantum Fiber': 'Quantum Fiber',
@@ -329,8 +329,6 @@
             url: 'https://about.att.com/story/2026/4q-earnings-2025.html' },
         'Verizon Fios':      { type: 'earnings',      as_of: 'Jan 2026 Frontier transaction close',
             url: 'https://www.verizon.com/about/news/feed/verizon-and-frontier-regulatory-approval' },
-        'Frontier':          { type: 'earnings',      as_of: 'Q3 2025 (pre-Verizon close)',
-            url: 'https://investor.frontier.com/news/news-details/2025/Frontier-Reports-Third-Quarter-2025-Results/default.aspx' },
         'Xfinity':           { type: 'earnings',      as_of: 'Q4 2025',
             url: 'https://www.cmcsa.com/news-releases/news-release-details/comcast-reports-4th-quarter-2025-results' },
         'Spectrum':          { type: 'earnings',      as_of: 'Q4 2025',
@@ -387,10 +385,8 @@
         // Q1 2026 earnings (Apr 22 2026) will be first official combined report
         'AT&T':              { fiber: 36000000,  cable: null,     dsl: null     },
         // Verizon Q4 2025 + Frontier acq. closed Jan 20 2026 — combined ~30M
-        // FCC map data still tracks Fios and Frontier separately until next BDC filing
+        // Frontier raw FCC/operator names resolve to Verizon Fios in provider mode.
         'Verizon Fios':      { fiber: 30000000,  cable: null,     dsl: null     },
-        // Frontier final standalone figure before Verizon acquisition (Jan 20 2026)
-        'Frontier':          { fiber: 8800000,   cable: null,     dsl: null     },
         // Comcast Q4 2025 (cmcsa.com)
         'Xfinity':           { fiber: null,      cable: 65000000, dsl: null     },
         // Charter Q4 2025 (prnewswire.com/302674771)
@@ -455,7 +451,6 @@
     var REQUIRED_PROVIDER_NAMES = [
         'AT&T',
         'Verizon Fios',
-        'Frontier',
         'Quantum Fiber',
         'Brightspeed',
         'Fidium Fiber',
@@ -506,7 +501,6 @@
 
     var DISPLAY_NAMES = {
         'Verizon Fios': 'Verizon',
-        'Frontier': 'Frontier Communications',
         'Quantum Fiber': 'Lumen / CenturyLink / Quantum Fiber',
         'Fidium Fiber': 'Fidium / Consolidated Communications',
         'Windstream': 'Windstream / Kinetic',
@@ -545,7 +539,7 @@
         {
             group: 'National Carriers',
             providers: [
-                'AT&T', 'Spectrum', 'Xfinity', 'Frontier', 'Quantum Fiber',
+                'AT&T', 'Spectrum', 'Xfinity', 'Quantum Fiber',
                 'Verizon Fios', 'Cox', 'Windstream', 'Brightspeed', 'Optimum',
             ]
         },

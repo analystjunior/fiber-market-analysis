@@ -8,7 +8,6 @@ const { ProviderIndex } = global;
 const requestedDisplayNames = [
   'AT&T',
   'Verizon',
-  'Frontier Communications',
   'Lumen / CenturyLink / Quantum Fiber',
   'Brightspeed',
   'Fidium / Consolidated Communications',
@@ -76,6 +75,8 @@ test('required provider list includes every requested display name', () => {
 });
 
 test('new provider aliases resolve to provider-view canonical names', () => {
+  assert.strictEqual(ProviderIndex.resolve('Frontier'), 'Verizon Fios');
+  assert.strictEqual(ProviderIndex.resolve('Frontier Communications'), 'Verizon Fios');
   assert.strictEqual(ProviderIndex.resolve('Kinetic by Windstream'), 'Windstream');
   assert.strictEqual(ProviderIndex.resolve('Cincinnati Bell'), 'altafiber');
   assert.strictEqual(ProviderIndex.resolve('Conexon Connect'), 'Conexon');
@@ -84,6 +85,13 @@ test('new provider aliases resolve to provider-view canonical names', () => {
   assert.strictEqual(ProviderIndex.resolve('Empire Access'), 'Empire Fiber');
   assert.strictEqual(ProviderIndex.resolve('Fision'), 'Hotwire');
   assert.strictEqual(ProviderIndex.resolve('USI Fiber'), 'U.S. Internet');
+});
+
+test('Frontier is folded into Verizon rather than listed separately', () => {
+  assert.strictEqual(ProviderIndex.getDisplayName('Verizon Fios'), 'Verizon');
+  assert.strictEqual(ProviderIndex.requiredProviderNames().includes('Frontier'), false);
+  assert.strictEqual(ProviderIndex.publicProviderNames().includes('Frontier'), false);
+  assert.strictEqual(ProviderIndex.getPublicTotals('Verizon Fios').fiber, 30000000);
 });
 
 test('every public-reported provider has a clickable source URL', () => {
