@@ -1463,10 +1463,17 @@ input:focus-visible {
 }
 
 .provider-item-name {
+    display: flex;
+    align-items: center;
+    gap: 5px;
     min-width: 0;
+    overflow: hidden;
+}
+.provider-name-text {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    min-width: 0;
 }
 
 .provider-item-stat {
@@ -2570,10 +2577,17 @@ header { position: relative; display: flex; align-items: flex-start; justify-con
     border: 1px solid rgba(245, 158, 11, 0.4);
     border-radius: 3px;
     padding: 1px 4px;
-    margin-left: 4px;
-    vertical-align: middle;
     cursor: help;
     flex-shrink: 0;
+    white-space: nowrap;
+    user-select: none;
+}
+.provider-pr-badge--link {
+    cursor: pointer;
+}
+.provider-pr-badge--link:hover {
+    background: rgba(245, 158, 11, 0.15);
+    border-color: #f59e0b;
 }
 
 /* Locked provider items */

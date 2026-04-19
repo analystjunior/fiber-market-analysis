@@ -228,7 +228,7 @@
     // SOURCE_NOTES tracks provenance: 'earnings' = quarterly filing, 'press_release' = operator PR.
     // Displayed as a badge in the provider picker so users know which figures are FCC vs self-reported.
     var SOURCE_NOTES = {
-        // Earnings-backed figures (quarterly filings)
+        // Earnings-backed figures (quarterly filings) — no badge shown
         'AT&T':              { type: 'earnings',      as_of: 'Q4 2025 + Quantum acq. Feb 2026' },
         'Verizon Fios':      { type: 'earnings',      as_of: 'Q4 2025 + Frontier acq. Jan 2026' },
         'Frontier':          { type: 'earnings',      as_of: 'Q4 2025 (now part of Verizon)' },
@@ -241,16 +241,23 @@
         'TDS Telecom':       { type: 'earnings',      as_of: 'Q4 2025' },
         'WOW!':              { type: 'earnings',      as_of: 'Q3 2025' },
         'Shentel / Glo Fiber':{ type: 'earnings',     as_of: 'Q4 2025' },
-        // Press-release / company-reported figures
-        'Brightspeed':       { type: 'press_release', as_of: 'Apr 2026' },
-        'Metronet':          { type: 'press_release', as_of: 'Nov 2025' },
-        'Midco':             { type: 'press_release', as_of: '2025'    },
-        'Mediacom':          { type: 'press_release', as_of: '2025'    },
-        'Ziply Fiber':       { type: 'press_release', as_of: 'Aug 2025' },
-        'Fidium Fiber':      { type: 'press_release', as_of: 'Sep 2025' },
-        'C Spire':           { type: 'press_release', as_of: 'Apr 2026' },
-        'Surf Internet':     { type: 'press_release', as_of: 'Dec 2025' },
-        'Empire Fiber':      { type: 'press_release', as_of: 'Apr 2026' },
+        // Press-release / company-reported figures — amber PR badge shown, links to source
+        'Brightspeed':   { type: 'press_release', as_of: 'Apr 2026',
+            url: 'https://www.prnewswire.com/news-releases/brightspeed-surpasses-3m-fiber-enabled-locations-marks-second-consecutive-year-of-1m-passings-302732416.html' },
+        'Metronet':      { type: 'press_release', as_of: 'Nov 2025',
+            url: 'https://www.businesswire.com/news/home/20251124223372/en/Metronet-Fiber-Now-Reaches-Three-Million-Locations' },
+        'Ziply Fiber':   { type: 'press_release', as_of: 'Aug 2025',
+            url: 'https://www.prnewswire.com/news-releases/bce-completes-acquisition-of-ziply-fiber-accelerating-its-fibre-growth-strategy-302519655.html' },
+        'Fidium Fiber':  { type: 'press_release', as_of: 'Sep 2025',
+            url: 'https://www.businesswire.com/news/home/20250922300560/en/Consolidated-Communications-Becomes-Fidium-Uniting-All-Services-Under-One-Bold-Identity' },
+        'C Spire':       { type: 'press_release', as_of: 'Apr 2026',
+            url: 'https://magnoliatribune.com/2026/04/10/c-spire-completes-work-under-mississippi-capital-projects-fund-to-expand-high-speed-broadband-infrastructure/' },
+        'Surf Internet': { type: 'press_release', as_of: 'Dec 2025',
+            url: 'https://fiberbroadband.org/2025/12/16/surf-internet-celebrates-250000-fiber-optic-passings-after-record-breaking-year-of-growth/' },
+        'Empire Fiber':  { type: 'press_release', as_of: 'Apr 2026',
+            url: 'https://fiberbroadband.org/2026/04/15/building-empire-fiber/' },
+        'Midco':         { type: 'press_release', as_of: '2025',     url: null },
+        'Mediacom':      { type: 'press_release', as_of: '2025',     url: null },
     };
 
     var PUBLIC_REPORTED = {

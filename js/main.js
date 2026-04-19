@@ -366,18 +366,31 @@
 
             var nameSpan = document.createElement('span');
             nameSpan.className = 'provider-item-name';
-            nameSpan.textContent = name;
-            btn.appendChild(nameSpan);
 
-            // Show badge for press-release figures so users know it's self-reported
+            // Text in its own span so ellipsis works with badge alongside it
+            var nameText = document.createElement('span');
+            nameText.className = 'provider-name-text';
+            nameText.textContent = name;
+            nameSpan.appendChild(nameText);
+
+            // Badge lives INSIDE nameSpan so it doesn't break the grid column layout
             var note = ProviderIndex.getSourceNote(name);
             if (note && note.type === 'press_release') {
                 var badge = document.createElement('span');
                 badge.className = 'provider-pr-badge';
                 badge.textContent = 'PR';
-                badge.title = 'Self-reported (' + note.as_of + ') — FCC filing may differ';
-                btn.appendChild(badge);
+                badge.title = 'Self-reported (' + note.as_of + ') — click to view source';
+                if (note.url) {
+                    badge.classList.add('provider-pr-badge--link');
+                    badge.addEventListener('click', function(e) {
+                        e.stopPropagation(); // don't select the provider
+                        window.open(note.url, '_blank', 'noopener,noreferrer');
+                    });
+                }
+                nameSpan.appendChild(badge);
             }
+
+            btn.appendChild(nameSpan);
 
             var cols = [
                 { val: d.fiber, cls: 'provider-item-stat' },
