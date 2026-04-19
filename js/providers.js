@@ -44,6 +44,8 @@
 
         // Windstream (filed under many state-level subsidiaries)
         'Windstream': 'Windstream',
+        'Kinetic': 'Windstream',
+        'Kinetic by Windstream': 'Windstream',
         'Windstream Communications, LLC.': 'Windstream',
         'Windstream Georgia Communications, LLC': 'Windstream',
         'Windstream Georgia, LLC': 'Windstream',
@@ -84,6 +86,12 @@
         'TDS Telecom': 'TDS Telecom',
         'Telephone and Data Systems': 'TDS Telecom',
 
+        // altafiber / Cincinnati Bell
+        'altafiber': 'altafiber',
+        'Altafiber': 'altafiber',
+        'Cincinnati Bell': 'altafiber',
+        'Cincinnati Bell Telephone Company': 'altafiber',
+
         // Ziply Fiber
         'Ziply Fiber': 'Ziply Fiber',
 
@@ -110,11 +118,14 @@
 
         // Astound Broadband / Wave / RCN
         'Astound Broadband': 'Astound Broadband',
+        'Astound': 'Astound Broadband',
         'Wave Broadband': 'Astound Broadband',
         'RCN': 'Astound Broadband',
 
-        // Hotwire Communications
+        // Hotwire Communications / Fision
         'Hotwire Communications': 'Hotwire',
+        'Fision': 'Hotwire',
+        'Fision Fiber': 'Hotwire',
         'Hotwire': 'Hotwire',
 
         // Dobson Fiber
@@ -149,6 +160,7 @@
 
         // Ting / DISH
         'Ting': 'Ting',
+        'Ting Internet': 'Ting',
 
         // WOW!
         'WOW Internet, Cable & Phone': 'WOW!',
@@ -157,6 +169,7 @@
 
         // Conexon (rural cooperative fiber)
         'Conexon Connect LLC': 'Conexon',
+        'Conexon Connect': 'Conexon',
         'Conexon': 'Conexon',
 
         // Vyve Broadband
@@ -165,6 +178,7 @@
         // Allo Communications
         'Allo Communications LLC': 'Allo Communications',
         'Allo Communications': 'Allo Communications',
+        'Allo': 'Allo Communications',
 
         // Point Broadband
         'Point Broadband Fiber Holding LLC': 'Point Broadband',
@@ -193,6 +207,8 @@
 
         // Armstrong / Zito
         'ArmstrongUtilitiesInc': 'Armstrong / Zito',
+        'Armstrong': 'Armstrong / Zito',
+        'Armstrong Utilities': 'Armstrong / Zito',
         'Zito Media': 'Armstrong / Zito',
 
         // Surf Internet (IN/MI)
@@ -217,6 +233,7 @@
 
         // Empire Fiber (NY — Hudson Valley)
         'Empire Fiber': 'Empire Fiber',
+        'Empire Access': 'Empire Fiber',
         'Empire Fiber Networks': 'Empire Fiber',
         'Empire State Telephone': 'Empire Fiber',
 
@@ -230,6 +247,7 @@
         'Greenlight Networks, Inc.': 'Greenlight Networks',
 
         // EverFast Fiber (Kansas City metro — Astatine Investment Partners)
+        'Everfast': 'EverFast Fiber',
         'EverFast Fiber': 'EverFast Fiber',
         'EverFast Fiber Networks': 'EverFast Fiber',
         'EverFast Fiber Networks LLC': 'EverFast Fiber',
@@ -268,6 +286,30 @@
         'LFT Fiber': 'LFT Fiber',
         'LUS Fiber': 'LFT Fiber',
         'Lafayette Utility System Fiber': 'LFT Fiber',
+
+        // Additional regional fiber builders to keep visible in provider mode
+        'Sonic': 'Sonic',
+        'Sonic Internet': 'Sonic',
+        'Ezee Fiber': 'Ezee Fiber',
+        'UTOPIA Fiber': 'UTOPIA Fiber',
+        'Utah Telecommunication Open Infrastructure Agency': 'UTOPIA Fiber',
+        'FiberFirst': 'FiberFirst',
+        'Fiber First': 'FiberFirst',
+        'EPB': 'EPB',
+        'EPB Fiber Optics': 'EPB',
+        'Electric Power Board of Chattanooga': 'EPB',
+        'Race Communications': 'Race Communications',
+        'Race': 'Race Communications',
+        'Carolina Connect': 'Carolina Connect',
+        'CarolinaConnect': 'Carolina Connect',
+        'CONXXUS': 'CONXXUS',
+        'Conxxus': 'CONXXUS',
+        'IQ Fiber': 'IQ Fiber',
+        'KUB Fiber': 'KUB Fiber',
+        'Knoxville Utilities Board': 'KUB Fiber',
+        'U.S. Internet': 'U.S. Internet',
+        'US Internet': 'U.S. Internet',
+        'USI Fiber': 'U.S. Internet',
 
         // Lumos additional aliases (NorthState merged Aug 2022; T-Mobile/EQT JV Apr 2025)
         'NorthState': 'Lumos',
@@ -372,6 +414,87 @@
         return Object.keys(PUBLIC_REPORTED);
     }
 
+    var REQUIRED_PROVIDER_NAMES = [
+        'AT&T',
+        'Verizon Fios',
+        'Frontier',
+        'Quantum Fiber',
+        'Brightspeed',
+        'Fidium Fiber',
+        'Windstream',
+        'Metronet',
+        'Lumos',
+        'Google Fiber',
+        'Optimum',
+        'Sparklight',
+        'WOW!',
+        'TDS Telecom',
+        'altafiber',
+        'Ziply Fiber',
+        'GoNetspeed',
+        'Shentel / Glo Fiber',
+        'Allo Communications',
+        'Point Broadband',
+        'Conexon',
+        'Sonic',
+        'C Spire',
+        'Astound Broadband',
+        'Armstrong / Zito',
+        'EverFast Fiber',
+        'i3 Broadband',
+        'Bluepeak',
+        'Ezee Fiber',
+        'Greenlight Networks',
+        'Surf Internet',
+        'Omni Fiber',
+        'Dobson Fiber',
+        'UTOPIA Fiber',
+        'FiberFirst',
+        'Ting',
+        'Wyyerd Fiber',
+        'Ripple Fiber',
+        'EPB',
+        'Empire Fiber',
+        'LiveOak Fiber',
+        'Hotwire',
+        'Race Communications',
+        'IdeaTek',
+        'Carolina Connect',
+        'CONXXUS',
+        'IQ Fiber',
+        'KUB Fiber',
+        'U.S. Internet',
+    ];
+
+    var DISPLAY_NAMES = {
+        'Verizon Fios': 'Verizon',
+        'Frontier': 'Frontier Communications',
+        'Quantum Fiber': 'Lumen / CenturyLink / Quantum Fiber',
+        'Fidium Fiber': 'Fidium / Consolidated Communications',
+        'Windstream': 'Windstream / Kinetic',
+        'Optimum': 'Optimum / Altice USA',
+        'Allo Communications': 'Allo',
+        'Conexon': 'Conexon Connect',
+        'Astound Broadband': 'Astound',
+        'Armstrong / Zito': 'Armstrong',
+        'EverFast Fiber': 'Everfast',
+        'Ting': 'Ting Internet',
+        'Empire Fiber': 'Empire Fiber / Empire Access',
+        'Hotwire': 'Hotwire Communications / Fision',
+    };
+
+    function requiredProviderNames() {
+        return REQUIRED_PROVIDER_NAMES.slice();
+    }
+
+    function isRequiredProvider(canonicalName) {
+        return REQUIRED_PROVIDER_NAMES.indexOf(canonicalName) !== -1;
+    }
+
+    function getDisplayName(canonicalName) {
+        return DISPLAY_NAMES[canonicalName] || canonicalName;
+    }
+
     // Returns source note for a provider: { type: 'earnings'|'press_release', as_of: 'Q4 2025' }
     // Returns null if no note (figure comes purely from FCC computation).
     function getSourceNote(canonicalName) {
@@ -396,7 +519,10 @@
                 'Shentel / Glo Fiber', 'Sparklight', 'WOW!', 'Dobson Fiber',
                 'Mediacom', 'Fidium Fiber', 'Lumos', 'Hotwire', 'Allo Communications',
                 'Vyve Broadband', 'Bluepeak', 'Ting', 'ClearWave Fiber', 'Vexus Fiber',
-                'Empire Fiber',
+                'Empire Fiber', 'GoNetspeed', 'Greenlight Networks', 'EverFast Fiber',
+                'Ripple Fiber', 'LiveOak Fiber', 'i3 Broadband', 'Ezee Fiber',
+                'UTOPIA Fiber', 'FiberFirst', 'Wyyerd Fiber', 'EPB', 'Race Communications',
+                'IQ Fiber', 'KUB Fiber', 'U.S. Internet', 'altafiber',
             ]
         },
         {
@@ -405,7 +531,7 @@
                 'Conexon', 'Great Plains Communications', 'ARVIG', 'Nextlink',
                 'Point Broadband', 'Valor Telecom', 'Nex-Tech', 'RiverStreet',
                 'Surf Internet', 'Centric Fiber', 'Omni Fiber', 'Armstrong / Zito',
-                'IdeaTek',
+                'IdeaTek', 'Sonic', 'Carolina Connect', 'CONXXUS',
             ]
         }
     ];
@@ -503,6 +629,9 @@
         formatPassings: formatPassings,
         getPublicTotals: getPublicTotals,
         publicProviderNames: publicProviderNames,
+        requiredProviderNames: requiredProviderNames,
+        isRequiredProvider: isRequiredProvider,
+        getDisplayName: getDisplayName,
         getSourceNote: getSourceNote,
     };
 

@@ -342,8 +342,9 @@
             };
         }
 
-        // Union of public-reported providers + computed providers with 100K+ fiber
+        // Union of required names + public-reported providers + computed providers with 100K+ fiber
         var nameSet = {};
+        ProviderIndex.requiredProviderNames().forEach(function(n) { nameSet[n] = true; });
         ProviderIndex.publicProviderNames().forEach(function(n) { nameSet[n] = true; });
         Object.keys(computed).forEach(function(n) {
             if (computed[n].fiber >= 100000) nameSet[n] = true;
@@ -351,7 +352,7 @@
 
         var providers = Object.keys(nameSet)
             .map(function(name) { return { name: name, d: resolveDisplay(name) }; })
-            .filter(function(p) { return p.d.sortFiber >= 100000; })
+            .filter(function(p) { return p.d.sortFiber >= 100000 || ProviderIndex.isRequiredProvider(p.name); })
             .sort(function(a, b) { return b.d.sortFiber - a.d.sortFiber; });
 
         providers.forEach(function(p) {
@@ -370,7 +371,7 @@
             // Text in its own span so ellipsis works with badge alongside it
             var nameText = document.createElement('span');
             nameText.className = 'provider-name-text';
-            nameText.textContent = name;
+            nameText.textContent = ProviderIndex.getDisplayName(name);
             nameSpan.appendChild(nameText);
 
             // Badge lives INSIDE nameSpan so it doesn't break the grid column layout
@@ -450,6 +451,7 @@
 
         // Same provider set as individual view, sorted by fiber descending
         var nameSet = {};
+        ProviderIndex.requiredProviderNames().forEach(function(n) { nameSet[n] = true; });
         ProviderIndex.publicProviderNames().forEach(function(n) { nameSet[n] = true; });
         Object.keys(computed).forEach(function(n) {
             if (computed[n].fiber >= 100000) nameSet[n] = true;
@@ -461,7 +463,7 @@
                 var fiberVal = (pub && pub.fiber != null) ? pub.fiber : (computed[name] ? computed[name].fiber : 0);
                 return { name: name, fiber: fiberVal };
             })
-            .filter(function(p) { return p.fiber >= 100000; })
+            .filter(function(p) { return p.fiber >= 100000 || ProviderIndex.isRequiredProvider(p.name); })
             .sort(function(a, b) { return b.fiber - a.fiber; });
 
         providers.forEach(function(p) {
@@ -477,7 +479,7 @@
 
             var nameSpan = document.createElement('span');
             nameSpan.className = 'provider-item-name';
-            nameSpan.textContent = p.name;
+            nameSpan.textContent = ProviderIndex.getDisplayName(p.name);
             btn.appendChild(nameSpan);
 
             var stat = document.createElement('span');

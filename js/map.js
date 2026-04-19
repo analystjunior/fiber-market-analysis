@@ -660,7 +660,7 @@
                     var swatch = createElement('div', { className: 'legend-color' });
                     swatch.style.background = self.COMPETITION_PALETTE[i];
                     el.appendChild(swatch);
-                    el.appendChild(createElement('span', {}, name + ' only'));
+                    el.appendChild(createElement('span', {}, ProviderIndex.getDisplayName(name) + ' only'));
                     legend.appendChild(el);
                 });
                 if (selected.length > 1) {
@@ -717,14 +717,14 @@
             if (this.currentSubview === 'competition') {
                 var sel = this.competitionProviders;
                 label = sel.length > 1
-                    ? sel.join(' vs ') + ' — Overlap'
+                    ? sel.map(function(name) { return ProviderIndex.getDisplayName(name); }).join(' vs ') + ' — Overlap'
                     : sel.length === 1
-                        ? sel[0] + ' — select another to compare'
+                        ? ProviderIndex.getDisplayName(sel[0]) + ' — select another to compare'
                         : 'Select providers to compare';
             } else {
                 var techLabel = { fiber: 'Fiber', cable: 'Cable', dsl: 'DSL/Copper', all: 'All Tech' };
                 label = this.currentProvider
-                    ? this.currentProvider + ' — ' + (techLabel[this.currentTech] || 'Fiber') + ' Footprint'
+                    ? ProviderIndex.getDisplayName(this.currentProvider) + ' — ' + (techLabel[this.currentTech] || 'Fiber') + ' Footprint'
                     : 'Select a provider';
             }
             setTextById('map-title', label);
@@ -1212,7 +1212,7 @@
             var pct = bsls > 0 && activeP > 0 ? (activeP / bsls * 100).toFixed(1) + '%' : '—';
 
             setTextById('prov-county-name', (data.name || '') + (data.state_code ? ', ' + data.state_code : ''));
-            setTextById('prov-panel-title', provider || 'Provider Footprint');
+            setTextById('prov-panel-title', provider ? ProviderIndex.getDisplayName(provider) : 'Provider Footprint');
             setTextById('prov-passings', activeP > 0 ? activeP.toLocaleString() : '—');
             setTextById('prov-coverage', pct);
             setTextById('prov-total-bsls', bsls > 0 ? bsls.toLocaleString() : '—');

@@ -4,6 +4,6 @@
   "private": true,
   "description": "Static fiber market analysis site.",
   "scripts": {
-    "test": "node tests/utils.test.js"
+    "test": "node tests/utils.test.js && node tests/providers.test.js"
   }
 }
