@@ -568,10 +568,28 @@
         }
     ];
 
+    function normalizeProviderName(name) {
+        return String(name || '')
+            .trim()
+            .toLowerCase()
+            .replace(/[^a-z0-9&!]+/g, ' ')
+            .replace(/\s+/g, ' ')
+            .trim();
+    }
+
     // Resolve a raw FCC brand name to its canonical name (or itself if unknown)
     function resolve(rawName) {
         if (!rawName) return null;
         var trimmed = rawName.trim();
+        var exactAlias = ALIASES[trimmed];
+        if (exactAlias) return exactAlias;
+
+        // The live data can include Frontier legal entities and state subsidiaries.
+        // Keep every Frontier variant under Verizon after the acquisition.
+        if (normalizeProviderName(trimmed).indexOf('frontier') !== -1) {
+            return 'Verizon Fios';
+        }
+
         return ALIASES[trimmed] || trimmed;
     }
 
