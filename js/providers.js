@@ -212,11 +212,38 @@
 
         // Omni Fiber (OH)
         'Omni Fiber': 'Omni Fiber',
+
+        // Empire Fiber (NY — Hudson Valley)
+        'Empire Fiber': 'Empire Fiber',
+        'Empire Fiber Networks': 'Empire Fiber',
+        'Empire State Telephone': 'Empire Fiber',
     };
 
     // Public-reported national totals for the picker summary display.
-    // Source: Q4 2025 earnings releases. null = no public figure for that tech.
+    // Source: earnings releases or operator press releases. null = no public figure for that tech.
     // County-level map data still comes from FCC filings.
+    //
+    // SOURCE_NOTES tracks provenance: 'earnings' = quarterly filing, 'press_release' = operator PR.
+    // Displayed as a badge in the provider picker so users know which figures are FCC vs self-reported.
+    var SOURCE_NOTES = {
+        'AT&T':          { type: 'earnings',      as_of: 'Q4 2025' },
+        'Verizon Fios':  { type: 'earnings',      as_of: 'Q4 2025' },
+        'Frontier':      { type: 'earnings',      as_of: 'Q4 2025' },
+        'Xfinity':       { type: 'earnings',      as_of: 'Q4 2025' },
+        'Spectrum':      { type: 'earnings',      as_of: 'Q4 2025' },
+        'Cox':           { type: 'earnings',      as_of: 'Q4 2025' },
+        'Quantum Fiber': { type: 'earnings',      as_of: 'Q4 2025' },
+        'Brightspeed':   { type: 'press_release', as_of: 'Apr 2026' },
+        'Optimum':       { type: 'earnings',      as_of: 'Q3 2025' },
+        'Metronet':      { type: 'press_release', as_of: 'Nov 2025' },
+        'Windstream':    { type: 'earnings',      as_of: 'Q4 2025' },
+        'TDS Telecom':   { type: 'earnings',      as_of: 'Q4 2025' },
+        'WOW!':          { type: 'earnings',      as_of: 'Q3 2025' },
+        'Midco':         { type: 'press_release', as_of: '2025'    },
+        'Mediacom':      { type: 'press_release', as_of: '2025'    },
+        'Empire Fiber':  { type: 'press_release', as_of: 'Apr 2026' },
+    };
+
     var PUBLIC_REPORTED = {
         // AT&T Q4 2025 (prnewswire.com/302672564)
         'AT&T':          { fiber: 32000000,  cable: null,     dsl: null     },
@@ -248,6 +275,8 @@
         'Midco':         { fiber: 130000,    cable: 870000,   dsl: null     },
         // Mediacom 2025 company materials
         'Mediacom':      { fiber: null,      cable: 3000000,  dsl: null     },
+        // Empire Fiber press release Apr 15 2026 — self-reported, FCC figure pending next filing
+        'Empire Fiber':  { fiber: 200000,    cable: null,     dsl: null     },
     };
 
     // Returns public-reported totals for a canonical provider, or null if not available.
@@ -258,6 +287,12 @@
     // Returns all canonical provider names that have public-reported figures.
     function publicProviderNames() {
         return Object.keys(PUBLIC_REPORTED);
+    }
+
+    // Returns source note for a provider: { type: 'earnings'|'press_release', as_of: 'Q4 2025' }
+    // Returns null if no note (figure comes purely from FCC computation).
+    function getSourceNote(canonicalName) {
+        return SOURCE_NOTES[canonicalName] || null;
     }
 
     // Canonical provider list, grouped for the picker UI.
@@ -278,6 +313,7 @@
                 'Shentel / Glo Fiber', 'Sparklight', 'WOW!', 'Dobson Fiber',
                 'Mediacom', 'Fidium Fiber', 'Lumos', 'Hotwire', 'Allo Communications',
                 'Vyve Broadband', 'Bluepeak', 'Ting', 'ClearWave Fiber', 'Vexus Fiber',
+                'Empire Fiber',
             ]
         },
         {
@@ -384,6 +420,7 @@
         formatPassings: formatPassings,
         getPublicTotals: getPublicTotals,
         publicProviderNames: publicProviderNames,
+        getSourceNote: getSourceNote,
     };
 
 })(window);

@@ -369,6 +369,16 @@
             nameSpan.textContent = name;
             btn.appendChild(nameSpan);
 
+            // Show badge for press-release figures so users know it's self-reported
+            var note = ProviderIndex.getSourceNote(name);
+            if (note && note.type === 'press_release') {
+                var badge = document.createElement('span');
+                badge.className = 'provider-pr-badge';
+                badge.textContent = 'PR';
+                badge.title = 'Self-reported (' + note.as_of + ') — FCC filing may differ';
+                btn.appendChild(badge);
+            }
+
             var cols = [
                 { val: d.fiber, cls: 'provider-item-stat' },
                 { val: d.cable, cls: 'provider-item-stat' },
