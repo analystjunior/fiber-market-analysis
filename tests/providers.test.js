@@ -86,6 +86,8 @@ test('new provider aliases resolve to provider-view canonical names', () => {
   assert.strictEqual(ProviderIndex.resolve('Astound'), 'Astound Broadband');
   assert.strictEqual(ProviderIndex.resolve('Empire Access'), 'Empire Fiber');
   assert.strictEqual(ProviderIndex.resolve('Fision'), 'Hotwire');
+  assert.strictEqual(ProviderIndex.resolve('Tachus Fiber Internet'), 'Ezee Fiber');
+  assert.strictEqual(ProviderIndex.resolve('Tachus'), 'Ezee Fiber');
   assert.strictEqual(ProviderIndex.resolve('USI Fiber'), 'U.S. Internet');
 });
 
@@ -108,6 +110,23 @@ test('Bluepeak uses source total reach instead of interim market build count', (
   assert.strictEqual(totals.fiber, 175000);
   assert.strictEqual(note.scope, 'South Dakota total reach');
   assert.match(note.figure, /175,000/);
+});
+
+test('Tachus is folded into Ezee Fiber rather than listed separately', () => {
+  global.DataHandler = {
+    iterateAllCounties(callback) {
+      callback({
+        operators: [
+          { name: 'Ezee Fiber', fiber_passings: 400, cable_passings: 0, dsl_passings: 0 },
+          { name: 'Tachus Fiber Internet', fiber_passings: 250, cable_passings: 0, dsl_passings: 0 },
+        ],
+      });
+    },
+  };
+
+  const totals = ProviderIndex.computeNationalTotals();
+  assert.strictEqual(totals['Ezee Fiber'].fiber, 650);
+  assert.strictEqual(totals['Tachus Fiber Internet'], undefined);
 });
 
 test('Frontier variants roll into Verizon national totals', () => {

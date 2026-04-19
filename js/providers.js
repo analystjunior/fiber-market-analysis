@@ -291,6 +291,8 @@
         'Sonic': 'Sonic',
         'Sonic Internet': 'Sonic',
         'Ezee Fiber': 'Ezee Fiber',
+        'Tachus Fiber Internet': 'Ezee Fiber',
+        'Tachus': 'Ezee Fiber',
         'UTOPIA Fiber': 'UTOPIA Fiber',
         'Utah Telecommunication Open Infrastructure Agency': 'UTOPIA Fiber',
         'FiberFirst': 'FiberFirst',
