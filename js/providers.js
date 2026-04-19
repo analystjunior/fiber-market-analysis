@@ -183,6 +183,8 @@
         // Point Broadband
         'Point Broadband Fiber Holding LLC': 'Point Broadband',
         'Point Broadband': 'Point Broadband',
+        'ClearWave': 'Point Broadband',
+        'ClearWave Fiber': 'Point Broadband',
 
         // Valor Telecommunications (TX rural)
         'Valor Telecommunications of Texas, LP': 'Valor Telecom',
@@ -217,10 +219,6 @@
         // IdeaTek (KS)
         'IdeaTek': 'IdeaTek',
 
-        // ClearWave Fiber
-        'ClearWave': 'ClearWave Fiber',
-        'ClearWave Fiber': 'ClearWave Fiber',
-
         // Centric Fiber (TX)
         'Centric Fiber': 'Centric Fiber',
 
@@ -230,6 +228,11 @@
 
         // Omni Fiber (OH)
         'Omni Fiber': 'Omni Fiber',
+
+        // Hawaiian Telcom
+        'Hawaiian Telcom': 'Hawaiian Telcom',
+        'Hawaiian Telecom': 'Hawaiian Telcom',
+        'Hawaiian Telcom, Inc.': 'Hawaiian Telcom',
 
         // Empire Fiber (NY — Hudson Valley)
         'Empire Fiber': 'Empire Fiber',
@@ -382,6 +385,26 @@
             url: 'https://mybluepeak.com/bluepeak-expands-investment-in-south-dakota-broadband-infrastructure/' },
         'Ripple Fiber':  { type: 'press_release', as_of: 'May 2025',
             url: 'https://ripplefiber.com/newsroom/ripple-fiber-expands-debt-capacity-to-350-million-to-fuel-nationwide-fiber-network-growth' },
+        'Point Broadband':{ type: 'press_release', as_of: 'Jan 2026',
+            scope: 'Point Broadband + Clearwave Fiber combined platform',
+            figure: 'more than 500,000 homes and businesses with fiber',
+            url: 'https://www.gtcr.com/point-broadband-and-clearwave-fiber-to-combine-creating-a-scaled-independent-fiber-platform/' },
+        'i3 Broadband':  { type: 'press_release', as_of: '2026',
+            scope: 'company footprint',
+            figure: 'over 300,000 homes passed',
+            url: 'https://www.whinfra.com/our-portfolio/i3-broadband/' },
+        'Greenlight Networks':{ type: 'press_release', as_of: 'Mar 2026',
+            scope: 'company footprint',
+            figure: 'more than 320,000 households and businesses',
+            url: 'https://fiberbroadband.org/2026/03/12/greenlight-networks-announces-expansive-fiber-internet-buildout-across-nine-northeast-pennsylvania-communities/' },
+        'Hawaiian Telcom':{ type: 'press_release', as_of: 'Jan 2025',
+            scope: 'statewide Hawaii FTTP network',
+            figure: 'over 400,000 homes and businesses',
+            url: 'https://www.businesswire.com/news/home/20250110887911/en/Hawaiian-Telcom-Partners-with-Government-Leaders-to-Announce-Landmark-%241.7-Billion-Investment-to-Transform-Hawaii-into-the-First-Fully-Fiber-Enabled-State-by-2026' },
+        'Omni Fiber':    { type: 'press_release', as_of: 'Dec 2025',
+            scope: 'company footprint',
+            figure: 'approximately 340,000 locations by year-end',
+            url: 'https://www.omnifiber.com/blog/omni-fiber-secures-200m-for-fiber-expansion/' },
     };
 
     var PUBLIC_REPORTED = {
@@ -439,6 +462,16 @@
         'C Spire':           { fiber: 218000,    cable: null,     dsl: null     },
         // Empire Fiber press release Apr 15 2026 — self-reported, FCC figure pending next filing
         'Empire Fiber':      { fiber: 200000,    cable: null,     dsl: null     },
+        // Point Broadband + Clearwave Fiber Jan 2026 combination disclosure
+        'Point Broadband':   { fiber: 500000,    cable: null,     dsl: null     },
+        // i3 Broadband Wren House portfolio disclosure
+        'i3 Broadband':      { fiber: 300000,    cable: null,     dsl: null     },
+        // Greenlight Networks Mar 2026 company footprint disclosure
+        'Greenlight Networks':{ fiber: 320000,   cable: null,     dsl: null     },
+        // Hawaiian Telcom Jan 2025 statewide FTTP network disclosure
+        'Hawaiian Telcom':   { fiber: 400000,    cable: null,     dsl: null     },
+        // Omni Fiber Dec 2025 financing release
+        'Omni Fiber':        { fiber: 340000,    cable: null,     dsl: null     },
     };
 
     // Returns public-reported totals for a canonical provider, or null if not available.
@@ -481,6 +514,7 @@
         'Bluepeak',
         'Ezee Fiber',
         'Greenlight Networks',
+        'Hawaiian Telcom',
         'Surf Internet',
         'Omni Fiber',
         'Dobson Fiber',
@@ -553,10 +587,10 @@
                 'Midco', 'Breezeline', 'C Spire', 'Astound Broadband',
                 'Shentel / Glo Fiber', 'Sparklight', 'WOW!', 'Dobson Fiber',
                 'Mediacom', 'Fidium Fiber', 'Lumos', 'Hotwire', 'Allo Communications',
-                'Vyve Broadband', 'Bluepeak', 'Ting', 'ClearWave Fiber', 'Vexus Fiber',
+                'Vyve Broadband', 'Bluepeak', 'Ting', 'Vexus Fiber',
                 'Empire Fiber', 'GoNetspeed', 'Greenlight Networks', 'EverFast Fiber',
                 'Ripple Fiber', 'LiveOak Fiber', 'i3 Broadband', 'Ezee Fiber',
-                'UTOPIA Fiber', 'FiberFirst', 'Wyyerd Fiber', 'EPB', 'Race Communications',
+                'UTOPIA Fiber', 'FiberFirst', 'Wyyerd Fiber', 'EPB', 'Hawaiian Telcom', 'Race Communications',
                 'IQ Fiber', 'KUB Fiber', 'U.S. Internet', 'altafiber',
             ]
         },

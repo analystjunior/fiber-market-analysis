@@ -35,6 +35,7 @@ const requestedDisplayNames = [
   'Bluepeak',
   'Ezee Fiber',
   'Greenlight Networks',
+  'Hawaiian Telcom',
   'Surf Internet',
   'Omni Fiber',
   'Dobson Fiber',
@@ -88,6 +89,8 @@ test('new provider aliases resolve to provider-view canonical names', () => {
   assert.strictEqual(ProviderIndex.resolve('Fision'), 'Hotwire');
   assert.strictEqual(ProviderIndex.resolve('Tachus Fiber Internet'), 'Ezee Fiber');
   assert.strictEqual(ProviderIndex.resolve('Tachus'), 'Ezee Fiber');
+  assert.strictEqual(ProviderIndex.resolve('ClearWave Fiber'), 'Point Broadband');
+  assert.strictEqual(ProviderIndex.resolve('Hawaiian Telecom'), 'Hawaiian Telcom');
   assert.strictEqual(ProviderIndex.resolve('USI Fiber'), 'U.S. Internet');
 });
 
@@ -112,6 +115,25 @@ test('Bluepeak uses source total reach instead of interim market build count', (
   assert.match(note.figure, /175,000/);
 });
 
+test('new provider press releases populate public totals and source details', () => {
+  const expected = {
+    'Point Broadband': 500000,
+    'i3 Broadband': 300000,
+    'Greenlight Networks': 320000,
+    'Hawaiian Telcom': 400000,
+    'Omni Fiber': 340000,
+  };
+
+  Object.keys(expected).forEach((name) => {
+    const totals = ProviderIndex.getPublicTotals(name);
+    const note = ProviderIndex.getSourceNote(name);
+
+    assert.strictEqual(totals.fiber, expected[name], `${name} should use the sourced passing count`);
+    assert.ok(note.url, `${name} should have a source URL`);
+    assert.ok(note.figure, `${name} should describe the sourced figure`);
+  });
+});
+
 test('Tachus is folded into Ezee Fiber rather than listed separately', () => {
   global.DataHandler = {
     iterateAllCounties(callback) {
@@ -127,6 +149,29 @@ test('Tachus is folded into Ezee Fiber rather than listed separately', () => {
   const totals = ProviderIndex.computeNationalTotals();
   assert.strictEqual(totals['Ezee Fiber'].fiber, 650);
   assert.strictEqual(totals['Tachus Fiber Internet'], undefined);
+});
+
+test('Ezee Fiber county passings include Tachus for map shading', () => {
+  const county = {
+    operators: [
+      { name: 'Ezee Fiber', fiber_passings: 400, cable_passings: 0, dsl_passings: 0 },
+      { name: 'Tachus Fiber Internet', fiber_passings: 250, cable_passings: 0, dsl_passings: 0 },
+    ],
+  };
+
+  assert.strictEqual(ProviderIndex.getPassings(county, 'Ezee Fiber', 'fiber'), 650);
+});
+
+test('Point Broadband county passings include ClearWave after combination', () => {
+  const county = {
+    operators: [
+      { name: 'Point Broadband', fiber_passings: 300, cable_passings: 0, dsl_passings: 0 },
+      { name: 'ClearWave Fiber', fiber_passings: 200, cable_passings: 0, dsl_passings: 0 },
+    ],
+  };
+
+  assert.strictEqual(ProviderIndex.getPassings(county, 'Point Broadband', 'fiber'), 500);
+  assert.strictEqual(ProviderIndex.allProviders().includes('ClearWave Fiber'), false);
 });
 
 test('Frontier variants roll into Verizon national totals', () => {
