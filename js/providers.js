@@ -132,10 +132,12 @@
         'Sparklight': 'Sparklight',
         'Cable ONE': 'Sparklight',
 
-        // Fidium Fiber (Consolidated Communications)
+        // Fidium Fiber (formerly Consolidated Communications — rebranded Sep 2025)
         'Fidium Fiber': 'Fidium Fiber',
+        'Fidium': 'Fidium Fiber',
         'Consolidated': 'Fidium Fiber',
         'Consolidated Communications': 'Fidium Fiber',
+        'Consolidated Communications, Inc.': 'Fidium Fiber',
 
         // Lumos Networks
         'lumos': 'Lumos',
@@ -226,57 +228,77 @@
     // SOURCE_NOTES tracks provenance: 'earnings' = quarterly filing, 'press_release' = operator PR.
     // Displayed as a badge in the provider picker so users know which figures are FCC vs self-reported.
     var SOURCE_NOTES = {
-        'AT&T':          { type: 'earnings',      as_of: 'Q4 2025' },
-        'Verizon Fios':  { type: 'earnings',      as_of: 'Q4 2025' },
-        'Frontier':      { type: 'earnings',      as_of: 'Q4 2025' },
-        'Xfinity':       { type: 'earnings',      as_of: 'Q4 2025' },
-        'Spectrum':      { type: 'earnings',      as_of: 'Q4 2025' },
-        'Cox':           { type: 'earnings',      as_of: 'Q4 2025' },
-        'Quantum Fiber': { type: 'earnings',      as_of: 'Q4 2025' },
-        'Brightspeed':   { type: 'press_release', as_of: 'Apr 2026' },
-        'Optimum':       { type: 'earnings',      as_of: 'Q3 2025' },
-        'Metronet':      { type: 'press_release', as_of: 'Nov 2025' },
-        'Windstream':    { type: 'earnings',      as_of: 'Q4 2025' },
-        'TDS Telecom':   { type: 'earnings',      as_of: 'Q4 2025' },
-        'WOW!':          { type: 'earnings',      as_of: 'Q3 2025' },
-        'Midco':         { type: 'press_release', as_of: '2025'    },
-        'Mediacom':      { type: 'press_release', as_of: '2025'    },
-        'Empire Fiber':  { type: 'press_release', as_of: 'Apr 2026' },
+        // Earnings-backed figures (quarterly filings)
+        'AT&T':              { type: 'earnings',      as_of: 'Q4 2025 + Quantum acq. Feb 2026' },
+        'Verizon Fios':      { type: 'earnings',      as_of: 'Q4 2025 + Frontier acq. Jan 2026' },
+        'Frontier':          { type: 'earnings',      as_of: 'Q4 2025 (now part of Verizon)' },
+        'Xfinity':           { type: 'earnings',      as_of: 'Q4 2025' },
+        'Spectrum':          { type: 'earnings',      as_of: 'Q4 2025' },
+        'Cox':               { type: 'earnings',      as_of: 'Q4 2025' },
+        'Quantum Fiber':     { type: 'earnings',      as_of: 'Q4 2025 (now part of AT&T)' },
+        'Optimum':           { type: 'earnings',      as_of: 'Q3 2025' },
+        'Windstream':        { type: 'earnings',      as_of: 'Q4 2025' },
+        'TDS Telecom':       { type: 'earnings',      as_of: 'Q4 2025' },
+        'WOW!':              { type: 'earnings',      as_of: 'Q3 2025' },
+        'Shentel / Glo Fiber':{ type: 'earnings',     as_of: 'Q4 2025' },
+        // Press-release / company-reported figures
+        'Brightspeed':       { type: 'press_release', as_of: 'Apr 2026' },
+        'Metronet':          { type: 'press_release', as_of: 'Nov 2025' },
+        'Midco':             { type: 'press_release', as_of: '2025'    },
+        'Mediacom':          { type: 'press_release', as_of: '2025'    },
+        'Ziply Fiber':       { type: 'press_release', as_of: 'Aug 2025' },
+        'Fidium Fiber':      { type: 'press_release', as_of: 'Sep 2025' },
+        'C Spire':           { type: 'press_release', as_of: 'Apr 2026' },
+        'Surf Internet':     { type: 'press_release', as_of: 'Dec 2025' },
+        'Empire Fiber':      { type: 'press_release', as_of: 'Apr 2026' },
     };
 
     var PUBLIC_REPORTED = {
-        // AT&T Q4 2025 (prnewswire.com/302672564)
-        'AT&T':          { fiber: 32000000,  cable: null,     dsl: null     },
-        // Verizon Q4 2025 (verizon.com)
-        'Verizon Fios':  { fiber: 21500000,  cable: null,     dsl: null     },
-        // Frontier via Verizon Q4 2025 call
-        'Frontier':      { fiber: 9000000,   cable: null,     dsl: null     },
+        // AT&T Q4 2025 (32M) + Quantum Fiber acq. closed Feb 2 2026 (~4M) = ~36M combined
+        // Q1 2026 earnings (Apr 22 2026) will be first official combined report
+        'AT&T':              { fiber: 36000000,  cable: null,     dsl: null     },
+        // Verizon Q4 2025 + Frontier acq. closed Jan 20 2026 — combined ~30M
+        // FCC map data still tracks Fios and Frontier separately until next BDC filing
+        'Verizon Fios':      { fiber: 30000000,  cable: null,     dsl: null     },
+        // Frontier final standalone figure before Verizon acquisition (Jan 20 2026)
+        'Frontier':          { fiber: 9000000,   cable: null,     dsl: null     },
         // Comcast Q4 2025 (cmcsa.com)
-        'Xfinity':       { fiber: null,      cable: 65000000, dsl: null     },
+        'Xfinity':           { fiber: null,      cable: 65000000, dsl: null     },
         // Charter Q4 2025 (prnewswire.com/302674771)
-        'Spectrum':      { fiber: null,      cable: 58400000, dsl: null     },
+        'Spectrum':          { fiber: null,      cable: 58400000, dsl: null     },
         // Cox: Charter-Cox merger filing May 2025
-        'Cox':           { fiber: null,      cable: 12300000, dsl: null     },
-        // Lumen Q4 2025 (ir.lumen.com)
-        'Quantum Fiber': { fiber: 4000000,   cable: null,     dsl: 6000000  },
+        'Cox':               { fiber: null,      cable: 12300000, dsl: null     },
+        // Quantum Fiber sold to AT&T, closed Feb 2 2026 — final standalone figure
+        // FCC map data still shows Quantum Fiber separately until next BDC filing
+        'Quantum Fiber':     { fiber: 4000000,   cable: null,     dsl: 6000000  },
         // Brightspeed press release Apr 2 2026 (prnewswire.com/302732416)
-        'Brightspeed':   { fiber: 3000000,   cable: null,     dsl: 4300000  },
+        'Brightspeed':       { fiber: 3000000,   cable: null,     dsl: 4300000  },
         // Altice USA Q3 2025 (investors.optimum.com)
-        'Optimum':       { fiber: 3050000,   cable: 9940000,  dsl: null     },
-        // Metronet press release Nov 2025 (businesswire.com)
-        'Metronet':      { fiber: 3000000,   cable: null,     dsl: null     },
-        // Windstream/Kinetic via Uniti Q4 2025 (lightwaveonline.com)
-        'Windstream':    { fiber: 1900000,   cable: null,     dsl: null     },
+        'Optimum':           { fiber: 3050000,   cable: 9940000,  dsl: null     },
+        // Metronet press release Nov 2025 (businesswire.com) — acquired by T-Mobile/KKR JV
+        'Metronet':          { fiber: 3000000,   cable: null,     dsl: null     },
+        // Windstream/Kinetic via Uniti Q4 2025 earnings (Mar 2026)
+        'Windstream':        { fiber: 1900000,   cable: null,     dsl: null     },
         // TDS Q4 2025 (prnewswire.com/302693316)
-        'TDS Telecom':   { fiber: 1060000,   cable: null,     dsl: null     },
+        'TDS Telecom':       { fiber: 1060000,   cable: null,     dsl: null     },
+        // Ziply Fiber — BCE acquisition closed Aug 2025; BCE guided 1.5M passings end-2025
+        'Ziply Fiber':       { fiber: 1500000,   cable: null,     dsl: null     },
+        // Fidium Fiber (Consolidated rebranded Sep 2025) — ~54% of 2.6M total footprint is fiber
+        'Fidium Fiber':      { fiber: 1400000,   cable: null,     dsl: null     },
         // WOW Q3 2025 (taken private Jan 2026)
-        'WOW!':          { fiber: 107000,    cable: 2020000,  dsl: null     },
+        'WOW!':              { fiber: 107000,    cable: 2020000,  dsl: null     },
         // Midco 2025 company materials
-        'Midco':         { fiber: 130000,    cable: 870000,   dsl: null     },
+        'Midco':             { fiber: 130000,    cable: 870000,   dsl: null     },
         // Mediacom 2025 company materials
-        'Mediacom':      { fiber: null,      cable: 3000000,  dsl: null     },
+        'Mediacom':          { fiber: null,      cable: 3000000,  dsl: null     },
+        // Shentel Q4 2025 earnings — 427K Glo Fiber FTTH expansion passings; 679K total broadband
+        'Shentel / Glo Fiber':{ fiber: 427000,   cable: null,     dsl: null     },
+        // Surf Internet PR Dec 2025 — 250K passings after "record-breaking year" (from FBA news)
+        'Surf Internet':     { fiber: 250000,    cable: null,     dsl: null     },
+        // C Spire PR Apr 2026 — 217,900 MS passings confirmed; total footprint (MS/AL/FL/TN) higher
+        'C Spire':           { fiber: 218000,    cable: null,     dsl: null     },
         // Empire Fiber press release Apr 15 2026 — self-reported, FCC figure pending next filing
-        'Empire Fiber':  { fiber: 200000,    cable: null,     dsl: null     },
+        'Empire Fiber':      { fiber: 200000,    cable: null,     dsl: null     },
     };
 
     // Returns public-reported totals for a canonical provider, or null if not available.
