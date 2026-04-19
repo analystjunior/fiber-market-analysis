@@ -325,7 +325,7 @@
     // Displayed as a clickable badge in the provider picker so users can audit public-reported figures.
     var SOURCE_NOTES = {
         // Earnings-backed figures (quarterly filings / investor releases)
-        'AT&T':              { type: 'earnings',      as_of: 'Q4 2025 + Lumen close Feb 2026',
+        'AT&T':              { type: 'earnings',      as_of: 'Q4 2025',
             url: 'https://about.att.com/story/2026/4q-earnings-2025.html' },
         'Verizon Fios':      { type: 'earnings',      as_of: 'Jan 2026 Frontier transaction close',
             url: 'https://www.verizon.com/about/news/feed/verizon-and-frontier-regulatory-approval' },
@@ -381,9 +381,8 @@
     };
 
     var PUBLIC_REPORTED = {
-        // AT&T Q4 2025 (32M) + Quantum Fiber acq. closed Feb 2 2026 (~4M) = ~36M combined
-        // Q1 2026 earnings (Apr 22 2026) will be first official combined report
-        'AT&T':              { fiber: 36000000,  cable: null,     dsl: null     },
+        // AT&T Q4 2025 reports 32.0M consumer and business locations passed with fiber.
+        'AT&T':              { fiber: 32000000,  cable: null,     dsl: null     },
         // Verizon Q4 2025 + Frontier acq. closed Jan 20 2026 — combined ~30M
         // Frontier raw FCC/operator names resolve to Verizon Fios in provider mode.
         'Verizon Fios':      { fiber: 30000000,  cable: null,     dsl: null     },

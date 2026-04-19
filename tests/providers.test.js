@@ -96,6 +96,11 @@ test('Frontier is folded into Verizon rather than listed separately', () => {
   assert.strictEqual(ProviderIndex.getPublicTotals('Verizon Fios').fiber, 30000000);
 });
 
+test('AT&T uses the Q4 2025 earnings-reported fiber passing count', () => {
+  assert.strictEqual(ProviderIndex.getPublicTotals('AT&T').fiber, 32000000);
+  assert.strictEqual(ProviderIndex.getSourceNote('AT&T').as_of, 'Q4 2025');
+});
+
 test('Frontier variants roll into Verizon national totals', () => {
   global.DataHandler = {
     iterateAllCounties(callback) {
