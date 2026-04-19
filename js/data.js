@@ -144,6 +144,9 @@
     var SUPABASE_PUB_KEY = 'sb_publishable_mym2Y0fppNJKDXD8gaQ2kQ_tmCSG3fv';
     var _sb = null;
     function getSupabase() {
+        if (typeof supabase === 'undefined' || !supabase.createClient) {
+            throw new Error('Supabase client library is not loaded');
+        }
         if (!_sb) _sb = supabase.createClient(SUPABASE_URL, SUPABASE_PUB_KEY);
         return _sb;
     }
@@ -170,40 +173,23 @@
 
         async loadData() {
             try {
-                var sb = getSupabase();
-
-                // Fetch state summary from Supabase + GeoJSON files concurrently
-                var results = await Promise.all([
-                    sb.from('state_summary').select('*'),
+                var geoResponses = await Promise.all([
                     fetch('data/ny_counties_tiger.geojson'),
                     fetch('data/us-states.json'),
                     fetch('data/us-counties.json'),
                 ]);
 
-                var summaryResult = results[0];
-                var geoResponses  = results.slice(1);
-
-                if (summaryResult.error) throw new Error('Supabase state_summary: ' + summaryResult.error.message);
                 if (!geoResponses[0].ok) throw new Error('Failed to load NY GeoJSON: ' + geoResponses[0].status);
                 if (!geoResponses[1].ok) throw new Error('Failed to load US states: '  + geoResponses[1].status);
                 if (!geoResponses[2].ok) throw new Error('Failed to load US counties TopoJSON: ' + geoResponses[2].status);
 
-                // Rebuild stateData in the same shape as the old fiber-data.json
-                this.stateData = {};
-                for (var i = 0; i < summaryResult.data.length; i++) {
-                    var s = summaryResult.data[i];
-                    this.stateData[s.state_code] = {
-                        state:              s.state_name,
-                        totalHousingUnits:  s.total_housing_units,
-                        totalFiberPassings: s.total_fiber_passings,
-                        fiberPenetration:   s.fiber_penetration,
-                        operators:          s.operators || [],
-                    };
-                }
-
                 this.tigerGeoJSON   = await geoResponses[0].json();
                 this.usGeoJSON      = await geoResponses[1].json();
                 this.usCountiesTopo = await geoResponses[2].json();
+
+                var loadedSummary = await this._loadSupabaseStateSummary();
+                if (!loadedSummary) loadedSummary = await this._loadLocalStateSummary();
+                if (!loadedSummary) throw new Error('Failed to load state summary from Supabase or local fallback');
 
                 this._activeState = 'MO';
                 this._isLoaded = true;
@@ -217,41 +203,106 @@
             }
         },
 
+        async _loadSupabaseStateSummary() {
+            try {
+                var sb = getSupabase();
+                var summaryResult = await sb.from('state_summary').select('*');
+                if (summaryResult.error) throw new Error(summaryResult.error.message);
+                if (!summaryResult.data || summaryResult.data.length === 0) return false;
+
+                // Rebuild stateData in the same shape as the old fiber-data.json
+                this.stateData = {};
+                for (var i = 0; i < summaryResult.data.length; i++) {
+                    var s = summaryResult.data[i];
+                    this.stateData[s.state_code] = {
+                        state:              s.state_name,
+                        totalHousingUnits:  s.total_housing_units,
+                        totalFiberPassings: s.total_fiber_passings,
+                        fiberPenetration:   s.fiber_penetration,
+                        operators:          s.operators || [],
+                    };
+                }
+                return true;
+            } catch (error) {
+                console.warn('Supabase state summary unavailable; using local fallback if present:', error.message);
+                return false;
+            }
+        },
+
+        async _loadLocalStateSummary() {
+            try {
+                var response = await fetch('data/fiber-data.json');
+                if (!response.ok) throw new Error('HTTP ' + response.status);
+                this.stateData = await response.json();
+                return true;
+            } catch (error) {
+                console.warn('Local state summary unavailable:', error.message);
+                return false;
+            }
+        },
+
+        _storeStateCountyMap: function(stateCode, countyMap) {
+            if (!countyMap) return false;
+            var byFips = {};
+            var keys = Object.keys(countyMap);
+            for (var i = 0; i < keys.length; i++) {
+                var fips = keys[i];
+                var county = countyMap[fips];
+                if (!county) continue;
+                if (!county.state_code) county.state_code = stateCode;
+                recomputeAttractiveness(county);
+                byFips[county.geoid || fips] = county;
+            }
+            if (Object.keys(byFips).length === 0) return false;
+            this._stateCountyData[stateCode] = byFips;
+            return true;
+        },
+
+        async _loadLocalStateData(stateCode) {
+            try {
+                var response = await fetch('data/' + stateCode.toLowerCase() + '-unified-data.json');
+                if (!response.ok) throw new Error('HTTP ' + response.status);
+                var countyMap = await response.json();
+                return this._storeStateCountyMap(stateCode, countyMap);
+            } catch (error) {
+                console.warn('Local county data unavailable for ' + stateCode + ':', error.message);
+                return false;
+            }
+        },
+
         // Lazy-load a single state's county data from Supabase. Safe to call multiple times (cached).
         async loadStateData(stateCode) {
             if (this._stateCountyData[stateCode]) return true;
             if (this._stateLoadPromises[stateCode]) return this._stateLoadPromises[stateCode];
 
             var self = this;
-            var sb = getSupabase();
 
-            this._stateLoadPromises[stateCode] = sb
-                .from('counties')
-                .select('*')
-                .eq('state_code', stateCode)
-                .then(function(result) {
-                    if (result.error) {
-                        console.warn('Supabase error loading ' + stateCode + ':', result.error.message);
-                        return false;
+            this._stateLoadPromises[stateCode] = (async function() {
+                try {
+                    var sb = getSupabase();
+                    var result = await sb
+                        .from('counties')
+                        .select('*')
+                        .eq('state_code', stateCode);
+
+                    if (result.error) throw new Error(result.error.message);
+                    if (result.data && result.data.length > 0) {
+                        var byFips = {};
+                        for (var i = 0; i < result.data.length; i++) {
+                            var county = result.data[i];
+                            recomputeAttractiveness(county);
+                            byFips[county.geoid] = county;
+                        }
+                        self._stateCountyData[stateCode] = byFips;
+                        return true;
                     }
-                    if (!result.data || result.data.length === 0) {
-                        console.warn('No county data returned for state:', stateCode);
-                        return false;
-                    }
-                    // Rebuild the same FIPS-keyed dict the rest of the app expects
-                    var byFips = {};
-                    for (var i = 0; i < result.data.length; i++) {
-                        var county = result.data[i];
-                        recomputeAttractiveness(county);
-                        byFips[county.geoid] = county;
-                    }
-                    self._stateCountyData[stateCode] = byFips;
-                    return true;
-                })
-                .catch(function(e) {
-                    console.warn('Could not load county data for ' + stateCode + ':', e.message);
-                    return false;
-                });
+                    console.warn('No county data returned from Supabase for state:', stateCode);
+                } catch (e) {
+                    console.warn('Could not load Supabase county data for ' + stateCode + ':', e.message);
+                }
+
+                return self._loadLocalStateData(stateCode);
+            })();
 
             return this._stateLoadPromises[stateCode];
         },
@@ -273,33 +324,37 @@
             var offset = 0;
             var total = null;
 
-            while (true) {
-                var query = sb
-                    .from('counties')
-                    .select('*', { count: 'exact' })
-                    .range(offset, offset + pageSize - 1);
+            try {
+                while (true) {
+                    var query = sb
+                        .from('counties')
+                        .select('*', { count: 'exact' })
+                        .range(offset, offset + pageSize - 1);
 
-                var result = await query;
-                if (result.error) {
-                    console.warn('loadAllCounties error:', result.error.message);
-                    break;
+                    var result = await query;
+                    if (result.error) {
+                        console.warn('loadAllCounties error:', result.error.message);
+                        break;
+                    }
+
+                    if (total === null) total = result.count || 0;
+
+                    var rows = result.data || [];
+                    for (var i = 0; i < rows.length; i++) {
+                        var county = rows[i];
+                        var sc = county.state_code;
+                        if (!sc) continue;
+                        recomputeAttractiveness(county);
+                        if (!self._stateCountyData[sc]) self._stateCountyData[sc] = {};
+                        self._stateCountyData[sc][county.geoid] = county;
+                    }
+
+                    offset += rows.length;
+                    if (onProgress) onProgress(offset, total);
+                    if (rows.length < pageSize) break;
                 }
-
-                if (total === null) total = result.count || 0;
-
-                var rows = result.data || [];
-                for (var i = 0; i < rows.length; i++) {
-                    var county = rows[i];
-                    var sc = county.state_code;
-                    if (!sc) continue;
-                    recomputeAttractiveness(county);
-                    if (!self._stateCountyData[sc]) self._stateCountyData[sc] = {};
-                    self._stateCountyData[sc][county.geoid] = county;
-                }
-
-                offset += rows.length;
-                if (onProgress) onProgress(offset, total);
-                if (rows.length < pageSize) break;
+            } catch (error) {
+                console.warn('loadAllCounties unavailable; keeping already loaded county data:', error.message);
             }
         },
 

@@ -1,0 +1,9 @@
+{
+  "name": "fibermapusa",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Static fiber market analysis site.",
+  "scripts": {
+    "test": "node tests/utils.test.js"
+  }
+}

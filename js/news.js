@@ -249,7 +249,14 @@
         load: function() {
             if (_loaded || _loading) return Promise.resolve();
             _loading = true;
-            var sb = DataHandler.getSupabaseClient();
+            var sb;
+            try {
+                sb = DataHandler.getSupabaseClient();
+            } catch (error) {
+                _loading = false;
+                console.warn('News unavailable; Supabase client could not be created:', error.message);
+                return Promise.resolve();
+            }
             var since = new Date(Date.now() - 90 * 24 * 60 * 60 * 1000).toISOString();
             return sb
                 .from('news_articles')

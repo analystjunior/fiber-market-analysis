@@ -146,7 +146,7 @@
             // Restore pinned county (after a tick so map is fully rendered)
             if (county) {
                 setTimeout(function() {
-                    InfoPanel.pinCounty(county);
+                    InfoPanel.pinCounty(county, { skipGuestRecord: true });
                 }, 300);
             }
         }
@@ -753,15 +753,22 @@
         // Patch InfoPanel to push URL state on pin/unpin and trigger news + auth gating
         var _origPin   = InfoPanel.pinCounty.bind(InfoPanel);
         var _origUnpin = InfoPanel.unpinCounty.bind(InfoPanel);
-        InfoPanel.pinCounty   = function(fips) {
-            if (typeof AuthManager !== 'undefined' && !AuthManager.canPinCounty()) {
+        InfoPanel.pinCounty   = function(fips, options) {
+            options = options || {};
+            var county = DataHandler.getCountyData(fips);
+            if (!county) return false;
+
+            var shouldRecordGuestPin = !options.skipGuestRecord && InfoPanel.pinnedCounty !== fips;
+            if (shouldRecordGuestPin && typeof AuthManager !== 'undefined' && !AuthManager.canPinCounty()) {
                 AuthManager.showUpgradeModal('county');
-                return;
+                return false;
             }
-            if (typeof AuthManager !== 'undefined') AuthManager.recordCountyPin();
+
             _origPin(fips);
+            if (shouldRecordGuestPin && typeof AuthManager !== 'undefined') AuthManager.recordCountyPin();
             UrlState.push();
             if (typeof NewsPanel !== 'undefined') NewsPanel.showForCounty(fips);
+            return true;
         };
         InfoPanel.unpinCounty = function() {
             _origUnpin();

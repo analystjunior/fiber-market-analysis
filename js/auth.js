@@ -100,8 +100,22 @@
     async function _doSignIn(email, password) {
         _setAuthLoading(true);
         _setAuthError('');
-        var sb = DataHandler.getSupabaseClient();
-        var result = await sb.auth.signInWithPassword({ email: email, password: password });
+        var sb;
+        try {
+            sb = DataHandler.getSupabaseClient();
+        } catch (error) {
+            _setAuthLoading(false);
+            _setAuthError('Sign in is temporarily unavailable. Please try again later.');
+            return false;
+        }
+        var result;
+        try {
+            result = await sb.auth.signInWithPassword({ email: email, password: password });
+        } catch (error) {
+            _setAuthLoading(false);
+            _setAuthError('Sign in failed. Please check your connection and try again.');
+            return false;
+        }
         _setAuthLoading(false);
         if (result.error) { _setAuthError(result.error.message); return false; }
         _session = result.data.session;
@@ -113,8 +127,22 @@
     async function _doSignUp(email, password) {
         _setAuthLoading(true);
         _setAuthError('');
-        var sb = DataHandler.getSupabaseClient();
-        var result = await sb.auth.signUp({ email: email, password: password });
+        var sb;
+        try {
+            sb = DataHandler.getSupabaseClient();
+        } catch (error) {
+            _setAuthLoading(false);
+            _setAuthError('Account creation is temporarily unavailable. Please try again later.');
+            return false;
+        }
+        var result;
+        try {
+            result = await sb.auth.signUp({ email: email, password: password });
+        } catch (error) {
+            _setAuthLoading(false);
+            _setAuthError('Account creation failed. Please check your connection and try again.');
+            return false;
+        }
         _setAuthLoading(false);
         if (result.error) { _setAuthError(result.error.message); return false; }
         // If email confirmation is disabled, session is set immediately
@@ -187,17 +215,22 @@
     var AuthManager = {
 
         init: async function() {
-            var sb = DataHandler.getSupabaseClient();
+            try {
+                var sb = DataHandler.getSupabaseClient();
 
-            // Check existing session
-            var sessionResult = await sb.auth.getSession();
-            _session = sessionResult.data && sessionResult.data.session;
+                // Check existing session
+                var sessionResult = await sb.auth.getSession();
+                _session = sessionResult.data && sessionResult.data.session;
 
-            // Listen for future auth changes
-            sb.auth.onAuthStateChange(function(event, session) {
-                _session = session;
-                _onAuthChange();
-            });
+                // Listen for future auth changes
+                sb.auth.onAuthStateChange(function(event, session) {
+                    _session = session;
+                    _onAuthChange();
+                });
+            } catch (error) {
+                console.warn('Auth unavailable; continuing in guest mode:', error.message);
+                _session = null;
+            }
 
             _updateHeaderUI();
             _updateLayerLocks();
@@ -260,8 +293,12 @@
         },
 
         signOut: async function() {
-            var sb = DataHandler.getSupabaseClient();
-            await sb.auth.signOut();
+            try {
+                var sb = DataHandler.getSupabaseClient();
+                await sb.auth.signOut();
+            } catch (error) {
+                console.warn('Sign out skipped; auth client unavailable:', error.message);
+            }
             _session = null;
             _guestCountyUsed = false;
             _onAuthChange();

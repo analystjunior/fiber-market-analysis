@@ -219,6 +219,60 @@
         'Empire Fiber': 'Empire Fiber',
         'Empire Fiber Networks': 'Empire Fiber',
         'Empire State Telephone': 'Empire Fiber',
+
+        // GoNetspeed (Northeast + South — Searchlight Capital)
+        'GoNetspeed': 'GoNetspeed',
+        'GoNetspeed LLC': 'GoNetspeed',
+
+        // Greenlight Networks (NY — Searchlight Capital)
+        'Greenlight Networks': 'Greenlight Networks',
+        'Greenlight Networks Inc': 'Greenlight Networks',
+        'Greenlight Networks, Inc.': 'Greenlight Networks',
+
+        // EverFast Fiber (Kansas City metro — Astatine Investment Partners)
+        'EverFast Fiber': 'EverFast Fiber',
+        'EverFast Fiber Networks': 'EverFast Fiber',
+        'EverFast Fiber Networks LLC': 'EverFast Fiber',
+
+        // Omni Fiber (OH/MI/PA/TX — Oak Hill Capital; absorbed Lit Fiber Nov 2024)
+        'Lit Fiber': 'Omni Fiber',
+        'Lit Communities': 'Omni Fiber',
+
+        // Ripple Fiber (multi-state — Post Road Group; merged HyperFiber Sep 2025)
+        'Ripple Fiber': 'Ripple Fiber',
+        'Ripple Fiber LLC': 'Ripple Fiber',
+        'HyperFiber': 'Ripple Fiber',
+
+        // LiveOak Fiber (Coastal GA — MEAG / InfraRed Capital)
+        'LiveOak Fiber': 'LiveOak Fiber',
+        'Live Oak Fiber': 'LiveOak Fiber',
+        'LiveOak Fiber LLC': 'LiveOak Fiber',
+
+        // Socket Telecom (MO — Oak Hill / Pamlico Capital)
+        'Socket Telecom': 'Socket Telecom',
+        'Socket Internet': 'Socket Telecom',
+
+        // Bluepeak (SD/ND/MN/OK/WY/TX — GI Partners; formerly Vast Broadband)
+        'Vast Broadband': 'Bluepeak',
+
+        // Wyyerd Fiber (AZ — acquired Ting AZ assets; formerly Zona Communications)
+        'Wyyerd Fiber': 'Wyyerd Fiber',
+        'Wyyerd': 'Wyyerd Fiber',
+        'Zona Communications': 'Wyyerd Fiber',
+
+        // i3 Broadband (IL/MO — private, community fiber)
+        'i3 Broadband': 'i3 Broadband',
+        'i3 Broadband LLC': 'i3 Broadband',
+
+        // LFT Fiber (Lafayette LA municipal — formerly LUS Fiber)
+        'LFT Fiber': 'LFT Fiber',
+        'LUS Fiber': 'LFT Fiber',
+        'Lafayette Utility System Fiber': 'LFT Fiber',
+
+        // Lumos additional aliases (NorthState merged Aug 2022; T-Mobile/EQT JV Apr 2025)
+        'NorthState': 'Lumos',
+        'North State Telecommunications': 'Lumos',
+        'Lumos Networks': 'Lumos',
     };
 
     // Public-reported national totals for the picker summary display.
