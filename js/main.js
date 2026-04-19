@@ -380,8 +380,11 @@
                 var badge = document.createElement('span');
                 badge.className = 'provider-pr-badge';
                 badge.textContent = note.type === 'earnings' ? 'IR' : 'PR';
-                badge.title = 'Source: ' + (note.type === 'earnings' ? 'investor report' : 'press release') +
-                    ' (' + note.as_of + ') — click to view';
+                var title = 'Source: ' + (note.type === 'earnings' ? 'investor report' : 'press release') +
+                    ' (' + note.as_of + ')';
+                if (note.scope) title += ' - ' + note.scope;
+                if (note.figure) title += ' - ' + note.figure;
+                badge.title = title + ' - click to view';
                 badge.classList.add('provider-pr-badge--link');
                 badge.addEventListener('click', function(e) {
                     e.stopPropagation(); // don't select the provider

@@ -101,6 +101,15 @@ test('AT&T uses the Q4 2025 earnings-reported fiber passing count', () => {
   assert.strictEqual(ProviderIndex.getSourceNote('AT&T').as_of, 'Q4 2025');
 });
 
+test('Bluepeak uses source total reach instead of interim market build count', () => {
+  const totals = ProviderIndex.getPublicTotals('Bluepeak');
+  const note = ProviderIndex.getSourceNote('Bluepeak');
+
+  assert.strictEqual(totals.fiber, 175000);
+  assert.strictEqual(note.scope, 'South Dakota total reach');
+  assert.match(note.figure, /175,000/);
+});
+
 test('Frontier variants roll into Verizon national totals', () => {
   global.DataHandler = {
     iterateAllCounties(callback) {

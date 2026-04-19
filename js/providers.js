@@ -375,6 +375,8 @@
         'Conexon':       { type: 'press_release', as_of: 'Sep 2025',
             url: 'https://www.prnewswire.com/news-releases/conexon-connect-reach-in-rural-georgia-spans-158-000-homes-and-businesses-with-completion-of-twelfth-fiber-to-the-home-network-302558144.html' },
         'Bluepeak':      { type: 'press_release', as_of: 'Dec 2025',
+            scope: 'South Dakota total reach',
+            figure: 'more than 175,000 residents and businesses statewide',
             url: 'https://mybluepeak.com/bluepeak-expands-investment-in-south-dakota-broadband-infrastructure/' },
         'Ripple Fiber':  { type: 'press_release', as_of: 'May 2025',
             url: 'https://ripplefiber.com/newsroom/ripple-fiber-expands-debt-capacity-to-350-million-to-fuel-nationwide-fiber-network-growth' },
@@ -423,8 +425,8 @@
         'Ezee Fiber':        { fiber: 600000,    cable: null,     dsl: null     },
         // Conexon Connect Sep 2025 Georgia reach disclosure
         'Conexon':           { fiber: 158000,    cable: null,     dsl: null     },
-        // Bluepeak Dec 2025 South Dakota FTTH expansion disclosure only covers that state
-        'Bluepeak':          { fiber: 55000,     cable: null,     dsl: null     },
+        // Bluepeak Dec 2025 South Dakota disclosure: 55K built to date, 175K+ total reach statewide.
+        'Bluepeak':          { fiber: 175000,    cable: null,     dsl: null     },
         // Ripple Fiber May 2025 actual deployed passings disclosure
         'Ripple Fiber':      { fiber: 170000,    cable: null,     dsl: null     },
         // Shentel Q4 2025 earnings — 427K Glo Fiber FTTH expansion passings; 679K total broadband
