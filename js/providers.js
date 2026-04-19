@@ -322,28 +322,40 @@
     // County-level map data still comes from FCC filings.
     //
     // SOURCE_NOTES tracks provenance: 'earnings' = quarterly filing, 'press_release' = operator PR.
-    // Displayed as a badge in the provider picker so users know which figures are FCC vs self-reported.
+    // Displayed as a clickable badge in the provider picker so users can audit public-reported figures.
     var SOURCE_NOTES = {
-        // Earnings-backed figures (quarterly filings) — no badge shown
-        'AT&T':              { type: 'earnings',      as_of: 'Q4 2025 + Quantum acq. Feb 2026' },
-        'Verizon Fios':      { type: 'earnings',      as_of: 'Q4 2025 + Frontier acq. Jan 2026' },
-        'Frontier':          { type: 'earnings',      as_of: 'Q4 2025 (now part of Verizon)' },
-        'Xfinity':           { type: 'earnings',      as_of: 'Q4 2025' },
-        'Spectrum':          { type: 'earnings',      as_of: 'Q4 2025' },
-        'Cox':               { type: 'earnings',      as_of: 'Q4 2025' },
-        'Quantum Fiber':     { type: 'earnings',      as_of: 'Q4 2025 (now part of AT&T)' },
-        'Optimum':           { type: 'earnings',      as_of: 'Q3 2025' },
-        'Windstream':        { type: 'earnings',      as_of: 'Q4 2025' },
-        'TDS Telecom':       { type: 'earnings',      as_of: 'Q4 2025' },
-        'WOW!':              { type: 'earnings',      as_of: 'Q3 2025' },
-        'Shentel / Glo Fiber':{ type: 'earnings',     as_of: 'Q4 2025' },
+        // Earnings-backed figures (quarterly filings / investor releases)
+        'AT&T':              { type: 'earnings',      as_of: 'Q4 2025 + Lumen close Feb 2026',
+            url: 'https://about.att.com/story/2026/4q-earnings-2025.html' },
+        'Verizon Fios':      { type: 'earnings',      as_of: 'Jan 2026 Frontier transaction close',
+            url: 'https://www.verizon.com/about/news/feed/verizon-and-frontier-regulatory-approval' },
+        'Frontier':          { type: 'earnings',      as_of: 'Q3 2025 (pre-Verizon close)',
+            url: 'https://investor.frontier.com/news/news-details/2025/Frontier-Reports-Third-Quarter-2025-Results/default.aspx' },
+        'Xfinity':           { type: 'earnings',      as_of: 'Q4 2025',
+            url: 'https://www.cmcsa.com/news-releases/news-release-details/comcast-reports-4th-quarter-2025-results' },
+        'Spectrum':          { type: 'earnings',      as_of: 'Q4 2025',
+            url: 'https://ir.charter.com/news-releases/news-release-details/charter-announces-fourth-quarter-and-full-year-2025-results/' },
+        'Cox':               { type: 'earnings',      as_of: 'May 2025 Charter/Cox transaction',
+            url: 'https://corporate.charter.com/newsroom/charter-communications-and-cox-communications-announce-definitive-agreement-to-combine-companies' },
+        'Quantum Fiber':     { type: 'earnings',      as_of: 'Lumen sale close Feb 2026',
+            url: 'https://ir.lumen.com/news/news-details/2026/Lumen-Completes-Sale-of-Consumer-Fiber-to-the-Home-Business-to-ATT/' },
+        'Optimum':           { type: 'earnings',      as_of: 'Q3 2025',
+            url: 'https://investors.optimum.com/news-events/press-releases/detail/225/altice-usa-reports-third-quarter-2025-results/' },
+        'Windstream':        { type: 'earnings',      as_of: 'Q4 2025',
+            url: 'https://www.globenewswire.com/news-release/2026/03/02/3247334/0/en/Uniti-Group-Inc-Reports-Fourth-Quarter-and-Full-Year-2025-Results.html' },
+        'TDS Telecom':       { type: 'earnings',      as_of: 'Q4 2025',
+            url: 'https://www.tdsinc.com/news/news-details/2026/TDS-reports-fourth-quarter-and-full-year-2025-results/default.aspx' },
+        'WOW!':              { type: 'earnings',      as_of: 'Q3 2025',
+            url: 'https://www.prnewswire.com/news-releases/wow-reports-third-quarter-2025-results-302604732.html' },
+        'Shentel / Glo Fiber':{ type: 'earnings',     as_of: 'Q4 2025',
+            url: 'https://investor.shentel.com/news-releases/news-release-details/shenandoah-telecommunications-company-reports-fourth-quarter-13' },
         // Press-release / company-reported figures — amber PR badge shown, links to source
         'Brightspeed':   { type: 'press_release', as_of: 'Apr 2026',
-            url: 'https://www.prnewswire.com/news-releases/brightspeed-surpasses-3m-fiber-enabled-locations-marks-second-consecutive-year-of-1m-passings-302732416.html' },
+            url: 'https://www.brightspeed.com/brightspeed-news/Brightspeed_Surpasses_3M_Fiber-Enabled_Locations.html' },
         'Metronet':      { type: 'press_release', as_of: 'Nov 2025',
             url: 'https://www.businesswire.com/news/home/20251124223372/en/Metronet-Fiber-Now-Reaches-Three-Million-Locations' },
         'Ziply Fiber':   { type: 'press_release', as_of: 'Aug 2025',
-            url: 'https://www.prnewswire.com/news-releases/bce-completes-acquisition-of-ziply-fiber-accelerating-its-fibre-growth-strategy-302519655.html' },
+            url: 'https://ziplyfiber.com/news/press-release/ziply-bce' },
         'Fidium Fiber':  { type: 'press_release', as_of: 'Sep 2025',
             url: 'https://www.businesswire.com/news/home/20250922300560/en/Consolidated-Communications-Becomes-Fidium-Uniting-All-Services-Under-One-Bold-Identity' },
         'C Spire':       { type: 'press_release', as_of: 'Apr 2026',
@@ -352,8 +364,22 @@
             url: 'https://fiberbroadband.org/2025/12/16/surf-internet-celebrates-250000-fiber-optic-passings-after-record-breaking-year-of-growth/' },
         'Empire Fiber':  { type: 'press_release', as_of: 'Apr 2026',
             url: 'https://fiberbroadband.org/2026/04/15/building-empire-fiber/' },
-        'Midco':         { type: 'press_release', as_of: '2025',     url: null },
-        'Mediacom':      { type: 'press_release', as_of: '2025',     url: null },
+        'Midco':         { type: 'press_release', as_of: '2025',
+            url: 'https://midco.com/about/broadband-development/' },
+        'Mediacom':      { type: 'press_release', as_of: 'Dec 2025',
+            url: 'https://mediacomcable.com/news/mediacom-communications-marks-20th-anniversary-by-announcing--1-billion-capital-investment' },
+        'Lumos':         { type: 'press_release', as_of: 'Apr 2025',
+            url: 'https://www.t-mobile.com/news/business/t-mobile-eqt-close-lumos-fiber-jv' },
+        'altafiber':     { type: 'press_release', as_of: 'Aug 2023',
+            url: 'https://www.altafiber.com/about-us/news/altafiber-raises-600-million-for-continued-fiber-network-expansion' },
+        'Ezee Fiber':    { type: 'press_release', as_of: 'Sep 2025',
+            url: 'https://ezeefiber.com/blog/ezee-fiber-announces-close-of-acquisition-of-tachus-fiber-internet' },
+        'Conexon':       { type: 'press_release', as_of: 'Sep 2025',
+            url: 'https://www.prnewswire.com/news-releases/conexon-connect-reach-in-rural-georgia-spans-158-000-homes-and-businesses-with-completion-of-twelfth-fiber-to-the-home-network-302558144.html' },
+        'Bluepeak':      { type: 'press_release', as_of: 'Dec 2025',
+            url: 'https://mybluepeak.com/bluepeak-expands-investment-in-south-dakota-broadband-infrastructure/' },
+        'Ripple Fiber':  { type: 'press_release', as_of: 'May 2025',
+            url: 'https://ripplefiber.com/newsroom/ripple-fiber-expands-debt-capacity-to-350-million-to-fuel-nationwide-fiber-network-growth' },
     };
 
     var PUBLIC_REPORTED = {
@@ -364,7 +390,7 @@
         // FCC map data still tracks Fios and Frontier separately until next BDC filing
         'Verizon Fios':      { fiber: 30000000,  cable: null,     dsl: null     },
         // Frontier final standalone figure before Verizon acquisition (Jan 20 2026)
-        'Frontier':          { fiber: 9000000,   cable: null,     dsl: null     },
+        'Frontier':          { fiber: 8800000,   cable: null,     dsl: null     },
         // Comcast Q4 2025 (cmcsa.com)
         'Xfinity':           { fiber: null,      cable: 65000000, dsl: null     },
         // Charter Q4 2025 (prnewswire.com/302674771)
@@ -394,6 +420,18 @@
         'Midco':             { fiber: 130000,    cable: 870000,   dsl: null     },
         // Mediacom 2025 company materials
         'Mediacom':          { fiber: null,      cable: 3000000,  dsl: null     },
+        // Lumos / T-Mobile-EQT JV close — 475K homes at close, 3.5M target by 2028
+        'Lumos':             { fiber: 475000,    cable: null,     dsl: null     },
+        // altafiber 2023 financing release — latest public footprint figure found
+        'altafiber':         { fiber: 1100000,   cable: null,     dsl: null     },
+        // Ezee Fiber + Tachus close — on track to exceed 600K FTTH passings by end-2025
+        'Ezee Fiber':        { fiber: 600000,    cable: null,     dsl: null     },
+        // Conexon Connect Sep 2025 Georgia reach disclosure
+        'Conexon':           { fiber: 158000,    cable: null,     dsl: null     },
+        // Bluepeak Dec 2025 South Dakota FTTH expansion disclosure only covers that state
+        'Bluepeak':          { fiber: 55000,     cable: null,     dsl: null     },
+        // Ripple Fiber May 2025 actual deployed passings disclosure
+        'Ripple Fiber':      { fiber: 170000,    cable: null,     dsl: null     },
         // Shentel Q4 2025 earnings — 427K Glo Fiber FTTH expansion passings; 679K total broadband
         'Shentel / Glo Fiber':{ fiber: 427000,   cable: null,     dsl: null     },
         // Surf Internet PR Dec 2025 — 250K passings after "record-breaking year" (from FBA news)

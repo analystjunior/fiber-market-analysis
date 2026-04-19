@@ -376,18 +376,17 @@
 
             // Badge lives INSIDE nameSpan so it doesn't break the grid column layout
             var note = ProviderIndex.getSourceNote(name);
-            if (note && note.type === 'press_release') {
+            if (note && note.url) {
                 var badge = document.createElement('span');
                 badge.className = 'provider-pr-badge';
-                badge.textContent = 'PR';
-                badge.title = 'Self-reported (' + note.as_of + ') — click to view source';
-                if (note.url) {
-                    badge.classList.add('provider-pr-badge--link');
-                    badge.addEventListener('click', function(e) {
-                        e.stopPropagation(); // don't select the provider
-                        window.open(note.url, '_blank', 'noopener,noreferrer');
-                    });
-                }
+                badge.textContent = note.type === 'earnings' ? 'IR' : 'PR';
+                badge.title = 'Source: ' + (note.type === 'earnings' ? 'investor report' : 'press release') +
+                    ' (' + note.as_of + ') — click to view';
+                badge.classList.add('provider-pr-badge--link');
+                badge.addEventListener('click', function(e) {
+                    e.stopPropagation(); // don't select the provider
+                    window.open(note.url, '_blank', 'noopener,noreferrer');
+                });
                 nameSpan.appendChild(badge);
             }
 

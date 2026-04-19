@@ -85,3 +85,19 @@ test('new provider aliases resolve to provider-view canonical names', () => {
   assert.strictEqual(ProviderIndex.resolve('Fision'), 'Hotwire');
   assert.strictEqual(ProviderIndex.resolve('USI Fiber'), 'U.S. Internet');
 });
+
+test('every public-reported provider has a clickable source URL', () => {
+  ProviderIndex.publicProviderNames().forEach((name) => {
+    const note = ProviderIndex.getSourceNote(name);
+    assert.ok(note, `${name} should have a source note`);
+    assert.ok(note.url, `${name} should have a source URL`);
+    assert.match(note.url, /^https:\/\//, `${name} source should be HTTPS`);
+  });
+});
+
+test('additional public passing disclosures are included', () => {
+  ['Lumos', 'altafiber', 'Ezee Fiber', 'Conexon', 'Bluepeak', 'Ripple Fiber'].forEach((name) => {
+    assert.ok(ProviderIndex.publicProviderNames().includes(name), `${name} should use public passings`);
+    assert.ok(ProviderIndex.getPublicTotals(name).fiber > 0, `${name} should have a public fiber total`);
+  });
+});
