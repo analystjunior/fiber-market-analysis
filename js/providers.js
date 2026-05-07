@@ -330,8 +330,8 @@
     // Displayed as a clickable badge in the provider picker so users can audit public-reported figures.
     var SOURCE_NOTES = {
         // Earnings-backed figures (quarterly filings / investor releases)
-        'AT&T':              { type: 'earnings',      as_of: 'Q4 2025',
-            url: 'https://about.att.com/story/2026/4q-earnings-2025.html' },
+        'AT&T':              { type: 'earnings',      as_of: 'Q1 2026',
+            url: 'https://investors.att.com/~/media/Files/A/ATT-IR-V2/financial-reports/quarterly-earnings/2026/1Q-2026/T_1Q26_Trending_Schedule.pdf' },
         'Verizon Fios':      { type: 'earnings',      as_of: 'Jan 2026 Frontier transaction close',
             url: 'https://www.verizon.com/about/news/feed/verizon-and-frontier-regulatory-approval' },
         'Xfinity':           { type: 'earnings',      as_of: 'Q4 2025',
@@ -408,8 +408,8 @@
     };
 
     var PUBLIC_REPORTED = {
-        // AT&T Q4 2025 reports 32.0M consumer and business locations passed with fiber.
-        'AT&T':              { fiber: 32000000,  cable: null,     dsl: null     },
+        // AT&T Q1 2026 reports 37.5M total consumer and business locations reached (32.7M owned + 4.8M Fiber Ventures).
+        'AT&T':              { fiber: 37500000,  cable: null,     dsl: null     },
         // Verizon Q4 2025 + Frontier acq. closed Jan 20 2026 — combined ~30M
         // Frontier raw FCC/operator names resolve to Verizon Fios in provider mode.
         'Verizon Fios':      { fiber: 30000000,  cable: null,     dsl: null     },
