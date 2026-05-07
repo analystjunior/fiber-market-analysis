@@ -30,12 +30,12 @@
         'Frontier Communications': 'Verizon Fios',
         'Citizens Telephone Company': 'Verizon Fios',
 
-        // Lumen / CenturyLink / Quantum Fiber
-        'Quantum Fiber': 'Quantum Fiber',
-        'CenturyLink': 'Quantum Fiber',
-        'CenturyTel': 'Quantum Fiber',
-        'Lumen': 'Quantum Fiber',
-        'Lumen Technologies': 'Quantum Fiber',
+        // Lumen / CenturyLink / Quantum Fiber → AT&T (acquisition closed Feb 2 2026)
+        'Quantum Fiber': 'AT&T',
+        'CenturyLink': 'AT&T',
+        'CenturyTel': 'AT&T',
+        'Lumen': 'AT&T',
+        'Lumen Technologies': 'AT&T',
 
         // Verizon
         'Verizon': 'Verizon Fios',
@@ -340,8 +340,9 @@
             url: 'https://ir.charter.com/news-releases/news-release-details/charter-announces-fourth-quarter-and-full-year-2025-results/' },
         'Cox':               { type: 'earnings',      as_of: 'May 2025 Charter/Cox transaction',
             url: 'https://corporate.charter.com/newsroom/charter-communications-and-cox-communications-announce-definitive-agreement-to-combine-companies' },
-        'Quantum Fiber':     { type: 'earnings',      as_of: 'Lumen sale close Feb 2026',
-            url: 'https://ir.lumen.com/news/news-details/2026/Lumen-Completes-Sale-of-Consumer-Fiber-to-the-Home-Business-to-ATT/' },
+        'GoNetspeed':        { type: 'press_release', as_of: 'Apr 2026',
+            scope: 'T-Mobile / Oak Hill JV (pending close H1 2027) — GoNetspeed + Greenlight combined target 1.3M by end-2026',
+            url: 'https://broadbandbreakfast.com/t-mobile-investing-2-7-billion-in-new-fiber-jvs/' },
         'Optimum':           { type: 'earnings',      as_of: 'Q3 2025',
             url: 'https://investors.optimum.com/news-events/press-releases/detail/225/altice-usa-reports-third-quarter-2025-results/' },
         'Windstream':        { type: 'earnings',      as_of: 'Q4 2025',
@@ -389,14 +390,12 @@
             scope: 'Point Broadband + Clearwave Fiber combined platform',
             figure: 'more than 500,000 homes and businesses with fiber',
             url: 'https://www.gtcr.com/point-broadband-and-clearwave-fiber-to-combine-creating-a-scaled-independent-fiber-platform/' },
-        'i3 Broadband':  { type: 'press_release', as_of: '2026',
-            scope: 'company footprint',
-            figure: 'over 300,000 homes passed',
-            url: 'https://www.whinfra.com/our-portfolio/i3-broadband/' },
-        'Greenlight Networks':{ type: 'press_release', as_of: 'Mar 2026',
-            scope: 'company footprint',
-            figure: 'more than 320,000 households and businesses',
-            url: 'https://fiberbroadband.org/2026/03/12/greenlight-networks-announces-expansive-fiber-internet-buildout-across-nine-northeast-pennsylvania-communities/' },
+        'i3 Broadband':  { type: 'press_release', as_of: 'Apr 2026',
+            scope: 'T-Mobile / WrenHouse JV (pending close H2 2026) — target 500K passings by end-2026',
+            url: 'https://broadbandbreakfast.com/t-mobile-investing-2-7-billion-in-new-fiber-jvs/' },
+        'Greenlight Networks':{ type: 'press_release', as_of: 'Apr 2026',
+            scope: 'T-Mobile / Oak Hill JV (pending close H1 2027) — GoNetspeed + Greenlight combined target 1.3M by end-2026',
+            url: 'https://broadbandbreakfast.com/t-mobile-investing-2-7-billion-in-new-fiber-jvs/' },
         'Hawaiian Telcom':{ type: 'press_release', as_of: 'Jan 2025',
             scope: 'statewide Hawaii FTTP network',
             figure: 'over 400,000 homes and businesses',
@@ -419,9 +418,6 @@
         'Spectrum':          { fiber: null,      cable: 58400000, dsl: null     },
         // Cox: Charter-Cox merger filing May 2025
         'Cox':               { fiber: null,      cable: 12300000, dsl: null     },
-        // Quantum Fiber sold to AT&T, closed Feb 2 2026 — final standalone figure
-        // FCC map data still shows Quantum Fiber separately until next BDC filing
-        'Quantum Fiber':     { fiber: 4000000,   cable: null,     dsl: 6000000  },
         // Brightspeed press release Apr 2 2026 (prnewswire.com/302732416)
         'Brightspeed':       { fiber: 3000000,   cable: null,     dsl: 4300000  },
         // Altice USA Q3 2025 (investors.optimum.com)
@@ -464,9 +460,9 @@
         'Empire Fiber':      { fiber: 200000,    cable: null,     dsl: null     },
         // Point Broadband + Clearwave Fiber Jan 2026 combination disclosure
         'Point Broadband':   { fiber: 500000,    cable: null,     dsl: null     },
-        // i3 Broadband Wren House portfolio disclosure
+        // i3 Broadband — T-Mobile/WrenHouse JV announced Apr 2026 (closes H2 2026); target 500K by end-2026
         'i3 Broadband':      { fiber: 300000,    cable: null,     dsl: null     },
-        // Greenlight Networks Mar 2026 company footprint disclosure
+        // Greenlight Networks — T-Mobile/Oak Hill JV announced Apr 2026 (closes H1 2027); combined GoNetspeed+Greenlight target 1.3M by end-2026
         'Greenlight Networks':{ fiber: 320000,   cable: null,     dsl: null     },
         // Hawaiian Telcom Jan 2025 statewide FTTP network disclosure
         'Hawaiian Telcom':   { fiber: 400000,    cable: null,     dsl: null     },
@@ -487,7 +483,6 @@
     var REQUIRED_PROVIDER_NAMES = [
         'AT&T',
         'Verizon Fios',
-        'Quantum Fiber',
         'Brightspeed',
         'Fidium Fiber',
         'Windstream',
@@ -538,7 +533,6 @@
 
     var DISPLAY_NAMES = {
         'Verizon Fios': 'Verizon',
-        'Quantum Fiber': 'Lumen / CenturyLink / Quantum Fiber',
         'Fidium Fiber': 'Fidium / Consolidated Communications',
         'Windstream': 'Windstream / Kinetic',
         'Optimum': 'Optimum / Altice USA',
@@ -576,7 +570,7 @@
         {
             group: 'National Carriers',
             providers: [
-                'AT&T', 'Spectrum', 'Xfinity', 'Quantum Fiber',
+                'AT&T', 'Spectrum', 'Xfinity',
                 'Verizon Fios', 'Cox', 'Windstream', 'Brightspeed', 'Optimum',
             ]
         },
