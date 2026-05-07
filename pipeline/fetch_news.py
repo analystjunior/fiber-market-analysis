@@ -138,7 +138,7 @@ def fetch_rss(session):
     print(f'Fetching RSS: {RSS_URL}')
     resp = session.get(RSS_URL, timeout=30)
     resp.raise_for_status()
-    root = ET.fromstring(resp.text)
+    root = ET.fromstring(resp.content)
     channel = root.find('channel')
     articles = []
     for item in channel.findall('item'):
