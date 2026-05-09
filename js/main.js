@@ -343,16 +343,21 @@
         }
 
         // Union of required names + public-reported providers + computed providers with 100K+ fiber
+        // + all providers explicitly listed in PROVIDER_GROUPS (always show grouped providers)
         var nameSet = {};
         ProviderIndex.requiredProviderNames().forEach(function(n) { nameSet[n] = true; });
         ProviderIndex.publicProviderNames().forEach(function(n) { nameSet[n] = true; });
+        ProviderIndex.allProviders().forEach(function(n) { nameSet[n] = true; });
         Object.keys(computed).forEach(function(n) {
             if (computed[n].fiber >= 100000) nameSet[n] = true;
         });
 
+        var groupedSet = {};
+        ProviderIndex.allProviders().forEach(function(n) { groupedSet[n] = true; });
+
         var providers = Object.keys(nameSet)
             .map(function(name) { return { name: name, d: resolveDisplay(name) }; })
-            .filter(function(p) { return p.d.sortFiber >= 100000 || ProviderIndex.isRequiredProvider(p.name); })
+            .filter(function(p) { return p.d.sortFiber >= 100000 || ProviderIndex.isRequiredProvider(p.name) || groupedSet[p.name]; })
             .sort(function(a, b) { return b.d.sortFiber - a.d.sortFiber; });
 
         providers.forEach(function(p) {
