@@ -320,6 +320,143 @@
         'NorthState': 'Lumos',
         'North State Telecommunications': 'Lumos',
         'Lumos Networks': 'Lumos',
+
+        // Windstream New York
+        'Windstream New York, Inc.': 'Windstream',
+
+        // Armstrong (OH/PA/WV/NY — Armstrong Group of Companies)
+        'Armstrong Telecommunications Inc': 'Armstrong / Zito',
+        'Armstrong Telephone Company': 'Armstrong / Zito',
+
+        // EverFast Fiber — FCC exact brand spelling variant
+        'Everfast Fiber': 'EverFast Fiber',
+
+        // Gateway Fiber (MO — aggressive FTTH overbuilder, PE-backed)
+        'Gateway Fiber': 'Gateway Fiber',
+
+        // Co-Mo Connect (MO — electric cooperative broadband)
+        'Co-Mo Connect': 'Co-Mo Connect',
+        'Co-Mo Telephone Company': 'Co-Mo Connect',
+
+        // SLIC Fiber (NY/VT — North Country fiber)
+        'SLICFiber': 'SLIC Fiber',
+        'SLIC Network Solutions': 'SLIC Fiber',
+
+        // GoSEMO (Cape Girardeau MO area — cooperative)
+        'GoSEMO, LLC': 'GoSEMO',
+
+        // Chariton Valley (MO — telephone cooperative)
+        'Chariton Valley Broadband LLC': 'Chariton Valley',
+        'Chariton Valley Communication Corporation': 'Chariton Valley',
+
+        // Archtop Fiber (Hudson Valley NY)
+        'Archtop Fiber': 'Archtop Fiber',
+
+        // Fastwyre Broadband (TX/OK/AR/LA — multi-telco platform)
+        'Fastwyre Broadband': 'Fastwyre Broadband',
+        'Fastwyre': 'Fastwyre Broadband',
+
+        // Big River Broadband (MO)
+        'Big River Broadband': 'Big River Broadband',
+
+        // White River Connect (MO/AR cooperative)
+        'White River Connect': 'White River Connect',
+
+        // OzarksGo (Springfield MO metro — City Utilities fiber)
+        'OzarksGo': 'OzarksGo',
+        'OzarkFiber': 'OzarksGo',
+        'OzarkFiber II': 'OzarksGo',
+
+        // Rise Broadband (Midwest + West — fixed wireless + fiber)
+        'Rise Broadband': 'Rise Broadband',
+
+        // Ritter Communications (AR/TN/MS/MO — PE-backed regional)
+        'Ritter Communications Inc': 'Ritter Communications',
+        'Ritter Communications': 'Ritter Communications',
+
+        // Haefele Connect (NY Catskills/Sullivan County)
+        'Haefele Connect': 'Haefele Connect',
+
+        // United Fiber (NY/NJ)
+        'United Fiber': 'United Fiber',
+
+        // Comporium (SC/NC — major Southeast fiber builder)
+        'Comporium': 'Comporium',
+        'Comporium Communications': 'Comporium',
+
+        // Summit Broadband (FL — Searchlight Capital)
+        'Summit Broadband': 'Summit Broadband',
+
+        // Segra (VA/NC/SC/GA/MD/PA — fiber carrier, formerly Spirit Communications)
+        'Segra': 'Segra',
+        'Spirit Communications': 'Segra',
+
+        // Hargray Fiber (SC/GA — Cable One/Sparklight subsidiary)
+        'Hargray Fiber': 'Hargray Fiber',
+        'Hargray Communications': 'Hargray Fiber',
+        'Hargray': 'Hargray Fiber',
+
+        // Paul Bunyan (MN — rural telephone cooperative)
+        'Paul Bunyan Telephone': 'Paul Bunyan',
+        'Paul Bunyan Rural Telephone': 'Paul Bunyan',
+
+        // Northland Communications (MN/WI/NY)
+        'Northland Communications': 'Northland Communications',
+        'Northland Cable Television': 'Northland Communications',
+
+        // Logix Fiber Networks (DFW/TX — PE-backed enterprise + residential fiber)
+        'Logix Fiber Networks': 'Logix Fiber',
+        'Logix': 'Logix Fiber',
+
+        // GVTC Communications (TX Hill Country)
+        'GVTC Communications': 'GVTC Communications',
+        'GVTC': 'GVTC Communications',
+
+        // CentraCom (UT/ID — rural telco)
+        'CentraCom': 'CentraCom',
+        'Central Utah Telephone': 'CentraCom',
+
+        // Mid-Hudson Cablevision (NY — cable + fiber)
+        'Mid-Hudson Cablevision': 'Mid-Hudson Cablevision',
+
+        // DFT Communications (NY Chautauqua region)
+        'DFT Communication': 'DFT Communications',
+        'DFT Local Service Corporation': 'DFT Communications',
+
+        // Surry Telephone (NC — cooperative)
+        'Surry Telephone': 'Surry Telephone',
+        'Surry Telephone Membership Corp': 'Surry Telephone',
+
+        // JEA Fiber (Jackson TN — municipal utility)
+        'Jackson Energy Authority': 'JEA Fiber',
+
+        // Farmers Fiber (AL — Farmers Telecommunications Cooperative)
+        'Farmers Telecommunications Cooperative': 'Farmers Fiber',
+
+        // Triangle Communications (MT — rural cooperative)
+        'Triangle Communications': 'Triangle Communications',
+
+        // Mark Twain Communications (MO — rural telco)
+        'Mark Twain Communications Company': 'Mark Twain Communications',
+        'Mark Twain Rural Telephone Company': 'Mark Twain Communications',
+
+        // Blue Ridge Communications (PA — cable + fiber)
+        'Blue Ridge Communications': 'Blue Ridge Communications',
+        'Blue Ridge Cable Technologies': 'Blue Ridge Communications',
+
+        // Pilot Fiber (NYC metro — enterprise fiber)
+        'Pilot Fiber': 'Pilot Fiber',
+
+        // Champlain Telephone (VT/NY border region)
+        'Champlain Technology Group': 'Champlain Telephone',
+        'Champlain Telephone': 'Champlain Telephone',
+
+        // Callabyte Technology (MO — community fiber)
+        'Callabyte': 'Callabyte',
+        'Callabyte Technology': 'Callabyte',
+
+        // Adirondack Broadband (NY — North Country fiber)
+        'Adirondack Broadband': 'Adirondack Broadband',
     };
 
     // Public-reported national totals for the picker summary display.
@@ -586,6 +723,12 @@
                 'Ripple Fiber', 'LiveOak Fiber', 'i3 Broadband', 'Ezee Fiber',
                 'UTOPIA Fiber', 'FiberFirst', 'Wyyerd Fiber', 'EPB', 'Hawaiian Telcom', 'Race Communications',
                 'IQ Fiber', 'KUB Fiber', 'U.S. Internet', 'altafiber',
+                'Gateway Fiber', 'Fastwyre Broadband', 'Rise Broadband', 'Ritter Communications',
+                'LFT Fiber', 'Comporium', 'Summit Broadband', 'Segra', 'Hargray Fiber',
+                'Logix Fiber', 'GVTC Communications', 'Northland Communications',
+                'SLIC Fiber', 'Archtop Fiber', 'United Fiber',
+                'Mid-Hudson Cablevision', 'DFT Communications', 'Blue Ridge Communications',
+                'Pilot Fiber',
             ]
         },
         {
@@ -595,6 +738,12 @@
                 'Point Broadband', 'Valor Telecom', 'Nex-Tech', 'RiverStreet',
                 'Surf Internet', 'Centric Fiber', 'Omni Fiber', 'Armstrong / Zito',
                 'IdeaTek', 'Sonic', 'Carolina Connect', 'CONXXUS',
+                'Socket Telecom', 'Co-Mo Connect', 'GoSEMO', 'Chariton Valley',
+                'Big River Broadband', 'OzarksGo', 'Haefele Connect',
+                'Paul Bunyan', 'CentraCom', 'Mark Twain Communications',
+                'White River Connect', 'JEA Fiber', 'Farmers Fiber',
+                'Triangle Communications', 'Surry Telephone', 'Champlain Telephone',
+                'Callabyte', 'Adirondack Broadband',
             ]
         }
     ];
