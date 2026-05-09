@@ -1588,6 +1588,16 @@ input:focus-visible {
     text-align: center;
 }
 
+/* Provider view — Export PPT row */
+.prov-export-row {
+    padding: 10px 12px 6px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+}
+.prov-export-ppt-btn {
+    width: 100%;
+    justify-content: center;
+}
+
 /* Tech filter row */
 .tech-filter-row {
     display: flex;

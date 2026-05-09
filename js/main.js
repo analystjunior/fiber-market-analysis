@@ -730,11 +730,17 @@
             });
         }
 
-        // Export PPT button
+        // Export PPT buttons (market view + provider view)
         var exportPptBtn = document.getElementById('export-ppt-btn');
         if (exportPptBtn) {
             exportPptBtn.addEventListener('click', function() {
-                MapExport.exportToPPT();
+                MapExport.exportToPPT('export-ppt-btn');
+            });
+        }
+        var exportPptBtnProv = document.getElementById('export-ppt-btn-prov');
+        if (exportPptBtnProv) {
+            exportPptBtnProv.addEventListener('click', function() {
+                MapExport.exportToPPT('export-ppt-btn-prov');
             });
         }
 
