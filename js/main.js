@@ -730,6 +730,14 @@
             });
         }
 
+        // Export PPT button
+        var exportPptBtn = document.getElementById('export-ppt-btn');
+        if (exportPptBtn) {
+            exportPptBtn.addEventListener('click', function() {
+                MapExport.exportToPPT();
+            });
+        }
+
         // Select-all checkbox
         var selectAllCb = document.getElementById('select-all-cb');
         if (selectAllCb) {
