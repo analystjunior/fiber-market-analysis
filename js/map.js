@@ -610,6 +610,7 @@
                 this._buildLegend('provider');
             } else {
                 this.updateLegend();
+                setTextById('map-title', 'United States — County-Level Detail');
             }
         },
 
