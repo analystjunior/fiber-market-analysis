@@ -46,55 +46,150 @@
         return n.toLocaleString();
     }
 
-    // Build an inline SVG sparkline from a series [{date, passings}] sorted oldest→newest.
-    function buildSparkline(series) {
-        var W = 72, H = 22, PAD = 2;
+    // Format a BDC filing date "2024-06-30" → "Jun '24"
+    function formatFilingDate(iso) {
+        var parts = iso.slice(0, 7).split('-');
+        var month = parts[1] === '06' ? 'Jun' : 'Dec';
+        return month + ' \'' + parts[0].slice(2);
+    }
+
+    // Build a labeled line chart SVG from [{date, passings}] sorted oldest→newest.
+    function buildTrendChart(series) {
+        var W = 320, H = 180, ML = 12, MR = 12, MT = 28, MB = 24;
+        var cW = W - ML - MR, cH = H - MT - MB;
+        var n = series.length;
         var vals = series.map(function(d) { return d.passings; });
         var minV = Math.min.apply(null, vals);
         var maxV = Math.max.apply(null, vals);
         var range = maxV - minV || 1;
-        var n = series.length;
+        var delta = vals[n - 1] - vals[0];
+        var color = delta > 0 ? '#22c55e' : delta < 0 ? '#ef4444' : '#94a3b8';
 
-        function px(i) { return PAD + (i / (n - 1)) * (W - PAD * 2); }
-        function py(v) { return H - PAD - ((v - minV) / range) * (H - PAD * 2); }
+        function cx(i) { return ML + (i / (n - 1)) * cW; }
+        function cy(v) { return MT + cH - ((v - minV) / range) * cH; }
 
-        // Trend color: green if last > first, amber if flat, red if declining
-        var delta = vals[vals.length - 1] - vals[0];
-        var stroke = delta > 0 ? '#22c55e' : delta < 0 ? '#ef4444' : '#94a3b8';
-
-        var points = series.map(function(d, i) { return px(i) + ',' + py(d.passings); }).join(' ');
-
-        var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        var NS = 'http://www.w3.org/2000/svg';
+        var svg = document.createElementNS(NS, 'svg');
         svg.setAttribute('width', W);
         svg.setAttribute('height', H);
         svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
-        svg.setAttribute('class', 'op-sparkline');
+        svg.setAttribute('class', 'trend-chart-svg');
 
-        var polyline = document.createElementNS('http://www.w3.org/2000/svg', 'polyline');
-        polyline.setAttribute('points', points);
-        polyline.setAttribute('fill', 'none');
-        polyline.setAttribute('stroke', stroke);
-        polyline.setAttribute('stroke-width', '1.5');
-        polyline.setAttribute('stroke-linejoin', 'round');
-        polyline.setAttribute('stroke-linecap', 'round');
-        svg.appendChild(polyline);
+        function el(tag, attrs) {
+            var e = document.createElementNS(NS, tag);
+            Object.keys(attrs).forEach(function(k) { e.setAttribute(k, attrs[k]); });
+            return e;
+        }
 
-        // Dot on last point
-        var lastDot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-        lastDot.setAttribute('cx', px(n - 1));
-        lastDot.setAttribute('cy', py(vals[n - 1]));
-        lastDot.setAttribute('r', '2.5');
-        lastDot.setAttribute('fill', stroke);
-        svg.appendChild(lastDot);
+        // Line
+        var pts = series.map(function(d, i) { return cx(i) + ',' + cy(d.passings); }).join(' ');
+        svg.appendChild(el('polyline', { points: pts, fill: 'none', stroke: color,
+            'stroke-width': '2', 'stroke-linejoin': 'round', 'stroke-linecap': 'round' }));
 
-        // Tooltip: format each period as label
-        var tip = series.map(function(d) {
-            var label = d.date.slice(0, 7).replace('-12', ' Dec').replace('-06', ' Jun');
-            return label + ': ' + formatPassings(d.passings);
-        }).join('\n');
-        svg.setAttribute('title', tip);
+        // Dots + value labels + date labels
+        series.forEach(function(d, i) {
+            var x = cx(i), y = cy(d.passings);
+
+            // Dot
+            svg.appendChild(el('circle', { cx: x, cy: y, r: '4',
+                fill: color, stroke: '#0f172a', 'stroke-width': '2' }));
+
+            // Value label — above dot, flip below if too close to top
+            var labelY = y - 10;
+            if (labelY < MT) labelY = y + 18;
+            var valLabel = document.createElementNS(NS, 'text');
+            valLabel.setAttribute('x', x);
+            valLabel.setAttribute('y', labelY);
+            valLabel.setAttribute('text-anchor', 'middle');
+            valLabel.setAttribute('fill', '#e2e8f0');
+            valLabel.setAttribute('font-size', '10');
+            valLabel.setAttribute('font-weight', '600');
+            valLabel.textContent = formatPassings(d.passings);
+            svg.appendChild(valLabel);
+
+            // Date label along bottom
+            var dateLabel = document.createElementNS(NS, 'text');
+            dateLabel.setAttribute('x', x);
+            dateLabel.setAttribute('y', MT + cH + 16);
+            dateLabel.setAttribute('text-anchor', 'middle');
+            dateLabel.setAttribute('fill', '#64748b');
+            dateLabel.setAttribute('font-size', '9');
+            dateLabel.textContent = formatFilingDate(d.date);
+            svg.appendChild(dateLabel);
+        });
 
         return svg;
+    }
+
+    // Open the provider passings history modal for a given brand + county.
+    function showProviderTrendModal(brandName, fips, countyName) {
+        var existing = document.getElementById('provider-trend-modal');
+        if (existing) existing.remove();
+
+        var overlay = document.createElement('div');
+        overlay.id = 'provider-trend-modal';
+        overlay.className = 'provider-trend-overlay';
+
+        var modal = document.createElement('div');
+        modal.className = 'provider-trend-modal';
+
+        // Header
+        var header = document.createElement('div');
+        header.className = 'trend-modal-header';
+        var titleWrap = document.createElement('div');
+        var title = document.createElement('div');
+        title.className = 'trend-modal-title';
+        title.textContent = brandName;
+        var sub = document.createElement('div');
+        sub.className = 'trend-modal-sub';
+        sub.textContent = 'FTTP passings · ' + countyName;
+        titleWrap.appendChild(title);
+        titleWrap.appendChild(sub);
+        var closeBtn = document.createElement('button');
+        closeBtn.className = 'trend-modal-close';
+        closeBtn.textContent = '×';
+        closeBtn.addEventListener('click', function() { overlay.remove(); });
+        header.appendChild(titleWrap);
+        header.appendChild(closeBtn);
+
+        var body = document.createElement('div');
+        body.className = 'trend-modal-body';
+        var loading = document.createElement('div');
+        loading.className = 'trend-modal-loading';
+        loading.textContent = 'Loading…';
+        body.appendChild(loading);
+
+        modal.appendChild(header);
+        modal.appendChild(body);
+        overlay.appendChild(modal);
+        document.body.appendChild(overlay);
+
+        overlay.addEventListener('click', function(e) { if (e.target === overlay) overlay.remove(); });
+
+        DataHandler.loadProviderHistory(fips).then(function(rows) {
+            body.textContent = '';
+            if (!rows || !rows.length) {
+                var msg = document.createElement('div');
+                msg.className = 'trend-modal-loading';
+                msg.textContent = 'No history data available.';
+                body.appendChild(msg);
+                return;
+            }
+            var series = rows
+                .filter(function(r) { return r.brand_name === brandName; })
+                .map(function(r) { return { date: r.filing_date, passings: r.passings }; })
+                .sort(function(a, b) { return a.date.localeCompare(b.date); });
+
+            if (!series.length) {
+                var msg2 = document.createElement('div');
+                msg2.className = 'trend-modal-loading';
+                msg2.textContent = 'No history data available.';
+                body.appendChild(msg2);
+                return;
+            }
+
+            body.appendChild(buildTrendChart(series));
+        });
     }
 
     function setTextContent(selector, text) {
@@ -1103,20 +1198,26 @@
                         var bTotal = (b.fiber_passings || b.passings || 0) + (b.cable_passings || 0) + (b.dsl_passings || 0);
                         return bTotal - aTotal;
                     });
+                    var _fips = fips;
+                    var _countyName = (data.name ? data.name + ' County' : fips);
                     topOperators.forEach(function(op) {
                         var fiberP = op.fiber_passings || op.passings || 0;
                         var cableP = op.cable_passings || 0;
                         var dslP   = op.dsl_passings   || 0;
                         var totalP = fiberP + cableP + dslP;
                         var li = createElement('li');
-                        li.appendChild(createElement('span', { className: 'operator-name' }, op.name));
+                        var nameBtn = document.createElement('button');
+                        nameBtn.className = 'operator-name operator-name-btn';
+                        nameBtn.textContent = op.name;
+                        nameBtn.title = 'View ' + op.name + ' passings history';
+                        nameBtn.addEventListener('click', function() {
+                            showProviderTrendModal(op.name, _fips, _countyName);
+                        });
+                        li.appendChild(nameBtn);
                         li.appendChild(createElement('span', { className: 'op-stat' }, formatPassings(fiberP)));
                         li.appendChild(createElement('span', { className: 'op-stat' }, formatPassings(cableP)));
                         li.appendChild(createElement('span', { className: 'op-stat' }, formatPassings(dslP)));
                         li.appendChild(createElement('span', { className: 'op-stat op-stat-total' }, formatPassings(totalP)));
-                        // Placeholder for history sparkline — filled in async below
-                        var sparkCell = createElement('span', { className: 'op-spark', 'data-brand': op.name });
-                        li.appendChild(sparkCell);
                         operatorsList.appendChild(li);
                     });
                 } else {
@@ -1125,29 +1226,6 @@
                 }
             }
 
-            // Load and render historical passings sparklines asynchronously
-            var histFips = fips;
-            DataHandler.loadProviderHistory(fips).then(function(rows) {
-                if (!rows || !rows.length) return;
-                // Only render if county panel still shows the same county
-                if (InfoPanel.pinnedCounty !== histFips && InfoPanel._lastHoveredFips !== histFips) return;
-
-                // Group by brand_name: brand -> [{filing_date, passings}]
-                var byBrand = {};
-                rows.forEach(function(r) {
-                    if (!byBrand[r.brand_name]) byBrand[r.brand_name] = [];
-                    byBrand[r.brand_name].push({ date: r.filing_date, passings: r.passings });
-                });
-
-                // Render a sparkline into each matching op-spark cell
-                var cells = operatorsList.querySelectorAll('.op-spark');
-                cells.forEach(function(cell) {
-                    var brand = cell.getAttribute('data-brand');
-                    var series = byBrand[brand];
-                    if (!series || series.length < 2) return;
-                    cell.appendChild(buildSparkline(series));
-                });
-            });
 
 
             // BEAD Funding section

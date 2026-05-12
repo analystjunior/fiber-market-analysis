@@ -142,10 +142,9 @@ def download_csv(file_info, dest_dir):
 def aggregate_passings(csv_path, state_fips_prefix):
     """
     Stream through a location CSV and count distinct residential location_ids
-    per (county_fips, provider_id, brand_name).
+    per (county_fips, provider_id), using the brand name with the most passings.
 
-    Returns dict keyed by (county_fips, provider_id, brand_name) -> set of location_ids
-    then converted to counts.
+    Returns dict keyed by (county_fips, provider_id) -> (brand_name, count).
     """
     print(f"    Aggregating {Path(csv_path).name} ...", end=" ", flush=True)
 
@@ -168,21 +167,23 @@ def aggregate_passings(csv_path, state_fips_prefix):
             if not county_fips.startswith(state_fips_prefix):
                 continue
 
-            pid        = row.get("provider_id", "").strip()
-            brand      = row.get("brand_name",  "").strip().strip('"')
-            location   = row.get("location_id", "").strip()
+            pid      = row.get("provider_id", "").strip()
+            brand    = row.get("brand_name",  "").strip().strip('"')
+            location = row.get("location_id", "").strip()
 
             if pid and brand and location:
                 counts[county_fips][pid][brand].add(location)
 
-    # Flatten to (county_fips, provider_id, brand_name) -> int
+    # Collapse to one row per (county, provider): sum all brands, keep dominant brand name
     result = {}
     for county, providers in counts.items():
         for pid, brands in providers.items():
-            for brand, locs in brands.items():
-                result[(county, pid, brand)] = len(locs)
+            brand_counts = {b: len(locs) for b, locs in brands.items()}
+            total = sum(brand_counts.values())
+            dominant_brand = max(brand_counts, key=brand_counts.__getitem__)
+            result[(county, pid)] = (dominant_brand, total)
 
-    total_passings = sum(result.values())
+    total_passings = sum(v[1] for v in result.values())
     print(f"{row_count:,} rows → {len(result):,} county/provider combos "
           f"({total_passings:,} total passings)")
     return result
@@ -240,7 +241,7 @@ def process_state_period(state_abbr, period, keep_local=False, dry_run=False):
         print(f"  [{state_abbr} {period}] No FTTP file found — skipping")
         return
 
-    print(f"  [{state_abbr} {period}] {file_info['record_count']:,} records reported by FCC")
+    print(f"  [{state_abbr} {period}] {int(file_info['record_count']):,} records reported by FCC")
 
     try:
         csv_path = download_csv(file_info, period_dir)
@@ -259,7 +260,7 @@ def process_state_period(state_abbr, period, keep_local=False, dry_run=False):
                 "filing_date": period,
                 "passings":    count,
             }
-            for (county_fips, pid, brand), count in aggregated.items()
+            for (county_fips, pid), (brand, count) in aggregated.items()
         ]
 
         upsert_to_supabase(records, dry_run=dry_run)
