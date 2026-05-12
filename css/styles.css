@@ -635,7 +635,7 @@ main {
 
 .operators-header {
     display: grid;
-    grid-template-columns: 1fr 38px 38px 34px 44px;
+    grid-template-columns: 1fr 38px 38px 34px 44px 76px;
     gap: 0 4px;
     align-items: baseline;
     margin-bottom: 6px;
@@ -675,7 +675,7 @@ main {
 
 .operators-list li {
     display: grid;
-    grid-template-columns: 1fr 38px 38px 34px 44px;
+    grid-template-columns: 1fr 38px 38px 34px 44px 76px;
     gap: 0 4px;
     align-items: center;
     padding: 7px 0;
@@ -717,6 +717,22 @@ main {
 .op-stat-total {
     color: var(--text-primary);
     font-weight: 600;
+}
+
+.op-col-trend {
+    text-align: left;
+    padding-left: 4px;
+}
+
+.op-spark {
+    display: flex;
+    align-items: center;
+    padding-left: 4px;
+}
+
+.op-sparkline {
+    display: block;
+    overflow: visible;
 }
 
 /* ============================================

@@ -358,6 +358,24 @@
             }
         },
 
+        // Load historical FTTP passings for a county from Supabase.
+        // Returns array of { brand_name, filing_date, passings } sorted by date, or [].
+        async loadProviderHistory(geoid) {
+            try {
+                var sb = getSupabase();
+                var result = await sb
+                    .from('provider_passings_history')
+                    .select('brand_name, filing_date, passings')
+                    .eq('geoid', geoid)
+                    .order('filing_date', { ascending: true });
+                if (result.error) throw new Error(result.error.message);
+                return result.data || [];
+            } catch (e) {
+                console.warn('loadProviderHistory failed:', e.message);
+                return [];
+            }
+        },
+
         // All counties across every loaded state as a flat array.
         getAllLoadedCounties: function() {
             var all = [];

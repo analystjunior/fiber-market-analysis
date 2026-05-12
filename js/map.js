@@ -46,6 +46,57 @@
         return n.toLocaleString();
     }
 
+    // Build an inline SVG sparkline from a series [{date, passings}] sorted oldest→newest.
+    function buildSparkline(series) {
+        var W = 72, H = 22, PAD = 2;
+        var vals = series.map(function(d) { return d.passings; });
+        var minV = Math.min.apply(null, vals);
+        var maxV = Math.max.apply(null, vals);
+        var range = maxV - minV || 1;
+        var n = series.length;
+
+        function px(i) { return PAD + (i / (n - 1)) * (W - PAD * 2); }
+        function py(v) { return H - PAD - ((v - minV) / range) * (H - PAD * 2); }
+
+        // Trend color: green if last > first, amber if flat, red if declining
+        var delta = vals[vals.length - 1] - vals[0];
+        var stroke = delta > 0 ? '#22c55e' : delta < 0 ? '#ef4444' : '#94a3b8';
+
+        var points = series.map(function(d, i) { return px(i) + ',' + py(d.passings); }).join(' ');
+
+        var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        svg.setAttribute('width', W);
+        svg.setAttribute('height', H);
+        svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
+        svg.setAttribute('class', 'op-sparkline');
+
+        var polyline = document.createElementNS('http://www.w3.org/2000/svg', 'polyline');
+        polyline.setAttribute('points', points);
+        polyline.setAttribute('fill', 'none');
+        polyline.setAttribute('stroke', stroke);
+        polyline.setAttribute('stroke-width', '1.5');
+        polyline.setAttribute('stroke-linejoin', 'round');
+        polyline.setAttribute('stroke-linecap', 'round');
+        svg.appendChild(polyline);
+
+        // Dot on last point
+        var lastDot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        lastDot.setAttribute('cx', px(n - 1));
+        lastDot.setAttribute('cy', py(vals[n - 1]));
+        lastDot.setAttribute('r', '2.5');
+        lastDot.setAttribute('fill', stroke);
+        svg.appendChild(lastDot);
+
+        // Tooltip: format each period as label
+        var tip = series.map(function(d) {
+            var label = d.date.slice(0, 7).replace('-12', ' Dec').replace('-06', ' Jun');
+            return label + ': ' + formatPassings(d.passings);
+        }).join('\n');
+        svg.setAttribute('title', tip);
+
+        return svg;
+    }
+
     function setTextContent(selector, text) {
         var el = document.querySelector(selector);
         if (el) {
@@ -1063,6 +1114,9 @@
                         li.appendChild(createElement('span', { className: 'op-stat' }, formatPassings(cableP)));
                         li.appendChild(createElement('span', { className: 'op-stat' }, formatPassings(dslP)));
                         li.appendChild(createElement('span', { className: 'op-stat op-stat-total' }, formatPassings(totalP)));
+                        // Placeholder for history sparkline — filled in async below
+                        var sparkCell = createElement('span', { className: 'op-spark', 'data-brand': op.name });
+                        li.appendChild(sparkCell);
                         operatorsList.appendChild(li);
                     });
                 } else {
@@ -1070,6 +1124,31 @@
                     operatorsList.appendChild(noOp);
                 }
             }
+
+            // Load and render historical passings sparklines asynchronously
+            var histFips = fips;
+            DataHandler.loadProviderHistory(fips).then(function(rows) {
+                if (!rows || !rows.length) return;
+                // Only render if county panel still shows the same county
+                if (InfoPanel.pinnedCounty !== histFips && InfoPanel._lastHoveredFips !== histFips) return;
+
+                // Group by brand_name: brand -> [{filing_date, passings}]
+                var byBrand = {};
+                rows.forEach(function(r) {
+                    if (!byBrand[r.brand_name]) byBrand[r.brand_name] = [];
+                    byBrand[r.brand_name].push({ date: r.filing_date, passings: r.passings });
+                });
+
+                // Render a sparkline into each matching op-spark cell
+                var cells = operatorsList.querySelectorAll('.op-spark');
+                cells.forEach(function(cell) {
+                    var brand = cell.getAttribute('data-brand');
+                    var series = byBrand[brand];
+                    if (!series || series.length < 2) return;
+                    cell.appendChild(buildSparkline(series));
+                });
+            });
+
 
             // BEAD Funding section
             var beadSection = document.getElementById('bead-section');
