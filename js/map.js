@@ -192,6 +192,28 @@
                 if (byTech[t]) byTech[t].sort(function(a, b) { return a.date.localeCompare(b.date); });
             });
 
+            // Sync panel operator stats with the latest Supabase values so chart + panel always agree.
+            ['fiber', 'cable', 'dsl'].forEach(function(tech) {
+                var series = byTech[tech];
+                if (!series || !series.length) return;
+                var latest = series[series.length - 1].passings;
+                var el = document.querySelector('[data-op-stat="' + brandName + ':' + tech + '"]');
+                if (el) el.textContent = formatPassings(latest);
+            });
+            // Recompute total from updated values
+            var totalEl = document.querySelector('[data-op-stat="' + brandName + ':total"]');
+            if (totalEl) {
+                var fEl = document.querySelector('[data-op-stat="' + brandName + ':fiber"]');
+                var cEl = document.querySelector('[data-op-stat="' + brandName + ':cable"]');
+                var dEl = document.querySelector('[data-op-stat="' + brandName + ':dsl"]');
+                var getN = function(el) { return el && el.textContent !== '—' ? (parseFloat(el.textContent) * (el.textContent.slice(-1) === 'M' ? 1000000 : el.textContent.slice(-1) === 'k' ? 1000 : 1)) : 0; };
+                // Fetch raw values from byTech for accuracy
+                var fTotal = byTech['fiber'] ? byTech['fiber'][byTech['fiber'].length - 1].passings : 0;
+                var cTotal = byTech['cable'] ? byTech['cable'][byTech['cable'].length - 1].passings : 0;
+                var dTotal = byTech['dsl']   ? byTech['dsl'][byTech['dsl'].length - 1].passings     : 0;
+                totalEl.textContent = formatPassings(fTotal + cTotal + dTotal);
+            }
+
             var availableTechs = ['fiber', 'cable', 'dsl'].filter(function(t) {
                 return byTech[t] && byTech[t].length > 0;
             });
@@ -1270,10 +1292,10 @@
                             showProviderTrendModal(op.name, _fips, _countyName);
                         });
                         li.appendChild(nameBtn);
-                        li.appendChild(createElement('span', { className: 'op-stat' }, formatPassings(fiberP)));
-                        li.appendChild(createElement('span', { className: 'op-stat' }, formatPassings(cableP)));
-                        li.appendChild(createElement('span', { className: 'op-stat' }, formatPassings(dslP)));
-                        li.appendChild(createElement('span', { className: 'op-stat op-stat-total' }, formatPassings(totalP)));
+                        li.appendChild(createElement('span', { className: 'op-stat', 'data-op-stat': op.name + ':fiber' }, formatPassings(fiberP)));
+                        li.appendChild(createElement('span', { className: 'op-stat', 'data-op-stat': op.name + ':cable' }, formatPassings(cableP)));
+                        li.appendChild(createElement('span', { className: 'op-stat', 'data-op-stat': op.name + ':dsl'   }, formatPassings(dslP)));
+                        li.appendChild(createElement('span', { className: 'op-stat op-stat-total', 'data-op-stat': op.name + ':total' }, formatPassings(totalP)));
                         operatorsList.appendChild(li);
                     });
                 } else {
