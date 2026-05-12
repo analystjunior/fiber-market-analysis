@@ -180,10 +180,13 @@
                 return;
             }
 
-            // Group rows by technology for this provider, sorted by date
+            // Group rows by technology for this provider.
+            // Use resolve() on both sides so BDC legal-entity names (e.g. "Charter Communications Inc")
+            // match the JSON display name (e.g. "Spectrum") via the shared ALIASES table.
+            var canonical = ProviderIndex.resolve(brandName);
             var byTech = {};
             rows.forEach(function(r) {
-                if (r.brand_name !== brandName) return;
+                if (ProviderIndex.resolve(r.brand_name) !== canonical) return;
                 var tech = r.technology || 'fiber';
                 if (!byTech[tech]) byTech[tech] = [];
                 byTech[tech].push({ date: r.filing_date, passings: r.passings });

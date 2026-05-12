@@ -17,6 +17,9 @@
         'Spectrum': 'Spectrum',
         'Charter Spectrum': 'Spectrum',
         'Charter Communications': 'Spectrum',
+        'Charter Communications Inc': 'Spectrum',   // BDC legal entity name used in 2022-2023 filings
+        'MCC Georgia LLC': 'Spectrum',              // Charter subsidiary (GA)
+        'MCC Missouri LLC': 'Spectrum',             // Charter subsidiary (MO)
         'Bright House Networks': 'Spectrum',
         'TWC Telecom': 'Spectrum',
 
@@ -24,6 +27,7 @@
         'Xfinity': 'Xfinity',
         'Comcast': 'Xfinity',
         'Comcast Cable': 'Xfinity',
+        'Comcast Cable Communications, LLC': 'Xfinity',  // BDC legal entity
 
         // Frontier is now shown as part of Verizon after the Jan 2026 acquisition.
         'Frontier': 'Verizon Fios',
@@ -77,6 +81,7 @@
         // Cox
         'Cox': 'Cox',
         'Cox Communications': 'Cox',
+        'Cox Communications Inc.': 'Cox',   // BDC legal entity
 
         // Metronet
         'Metronet': 'Metronet',
@@ -149,6 +154,7 @@
         'Consolidated': 'Fidium Fiber',
         'Consolidated Communications': 'Fidium Fiber',
         'Consolidated Communications, Inc.': 'Fidium Fiber',
+        'Consolidated Communications, Fidium': 'Fidium Fiber',  // BDC entity name
 
         // Lumos Networks
         'lumos': 'Lumos',
@@ -211,6 +217,7 @@
         'ArmstrongUtilitiesInc': 'Armstrong / Zito',
         'Armstrong': 'Armstrong / Zito',
         'Armstrong Utilities': 'Armstrong / Zito',
+        'Armstrong Telecommunications Inc': 'Armstrong / Zito',  // BDC entity name
         'Zito Media': 'Armstrong / Zito',
 
         // Surf Internet (IN/MI)
