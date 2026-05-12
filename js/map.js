@@ -203,11 +203,6 @@
             // Recompute total from updated values
             var totalEl = document.querySelector('[data-op-stat="' + brandName + ':total"]');
             if (totalEl) {
-                var fEl = document.querySelector('[data-op-stat="' + brandName + ':fiber"]');
-                var cEl = document.querySelector('[data-op-stat="' + brandName + ':cable"]');
-                var dEl = document.querySelector('[data-op-stat="' + brandName + ':dsl"]');
-                var getN = function(el) { return el && el.textContent !== '—' ? (parseFloat(el.textContent) * (el.textContent.slice(-1) === 'M' ? 1000000 : el.textContent.slice(-1) === 'k' ? 1000 : 1)) : 0; };
-                // Fetch raw values from byTech for accuracy
                 var fTotal = byTech['fiber'] ? byTech['fiber'][byTech['fiber'].length - 1].passings : 0;
                 var cTotal = byTech['cable'] ? byTech['cable'][byTech['cable'].length - 1].passings : 0;
                 var dTotal = byTech['dsl']   ? byTech['dsl'][byTech['dsl'].length - 1].passings     : 0;
