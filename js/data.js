@@ -358,14 +358,14 @@
             }
         },
 
-        // Load historical FTTP passings for a county from Supabase.
-        // Returns array of { brand_name, filing_date, passings } sorted by date, or [].
+        // Load historical passings for a county from Supabase (all technologies).
+        // Returns array of { brand_name, filing_date, passings, technology } sorted by date, or [].
         async loadProviderHistory(geoid) {
             try {
                 var sb = getSupabase();
                 var result = await sb
                     .from('provider_passings_history')
-                    .select('brand_name, filing_date, passings')
+                    .select('brand_name, filing_date, passings, technology')
                     .eq('geoid', geoid)
                     .order('filing_date', { ascending: true });
                 if (result.error) throw new Error(result.error.message);

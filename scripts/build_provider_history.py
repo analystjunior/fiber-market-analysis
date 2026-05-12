@@ -2,11 +2,14 @@
 FiberMapUSA — BDC Provider Passings History Pipeline
 =====================================================
 For each available FCC BDC filing period:
-  1. Downloads the FTTP (tech-50) location coverage CSV for each target state
+  1. Downloads the location coverage CSV for a technology + state
   2. Counts distinct residential location_ids per county per brand_name
   3. Upserts results into Supabase table: provider_passings_history
 
-This gives exact passings counts (not estimates) from the real BDC location data.
+Supported technologies (--tech):
+    fiber   tech-50  FTTP (default)
+    cable   tech-40  Coaxial / HFC
+    dsl     tech-10  Copper / DSL
 
 Prerequisites:
     pip install requests supabase python-dotenv
@@ -18,17 +21,21 @@ Environment variables (.env or shell):
     SUPABASE_SERVICE_KEY  sb_secret_...
 
 Usage:
-    # All available periods, all target states
+    # Fiber (default) — all periods, all target states
     python3 scripts/build_provider_history.py
 
-    # Specific states only
-    python3 scripts/build_provider_history.py --states MO NY
+    # Cable passings
+    python3 scripts/build_provider_history.py --tech cable
 
-    # Specific periods only (YYYY-MM-DD as returned by FCC API)
+    # DSL passings
+    python3 scripts/build_provider_history.py --tech dsl
+
+    # Specific states / periods
+    python3 scripts/build_provider_history.py --tech cable --states MO NY
     python3 scripts/build_provider_history.py --periods 2024-12-31 2025-06-30
 
     # Dry run — process but don't upsert to Supabase
-    python3 scripts/build_provider_history.py --dry-run
+    python3 scripts/build_provider_history.py --tech cable --dry-run
 
     # Skip download if CSV already exists locally (resume after interruption)
     python3 scripts/build_provider_history.py --keep-local
@@ -70,6 +77,13 @@ ALL_STATE_FIPS = {
 
 TEMP_DIR = Path(tempfile.gettempdir()) / "fibermapusa_bdc"
 
+# Technology configs: name → (FCC tech code, display label)
+TECH_CONFIGS = {
+    "fiber": ("50", "FTTP"),
+    "cable": ("40", "Cable / HFC"),
+    "dsl":   ("10", "Copper / DSL"),
+}
+
 
 # ── FCC API helpers ────────────────────────────────────────────────────────────
 
@@ -95,14 +109,14 @@ def list_filing_periods():
     return dates
 
 
-def find_fttp_location_file(period, state_fips):
-    """Return file metadata for tech-50 (FTTP) location coverage for a state+period."""
+def find_location_file(period, state_fips, tech_code):
+    """Return file metadata for a given tech-code location coverage for a state+period."""
     url = f"{FCC_BASE_URL}/downloads/listAvailabilityData/{period}"
     resp = requests.get(url, headers=fcc_headers(), params={"category": "State"}, timeout=60)
     resp.raise_for_status()
     for f in resp.json().get("data", []):
         if (f.get("state_fips") == state_fips
-                and str(f.get("technology_code")) == "50"
+                and str(f.get("technology_code")) == str(tech_code)
                 and f.get("subcategory") == "Location Coverage"):
             return f
     return None
@@ -206,7 +220,7 @@ def upsert_to_supabase(records, dry_run=False):
         batch = records[i:i + batch_size]
         result = sb.table("provider_passings_history").upsert(
             batch,
-            on_conflict="geoid,provider_id,filing_date"
+            on_conflict="geoid,provider_id,filing_date,technology"
         ).execute()
         if hasattr(result, "error") and result.error:
             print(f"    ERROR upserting batch: {result.error}")
@@ -218,40 +232,39 @@ def upsert_to_supabase(records, dry_run=False):
 
 # ── Main ───────────────────────────────────────────────────────────────────────
 
-def process_state_period(state_abbr, period, keep_local=False, dry_run=False):
-    """Download, aggregate, and upsert data for one state + one filing period."""
+def process_state_period(state_abbr, period, technology="fiber", keep_local=False, dry_run=False):
+    """Download, aggregate, and upsert data for one state + one filing period + one technology."""
     fips = ALL_STATE_FIPS.get(state_abbr.upper())
     if not fips:
         print(f"  Unknown state: {state_abbr}")
         return
 
-    fips_prefix = fips  # county FIPS starts with state FIPS (2 digits)
+    tech_code, tech_label = TECH_CONFIGS[technology]
+    fips_prefix = fips
 
-    period_dir = TEMP_DIR / period / state_abbr.upper()
+    period_dir = TEMP_DIR / period / state_abbr.upper() / technology
 
-    # Check if already processed by looking for a marker file
     marker = period_dir / ".done"
     if marker.exists():
-        print(f"  [{state_abbr} {period}] Already processed — skipping (delete .done to reprocess)")
+        print(f"  [{state_abbr} {period} {technology}] Already processed — skipping (delete .done to reprocess)")
         return
 
-    print(f"\n  [{state_abbr} {period}] Finding FTTP location file...")
-    file_info = find_fttp_location_file(period, fips)
+    print(f"\n  [{state_abbr} {period} {technology}] Finding {tech_label} location file...")
+    file_info = find_location_file(period, fips, tech_code)
     if not file_info:
-        print(f"  [{state_abbr} {period}] No FTTP file found — skipping")
+        print(f"  [{state_abbr} {period} {technology}] No {tech_label} file found — skipping")
         return
 
-    print(f"  [{state_abbr} {period}] {int(file_info['record_count']):,} records reported by FCC")
+    print(f"  [{state_abbr} {period} {technology}] {int(file_info['record_count']):,} records reported by FCC")
 
     try:
         csv_path = download_csv(file_info, period_dir)
         aggregated = aggregate_passings(csv_path, fips_prefix)
 
         if not aggregated:
-            print(f"  [{state_abbr} {period}] No residential FTTP data found")
+            print(f"  [{state_abbr} {period} {technology}] No residential {tech_label} data found")
             return
 
-        # Build upsert records
         records = [
             {
                 "geoid":       county_fips,
@@ -259,17 +272,16 @@ def process_state_period(state_abbr, period, keep_local=False, dry_run=False):
                 "brand_name":  brand,
                 "filing_date": period,
                 "passings":    count,
+                "technology":  technology,
             }
             for (county_fips, pid), (brand, count) in aggregated.items()
         ]
 
         upsert_to_supabase(records, dry_run=dry_run)
 
-        # Write marker so we skip on re-runs
         if not dry_run:
             marker.write_text("done")
 
-        # Clean up large CSV unless asked to keep
         if not keep_local:
             csv_path.unlink(missing_ok=True)
             zip_files = list(period_dir.glob("*.zip"))
@@ -278,7 +290,7 @@ def process_state_period(state_abbr, period, keep_local=False, dry_run=False):
             print(f"    Local files removed (use --keep-local to retain)")
 
     except Exception as e:
-        print(f"  [{state_abbr} {period}] ERROR: {e}")
+        print(f"  [{state_abbr} {period} {technology}] ERROR: {e}")
         raise
 
 
@@ -286,6 +298,8 @@ def main():
     parser = argparse.ArgumentParser(
         description="Build FCC BDC provider passings history in Supabase"
     )
+    parser.add_argument("--tech", choices=list(TECH_CONFIGS.keys()), default="fiber",
+                        help="Technology to process: fiber (tech-50), cable (tech-40), dsl (tech-10). Default: fiber")
     parser.add_argument("--states", nargs="+", metavar="STATE",
                         default=DEFAULT_STATES,
                         help=f"States to process (default: {' '.join(DEFAULT_STATES)})")
@@ -297,11 +311,13 @@ def main():
                         help="Aggregate but don't write to Supabase")
     args = parser.parse_args()
 
+    tech_code, tech_label = TECH_CONFIGS[args.tech]
+
     print("=" * 60)
-    print("  FiberMapUSA — BDC Provider Passings History Pipeline")
+    print(f"  FiberMapUSA — BDC Provider Passings History Pipeline")
+    print(f"  Technology: {args.tech.upper()} ({tech_label}, tech-{tech_code})")
     print("=" * 60)
 
-    # Validate credentials
     missing = []
     if not FCC_USERNAME or not FCC_API_TOKEN:
         missing.append("FCC_USERNAME / FCC_API_TOKEN")
@@ -312,7 +328,6 @@ def main():
         print("Set them in .env or as environment variables.")
         sys.exit(1)
 
-    # Get periods
     print("\nFetching available filing periods from FCC API...")
     all_periods = list_filing_periods()
     print(f"  Available: {', '.join(all_periods)}")
@@ -320,10 +335,11 @@ def main():
     target_periods = args.periods or all_periods
     target_states  = [s.upper() for s in args.states]
 
-    print(f"\nStates:  {', '.join(target_states)}")
-    print(f"Periods: {', '.join(target_periods)}")
+    print(f"\nTechnology: {args.tech}")
+    print(f"States:     {', '.join(target_states)}")
+    print(f"Periods:    {', '.join(target_periods)}")
     if args.dry_run:
-        print("Mode:    DRY RUN (no Supabase writes)")
+        print("Mode:       DRY RUN (no Supabase writes)")
 
     total = len(target_states) * len(target_periods)
     done  = 0
@@ -333,7 +349,12 @@ def main():
             done += 1
             print(f"\n[{done}/{total}]", end="")
             try:
-                process_state_period(state, period, keep_local=args.keep_local, dry_run=args.dry_run)
+                process_state_period(
+                    state, period,
+                    technology=args.tech,
+                    keep_local=args.keep_local,
+                    dry_run=args.dry_run,
+                )
             except Exception as e:
                 print(f"  FAILED ({state} {period}): {e} — continuing")
             time.sleep(0.3)

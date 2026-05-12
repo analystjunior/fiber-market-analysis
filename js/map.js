@@ -121,6 +121,8 @@
         return svg;
     }
 
+    var TREND_TECH_LABELS = { fiber: 'Fiber', cable: 'Cable', dsl: 'DSL' };
+
     // Open the provider passings history modal for a given brand + county.
     function showProviderTrendModal(brandName, fips, countyName) {
         var existing = document.getElementById('provider-trend-modal');
@@ -142,7 +144,7 @@
         title.textContent = brandName;
         var sub = document.createElement('div');
         sub.className = 'trend-modal-sub';
-        sub.textContent = 'FTTP passings · ' + countyName;
+        sub.textContent = 'Loading…';
         titleWrap.appendChild(title);
         titleWrap.appendChild(sub);
         var closeBtn = document.createElement('button');
@@ -168,27 +170,81 @@
 
         DataHandler.loadProviderHistory(fips).then(function(rows) {
             body.textContent = '';
+
             if (!rows || !rows.length) {
+                sub.textContent = countyName;
                 var msg = document.createElement('div');
                 msg.className = 'trend-modal-loading';
                 msg.textContent = 'No history data available.';
                 body.appendChild(msg);
                 return;
             }
-            var series = rows
-                .filter(function(r) { return r.brand_name === brandName; })
-                .map(function(r) { return { date: r.filing_date, passings: r.passings }; })
-                .sort(function(a, b) { return a.date.localeCompare(b.date); });
 
-            if (!series.length) {
-                var msg2 = document.createElement('div');
-                msg2.className = 'trend-modal-loading';
-                msg2.textContent = 'No history data available.';
-                body.appendChild(msg2);
+            // Group rows by technology for this provider, sorted by date
+            var byTech = {};
+            rows.forEach(function(r) {
+                if (r.brand_name !== brandName) return;
+                var tech = r.technology || 'fiber';
+                if (!byTech[tech]) byTech[tech] = [];
+                byTech[tech].push({ date: r.filing_date, passings: r.passings });
+            });
+            ['fiber', 'cable', 'dsl'].forEach(function(t) {
+                if (byTech[t]) byTech[t].sort(function(a, b) { return a.date.localeCompare(b.date); });
+            });
+
+            var availableTechs = ['fiber', 'cable', 'dsl'].filter(function(t) {
+                return byTech[t] && byTech[t].length > 0;
+            });
+
+            if (!availableTechs.length) {
+                sub.textContent = countyName;
+                var noDataMsg = document.createElement('div');
+                noDataMsg.className = 'trend-modal-loading';
+                noDataMsg.textContent = 'No history data available.';
+                body.appendChild(noDataMsg);
                 return;
             }
 
-            body.appendChild(buildTrendChart(series));
+            var activeTech = availableTechs[0];
+            sub.textContent = TREND_TECH_LABELS[activeTech] + ' passings · ' + countyName;
+
+            function renderChart(tech) {
+                var old = body.querySelector('.trend-chart-svg, .trend-chart-empty');
+                if (old) old.remove();
+                var series = byTech[tech] || [];
+                if (!series.length) {
+                    var empty = document.createElement('div');
+                    empty.className = 'trend-chart-empty trend-modal-loading';
+                    empty.textContent = 'No ' + TREND_TECH_LABELS[tech] + ' data available.';
+                    body.appendChild(empty);
+                } else {
+                    body.appendChild(buildTrendChart(series));
+                }
+            }
+
+            // Tech selector tabs — only shown when multiple technologies have data
+            if (availableTechs.length > 1) {
+                var tabs = document.createElement('div');
+                tabs.className = 'trend-tech-tabs';
+                availableTechs.forEach(function(tech) {
+                    var tab = document.createElement('button');
+                    tab.className = 'trend-tech-tab' + (tech === activeTech ? ' active' : '');
+                    tab.textContent = TREND_TECH_LABELS[tech];
+                    tab.setAttribute('data-tech', tech);
+                    tab.addEventListener('click', function() {
+                        activeTech = tech;
+                        tabs.querySelectorAll('.trend-tech-tab').forEach(function(t) {
+                            t.classList.toggle('active', t.getAttribute('data-tech') === tech);
+                        });
+                        sub.textContent = TREND_TECH_LABELS[tech] + ' passings · ' + countyName;
+                        renderChart(tech);
+                    });
+                    tabs.appendChild(tab);
+                });
+                body.appendChild(tabs);
+            }
+
+            renderChart(activeTech);
         });
     }
 
