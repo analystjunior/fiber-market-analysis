@@ -62,9 +62,6 @@ SUPABASE_KEY  = os.getenv("SUPABASE_SERVICE_KEY", "")
 
 FCC_BASE_URL = "https://broadbandmap.fcc.gov/api/public/map"
 
-# Target states to process. Expand as you add more states to the app.
-DEFAULT_STATES = ["MO", "NY", "NC", "GA", "TX", "FL", "SC"]
-
 ALL_STATE_FIPS = {
     "AL":"01","AK":"02","AZ":"04","AR":"05","CA":"06","CO":"08","CT":"09","DE":"10",
     "FL":"12","GA":"13","HI":"15","ID":"16","IL":"17","IN":"18","IA":"19","KS":"20",
@@ -74,6 +71,9 @@ ALL_STATE_FIPS = {
     "SD":"46","TN":"47","TX":"48","UT":"49","VT":"50","VA":"51","WA":"53","WV":"54",
     "WI":"55","WY":"56","DC":"11",
 }
+
+# All US states + DC
+DEFAULT_STATES = list(ALL_STATE_FIPS.keys())
 
 TEMP_DIR = Path(tempfile.gettempdir()) / "fibermapusa_bdc"
 

@@ -188,29 +188,16 @@
             rows.forEach(function(r) {
                 if (ProviderIndex.resolve(r.brand_name) !== canonical) return;
                 var tech = r.technology || 'fiber';
-                if (!byTech[tech]) byTech[tech] = [];
-                byTech[tech].push({ date: r.filing_date, passings: r.passings });
+                if (!byTech[tech]) byTech[tech] = {};
+                byTech[tech][r.filing_date] = (byTech[tech][r.filing_date] || 0) + r.passings;
             });
+            // Convert date→passings maps to sorted arrays
             ['fiber', 'cable', 'dsl'].forEach(function(t) {
-                if (byTech[t]) byTech[t].sort(function(a, b) { return a.date.localeCompare(b.date); });
+                if (!byTech[t]) return;
+                byTech[t] = Object.keys(byTech[t]).sort().map(function(d) {
+                    return { date: d, passings: byTech[t][d] };
+                });
             });
-
-            // Sync panel operator stats with the latest Supabase values so chart + panel always agree.
-            ['fiber', 'cable', 'dsl'].forEach(function(tech) {
-                var series = byTech[tech];
-                if (!series || !series.length) return;
-                var latest = series[series.length - 1].passings;
-                var el = document.querySelector('[data-op-stat="' + brandName + ':' + tech + '"]');
-                if (el) el.textContent = formatPassings(latest);
-            });
-            // Recompute total from updated values
-            var totalEl = document.querySelector('[data-op-stat="' + brandName + ':total"]');
-            if (totalEl) {
-                var fTotal = byTech['fiber'] ? byTech['fiber'][byTech['fiber'].length - 1].passings : 0;
-                var cTotal = byTech['cable'] ? byTech['cable'][byTech['cable'].length - 1].passings : 0;
-                var dTotal = byTech['dsl']   ? byTech['dsl'][byTech['dsl'].length - 1].passings     : 0;
-                totalEl.textContent = formatPassings(fTotal + cTotal + dTotal);
-            }
 
             var availableTechs = ['fiber', 'cable', 'dsl'].filter(function(t) {
                 return byTech[t] && byTech[t].length > 0;
@@ -1264,43 +1251,69 @@
             setTextById('wfh-pct', DataHandler.formatPercentDirect(data.wfh_pct));
             setTextById('median-home-value', DataHandler.formatCurrency(data.median_home_value));
 
-            // Operators list
+            // Operators list — seeded from cached county data, then refreshed from
+            // provider_passings_history Jun-25 so passings match the trend chart exactly.
             var operatorsList = document.getElementById('operators-list');
-            if (operatorsList) {
+            var _opFips       = fips;
+            var _opCounty     = (data.name ? data.name + ' County' : fips);
+
+            function renderOperatorList(ops) {
+                if (!operatorsList) return;
                 operatorsList.textContent = '';
-                if (data.operators && data.operators.length > 0) {
-                    var topOperators = data.operators.slice().sort(function(a, b) {
-                        var aTotal = (a.fiber_passings || a.passings || 0) + (a.cable_passings || 0) + (a.dsl_passings || 0);
-                        var bTotal = (b.fiber_passings || b.passings || 0) + (b.cable_passings || 0) + (b.dsl_passings || 0);
-                        return bTotal - aTotal;
-                    });
-                    var _fips = fips;
-                    var _countyName = (data.name ? data.name + ' County' : fips);
-                    topOperators.forEach(function(op) {
-                        var fiberP = op.fiber_passings || op.passings || 0;
-                        var cableP = op.cable_passings || 0;
-                        var dslP   = op.dsl_passings   || 0;
-                        var totalP = fiberP + cableP + dslP;
-                        var li = createElement('li');
-                        var nameBtn = document.createElement('button');
-                        nameBtn.className = 'operator-name operator-name-btn';
-                        nameBtn.textContent = op.name;
-                        nameBtn.title = 'View ' + op.name + ' passings history';
-                        nameBtn.addEventListener('click', function() {
-                            showProviderTrendModal(op.name, _fips, _countyName);
-                        });
-                        li.appendChild(nameBtn);
-                        li.appendChild(createElement('span', { className: 'op-stat', 'data-op-stat': op.name + ':fiber' }, formatPassings(fiberP)));
-                        li.appendChild(createElement('span', { className: 'op-stat', 'data-op-stat': op.name + ':cable' }, formatPassings(cableP)));
-                        li.appendChild(createElement('span', { className: 'op-stat', 'data-op-stat': op.name + ':dsl'   }, formatPassings(dslP)));
-                        li.appendChild(createElement('span', { className: 'op-stat op-stat-total', 'data-op-stat': op.name + ':total' }, formatPassings(totalP)));
-                        operatorsList.appendChild(li);
-                    });
-                } else {
-                    var noOp = createElement('li', { style: 'color: #64748b;' }, 'No operators reported');
-                    operatorsList.appendChild(noOp);
+                if (!ops || !ops.length) {
+                    operatorsList.appendChild(createElement('li', { style: 'color: #64748b;' }, 'No operators reported'));
+                    return;
                 }
+                ops.forEach(function(op) {
+                    var fiberP = op.fiber_passings || op.passings || 0;
+                    var cableP = op.cable_passings || 0;
+                    var dslP   = op.dsl_passings   || 0;
+                    var totalP = fiberP + cableP + dslP;
+                    var li = createElement('li');
+                    var nameBtn = document.createElement('button');
+                    nameBtn.className = 'operator-name operator-name-btn';
+                    nameBtn.textContent = op.name;
+                    nameBtn.title = 'View ' + op.name + ' passings history';
+                    (function(n) {
+                        nameBtn.addEventListener('click', function() {
+                            showProviderTrendModal(n, _opFips, _opCounty);
+                        });
+                    }(op.name));
+                    li.appendChild(nameBtn);
+                    li.appendChild(createElement('span', { className: 'op-stat' }, formatPassings(fiberP)));
+                    li.appendChild(createElement('span', { className: 'op-stat' }, formatPassings(cableP)));
+                    li.appendChild(createElement('span', { className: 'op-stat' }, formatPassings(dslP)));
+                    li.appendChild(createElement('span', { className: 'op-stat op-stat-total' }, formatPassings(totalP)));
+                    operatorsList.appendChild(li);
+                });
             }
+
+            // Show existing data immediately (no blank flash)
+            renderOperatorList((data.operators || []).slice().sort(function(a, b) {
+                return ((b.fiber_passings || b.passings || 0) + (b.cable_passings || 0) + (b.dsl_passings || 0)) -
+                       ((a.fiber_passings || a.passings || 0) + (a.cable_passings || 0) + (a.dsl_passings || 0));
+            }));
+
+            // Async replace with authoritative Jun-25 data from provider_passings_history
+            DataHandler.loadCountyLatestPassings(fips).then(function(rows) {
+                if (!rows || !rows.length) return;
+                var opMap = {};
+                rows.forEach(function(r) {
+                    var canonical = ProviderIndex.resolve(r.brand_name) || r.brand_name;
+                    if (!opMap[canonical]) opMap[canonical] = { name: canonical, fiber_passings: 0, cable_passings: 0, dsl_passings: 0 };
+                    var tech = r.technology || 'fiber';
+                    if (tech === 'fiber')      opMap[canonical].fiber_passings += r.passings;
+                    else if (tech === 'cable') opMap[canonical].cable_passings += r.passings;
+                    else if (tech === 'dsl')   opMap[canonical].dsl_passings   += r.passings;
+                });
+                var liveOps = Object.values(opMap)
+                    .filter(function(op) { return op.fiber_passings + op.cable_passings + op.dsl_passings > 0; })
+                    .sort(function(a, b) {
+                        return (b.fiber_passings + b.cable_passings + b.dsl_passings) -
+                               (a.fiber_passings + a.cable_passings + a.dsl_passings);
+                    });
+                renderOperatorList(liveOps);
+            });
 
 
 
