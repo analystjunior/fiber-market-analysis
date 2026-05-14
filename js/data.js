@@ -23,6 +23,12 @@
      * Attractiveness = demo 50% + opportunity 50%
      */
     function recomputeAttractiveness(county) {
+        // Keep BSL-derived fields consistent whenever total_bsls changes
+        if (county.total_bsls > 0 && county.fiber_served != null) {
+            county.fiber_unserved    = Math.max(0, county.total_bsls - county.fiber_served);
+            county.fiber_penetration = Math.min(1, county.fiber_served / county.total_bsls);
+        }
+
         var hhi      = county.median_hhi      || 30000;
         var density  = county.housing_density  || 1;
         var growth   = county.pop_growth_pct   || 0;
@@ -355,6 +361,24 @@
                 }
             } catch (error) {
                 console.warn('loadAllCounties unavailable; keeping already loaded county data:', error.message);
+            }
+        },
+
+        // Load Jun 2025 passings per brand/tech for a county — the authoritative panel source.
+        // Returns array of { brand_name, technology, passings } or [].
+        async loadCountyLatestPassings(geoid) {
+            try {
+                var sb = getSupabase();
+                var result = await sb
+                    .from('provider_passings_history')
+                    .select('brand_name, technology, passings')
+                    .eq('geoid', geoid)
+                    .eq('filing_date', '2025-06-30');
+                if (result.error) throw new Error(result.error.message);
+                return result.data || [];
+            } catch (e) {
+                console.warn('loadCountyLatestPassings failed:', e.message);
+                return [];
             }
         },
 
